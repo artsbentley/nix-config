@@ -20,7 +20,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -98,16 +98,16 @@
     };
   };
 
-  networking.hostName = "arar";
+  networking.hostName = "nixos";
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {
     enable = true;
     # Forbid root login through SSH.
-    permitRootLogin = "no";
+    # permitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
-    # passwordAuthentication = false;
+    settings.PasswordAuthentication = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
