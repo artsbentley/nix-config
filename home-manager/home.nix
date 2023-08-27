@@ -42,10 +42,10 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [  
     git
-    zsh
+    #zsh
     git-crypt
     gnupg
-    vim
+    #vim
     neovim
   ];
 
