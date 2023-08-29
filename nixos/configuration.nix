@@ -26,11 +26,22 @@
   };
 };
 
+# default shell
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+  users.users.yourname.shell = pkgs.zsh;
+
  # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+
+# create user group
+  users.users.yourname = {
+    isSystemUser = true;
+    group = "arar";
+};
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking

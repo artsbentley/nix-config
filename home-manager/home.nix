@@ -12,7 +12,6 @@
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -38,20 +37,86 @@
     homeDirectory = "/home/arar";
   };
 
-  # Add stuff for your user as you see fit:
+  #targets.genericLinux.enable = true; #ENABLE ON NON-LINUX
+
   # programs.neovim.enable = true;
   home.packages = with pkgs; [  
     git
     #zsh
     git-crypt
     gnupg
-    #vim
+    vim
     neovim
+    neofetch
+    powertop
+    zoxide
+    starship
+    exa
   ];
+
+# git
+  programs.git = {
+    enable = true;
+    userName = "artsbentley";
+    userEmail = "artsbentley@gmail.com";
+
+    aliases = {
+      s = "status";
+    };
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        line-numbers = true;
+        syntax-theme = "GitHub";
+    };
+  };
+
+
+  };
+
+
+programs.zsh = {
+  enable = true;
+  #dotDir = ".config/zsh";
+  shellAliases = {
+    ".." = "cd ..";
+    "c" = "clear";
+    "l" = "exa -lbF -l --icons -a --git";
+    "update" = "cd ~/nix-config && sudo nixos-rebuild switch --flake .#arar";
+  };
+  #histSize = 10000;
+  #histFile = "${config.xdg.dataHome}/zsh/history";
+};
+
+programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+programs.bat = {
+    enable = true;
+    config = {
+      theme = "GitHub";
+      italic-text = "always";
+    };
+  };
+
+  programs.starship = {
+    enable = true;
+  };
+
+  # configure environment variables
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  home.file = {
+
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
