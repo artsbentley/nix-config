@@ -4,11 +4,22 @@ with lib;
 {
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "zoxide"
+        "zsh-autosuggestions"
+        "zsh-syntax-highlighting"
+        "zsh-fast-syntax-highlighting"
+        "zsh-autocomplete"
+      ];
+      theme = "robbyrussell";
+    };
+    # enableCompletion = true;
+    # enableAutosuggestions = true;
+    # syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
-    #dotDir = ".config/zsh";
     shellAliases = {
       "vim" = "nvim";
       "v" = "nvim";
