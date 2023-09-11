@@ -4,11 +4,7 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+	./zsh
   ];
 
   nixpkgs = {
@@ -52,6 +48,9 @@
     zoxide
     starship
     exa
+	rustc
+	gcc
+	cargo
   ];
 
 # git
@@ -80,6 +79,11 @@ programs.zsh = {
   enable = true;
   #dotDir = ".config/zsh";
   shellAliases = {
+    "vim" = "nvim";
+    "v" = "nvim";
+    ":GoToFile" = "nvim +GoToFile";
+
+
     ".." = "cd ..";
     "c" = "clear";
     "l" = "exa -lbF -l --icons -a --git";
