@@ -54,24 +54,6 @@
   ];
 
 
-
-  # programs.zoxide = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  # };
-
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "GitHub";
-      italic-text = "always";
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-  };
-
   # configure environment variables
   home.sessionVariables = {
     EDITOR = "nvim";

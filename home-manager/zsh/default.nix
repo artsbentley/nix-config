@@ -34,4 +34,12 @@ with lib;
     #histSize = 10000;
     #histFile = "${config.xdg.dataHome}/zsh/history";
   };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "GitHub";
+      italic-text = "always";
+    };
+  };
 }
