@@ -4,6 +4,10 @@ with lib;
 {
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+    dotDir = ".config/zsh";
     #dotDir = ".config/zsh";
     shellAliases = {
       "vim" = "nvim";

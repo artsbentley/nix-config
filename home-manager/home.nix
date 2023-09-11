@@ -4,7 +4,7 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
-	./zsh
+    ./zsh
   ];
 
   nixpkgs = {
@@ -36,7 +36,7 @@
   #targets.genericLinux.enable = true; #ENABLE ON NON-LINUX
 
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [  
+  home.packages = with pkgs; [
     git
     #zsh
     git-crypt
@@ -48,57 +48,19 @@
     zoxide
     starship
     exa
-	rustc
-	gcc
-	cargo
+    rustc
+    gcc
+    cargo
   ];
 
-# git
-  programs.git = {
+
+
+  programs.zoxide = {
     enable = true;
-    userName = "artsbentley";
-    userEmail = "artsbentley@gmail.com";
-
-    aliases = {
-      s = "status";
-    };
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        line-numbers = true;
-        syntax-theme = "GitHub";
-    };
+    enableZshIntegration = true;
   };
 
-
-  };
-
-
-# programs.zsh = {
-#   enable = true;
-#   #dotDir = ".config/zsh";
-#   shellAliases = {
-#     "vim" = "nvim";
-#     "v" = "nvim";
-#     ":GoToFile" = "nvim +GoToFile";
-#
-#
-#     ".." = "cd ..";
-#     "c" = "clear";
-#     "l" = "exa -lbF -l --icons -a --git";
-#     "update" = "cd ~/nix-config && sudo nixos-rebuild switch --flake .#arar";
-#   };
-#   #histSize = 10000;
-#   #histFile = "${config.xdg.dataHome}/zsh/history";
-# };
-
-programs.zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-programs.bat = {
+  programs.bat = {
     enable = true;
     config = {
       theme = "GitHub";
@@ -115,9 +77,7 @@ programs.bat = {
     EDITOR = "nvim";
   };
 
-  home.file = {
-
-  };
+  home.file = { };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
