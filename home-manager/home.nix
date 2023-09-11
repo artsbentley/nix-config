@@ -53,7 +53,6 @@
     cargo
   ];
 
-
   # configure environment variables
   home.sessionVariables = {
     EDITOR = "nvim";
