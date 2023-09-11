@@ -8,7 +8,7 @@ with lib;
       enable = true;
       plugins = [
         "git"
-        # "zoxide"
+        "zoxide"
         "zsh-autosuggestions"
         "zsh-syntax-highlighting"
         "zsh-fast-syntax-highlighting"
