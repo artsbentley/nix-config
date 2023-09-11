@@ -45,7 +45,7 @@
     neovim
     neofetch
     powertop
-    zoxide
+    # zoxide
     starship
     exa
     rustc
