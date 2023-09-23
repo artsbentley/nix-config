@@ -9,10 +9,10 @@ with lib;
       plugins = [
         "git"
         "zoxide"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
-        "zsh-fast-syntax-highlighting"
-        "zsh-autocomplete"
+        # "zsh-autosuggestions"
+        # "zsh-syntax-highlighting"
+        # "zsh-fast-syntax-highlighting"
+        # "zsh-autocomplete64BCEC3Cf6!!"
       ];
       theme = "robbyrussell";
     };
