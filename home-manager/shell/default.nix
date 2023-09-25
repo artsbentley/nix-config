@@ -5,7 +5,7 @@ with lib;
   imports = [
     ./starship
     ./git
-    ./shell
+    ./zsh
   ];
 }
 
