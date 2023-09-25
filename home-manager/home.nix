@@ -4,7 +4,8 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
-    ./zsh
+    ./shell
+    ./programs
   ];
 
   nixpkgs = {

@@ -12,7 +12,7 @@ with lib;
         # "zsh-autosuggestions"
         # "zsh-syntax-highlighting"
         # "zsh-fast-syntax-highlighting"
-        # "zsh-autocomplete64BCEC3Cf6!!"
+        # "zsh-autocomplete"
       ];
       theme = "robbyrussell";
     };
@@ -23,7 +23,6 @@ with lib;
     shellAliases = {
       "vim" = "nvim";
       "v" = "nvim";
-      ":GoToFile" = "nvim +GoToFile";
 
 
       ".." = "cd ..";
@@ -38,7 +37,7 @@ with lib;
   programs.bat = {
     enable = true;
     config = {
-      theme = "GitHub";
+      theme = "Gruvbox";
       italic-text = "always";
     };
   };
