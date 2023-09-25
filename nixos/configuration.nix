@@ -17,37 +17,37 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
- #NOTE this is used for combining home-manager into one
- # home manager
- home-manager = {
-  extraSpecialArgs = { inherit inputs; };
-  users = {
-    arar = import ../home-manager/home.nix;
+  #NOTE this is used for combining home-manager into one
+  # home manager
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      arar = import ../home-manager/home.nix;
+    };
   };
-};
 
-# default shell
+  # default shell
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
   users.users.yourname.shell = pkgs.zsh;
 
- # Bootloader.
+  # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
 
-# create user group
+  # create user group
   users.users.yourname = {
     isSystemUser = true;
     group = "arar";
-};
+  };
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
- # Set your time zone.
+  # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
   # Select internationalisation properties.
@@ -76,7 +76,7 @@
     isNormalUser = true;
     description = "arar";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   # Enable automatic login for the user.

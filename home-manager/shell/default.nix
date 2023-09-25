@@ -1,9 +1,7 @@
-{ user
-, pkgs
-, lib
-, config
-, ...
-}: {
+{ config, pkgs, lib, ... }:
+with lib;
+
+{
   imports = [
     ./starship
     ./git
