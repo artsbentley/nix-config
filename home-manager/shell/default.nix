@@ -3,9 +3,21 @@ with lib;
 
 {
   imports = [
-    ./starship
-    ./git
-    ./zsh
+    ./starship.nix
+    ./git.nix
+    ./zsh.nix
   ];
-}
 
+  # packages = with pkgs;
+  #   [
+  #     curl
+  #     gzip
+  #     killall
+  #     rar # includes unrar
+  #     ripgrep
+  #     wget
+  #     libreoffice
+  #     trash-cli
+  #   ];
+
+}
