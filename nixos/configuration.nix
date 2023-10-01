@@ -14,17 +14,17 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     #NOTE this is used for combining home-manager into one
-    inputs.home-manager.nixosModules.home-manager
+    # inputs.home-manager.nixosModules.home-manager
   ];
 
   #NOTE this is used for combining home-manager into one
   # home manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      arar = import ../home-manager/home.nix;
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     arar = import ../home-manager/home.nix;
+  #   };
+  # };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
