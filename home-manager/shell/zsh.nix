@@ -25,6 +25,7 @@ with lib;
       "v" = "nvim";
 
 
+      "test" = "echo test";
       ".." = "cd ..";
       "c" = "clear";
       "l" = "exa -lbF -l --icons -a --git";
