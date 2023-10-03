@@ -35,7 +35,7 @@
   # default shell
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-  users.users.yourname.shell = pkgs.zsh;
+  users.users.arar.shell = pkgs.zsh;
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -44,7 +44,7 @@
 
 
   # create user group
-  users.users.yourname = {
+  users.users.arar = {
     isSystemUser = true;
     group = "arar";
   };
