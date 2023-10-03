@@ -36,6 +36,7 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     gnumake
+    just
     git
     curl
     ripgrep
