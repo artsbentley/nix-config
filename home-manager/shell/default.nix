@@ -8,16 +8,17 @@ with lib;
     ./zsh.nix
   ];
 
-  # packages = with pkgs;
-  #   [
-  #     curl
-  #     gzip
-  #     killall
-  #     rar # includes unrar
-  #     ripgrep
-  #     wget
-  #     libreoffice
-  #     trash-cli
-  #   ];
+  packages = with pkgs;
+    [
+      make
+      curl
+      gzip
+      killall
+      rar # includes unrar
+      ripgrep
+      wget
+      libreoffice
+      trash-cli
+    ];
 
 }

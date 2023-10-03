@@ -9,7 +9,6 @@ with lib;
       plugins = [
         "git"
         "zoxide"
-        "make"
         # "zsh-autosuggestions"
         # "zsh-syntax-highlighting"
         # "zsh-fast-syntax-highlighting"
