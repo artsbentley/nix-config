@@ -44,7 +44,7 @@
 
 
   # create user group
-  users.users.arar = {
+  users.users.yourname = {
     isSystemUser = true;
     group = "arar";
   };
