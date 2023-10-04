@@ -12,7 +12,8 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./modules/jellyfin.nix
+    ./modules/multimedia.nix
+    # ./modules/jellyfin.nix
     ./hardware-configuration.nix
     #NOTE this is used for combining home-manager into one
     # inputs.home-manager.nixosModules.home-manager
