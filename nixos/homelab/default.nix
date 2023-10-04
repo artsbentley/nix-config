@@ -32,6 +32,9 @@
     pkgs.home-manager
   ];
 
+  # NOTE: test to try out
+  services.containers.enable = true;
+
   # default shell
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
