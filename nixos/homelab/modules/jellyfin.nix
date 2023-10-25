@@ -37,6 +37,7 @@
     allowedTCPPorts = [
       8096
       8920 # Web frontend
+      7878
     ];
     allowedUDPPorts = [
       1900
