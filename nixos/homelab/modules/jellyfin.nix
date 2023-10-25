@@ -49,4 +49,9 @@
       enable = true;
       package = pkgs.jellyfin; # Upgrade to 10.6.x
     };
+  services.radarr =
+    {
+      enable = true;
+      package = pkgs.radarr;
+    };
 }
