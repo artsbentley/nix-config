@@ -33,7 +33,7 @@
   ];
 
   # NOTE: test to try out
-  services.containers.enable = true;
+  # services.containers.enable = true;
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
