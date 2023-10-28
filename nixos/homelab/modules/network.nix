@@ -12,7 +12,7 @@
       }];
     };
   };
-  networking.defaultGateway = "10.42.0.254";
+  networking.defaultGateway = "192.168.2.254";  # Updated gateway address
   networking.nameservers = [ "10.42.0.254" ];
 }
 
