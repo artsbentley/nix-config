@@ -7,7 +7,7 @@
     enpls0 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "10.42.0.50";
+        address = "192.168.2.50";
         prefixLength = 20;
       }];
     };
