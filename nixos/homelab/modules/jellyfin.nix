@@ -27,6 +27,7 @@
       8096
       8920 # Web frontend
       7878
+      8989
     ];
     allowedUDPPorts = [
       1900
@@ -43,5 +44,10 @@
     {
       enable = true;
       package = pkgs.radarr;
+    };
+  services.sonarr =
+    {
+      enable = true;
+      package = pkgs.sonarr;
     };
 }
