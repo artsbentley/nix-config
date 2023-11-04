@@ -4,7 +4,7 @@ with lib;
 {
   imports = [
     ./starship.nix
-    ./yazi.nix
+    # ./yazi.nix
     ./git.nix
     ./zsh.nix
   ];
