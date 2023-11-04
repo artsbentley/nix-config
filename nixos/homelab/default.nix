@@ -36,7 +36,6 @@
     yq
     wget
     yazi
-    just
     zsh
     git
     cryptsetup
