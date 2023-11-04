@@ -34,8 +34,8 @@
     vim
     jq
     yq
+    jqp
     wget
-    yazi
     zsh
     git
     cryptsetup
