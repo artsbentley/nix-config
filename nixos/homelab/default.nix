@@ -29,9 +29,15 @@
   #   };
   # };
 
-  # install home-manager
-  environment.systemPackages = [
-    pkgs.home-manager
+  # System packages
+  environment.systemPackages = with pkgs; [
+    vim
+    jq
+    wget
+    zsh
+    git
+    cryptsetup
+    home-manager
   ];
 
   # NOTE: test to try out

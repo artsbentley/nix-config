@@ -53,8 +53,6 @@
     rustc
     gcc
     cargo
-    jq
-    yq
   ];
 
   # configure environment variables
