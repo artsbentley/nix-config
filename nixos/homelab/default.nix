@@ -33,6 +33,7 @@
   environment.systemPackages = with pkgs; [
     vim
     jq
+    yq
     wget
     zsh
     git
