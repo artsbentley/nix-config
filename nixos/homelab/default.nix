@@ -33,6 +33,7 @@
     jqp
     wget
     zsh
+	just
     git
     cryptsetup
     home-manager
