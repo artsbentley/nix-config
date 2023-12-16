@@ -1,19 +1,12 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-
 { inputs, outputs, lib, config, pkgs, ... }: {
-  # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
-    ./modules/jellyfin.nix
-    ./modules/network.nix
+    # ./modules/jellyfin.nix
+    # ./modules/network.nix
 
     ./hardware-configuration.nix
     #NOTE this is used for combining home-manager into one
@@ -51,9 +44,9 @@
   users.users.arar.shell = pkgs.zsh;
 
   # Bootloader.
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
 
   # create user group
@@ -91,12 +84,14 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
   users.users.arar = {
     isNormalUser = true;
     description = "arar";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
   };
+  users.groups.arar = {};
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "arar";
