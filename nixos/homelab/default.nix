@@ -8,7 +8,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./modules/jellyfin.nix
+    ./modules/arr.nix
     # ./modules/network.nix
 
     ./hardware-configuration.nix
@@ -41,6 +41,20 @@
 
   # NOTE: test to try out
   # services.containers.enable = true;
+
+
+services.nfs.client.enable = true;
+
+  # Add the NFS mounts you want
+  services.nfs.client.mounts = [
+    {
+      remoteHost = "192.168.2.4";
+      localMountPoint = "/mnt/nas";
+      nfsVersion = 4;  # Adjust as needed
+      mountOptions = ["noatime", "rsize=8192", "wsize=8192"];
+    }
+    # Add more mount points if needed
+  ];
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
