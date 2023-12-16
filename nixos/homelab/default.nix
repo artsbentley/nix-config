@@ -8,7 +8,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Import your generated (nixos-generate-config) hardware configuration
-    # ./modules/jellyfin.nix
+    ./modules/jellyfin.nix
     # ./modules/network.nix
 
     ./hardware-configuration.nix
