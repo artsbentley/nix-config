@@ -43,8 +43,8 @@
     };
 
     prowlarr = {
-      package = pkgs.prowlarr;
       enable = true;
+      package = pkgs.unstable.prowlarr;
     };
 
     radarr = {
