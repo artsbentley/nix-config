@@ -51,7 +51,7 @@ services.nfs.client.enable = true;
       remoteHost = "192.168.2.4";
       localMountPoint = "/mnt/nas";
       nfsVersion = 4;  # Adjust as needed
-      mountOptions = ["noatime", "rsize=8192", "wsize=8192"];
+      # mountOptions = ["noatime", "rsize=8192", "wsize=8192"];
     }
     # Add more mount points if needed
   ];
