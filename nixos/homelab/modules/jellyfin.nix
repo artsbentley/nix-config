@@ -35,10 +35,6 @@
     ];
   };
 
-  # config.options.services.prowlarr = {
-  #   enable = true;
-  #   package = pkgs.prowlarr;
-  # };
 
   services = {
     jellyfin = {
@@ -46,10 +42,10 @@
       package = pkgs.jellyfin; # Upgrade to 10.6.x
     };
 
-    # prowlarr = {
-    #   enable = true;
-    #   package = pkgs.prowlarr;
-    # };
+    prowlarr = {
+      package = pkgs.prowlarr;
+      enable = true;
+    };
 
     radarr = {
       enable = true;
