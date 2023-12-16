@@ -44,7 +44,7 @@
 
 
   fileSystems."/mnt/share" = {
-    device = "192.168.2.4";
+    device = "192.168.2.4:/share";
     fsType = "nfs";
   };
 
