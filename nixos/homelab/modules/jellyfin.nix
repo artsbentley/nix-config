@@ -35,10 +35,10 @@
     ];
   };
 
-  config.options.services.prowlarr = {
-    enable = true;
-    package = pkgs.prowlarr;
-  };
+  # config.options.services.prowlarr = {
+  #   enable = true;
+  #   package = pkgs.prowlarr;
+  # };
 
   services = {
     jellyfin = {
