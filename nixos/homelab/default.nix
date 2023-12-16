@@ -43,18 +43,11 @@
   # services.containers.enable = true;
 
 
-services.nfs.client.enable = true;
+  services.fileSystems."/mnt/share" = {
+    device = "192.168.2.4";
+    fsType = "nfs";
+  };
 
-  # Add the NFS mounts you want
-  services.nfs.client.mounts = [
-    {
-      remoteHost = "192.168.2.4";
-      localMountPoint = "/mnt/nas";
-      nfsVersion = 4;  # Adjust as needed
-      # mountOptions = ["noatime", "rsize=8192", "wsize=8192"];
-    }
-    # Add more mount points if needed
-  ];
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
