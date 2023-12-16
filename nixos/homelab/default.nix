@@ -1,3 +1,6 @@
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -44,10 +47,11 @@
   users.users.arar.shell = pkgs.zsh;
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
-
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.useOSProber = true;
 
   # create user group
   users.users.yourname = {
