@@ -43,7 +43,7 @@
   # services.containers.enable = true;
 
 
-  services.fileSystems."/mnt/share" = {
+  fileSystems."/mnt/share" = {
     device = "192.168.2.4";
     fsType = "nfs";
   };
