@@ -28,6 +28,7 @@
       8920 # Web frontend
       7878
       8989
+      9696
     ];
     allowedUDPPorts = [
       1900
@@ -42,10 +43,10 @@
       package = pkgs.jellyfin; # Upgrade to 10.6.x
     };
 
-    # prowlarr = {
-    #   enable = true;
-    #   package = pkgs.prowlarr;
-    # };
+    prowlarr = {
+      enable = true;
+      package = pkgs.prowlarr;
+    };
 
     radarr = {
       enable = true;
