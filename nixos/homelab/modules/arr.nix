@@ -45,7 +45,7 @@
 
     prowlarr = {
       enable = true;
-      package = pkgs.prowlarr;
+      # package = pkgs.prowlarr;
     };
 
     radarr = {
