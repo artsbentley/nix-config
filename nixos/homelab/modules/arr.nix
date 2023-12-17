@@ -43,10 +43,6 @@
       package = pkgs.jellyfin; # Upgrade to 10.6.x
     };
 
-    qbittorrent = {
-      enable = true;
-    };
-
     prowlarr = {
       enable = true;
     };
