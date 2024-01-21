@@ -1,39 +1,77 @@
 {
-  description = "Your new nix config";
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    # Pin our primary nixpkgs repository. This is the main nixpkgs repository
+    # we'll use for our configurations. Be very careful changing this because
+    # it'll impact your entire system.
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+
+    # We use the unstable nixpkgs repo for some packages.
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
+    # Build a custom WSL installer
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hardware.url = "github:nixos/nixos-hardware";
+
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # I think technically you're not supposed to override the nixpkgs
+    # used by neovim but recently I had failures if I didn't pin to my
+    # own. We can always try to remove that anytime.
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+
+      # Only need unstable until the lpeg fix hits mainline, probably
+      # not very long... can safely switch back for 23.11.
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    # Other packages
+    zig.url = "github:mitchellh/zig-overlay";
+
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
     let
-      system = "aarch64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
+      # Overlays is the list of overlays we want to apply from flake inputs.
+      overlays = [
+        # inputs.neovim-nightly-overlay.overlay
+        # inputs.zig.overlays.default
+      ];
 
+      mkSystem = import ./lib/mksystem.nix {
+        inherit overlays nixpkgs inputs;
+      };
+    in
     {
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        arar = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [ ./nixos/homelab/default.nix ];
-        };
+      nixosConfigurations.personal = mkSystem "vm-aarch64" {
+        system = "aarch64-linux";
+        user = "arar";
       };
 
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        "arar@nixos" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          # extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [ ./home-manager/home.nix ];
-        };
+      nixosConfigurations.vm-intel = mkSystem "vm-intel" rec {
+        system = "x86_64-linux";
+        user = "arar";
+      };
+
+      nixosConfigurations.wsl = mkSystem "wsl" {
+        system = "x86_64-linux";
+        user = "arar";
+        wsl = true;
+      };
+
+      darwinConfigurations.macbook-pro-m1 = mkSystem "macbook-pro-m1" {
+        system = "aarch64-darwin";
+        user = "arar";
+        darwin = true;
       };
     };
 }
+
