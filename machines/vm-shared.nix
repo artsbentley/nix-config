@@ -1,11 +1,12 @@
-{ config, pkgs, lib, currentSystem, currentSystemName,... }:
+{ config, pkgs, lib, currentSystem, currentSystemName, ... }:
 
 let
   # Turn this to true to use gnome instead of i3. This is a bit
   # of a hack, I just flip it on as I need to develop gnome stuff
   # for now.
   linuxGnome = true;
-in {
+in
+{
   # Be careful updating this.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -22,8 +23,8 @@ in {
     # this, use your own, or toss it. Its typically safe to use a binary cache
     # since the data inside is checksummed.
     settings = {
-      substituters = ["https://mitchellh-nixos-config.cachix.org"];
-      trusted-public-keys = ["mitchellh-nixos-config.cachix.org-1:bjEbXJyLrL1HZZHBbO4QALnI5faYZppzkU4D2s0G8RQ="];
+      substituters = [ "https://mitchellh-nixos-config.cachix.org" ];
+      trusted-public-keys = [ "mitchellh-nixos-config.cachix.org-1:bjEbXJyLrL1HZZHBbO4QALnI5faYZppzkU4D2s0G8RQ=" ];
     };
   };
 
@@ -71,36 +72,37 @@ in {
   };
 
   # setup windowing environment
-  services.xserver = if linuxGnome then {
-    enable = true;
-    layout = "us";
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-  } else {
-    enable = true;
-    layout = "us";
-    dpi = 220;
+  services.xserver =
+    if linuxGnome then {
+      enable = true;
+      layout = "us";
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
+    } else {
+      enable = true;
+      layout = "us";
+      dpi = 220;
 
-    desktopManager = {
-      xterm.enable = false;
-      wallpaper.mode = "fill";
+      desktopManager = {
+        xterm.enable = false;
+        wallpaper.mode = "fill";
+      };
+
+      displayManager = {
+        defaultSession = "none+i3";
+        lightdm.enable = true;
+
+        # AARCH64: For now, on Apple Silicon, we must manually set the
+        # display resolution. This is a known issue with VMware Fusion.
+        sessionCommands = ''
+          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
+      };
+
+      windowManager = {
+        i3.enable = true;
+      };
     };
-
-    displayManager = {
-      defaultSession = "none+i3";
-      lightdm.enable = true;
-
-      # AARCH64: For now, on Apple Silicon, we must manually set the
-      # display resolution. This is a known issue with VMware Fusion.
-      sessionCommands = ''
-        ${pkgs.xorg.xset}/bin/xset r rate 200 40
-      '';
-    };
-
-    windowManager = {
-      i3.enable = true;
-    };
-  };
 
   # Enable tailscale. We manually authenticate when we want with
   # "sudo tailscale up". If you don't use tailscale, you should comment
@@ -108,7 +110,7 @@ in {
   services.tailscale.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.mutableUsers = false;
+  # users.mutableUsers = false;
 
   # Manage fonts. We pull these from a secret directory since most of these
   # fonts require a purchase.

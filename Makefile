@@ -15,5 +15,5 @@ setup:
 
 personal:
 	git pull
-	mv -f /etc/nixos/hardware-configuration.nix ./machines/hardware/vm-aarch64.nix
+	sudo mv -f /etc/nixos/hardware-configuration.nix ./machines/hardware/vm-aarch64.nix
 	sudo nixos-rebuild switch --flake '.#personal'
