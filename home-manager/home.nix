@@ -37,7 +37,6 @@
   home.packages = with pkgs; [
     gnumake
     just
-    yazi
     git
     curl
     ripgrep
