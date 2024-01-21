@@ -1,172 +1,158 @@
-{ config, pkgs, lib, currentSystem, currentSystemName, ... }:
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-let
-  # Turn this to true to use gnome instead of i3. This is a bit
-  # of a hack, I just flip it on as I need to develop gnome stuff
-  # for now.
-  linuxGnome = true;
-in
-{
-  # Be careful updating this.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+{ inputs, outputs, lib, config, pkgs, ... }: {
+  imports = [
+    # If you want to use modules from other flakes (such as nixos-hardware):
+    # inputs.hardware.nixosModules.common-cpu-amd
+    # inputs.hardware.nixosModules.common-ssd
 
-  nix = {
-    # use unstable nix so we can access flakes
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs = true
-      keep-derivations = true
-    '';
+    # Import your generated (nixos-generate-config) hardware configuration
+    ./modules/arr.nix
+    # ./modules/network.nix
 
-    # public binary cache that I use for all my derivations. You can keep
-    # this, use your own, or toss it. Its typically safe to use a binary cache
-    # since the data inside is checksummed.
-    settings = {
-      substituters = [ "https://mitchellh-nixos-config.cachix.org" ];
-      trusted-public-keys = [ "mitchellh-nixos-config.cachix.org-1:bjEbXJyLrL1HZZHBbO4QALnI5faYZppzkU4D2s0G8RQ=" ];
-    };
-  };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    # Needed for k2pdfopt 2.53.
-    "mupdf-1.17.0"
+    ./hardware-configuration.nix
+    #NOTE this is used for combining home-manager into one
+    # inputs.home-manager.nixosModules.home-manager
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # VMware, Parallels both only support this being 0 otherwise you see
-  # "error switching console mode" on boot.
-  boot.loader.systemd-boot.consoleMode = "0";
-
-  # Define your hostname.
-  networking.hostName = "dev";
-
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-
-  # Don't require password for sudo
-  security.sudo.wheelNeedsPassword = false;
-
-  # Virtualization settings
-  virtualisation.docker.enable = true;
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-gtk
-        fcitx5-chinese-addons
-      ];
-    };
-  };
-
-  # setup windowing environment
-  services.xserver =
-    if linuxGnome then {
-      enable = true;
-      layout = "us";
-      desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
-    } else {
-      enable = true;
-      layout = "us";
-      dpi = 220;
-
-      desktopManager = {
-        xterm.enable = false;
-        wallpaper.mode = "fill";
-      };
-
-      displayManager = {
-        defaultSession = "none+i3";
-        lightdm.enable = true;
-
-        # AARCH64: For now, on Apple Silicon, we must manually set the
-        # display resolution. This is a known issue with VMware Fusion.
-        sessionCommands = ''
-          ${pkgs.xorg.xset}/bin/xset r rate 200 40
-        '';
-      };
-
-      windowManager = {
-        i3.enable = true;
-      };
-    };
-
-  # Enable tailscale. We manually authenticate when we want with
-  # "sudo tailscale up". If you don't use tailscale, you should comment
-  # out or delete all of this.
-  services.tailscale.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.mutableUsers = false;
-
-  # Manage fonts. We pull these from a secret directory since most of these
-  # fonts require a purchase.
-  fonts = {
-    fontDir.enable = true;
-
-    packages = [
-      pkgs.fira-code
-      pkgs.jetbrains-mono
-    ];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    cachix
-    gnumake
-    killall
-    niv
-    rxvt_unicode
-    xclip
-
-    # For hypervisors that support auto-resizing, this script forces it.
-    # I've noticed not everyone listens to the udev events so this is a hack.
-    (writeShellScriptBin "xrandr-auto" ''
-      xrandr --output Virtual-1 --auto
-    '')
-  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
-    # This is needed for the vmware user tools clipboard to work.
-    # You can test if you don't need this by deleting this and seeing
-    # if the clipboard sill works.
-    gtkmm3
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
+  #NOTE this is used for combining home-manager into one
+  # home manager
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     arar = import ../home-manager/home.nix;
+  #   };
   # };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = true;
-  services.openssh.settings.PermitRootLogin = "no";
+  # System packages
+  environment.systemPackages = with pkgs; [
+    vim
+    jq
+    yq
+    jqp
+    wget
+    zsh
+    just
+    git
+    cryptsetup
+    home-manager
+  ];
 
-  # Disable the firewall since we're in a VM and we want to make it
-  # easy to visit stuff in here. We only use NAT networking anyways.
-  networking.firewall.enable = false;
+  # NOTE: test to try out
+  # services.containers.enable = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+
+  fileSystems."/mnt/share" = {
+    device = "192.168.2.4:/mnt/DataStore/share";
+    fsType = "nfs";
+  };
+
+  # default shell
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+  users.users.arar.shell = pkgs.zsh;
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.useOSProber = true;
+
+  # create user group
+  users.users.yourname = {
+    isSystemUser = true;
+    group = "arar";
+  };
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "Europe/Amsterdam";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "nl_NL.UTF-8";
+    LC_IDENTIFICATION = "nl_NL.UTF-8";
+    LC_MEASUREMENT = "nl_NL.UTF-8";
+    LC_MONETARY = "nl_NL.UTF-8";
+    LC_NAME = "nl_NL.UTF-8";
+    LC_NUMERIC = "nl_NL.UTF-8";
+    LC_PAPER = "nl_NL.UTF-8";
+    LC_TELEPHONE = "nl_NL.UTF-8";
+    LC_TIME = "nl_NL.UTF-8";
+  };
+
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+
+  users.users.arar = {
+    isNormalUser = true;
+    description = "arar";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [ ];
+  };
+  users.groups.arar = { };
+
+  # Enable automatic login for the user.
+  services.getty.autologinUser = "arar";
+
+
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # If you want to use overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+    };
+  };
+
+  nix = {
+    # This will add each flake input as a registry
+    # To make nix3 commands consistent with your flake
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well, awesome!
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+    };
+  };
+
+  networking.hostName = "nixos";
+
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = true;
+  };
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.11";
 }
+
