@@ -8,10 +8,8 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./modules/arr.nix
     # ./modules/network.nix
 
-    ./hardware-configuration.nix
     #NOTE this is used for combining home-manager into one
     # inputs.home-manager.nixosModules.home-manager
   ];
