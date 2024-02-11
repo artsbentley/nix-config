@@ -9,8 +9,8 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./modules/arr.nix
+    ./modules/syncthing.nix
     # ./modules/network.nix
-
     ./hardware-configuration.nix
     #NOTE this is used for combining home-manager into one
     # inputs.home-manager.nixosModules.home-manager
@@ -33,7 +33,7 @@
     jqp
     wget
     zsh
-	just
+    just
     git
     cryptsetup
     home-manager
@@ -102,7 +102,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
   };
-  users.groups.arar = {};
+  users.groups.arar = { };
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "arar";
