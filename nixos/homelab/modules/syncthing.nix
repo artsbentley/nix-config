@@ -7,7 +7,7 @@
       user = "arar";
       dataDir = "/home/arar/syncthing"; # Default folder for new synced folders
       configDir = "/home/arar/syncthing/.config/syncthing"; # Folder for Syncthing's settings and keys
-      openDefaultPorts = true;
+      # openDefaultPorts = true;
     };
   };
   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
