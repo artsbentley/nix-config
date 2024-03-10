@@ -28,7 +28,7 @@ home:
 
 setup:
 	sudo echo 'nix.experimental-features = [ "nix-command" "flakes" ];' | sudo tee -a /etc/nixos/configuration.nix > /dev/null
-	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
-	sudo nixos-generate-config
+	cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
+	# sudo nixos-generate-config
 	sudo nixos-rebuild switch
 
