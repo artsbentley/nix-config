@@ -36,6 +36,7 @@
     git
     cryptsetup
     home-manager
+    gnumake
     nfs-utils
   ];
 
