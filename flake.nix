@@ -24,7 +24,7 @@
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
             ./nixos/homelab/default.nix
-            ./hardware-configuration.nix
+            /etc/nixos/hardware-configuration.nix
           ];
         };
       };
