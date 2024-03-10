@@ -10,7 +10,6 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./modules/arr.nix
     ./modules/syncthing.nix
-    ./hardware-configuration.nix
     # ./modules/network.nix
     #NOTE this is used for combining home-manager into one
     # inputs.home-manager.nixosModules.home-manager
@@ -43,8 +42,8 @@
   # services.containers.enable = true;
 
 
-  fileSystems."/mnt/share" = {
-    device = "192.168.2.4:/mnt/DataStore/share";
+  fileSystems."/mnt/nas" = {
+    device = "192.168.2.5:/NAS";
     fsType = "nfs";
   };
 
