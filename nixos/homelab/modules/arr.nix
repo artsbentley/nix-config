@@ -30,9 +30,11 @@
       8989
       9696
       8384
+      9090
     ];
     allowedUDPPorts = [
       1900
+      9090
       7359 # Discovery
     ];
   };
