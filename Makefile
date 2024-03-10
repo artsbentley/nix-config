@@ -27,7 +27,7 @@ home:
 	home-manager switch --flake '.#arar@nixos'
 
 setup:
-	sudo echo 'nix.experimental-features = [ "nix-command" "flakes" ];' | sudo tee -a /etc/nixos/configuration.nix > /dev/null
+	sudo sed -i '/^};/i\  nix.experimental-features = [ "nix-command" "flakes" ];' /etc/nixos/configuration.nix
 	cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	# sudo nixos-generate-config
 	sudo nixos-rebuild switch
