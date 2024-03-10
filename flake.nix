@@ -17,20 +17,16 @@
     in
 
     {
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         arar = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
             ./nixos/homelab/default.nix
-            /etc/nixos/hardware-configuration.nix
+            ./hardware-configuration.nix
           ];
         };
       };
 
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "arar@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
