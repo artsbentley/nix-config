@@ -49,7 +49,7 @@
     kernelModules = [ "nfs" ];
   };
   fileSystems."/mnt/nas" = {
-    device = "192.168.2.5:/nas";
+    device = "192.168.2.5:/NAS/test";
     fsType = "nfs";
   };
 
