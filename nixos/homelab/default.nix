@@ -38,6 +38,7 @@
     home-manager
     gnumake
     nfs-utils
+    cifs-utils
   ];
 
   # NOTE: test to try out
@@ -48,10 +49,10 @@
     supportedFilesystems = [ "nfs" ];
     kernelModules = [ "nfs" ];
   };
-  fileSystems."/mnt/nas" = {
-    device = "192.168.2.5:/nas";
-    fsType = "nfs";
-  };
+  # fileSystems."/mnt/nas" = {
+  #   device = "192.168.2.5:/nas";
+  #   fsType = "nfs";
+  # };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
