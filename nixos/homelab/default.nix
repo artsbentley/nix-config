@@ -24,35 +24,45 @@
   #   };
   # };
 
+
+
   # System packages
-  environment.systemPackages = with pkgs; [
-    vim
-    jq
-    yq
-    jqp
-    wget
-    zsh
-    just
-    git
-    cryptsetup
-    home-manager
-    gnumake
-    nfs-utils
-    cifs-utils
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      vim
+      jq
+      yq
+      jqp
+      wget
+      zsh
+      just
+      git
+      cryptsetup
+      home-manager
+      gnumake
+      nfs-utils
+      cifs-utils
+    ];
 
   # NOTE: test to try out
   # services.containers.enable = true;
 
 
-  boot.initrd = {
-    supportedFilesystems = [ "nfs" ];
-    kernelModules = [ "nfs" ];
-  };
+  # boot.initrd = {
+  #   supportedFilesystems = [ "nfs" ];
+  #   kernelModules = [ "nfs" ];
+  # };
   # fileSystems."/mnt/nas" = {
   #   device = "192.168.2.5:/nas";
   #   fsType = "nfs";
   # };
+
+  fileSystems."/mnt/media" =
+    {
+      device = "//192.168.2.5/nas";
+      fsType = "cifs";
+      options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
+    };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
