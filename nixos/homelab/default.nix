@@ -43,7 +43,7 @@
 
 
   fileSystems."/mnt/nas" = {
-    device = "192.168.2.5:/NAS";
+    device = "192.168.2.5:/nas";
     fsType = "nfs";
   };
 
@@ -55,6 +55,7 @@
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
+  # PROXMOX needs grub
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
