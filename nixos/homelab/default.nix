@@ -36,12 +36,17 @@
     git
     cryptsetup
     home-manager
+    nfs-utils
   ];
 
   # NOTE: test to try out
   # services.containers.enable = true;
 
 
+  boot.initrd = {
+    supportedFilesystems = [ "nfs" ];
+    kernelModules = [ "nfs" ];
+  };
   fileSystems."/mnt/nas" = {
     device = "192.168.2.5:/nas";
     fsType = "nfs";
