@@ -48,21 +48,21 @@
   # services.containers.enable = true;
 
 
-  boot.initrd = {
-    supportedFilesystems = [ "nfs" ];
-    kernelModules = [ "nfs" ];
-  };
-  fileSystems."/mnt/test" = {
-    device = "192.168.2.5:/nas";
-    fsType = "nfs";
-  };
+  # boot.initrd = {
+  #   supportedFilesystems = [ "nfs" ];
+  #   kernelModules = [ "nfs" ];
+  # };
+  # fileSystems."/mnt/test" = {
+  #   device = "192.168.2.5:/nas";
+  #   fsType = "nfs";
+  # };
 
-  # fileSystems."/mnt/media" =
-  #   {
-  #     device = "//192.168.2.5/nas";
-  #     fsType = "cifs";
-  #     options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
-  #   };
+  fileSystems."/mnt/media" =
+    {
+      device = "//192.168.2.5/nas";
+      fsType = "cifs";
+      options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
+    };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
