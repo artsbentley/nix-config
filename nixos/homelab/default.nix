@@ -59,7 +59,7 @@
   #   fsType = "nfs";
   # };
 
-  fileSystems."/mnt/media" =
+  fileSystems."/mnt/nas" =
     {
       device = "//192.168.2.5/nas";
       fsType = "cifs";
