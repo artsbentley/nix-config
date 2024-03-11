@@ -63,8 +63,8 @@
     {
       device = "//192.168.2.5/nas";
       fsType = "cifs";
-      # options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
-      options = [ "guest" "x-systemd.automount" "noauto" ];
+      options = [ "username=nixos" "password=nixos" "x-systemd.automount" "noauto" ];
+      # options = [ "guest" "x-systemd.automount" "noauto" ];
     };
 
   # default shell
