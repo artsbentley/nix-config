@@ -52,7 +52,7 @@
   #   supportedFilesystems = [ "nfs" ];
   #   kernelModules = [ "nfs" ];
   # };
-  fileSystems."/mnt/nas" = {
+  fileSystems."/mnt/test" = {
     device = "192.168.2.5:/nas";
     fsType = "nfs";
   };
