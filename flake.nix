@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
@@ -7,11 +7,11 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    inputs.sops-nix.url = "github:Mic92/sops-nix";
     hardware.url = "github:nixos/nixos-hardware";
-    inputs.sops.nix-url = "github:Mic92/sops-nix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
