@@ -72,12 +72,12 @@
   #   fsType = "nfs";
   # };
 
-  fileSystems."/mnt/media" =
-    {
-      device = "//192.168.2.5/nas";
-      fsType = "cifs";
-      options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
-    };
+  # fileSystems."/mnt/media" =
+  #   {
+  #     device = "//192.168.2.5/nas";
+  #     fsType = "cifs";
+  #     options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
+  #   };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
