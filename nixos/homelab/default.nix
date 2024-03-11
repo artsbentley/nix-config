@@ -6,7 +6,6 @@
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-    sops-nix.nixosModules.sops
     # Import your generated (nixos-generate-config) hardware configuration
     ./modules/arr.nix
     ./modules/syncthing.nix
@@ -15,18 +14,6 @@
     # inputs.home-manager.nixosModules.home-manager
   ];
 
-  ###########################
-  # SOPS SECRET MANAGEMENT  #
-  ###########################
-  sops.defaultSopsFile = ./secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-
-  sops.age.keyFile = "/home/arar/.config/sops/age/keys.txt";
-
-  sops.secrets.example-key = { };
-  sops.secrets."myservice/my_subdir/my_secret" = {
-    owner = "arar";
-  };
 
 
 
@@ -72,12 +59,13 @@
   #   fsType = "nfs";
   # };
 
-  # fileSystems."/mnt/media" =
-  #   {
-  #     device = "//192.168.2.5/nas";
-  #     fsType = "cifs";
-  #     options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
-  #   };
+  fileSystems."/mnt/media" =
+    {
+      device = "//192.168.2.5/nas";
+      fsType = "cifs";
+      # options = [ "username=" "password=" "x-systemd.automount" "noauto" ];
+      options = [ "x-systemd.automount" "noauto" ];
+    };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
