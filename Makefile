@@ -20,6 +20,7 @@
 
 nix:
 	git pull
+	cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	sudo nixos-rebuild switch --flake '.#arar'
 
 home:
