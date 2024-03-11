@@ -48,10 +48,10 @@
   # services.containers.enable = true;
 
 
-  # boot.initrd = {
-  #   supportedFilesystems = [ "nfs" ];
-  #   kernelModules = [ "nfs" ];
-  # };
+  boot.initrd = {
+    supportedFilesystems = [ "nfs" ];
+    kernelModules = [ "nfs" ];
+  };
   fileSystems."/mnt/test" = {
     device = "192.168.2.5:/nas";
     fsType = "nfs";
