@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hardware.url = "github:nixos/nixos-hardware";
+    inputs.sops.nix-url = "github:Mic92/sops-nix";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:

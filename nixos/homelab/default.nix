@@ -6,7 +6,7 @@
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
-
+    inputs.sops-nix.nixosModules.sops
     # Import your generated (nixos-generate-config) hardware configuration
     ./modules/arr.nix
     ./modules/syncthing.nix
@@ -14,6 +14,21 @@
     #NOTE this is used for combining home-manager into one
     # inputs.home-manager.nixosModules.home-manager
   ];
+
+  ###########################
+  # SOPS SECRET MANAGEMENT  #
+  ###########################
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/arar/.config/sops/age/keys.txt";
+
+  sops.secrets.example-key = { };
+  sops.secrets."myservice/my_subdir/my_secret" = {
+    owner = "arar";
+  };
+
+
 
   #NOTE this is used for combining home-manager into one
   # home manager
