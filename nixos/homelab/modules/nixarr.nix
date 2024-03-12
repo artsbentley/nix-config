@@ -15,10 +15,10 @@
 
     # It is possible for this module to run the *Arrs through a VPN, but it
     # is generally not recommended, as it can cause rate-limiting issues.
-    sonarr.enable = false;
-    radarr.enable = false;
-    prowlarr.enable = false;
-    readarr.enable = false;
-    lidarr.enable = false;
+    sonarr.enable = true;
+    radarr.enable = true;
+    prowlarr.enable = true;
+    readarr.enable = true;
+    lidarr.enable = true;
   };
 }
