@@ -22,7 +22,7 @@
         arar = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
-			# nixarr.nixosModules.default
+			nixarr.nixosModules.default
             ./nixos/homelab/default.nix
             ./hardware-configuration.nix
           ];
