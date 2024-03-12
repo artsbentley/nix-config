@@ -40,12 +40,6 @@
   };
 
 
-services.qbittorrent = {
-        enable = true;
-        user = "my-torrent";
-        group = "data-members";
-        dataDir = "/mnt/qbittorrent/qbittorrent";
-      };
 
   # services = {
   #   jellyfin = {
