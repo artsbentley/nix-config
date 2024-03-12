@@ -23,7 +23,7 @@
       expose.https = {
         enable = false;
         domainName = "your.domain.com";
-        # acmeMail = "your@email.com"; # Required for ACME-bot
+        acmeMail = "your@email.com"; # Required for ACME-bot
       };
     };
 
