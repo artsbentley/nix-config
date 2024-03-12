@@ -46,9 +46,9 @@
       package = pkgs.jellyfin; # Upgrade to 10.6.x
     };
 
-    prowlarr = {
-      enable = true;
-    };
+    # prowlarr = {
+    #   enable = true;
+    # };
 
     radarr = {
       enable = true;
