@@ -7,7 +7,7 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
     # Import your generated (nixos-generate-config) hardware configuration
-    # ./modules/arr.nix
+    ./modules/arr.nix
 	./modules/nixarr.nix
     ./modules/syncthing.nix
     # ./modules/network.nix

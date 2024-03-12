@@ -40,25 +40,25 @@
   };
 
 
-  services = {
-    jellyfin = {
-      enable = true;
-      package = pkgs.jellyfin; # Upgrade to 10.6.x
-    };
-
-    prowlarr = {
-      enable = true;
-    };
-
-    radarr = {
-      enable = true;
-      package = pkgs.radarr;
-    };
-
-    sonarr = {
-      enable = true;
-      package = pkgs.sonarr;
-    };
-  };
+  # services = {
+  #   jellyfin = {
+  #     enable = true;
+  #     package = pkgs.jellyfin; # Upgrade to 10.6.x
+  #   };
+  #
+  #   prowlarr = {
+  #     enable = true;
+  #   };
+  #
+  #   radarr = {
+  #     enable = true;
+  #     package = pkgs.radarr;
+  #   };
+  #
+  #   sonarr = {
+  #     enable = true;
+  #     package = pkgs.sonarr;
+  #   };
+  # };
 }
 
