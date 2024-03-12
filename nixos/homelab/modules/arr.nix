@@ -40,7 +40,7 @@
   };
 
 
-modules.services.qbittorrent = {
+services.qbittorrent = {
         enable = true;
         user = "my-torrent";
         group = "data-members";
