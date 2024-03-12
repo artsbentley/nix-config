@@ -5,8 +5,9 @@
     enable = true;
     # These two values are also the default, but you can set them to whatever
     # else you want
-    mediaDir = "/data/media";
-    stateDir = "/data/media/.state";
+    mediaDir = "/Users/arar/data/media";
+    stateDir = "/Users/arar/data/media/.state";
+    # stateDir = "/data/media/.state";
 
     vpn = {
       enable = false;
