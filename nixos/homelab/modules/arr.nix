@@ -40,11 +40,14 @@
   };
 
 
+modules.services.qbittorrent = {
+        enable = true;
+        user = "my-torrent";
+        group = "data-members";
+        dataDir = "/mnt/qbittorrent/qbittorrent";
+      };
 
-  services = {
-	qbittorrent ={
-			enable = true;
-		};
+  # services = {
   #   jellyfin = {
   #     enable = true;
   #     package = pkgs.jellyfin; # Upgrade to 10.6.x
@@ -63,6 +66,6 @@
   #     enable = true;
   #     package = pkgs.sonarr;
   #   };
-  };
+  # };
 }
 

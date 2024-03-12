@@ -45,6 +45,7 @@
       gnumake
       nfs-utils
       cifs-utils
+	  qbittorrent
     ];
 
   # NOTE: test to try out
