@@ -1,7 +1,7 @@
 { config, pkgs, nixarr, ... }:
 
 {
-  }  nixarr = {
+    nixarr = {
     enable = true;
     # These two values are also the default, but you can set them to whatever
     # else you want
@@ -40,5 +40,5 @@
     prowlarr.enable = false;
     readarr.enable = false;
     lidarr.enable = false;
-  };;
+  };
 }
