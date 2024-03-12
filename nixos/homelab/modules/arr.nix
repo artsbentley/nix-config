@@ -40,7 +40,11 @@
   };
 
 
-  # services = {
+
+  services = {
+	qbittorrent ={
+			enable = true;
+		};
   #   jellyfin = {
   #     enable = true;
   #     package = pkgs.jellyfin; # Upgrade to 10.6.x
@@ -59,6 +63,6 @@
   #     enable = true;
   #     package = pkgs.sonarr;
   #   };
-  # };
+  };
 }
 
