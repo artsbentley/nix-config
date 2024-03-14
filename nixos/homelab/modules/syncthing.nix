@@ -13,8 +13,13 @@
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
 
+  modules.services.vaultwarden.enable = true;
   services.vaultwarden = {
     enable = true;
     dbBackend = "sqlite";
+    config = {
+      rocketPort = 8000;
+      websocketEnabled = true;
+    };
   };
 }
