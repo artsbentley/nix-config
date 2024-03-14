@@ -18,7 +18,7 @@
     enable = true;
     dbBackend = "sqlite";
     config = {
-      # DOMAIN = "https://vault.flake.sh/";
+      DOMAIN = "https://vault.flake.sh/";
       # SIGNUPS_ALLOWED = false;
       # DATABASE_URL = "postgresql://vaultwarden:vaultwarden@192.168.1.211:5432/vaultwarden";
       LOG_LEVEL = "Info";
