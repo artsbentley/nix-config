@@ -9,7 +9,7 @@
     guiAddress = "0.0.0.0:8384";
     openDefaultPorts = true;
   };
-  networking.firewall.allowedTCPPorts = [ 8384 22000 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 8384 22000 80 443 8222 ];
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
 
