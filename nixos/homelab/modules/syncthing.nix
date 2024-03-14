@@ -13,7 +13,6 @@
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
 
-  # modules.services.vaultwarden.enable = true;
   services.vaultwarden = {
     enable = true;
     dbBackend = "sqlite";
@@ -21,6 +20,7 @@
       DOMAIN = "https://vault.flake.sh/";
       SIGNUPS_ALLOWED = true;
       # DATABASE_URL = "postgresql://vaultwarden:vaultwarden@192.168.1.211:5432/vaultwarden";
+      SIGNUPS_DOMAINS_WHITELIST = "flake.sh";
       LOG_LEVEL = "Info";
       ROCKET_ADDRESS = "0.0.0.0";
       ROCKET_PORT = 8222;
