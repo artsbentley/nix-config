@@ -3,19 +3,14 @@
 
 { inputs, outputs, sops-nix, lib, config, pkgs, ... }: {
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-    # Import your generated (nixos-generate-config) hardware configuration
     ./modules/arr.nix
-    ./modules/nixarr.nix
+    # ./modules/nixarr.nix
     ./modules/syncthing.nix
     # ./modules/network.nix
+
     #NOTE this is used for combining home-manager into one
     # inputs.home-manager.nixosModules.home-manager
   ];
-
-
 
 
   #NOTE this is used for combining home-manager into one
@@ -45,7 +40,7 @@
       gnumake
       nfs-utils
       cifs-utils
-	  qbittorrent
+      qbittorrent
     ];
 
   # NOTE: test to try out
