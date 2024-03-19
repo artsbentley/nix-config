@@ -60,7 +60,7 @@
     {
       device = "//192.168.2.5/nas";
       fsType = "cifs";
-      options = [ "username=nixos" "password=nixos" "x-systemd.automount" "noauto" "uid=1000" "gid=100" ];
+      options = [ "username=nixos" "password=nixos" "x-systemd.automount" "noauto" "uid=sonar" "gid=100" ];
       # options = [ "guest" "x-systemd.automount" "noauto" ];
     };
 
