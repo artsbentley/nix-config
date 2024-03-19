@@ -2,7 +2,7 @@
 
 {
   nixarr = {
-    enable = false;
+    enable = true;
     # These two values are also the default, but you can set them to whatever
     # else you want
     mediaDir = "/home/arar/data/media";
@@ -16,6 +16,7 @@
     # It is possible for this module to run the *Arrs through a VPN, but it
     # is generally not recommended, as it can cause rate-limiting issues.
     sonarr.enable = true;
+    bazarr.enable = true;
     radarr.enable = true;
     prowlarr.enable = true;
     readarr.enable = true;
