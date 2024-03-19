@@ -2,7 +2,7 @@
 
 {
   nixarr = {
-    enable = true;
+    enable = false;
     # These two values are also the default, but you can set them to whatever
     # else you want
     mediaDir = "/home/arar/data/media";
