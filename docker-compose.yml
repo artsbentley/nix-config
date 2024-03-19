@@ -41,7 +41,8 @@ services:
       - TZ=Europe/London
       - WEBUI_PORT=8085
     volumes:
-      - /mnt/nas/backups/mediaserver/qbittorrent:/config
+      - /home/arar/docker/arr-stack/qbittorrent:/config
+      # - /mnt/nas/backups/mediaserver/qbittorrent:/config
       - /mnt/nas/data/torrents:/data/torrents
     depends_on:
       - gluetun
