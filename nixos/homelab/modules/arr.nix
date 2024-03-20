@@ -36,12 +36,14 @@
       enable = true;
       package = pkgs.radarr;
       user = "arar";
+      openFirewall = true;
     };
 
     sonarr = {
       enable = true;
       package = pkgs.sonarr;
       user = "arar";
+      openFirewall = true;
     };
   };
 }
