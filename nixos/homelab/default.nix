@@ -56,7 +56,7 @@
   #   fsType = "nfs";
   # };
 
-  fileSystems."/mnt/nas" =
+  fileSystems."/home/arar/data/nas" =
     {
       device = "//192.168.2.5/nas";
       fsType = "cifs";
