@@ -41,7 +41,7 @@ services:
       - TZ=Europe/London
       - WEBUI_PORT=8085
     volumes:
-      - /home/arar/docker/arr-stack/qbittorrent:/config
+      - /home/arar/docker/appdata/qbittorrent:/config
       # - /mnt/nas/backups/mediaserver/qbittorrent:/config
       - /mnt/nas/data/torrents:/data/torrents
     depends_on:
@@ -56,3 +56,67 @@ services:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+  radarr:
+    container_name: radarr
+    image: ghcr.io/hotio/radarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/arar/docker/appdata/radarr:/config
+      - /mnt/nas/data:/data
+
+  sonarr:
+    container_name: sonarr
+    image: ghcr.io/hotio/sonarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/arar/docker/appdata/sonarr:/config
+      # - /data:/data
+      - /mnt/nas/data:/data
+
+  bazarr:
+    container_name: bazarr
+    image: ghcr.io/hotio/bazarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/arar/docker/appdata/bazarr:/config
+      - /data/media:/data/media
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    # network_mode: "service:gluetun"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /home/arar/docker/appdata/prowlarr/data:/config
+    restart: unless-stopped
