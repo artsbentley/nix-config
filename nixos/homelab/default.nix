@@ -46,15 +46,25 @@
   # NOTE: test to try out
   # services.containers.enable = true;
 
+  services.cockpit = {
+    enable = true;
+    port = 9090;
+    settings = {
+      WebService = {
+        AllowUnencrypted = true;
+      };
+    };
+  };
+
 
   # boot.initrd = {
   #   supportedFilesystems = [ "nfs" ];
   #   kernelModules = [ "nfs" ];
   # };
-  fileSystems."/mnt/test" = {
-    device = "192.168.2.5:/mnt/nas";
-    fsType = "nfs";
-  };
+  # fileSystems."/mnt/test" = {
+  #   device = "192.168.2.5:/mnt/nas";
+  #   fsType = "nfs";
+  # };
 
   # fileSystems."/mnt/nas" =
   #   {
