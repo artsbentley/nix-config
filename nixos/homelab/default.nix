@@ -42,6 +42,7 @@
       cifs-utils
       qbittorrent
       unzip
+      dpkg
     ];
 
   # NOTE: test to try out
