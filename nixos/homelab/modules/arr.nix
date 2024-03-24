@@ -35,13 +35,13 @@
     radarr = {
       enable = true;
       package = pkgs.radarr;
-      # user = "arar";
+      user = "1000";
     };
 
     sonarr = {
       enable = true;
       package = pkgs.sonarr;
-      # user = "arar";
+      user = "1000";
     };
   };
 }
