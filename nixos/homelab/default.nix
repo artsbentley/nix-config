@@ -41,6 +41,7 @@
       nfs-utils
       cifs-utils
       qbittorrent
+      unzip
     ];
 
   # NOTE: test to try out
