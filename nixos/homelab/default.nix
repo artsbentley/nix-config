@@ -66,7 +66,7 @@
   };
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /export         *(rw,nohide,insecure,no_subtree_check)
+    /export         *(rw,sync,no_subtree_check)
   '';
   # /export/kotomi  192.168.1.10(rw,nohide,insecure,no_subtree_check) 192.168.1.15(rw,nohide,insecure,no_subtree_check)
 
