@@ -68,6 +68,21 @@
   services.nfs.server.exports = ''
     /export         *(rw,sync,no_subtree_check)
   '';
+
+  services.nfs.server = {
+    # fixed rpc.statd port; for firewall
+    lockdPort = 4001;
+    mountdPort = 4002;
+    statdPort = 4000;
+    extraNfsdConfig = '''';
+  };
+  networking.firewall = {
+    enable = true;
+    # for NFSv3; view with `rpcinfo -p`
+    allowedTCPPorts = [ 111 2049 4000 4001 4002 20048 ];
+    allowedUDPPorts = [ 111 2049 4000 4001 4002 20048 ];
+  };
+
   # /export/kotomi  192.168.1.10(rw,nohide,insecure,no_subtree_check) 192.168.1.15(rw,nohide,insecure,no_subtree_check)
 
   # boot.initrd = {
