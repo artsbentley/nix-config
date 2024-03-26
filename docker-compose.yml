@@ -14,7 +14,8 @@ services:
       - 6881:6881/udp
       - 8085:8085 # qbittorrent
     volumes:
-      - /mnt/nas/backups/mediaserver/gluetun:/gluetun
+      # - /mnt/nas/backups/gluetun:/gluetun
+      - /home/arar/docker/appdata/gluetun:/gluetun
     environment:
       # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
       # - VPN_TYPE=wireguard
