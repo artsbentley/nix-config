@@ -43,7 +43,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - WEBUI_PORT=8085
+      - WEBUI_PORT=8080
     volumes:
       - /home/arar/docker/appdata/qbittorrent:/config
       # - /mnt/nas/backups/mediaserver/qbittorrent:/config
