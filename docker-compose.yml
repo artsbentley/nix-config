@@ -44,7 +44,7 @@ services:
     volumes:
       - /home/arar/docker/appdata/qbittorrent:/config
       # - /mnt/nas/backups/mediaserver/qbittorrent:/config
-      - /mnt/nas/data/torrents:/data/torrents
+      - /mnt/servershare/data/torrents:/data/torrents
     depends_on:
       - gluetun
     restart: always
@@ -73,7 +73,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/radarr:/config
-      - /mnt/nas/data:/data
+      - /mnt/servershare/data:/data
 
   sonarr:
     container_name: sonarr
@@ -91,7 +91,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/sonarr:/config
       # - /data:/data
-      - /mnt/nas/data:/data
+      - /mnt/servershare/data:/data
 
   bazarr:
     container_name: bazarr
