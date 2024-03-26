@@ -20,8 +20,8 @@ services:
       # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
       # - VPN_TYPE=wireguard
       - VPN_SERVICE_PROVIDER=protonvpn
-      # - OPENVPN_USER=
-      # - OPENVPN_PASSWORD=
+      - OPENVPN_USER=${OPENVPN_USER}
+      - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
       - SERVER_COUNTRIES=Belgium
       # # Wireguard:
       # - WIREGUARD_PRIVATE_KEY=<YOUR_PRIVATE_KEY> # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/nordvpn.md#obtain-your-wireguard-private-key
