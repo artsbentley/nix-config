@@ -13,6 +13,7 @@ services:
       - 6881:6881
       - 6881:6881/udp
       - 8085:8085 # qbittorrent
+      - 9696:9696 # Prowlarr
     volumes:
       # - /mnt/nas/backups/gluetun:/gluetun
       - /home/arar/docker/appdata/gluetun:/gluetun
@@ -113,8 +114,8 @@ services:
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
-    ports:
-      - 9696:9696
+    # ports:
+    #   - 9696:9696
     network_mode: "service:gluetun"
     container_name: prowlarr
     # network_mode: "service:gluetun"
