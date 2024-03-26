@@ -12,7 +12,7 @@ services:
     ports:
       - 6881:6881
       - 6881:6881/udp
-      - 8085:8085 # qbittorrent
+      - 8080:8080 # qbittorrent
       - 9696:9696 # Prowlarr
       - 8989:8989 # Sonarr
       - 7878:7878 # Radarr
