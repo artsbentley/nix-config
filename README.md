@@ -6,4 +6,5 @@ https://www.reddit.com/r/homelab/comments/vhnjna/building_a_home_server_on_nixos
 
 
 ### scripts
-attach smb `sudo mount -t cifs -o username=,password=,uid=1000,gid=1000,dir_mode=0777,file_mode=0777 //192.168.2.5/mnt/nas mnt/nas`
+attach smb 
+`sudo mount -t cifs -o username=,password=,uid=1000,gid=1000,dir_mode=0777,file_mode=0777 //192.168.2.5//nas mnt/nas`

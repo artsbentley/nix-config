@@ -89,10 +89,10 @@
   #   supportedFilesystems = [ "nfs" ];
   #   kernelModules = [ "nfs" ];
   # };
-  # fileSystems."/mnt/test" = {
-  #   device = "192.168.2.5:/mnt/nas";
-  #   fsType = "nfs";
-  # };
+  fileSystems."/mnt/test" = {
+    device = "192.168.2.11:/mnt/test";
+    fsType = "nfs";
+  };
 
   fileSystems."/mnt/nas" =
     {
