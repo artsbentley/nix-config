@@ -1,4 +1,10 @@
 version: "3"
+volumes:
+  cifs-volume:
+    driver_opts:
+      type: cifs
+      o: username=nixos,password=nixos,uid=1000,gid=1000,vers=3.0
+      device: //192.168.2.5/nas
 services:
   gluetun:
     image: qmcgaw/gluetun
@@ -14,7 +20,7 @@ services:
       - 6881:6881/udp
       - 8085:8085 # qbittorrent
     volumes:
-      - /mnt/nas/backups/mediaserver/gluetun:/gluetun
+      - cifs-volume/backups/mediaserver/gluetun:/gluetun
     environment:
       # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
       # - VPN_TYPE=wireguard
@@ -43,7 +49,7 @@ services:
     volumes:
       - /home/arar/docker/appdata/qbittorrent:/config
       # - /mnt/nas/backups/mediaserver/qbittorrent:/config
-      - /mnt/nas/data/torrents:/data/torrents
+      - cifs-volume/data/torrents:/data/torrents
     depends_on:
       - gluetun
     restart: always
@@ -72,7 +78,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/radarr:/config
-      - /mnt/nas/data:/data
+      - cifs-volume/data:/data
 
   sonarr:
     container_name: sonarr
@@ -90,24 +96,24 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/sonarr:/config
       # - /data:/data
-      - /mnt/nas/data:/data
+      - cifs-volume/data:/data
 
-  bazarr:
-    container_name: bazarr
-    image: ghcr.io/hotio/bazarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    ports:
-      - 6767:6767
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Amsterdam
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /home/arar/docker/appdata/bazarr:/config
-      - /data/media:/data/media
+  # bazarr:
+  #   container_name: bazarr
+  #   image: ghcr.io/hotio/bazarr:latest
+  #   restart: unless-stopped
+  #   logging:
+  #     driver: json-file
+  #   ports:
+  #     - 6767:6767
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Amsterdam
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /home/arar/docker/appdata/bazarr:/config
+  #     - /data/media:/data/media
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
