@@ -33,3 +33,7 @@ setup:
 	# sudo nixos-generate-config
 	sudo nixos-rebuild switch
 
+compose:
+	sudo docker-compose down
+	git pull
+	sudo docker-compose up -d
