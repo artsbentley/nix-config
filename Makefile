@@ -37,3 +37,7 @@ compose:
 	sudo docker-compose down
 	git pull
 	sudo docker-compose up -d
+
+logs:
+	sudo journalctl -xeu systemd-tmpfiles-resetup
+
