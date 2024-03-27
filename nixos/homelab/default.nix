@@ -89,18 +89,18 @@
   #   supportedFilesystems = [ "nfs" ];
   #   kernelModules = [ "nfs" ];
   # };
-  fileSystems."/mnt/nas11" = {
-    device = "192.168.2.11:/mnt/nas";
+  fileSystems."/mnt/nas" = {
+    device = "192.168.2.11:/mnt/nas/server";
     fsType = "nfs";
   };
 
-  fileSystems."/mnt/nas" =
-    {
-      device = "//192.168.2.5/nas";
-      fsType = "cifs";
-      options = [ "username=nixos" "password=nixos" "x-systemd.automount" "noauto" "uid=arar" "gid=100" ];
-      # options = [ "guest" "x-systemd.automount" "noauto" ];
-    };
+  # fileSystems."/mnt/nas" =
+  #   {
+  #     device = "//192.168.2.5/nas";
+  #     fsType = "cifs";
+  #     options = [ "username=nixos" "password=nixos" "x-systemd.automount" "noauto" "uid=arar" "gid=100" ];
+  #     # options = [ "guest" "x-systemd.automount" "noauto" ];
+  #   };
 
   # default shell
   users.defaultUserShell = pkgs.zsh;
