@@ -90,7 +90,7 @@
   #   kernelModules = [ "nfs" ];
   # };
   fileSystems."/mnt/nas" = {
-    device = "192.168.2.11:/mnt/nas/server";
+    device = "192.168.2.11:/mnt/nas/rootserver";
     fsType = "nfs";
   };
 
