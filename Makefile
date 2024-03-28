@@ -41,3 +41,6 @@ compose:
 logs:
 	sudo journalctl -xeu systemd-tmpfiles-resetup
 
+mount:
+	sudo mount -t nfs 192.168.2.11:/mnt/nas/server /mnt/nas
+
