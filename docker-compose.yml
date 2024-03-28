@@ -34,6 +34,7 @@ services:
       # Server list updater
       # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#update-the-vpn-servers-list
       - UPDATER_PERIOD=24h
+    restart: always
 
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
@@ -66,7 +67,7 @@ services:
     container_name: radarr
     image: ghcr.io/hotio/radarr:latest
     network_mode: "service:gluetun"
-    restart: unless-stopped
+    restart: always
     logging:
       driver: json-file
     environment:
@@ -82,7 +83,7 @@ services:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
     network_mode: "service:gluetun"
-    restart: unless-stopped
+    restart: always
     logging:
       driver: json-file
     environment:
@@ -98,7 +99,7 @@ services:
   bazarr:
     container_name: bazarr
     image: ghcr.io/hotio/bazarr:latest
-    restart: unless-stopped
+    restart: always
     logging:
       driver: json-file
     ports:
@@ -125,4 +126,4 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /home/arar/docker/appdata/prowlarr/data:/config
-    restart: unless-stopped
+    restart: always

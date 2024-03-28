@@ -6,5 +6,13 @@ https://www.reddit.com/r/homelab/comments/vhnjna/building_a_home_server_on_nixos
 
 
 ### scripts
-attach smb 
+#####  attach smb 
 `sudo mount -t cifs -o username=,password=,uid=1000,gid=1000,dir_mode=0777,file_mode=0777 //192.168.2.5//nas mnt/nas`
+
+##### running iperf
+on server:
+- `iperf -s -D` to start deamon
+- `htop` to show stats
+
+on client (arar mac):
+- `iperf3 -B 192.168.2.3 -c 192.168.2.10 -t 60 `
