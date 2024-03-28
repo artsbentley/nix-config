@@ -123,7 +123,21 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=Etc/UTC
+      - TZ=${TZ}
     volumes:
       - /home/arar/docker/appdata/prowlarr/data:/config
+    restart: always
+
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /home/arar/docker/appdata/jellyfin:/config
+      - /mnt/nas/data/media:/data
+    ports:
+      - 8096:8096
     restart: always
