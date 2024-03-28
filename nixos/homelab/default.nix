@@ -4,7 +4,7 @@
 { inputs, outputs, sops-nix, lib, config, pkgs, ... }: {
   imports = [
     # ./modules/arr.nix
-    ./modules/nixarr.nix
+    # ./modules/nixarr.nix
     ./modules/syncthing.nix
     # ./modules/network.nix
 
