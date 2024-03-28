@@ -137,7 +137,8 @@ services:
       - TZ=${TZ}
     volumes:
       - /home/arar/docker/appdata/jellyfin:/config
-      - /mnt/nas/data/media:/data
+      - /mnt/nas/data/media/movies:/data/movies
+      - /mnt/nas/data/media/shows:/data/shows
     ports:
       - 8096:8096
     restart: always
