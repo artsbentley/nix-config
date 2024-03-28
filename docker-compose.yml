@@ -131,7 +131,7 @@ services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
-    user: ${PUID}:${PGID}
+    user: 1000:1000
     environment:
       # - PUID=${PUID}
       # - PGID=${PGID}
