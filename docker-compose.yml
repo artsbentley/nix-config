@@ -131,10 +131,9 @@ services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
-    user: 1000:1000
     environment:
-      # - PUID=${PUID}
-      # - PGID=${PGID}
+      - PUID=1000
+      - PGID=1000
       - TZ=${TZ}
     volumes:
       - /home/arar/docker/appdata/jellyfin:/config
