@@ -135,7 +135,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    network_mode: host
+      - JELLYFIN_PublishedServerUrl=192.168.2.10
     volumes:
       - /home/arar/docker/appdata/jellyfin:/config
       # - /mnt/nas/data/media:/data
