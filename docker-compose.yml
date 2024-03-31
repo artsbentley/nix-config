@@ -135,10 +135,12 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+    network_mode: host
     volumes:
       - /home/arar/docker/appdata/jellyfin:/config
-      - /mnt/nas/data/media:/data
-      # - /mnt/nas/data/media/shows:/data/shows
+      # - /mnt/nas/data/media:/data
+      - /mnt/nas/data/media/movies:/data/movies
+      - /mnt/nas/data/media/shows:/data/shows
     ports:
       - 8096:8096
     restart: always
