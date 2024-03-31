@@ -132,13 +132,13 @@ services:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
     environment:
-      # - PUID=${PUID}
-      # - PGID=${PGID}
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
     volumes:
       - /home/arar/docker/appdata/jellyfin:/config
-      - /mnt/nas/data/media/movies:/data/movies
-      - /mnt/nas/data/media/shows:/data/shows
+      - /mnt/nas/data/media:/data
+      # - /mnt/nas/data/media/shows:/data/shows
     ports:
       - 8096:8096
     restart: always
