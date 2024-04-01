@@ -131,7 +131,7 @@ services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
-    network_mode: "host"
+    # network_mode: "host"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
