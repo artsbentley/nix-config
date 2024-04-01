@@ -111,7 +111,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/bazarr:/config
-      - /data/media:/data/media
+      - /mnt/nas/data/media:/data/media
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -131,7 +131,7 @@ services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
-    network_mode: "service:gluetun"
+    network_mode: "host"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -157,5 +157,4 @@ services:
       TZ: ${TZ}
       PGID: ${PGID}
       PUID: ${PUID}
-
     restart: always
