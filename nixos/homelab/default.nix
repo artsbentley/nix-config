@@ -3,7 +3,7 @@
 
 { inputs, outputs, sops-nix, lib, config, pkgs, ... }: {
   imports = [
-    ./modules/arr.nix
+    ./modules/mediaserver.nix
     # ./modules/nixarr.nix
     ./modules/syncthing.nix
     # ./modules/network.nix

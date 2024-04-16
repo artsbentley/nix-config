@@ -28,6 +28,12 @@
       package = pkgs.jellyfin; # Upgrade to 10.6.x
     };
 
+    unifi = {
+      enable = true;
+      unifiPackage = pkgs.unifi8;
+      openFirewall = true;
+    };
+
     prowlarr = {
       enable = true;
     };
