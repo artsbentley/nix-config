@@ -30,7 +30,7 @@
 
     unifi = {
       enable = true;
-      unifiPackage = pkgs.unifi8;
+      unifiPackage = pkgs.unifi7;
       openFirewall = true;
     };
 
