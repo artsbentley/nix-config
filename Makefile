@@ -34,9 +34,9 @@ setup:
 	sudo nixos-rebuild switch
 
 compose:
-	sudo docker-compose down
+	sudo docker-compose -f docker/docker-compose.yml down
 	git pull
-	sudo docker-compose up -d
+	sudo docker-compose -f docker/docker-compose.yml up -d
 
 logs:
 	sudo journalctl -xeu systemd-tmpfiles-resetup
