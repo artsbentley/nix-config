@@ -4,7 +4,8 @@ services:
     environment:
       # ⚠️ Required:
       # Change this to your host's public address
-      - WG_HOST=192.168.2.10
+      # - WG_HOST=192.168.2.10
+      - WG_HOST=195.240.140.214
 
       # Optional:
       # - PASSWORD=foobar123 # When set, requires a password when logging in to the Web UI.
@@ -12,7 +13,7 @@ services:
       # - WG_DEFAULT_ADDRESS=10.8.0.x # Clients IP address range.
       # - WG_DEFAULT_DNS=1.1.1.1 # DNS server clients will use.
       # - WG_MTU=1420 # The MTU the clients will use. Server uses default WG MTU.
-      # - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24 # Allowed IPs clients will use.
+      - WG_ALLOWED_IPS=192.168.2.0/24, 0.0.0.0/24 # Allowed IPs clients will use.
       # - WG_PRE_UP=echo "Pre Up" > /etc/wireguard/pre-up.txt
       # - WG_POST_UP=echo "Post Up" > /etc/wireguard/post-up.txt
       # - WG_PRE_DOWN=echo "Pre Down" > /etc/wireguard/pre-down.txt
