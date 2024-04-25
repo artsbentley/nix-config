@@ -4,7 +4,7 @@ services:
     environment:
       # ⚠️ Required:
       # Change this to your host's public address
-      - WG_HOST=192.168.2.x
+      - WG_HOST=192.168.2.22
 
       # Optional:
       # - PASSWORD=foobar123 # When set, requires a password when logging in to the Web UI.
