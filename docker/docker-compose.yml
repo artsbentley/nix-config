@@ -128,22 +128,40 @@ services:
       - /home/arar/docker/appdata/prowlarr/data:/config
     restart: always
 
-  jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
-    container_name: jellyfin
-    # network_mode: "host"
+    # jellyfin:
+    #   image: lscr.io/linuxserver/jellyfin:latest
+    #   container_name: jellyfin
+    #   # network_mode: "host"
+    #   environment:
+    #     - PUID=${PUID}
+    #     - PGID=${PGID}
+    #     - TZ=${TZ}
+    #     - JELLYFIN_PublishedServerUrl=192.168.2.10
+    #   volumes:
+    #     - /home/arar/docker/appdata/jellyfin:/config
+    #     # - /mnt/nas/data/media:/data
+    #     - /mnt/nas/data/media/movies:/data/movies
+    #     - /mnt/nas/data/media/shows:/data/shows
+    #   ports:
+    #     - 8096:8096
+    #   restart: always
+
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - JELLYFIN_PublishedServerUrl=192.168.2.10
+      TZ: ${TZ}
+      PGID: ${PGID}
+      PUID: ${PUID}
+      VERSION: docker
+      # - PLEX_CLAIM= #optional
     volumes:
-      - /home/arar/docker/appdata/jellyfin:/config
-      # - /mnt/nas/data/media:/data
-      - /mnt/nas/data/media/movies:/data/movies
-      - /mnt/nas/data/media/shows:/data/shows
-    ports:
-      - 8096:8096
+      - /home/arar/docker/appdata/plex:/config
+      - /mnt/nas/data/media/movies:/movies
+      - /mnt/nas/data/media/shows:/shows
+      # - /path/to/tvseries:/tv
+      # - /path/to/movies:/movies
     restart: always
 
   jellyseerr:
