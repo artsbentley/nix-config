@@ -3,8 +3,6 @@ services:
   gluetun:
     image: qmcgaw/gluetun
     container_name: gluetun
-    # line above must be uncommented to allow external containers to connect.
-    # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/connect-a-container-to-gluetun.md#external-container-to-gluetun
     cap_add:
       - NET_ADMIN
     devices:
@@ -26,13 +24,7 @@ services:
       - OPENVPN_USER=${OPENVPN_USER}
       - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
       - SERVER_COUNTRIES=
-      # # Wireguard:
-      # - WIREGUARD_PRIVATE_KEY=<YOUR_PRIVATE_KEY> # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/nordvpn.md#obtain-your-wireguard-private-key
-      # - WIREGUARD_ADDRESSES=10.5.0.2/32
-      # Timezone for accurate log times
-      - TZ=Europe/London
-      # Server list updater
-      # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#update-the-vpn-servers-list
+      - TZ=${TZ}
       - UPDATER_PERIOD=24h
     restart: always
 
@@ -43,12 +35,11 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=Europe/London
+      - TZ=${TZ}
       - WEBUI_PORT=8080
     volumes:
       - /home/arar/docker/appdata/qbittorrent:/config
-      # - /mnt/nas/backups/mediaserver/qbittorrent:/config
-      - /mnt/nas/data/torrents:/data/torrents
+      - /home/arar/nas/data/torrents:/data/torrents
     depends_on:
       - gluetun
     restart: always
@@ -73,11 +64,11 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=Europe/Amsterdam
+      - TZ=${TZ}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/radarr:/config
-      - /mnt/nas/data:/data
+      - /home/arar/nas/data:/data
 
   sonarr:
     container_name: sonarr
@@ -89,12 +80,11 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=Europe/Amsterdam
+      - TZ=${TZ}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/sonarr:/config
-      # - /data:/data
-      - /mnt/nas/data:/data
+      - /home/arar/nas/data:/data
 
   bazarr:
     container_name: bazarr
@@ -107,11 +97,11 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=Europe/Amsterdam
+      - TZ=${TZ}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/bazarr:/config
-      - /mnt/nas/data/media:/data/media
+      - /home/arar/nas/data/media:/data/media
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -158,10 +148,8 @@ services:
       # - PLEX_CLAIM= #optional
     volumes:
       - /home/arar/docker/appdata/plex:/config
-      - /mnt/nas/data/media/movies:/movies
-      - /mnt/nas/data/media/shows:/shows
-      # - /path/to/tvseries:/tv
-      # - /path/to/movies:/movies
+      - /home/arar/nas/data/media/movies:/movies
+      - /home/arar/nas/data/media/shows:/shows
     restart: always
 
   jellyseerr:
