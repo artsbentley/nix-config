@@ -15,7 +15,6 @@ services:
       - 8989:8989 # Sonarr
       - 7878:7878 # Radarr
     volumes:
-      # - /mnt/nas/backups/gluetun:/gluetun
       - /home/arar/docker/appdata/gluetun:/gluetun
     environment:
       # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
@@ -39,7 +38,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - /home/arar/docker/appdata/qbittorrent:/config
-      - /home/arar/nas/data/torrents:/data/torrents
+      - /home/arar/nas/server/data/torrents:/data/torrents
     depends_on:
       - gluetun
     restart: always
@@ -68,7 +67,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/radarr:/config
-      - /home/arar/nas/data:/data
+      - /home/arar/nas/server/data:/data
 
   sonarr:
     container_name: sonarr
@@ -84,7 +83,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/sonarr:/config
-      - /home/arar/nas/data:/data
+      - /home/arar/nas/server/data:/data
 
   bazarr:
     container_name: bazarr
@@ -101,7 +100,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/arar/docker/appdata/bazarr:/config
-      - /home/arar/nas/data/media:/data/media
+      - /home/arar/nas/server/data/media:/data/media
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
@@ -118,23 +117,30 @@ services:
       - /home/arar/docker/appdata/prowlarr/data:/config
     restart: always
 
-    # jellyfin:
-    #   image: lscr.io/linuxserver/jellyfin:latest
-    #   container_name: jellyfin
-    #   # network_mode: "host"
-    #   environment:
-    #     - PUID=${PUID}
-    #     - PGID=${PGID}
-    #     - TZ=${TZ}
-    #     - JELLYFIN_PublishedServerUrl=192.168.2.10
-    #   volumes:
-    #     - /home/arar/docker/appdata/jellyfin:/config
-    #     # - /mnt/nas/data/media:/data
-    #     - /mnt/nas/data/media/movies:/data/movies
-    #     - /mnt/nas/data/media/shows:/data/shows
-    #   ports:
-    #     - 8096:8096
-    #   restart: always
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    user: ${PUID}:${PGID}
+    #group_add:
+    #  - '109'  # This needs to be the group id of running `stat -c '%g' /dev/dri/renderD128` on the docker host
+    environment:
+      - TZ=Europe/London
+    volumes:
+      - /home/arar/docker/appdata/jellyfin/config:/config
+      - /home/arar/docker/appdata/jellyfin/config:/jellyfin/cache:/cache
+      - /home/arar/nas/server/data/media/movies:/Movies:ro
+      - /home/arar/nas/server/data/media/shows:/Shows:ro
+      - /home/arar/nas/server/data/books/:/Books:ro
+      - /home/arar/nas/server/data/music:/Music:ro
+    ports:
+      - 8096:8096
+    #  - 8920:8920 #optional
+    #  - 7359:7359/udp #optional
+    #  - 1900:1900/udp #optional
+    #devices: uncomment these and amend if you require GPU accelerated transcoding
+    #  - /dev/dri/renderD128:/dev/dri/renderD128
+    #  - /dev/dri/card0:/dev/dri/card0
+    restart: always
 
   plex:
     image: lscr.io/linuxserver/plex:latest
@@ -148,8 +154,8 @@ services:
       # - PLEX_CLAIM= #optional
     volumes:
       - /home/arar/docker/appdata/plex:/config
-      - /home/arar/nas/data/media/movies:/movies
-      - /home/arar/nas/data/media/shows:/shows
+      - /home/arar/nas/server/data/media/movies:/movies
+      - /home/arar/nas/server/data/media/shows:/shows
     restart: always
 
   jellyseerr:
