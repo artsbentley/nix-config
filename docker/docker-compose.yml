@@ -127,7 +127,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /home/arar/docker/appdata/jellyfin/config:/config
-      - /home/arar/docker/appdata/jellyfin/config:/jellyfin/cache:/cache
+      - /home/arar/docker/appdata/jellyfin/cache:/cache
       - /home/arar/nas/server/data/media/movies:/Movies:ro
       - /home/arar/nas/server/data/media/shows:/Shows:ro
       - /home/arar/nas/server/data/books/:/Books:ro
