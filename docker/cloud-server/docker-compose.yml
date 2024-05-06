@@ -11,3 +11,9 @@ services:
       - /home/arar/docker/appdata/nextcloud:/config
       - /home/arar/nas/server/nextcloud/data:/data
     restart: always
+    networks:
+      proxy:
+
+networks:
+  proxy:
+    external: true
