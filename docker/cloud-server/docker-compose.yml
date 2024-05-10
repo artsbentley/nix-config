@@ -1,7 +1,7 @@
 version: "3"
 services:
   nextcloud:
-    image: lscr.io/linuxserver/nextcloud:stable
+    image: lscr.io/linuxserver/nextcloud:latest
     container_name: nextcloud
     ports:
       - 9393:443
