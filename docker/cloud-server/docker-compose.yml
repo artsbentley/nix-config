@@ -1,8 +1,10 @@
 version: "3"
 services:
   nextcloud:
-    image: lscr.io/linuxserver/nextcloud:latest
+    image: lscr.io/linuxserver/nextcloud:28.0.5
     container_name: nextcloud
+    ports:
+      - 9393:443
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -11,9 +13,3 @@ services:
       - /home/arar/docker/appdata/nextcloud:/config
       - /home/arar/nas/server/nextcloud/data:/data
     restart: always
-    networks:
-      proxy:
-
-networks:
-  proxy:
-    external: true
