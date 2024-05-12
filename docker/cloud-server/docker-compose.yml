@@ -20,8 +20,8 @@ services:
     restart: unless-stopped
     volumes:
       - redisdata:/data
-    networks:
-      paperless:
+    # networks:
+    #   paperless:
 
   webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
