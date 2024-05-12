@@ -42,6 +42,7 @@ services:
       PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
       PAPERLESS_TIKA_ENDPOINT: http://tika:9998
       PAPERLESS_TIME_ZONE: ${TZ}
+      PAPERLESS_OCR_LANGUAGES: eng nld
       # PAPERLESS_ADMIN_USER: paperless
       # PAPERLESS_ADMIN_PASSWORD: paperless
       # PAPERLESS_DBHOST: db
