@@ -21,7 +21,7 @@ services:
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     extends:
       file: hwaccel.yml
-      service: quicksync
+      service: cpu
     command: ["start.sh", "microservices"]
     volumes:
       - /home/arar/nas/server/immich/upload:/usr/src/app/upload
