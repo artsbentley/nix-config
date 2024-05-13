@@ -9,10 +9,10 @@ services:
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
-    # ports:
-    #   - 2283:3001
-    expose:
-      - 3001
+    ports:
+      - 2283:3001
+    # expose:
+    # - 3001
     depends_on:
       - redis
       - database
