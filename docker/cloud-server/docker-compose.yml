@@ -66,7 +66,24 @@ services:
     image: ghcr.io/paperless-ngx/tika:latest
     restart: always
 
+  # SYNCTHING ############################################
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    hostname: syncthing #optional
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /home/arar/docker/appdata/syncthing/config:/config
+      - /home/arar/nas/:/nas
+    ports:
+      - 8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
+    restart: always
+
 volumes:
-  data:
-  media:
   redisdata:
