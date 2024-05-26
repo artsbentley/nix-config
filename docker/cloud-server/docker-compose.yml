@@ -43,13 +43,6 @@ services:
       PAPERLESS_TIKA_ENDPOINT: http://tika:9998
       PAPERLESS_TIME_ZONE: ${TZ}
       PAPERLESS_OCR_LANGUAGES: eng nld
-      # PAPERLESS_ADMIN_USER: paperless
-      # PAPERLESS_ADMIN_PASSWORD: paperless
-      # PAPERLESS_DBHOST: db
-      # PAPERLESS_URL: https://paperless.jimsgarage.co.uk
-      # PAPERLESS_APPS: "allauth.socialaccount.providers.openid_connect"
-      # Find out how to configure Authentik: https://youtu.be/enwFWELCYJo
-      # PAPERLESS_SOCIALACCOUNT_PROVIDERS: '{"openid_connect": {"APPS": [{"provider_id": "authentik","name": "Authentik SSO","client_id": "BnxpFXvscduU2PdAdPaCelphhDYpAXo9upbAUS3F","secret": "0JcyunvA0Ra25i49zULTbro0jdbH9gHrdnSDExT9Ze2TNoB8so9B8AbdB7riYjYHPZfwuWtAeTCpwPAi2Sct7M8w3y8VTPPxwgFG1JzdoWdxLgUz0NO6l3L2UFBmzQ5m","settings": { "server_url": "https://authentik.jimsgarage.co.uk/application/o/paperless-ngx/.well-known/openid-configuration"}}]}}'
 
   gotenberg:
     image: docker.io/gotenberg/gotenberg:7.10
@@ -85,5 +78,16 @@ services:
       - 21027:21027/udp
     restart: always
 
+  # VAULTWARDEN ###########################################
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    volumes:
+      - "/home/arar/docker/appdata/vaultwarden/:/data/"
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+
+# CLOUDFLARE ############################################
 volumes:
   redisdata:
