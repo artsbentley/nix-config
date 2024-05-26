@@ -23,6 +23,7 @@ services:
 
   webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    container_name: paperless-ngx
     restart: always
     depends_on:
       - broker
@@ -45,6 +46,7 @@ services:
       PAPERLESS_OCR_LANGUAGES: eng nld
 
   gotenberg:
+    container_name: gotenberg
     image: docker.io/gotenberg/gotenberg:7.10
     restart: always
 
@@ -56,6 +58,7 @@ services:
       - "--chromium-allow-list=file:///tmp/.*"
 
   tika:
+    container_name: tika
     image: ghcr.io/paperless-ngx/tika:latest
     restart: always
 
@@ -92,6 +95,7 @@ services:
 
   # CLOUDFLARE ############################################
   cloudflaretunnel:
+    container_name: cloudflaredtunnel
     image: cloudflare/cloudflared:latest
     restart: always
     environment:
