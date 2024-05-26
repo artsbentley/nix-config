@@ -90,6 +90,13 @@ services:
     security_opt:
       - no-new-privileges:true
 
-# CLOUDFLARE ############################################
+  # CLOUDFLARE ############################################
+  cloudflaretunnel:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    environment:
+      - TUNNEL_TOKEN=$TUNNEL_TOKEN
+    command: tunnel --no-autoupdate run
+
 volumes:
   redisdata:
