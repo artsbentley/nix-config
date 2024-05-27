@@ -94,7 +94,7 @@ services:
     security_opt:
       - no-new-privileges:true
     environment:
-      - ADMIN_TOKEN:${VAULTWARDEN_ADMIN_TOKEN}
+      - ADMIN_TOKEN:$VAULTWARDEN_ADMIN_TOKEN
 
   # CLOUDFLARE ############################################
   cloudflaretunnel:
