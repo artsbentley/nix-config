@@ -92,6 +92,9 @@ services:
     restart: always
     security_opt:
       - no-new-privileges:true
+    environment:
+      - WEBSOCKET_ENABLED:true
+      - ADMIN_TOKEN:${ADMIN_TOKEN}
 
   # CLOUDFLARE ############################################
   cloudflaretunnel:
