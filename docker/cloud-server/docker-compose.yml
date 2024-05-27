@@ -94,15 +94,15 @@ services:
     security_opt:
       - no-new-privileges:true
     environment:
-      - ADMIN_TOKEN:${ADMIN_TOKEN}
+      - ADMIN_TOKEN:${VAULTWARDEN_ADMIN_TOKEN}
 
   # CLOUDFLARE ############################################
   cloudflaretunnel:
     container_name: cloudflaredtunnel
     image: cloudflare/cloudflared:latest
     restart: always
-    # environment:
-    #   - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN}
+    environment:
+      - TUNNEL_TOKEN=$TUNNEL_TOKEN
     command: tunnel --no-autoupdate run
 
 volumes:
