@@ -16,6 +16,7 @@ services:
 
   # PAPERLESS-NGX
   broker:
+    container_name: redis
     image: docker.io/library/redis:7
     restart: unless-stopped
     volumes:
