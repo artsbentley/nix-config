@@ -102,7 +102,7 @@ services:
     image: cloudflare/cloudflared:latest
     restart: always
     environment:
-      - TUNNEL_TOKEN=$TUNNEL_TOKEN
+      - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN}
     command: tunnel --no-autoupdate run
 
 volumes:
