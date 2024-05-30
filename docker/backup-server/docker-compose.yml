@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   bw-export:
     container_name: bw-export
@@ -12,6 +13,7 @@ services:
       - BW_PASSWORD=$BW_PASSWORD
       - BW_URL_SERVER=$BW_URL_SERVER
       - EXPORT_PASSWORD=$EXPORT_PASSWORD
+      - KEEP_LAST_BACKUPS=5
     restart:
       always
       # Optional: By default, /var/data/
