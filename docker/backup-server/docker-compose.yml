@@ -14,11 +14,6 @@ services:
       - BW_URL_SERVER=$BW_URL_SERVER
       - EXPORT_PASSWORD=$EXPORT_PASSWORD
       - KEEP_LAST_BACKUPS=5
-    restart:
-      always
-      # Optional: By default, /var/data/
-      # - OUTPUT_PATH=< Output path ie /var/data/ >
-      # Optional: By default, /var/attachment/
-      # - ATTACHMENTS_PATH=<attachment path ie /var/attachment/ >
       # Optional: If not provided, the service will export all organizations in vault.
       # - BW_ORGANIZATIONS_LIST=<Organization list id, comma separated>
+    restart: always
