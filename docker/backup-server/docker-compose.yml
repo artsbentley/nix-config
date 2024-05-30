@@ -5,8 +5,8 @@ services:
     container_name: bw-export
     image: 0netx/bw-export
     volumes:
-      - /home/arar/nas/server/backup/vaultwarden:/var/data
-      - /home/arar/nas/server/backup/vaultwarden:/var/attachment
+      - /home/arar/nas/server/backup/vaultwarden/arar/data/:/var/data
+      - /home/arar/nas/server/backup/vaultwarden/arar/attachtment/:/var/attachment
     environment:
       - BW_CLIENTID=$BW_CLIENTID
       - BW_CLIENTSECRET=$BW_CLIENTSECRET
