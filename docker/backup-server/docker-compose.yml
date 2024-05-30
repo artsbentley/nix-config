@@ -16,4 +16,3 @@ services:
       - KEEP_LAST_BACKUPS=5
       # Optional: If not provided, the service will export all organizations in vault.
       # - BW_ORGANIZATIONS_LIST=<Organization list id, comma separated>
-    restart: always
