@@ -12,6 +12,8 @@ services:
       - BW_PASSWORD=$BW_PASSWORD
       - BW_URL_SERVER=$BW_URL_SERVER
       - EXPORT_PASSWORD=$EXPORT_PASSWORD
+    restart:
+      always
       # Optional: By default, /var/data/
       # - OUTPUT_PATH=< Output path ie /var/data/ >
       # Optional: By default, /var/attachment/
