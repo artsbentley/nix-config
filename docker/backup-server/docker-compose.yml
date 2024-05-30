@@ -12,7 +12,7 @@ services:
       - BW_CLIENTSECRET=$BW_CLIENTSECRET
       - BW_PASSWORD=$BW_PASSWORD
       - BW_URL_SERVER=$BW_URL_SERVER
-      - EXPORT_PASSWORD=$EXPORT_PASSWORD
+      - EXPORT_PASSWORD=$BW_PASSWORD
       - KEEP_LAST_BACKUPS=50
       # Optional: If not provided, the service will export all organizations in vault.
       # - BW_ORGANIZATIONS_LIST=<Organization list id, comma separated>
