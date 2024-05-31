@@ -105,5 +105,20 @@ services:
       - TUNNEL_TOKEN=$TUNNEL_TOKEN
     command: tunnel --no-autoupdate run
 
+  # MEALIE ################################################
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v1.7.0 #
+    container_name: mealie
+    restart: always
+    ports:
+      - "9925:9000"
+    volumes:
+      - /home/arar/docker/appdata/mealie:/app/data/
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - ALLOW_SIGNUP=true
+
 volumes:
   redisdata:
