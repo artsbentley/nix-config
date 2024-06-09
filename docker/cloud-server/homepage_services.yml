@@ -1,0 +1,71 @@
+- Infrastructure:
+    - Proxmox:
+        icon: proxmox.svg
+        href: https://local.proxmox:8006/#v1
+        description: Virtual environment
+    - Portainer:
+        icon: portainer.svg
+        href: http://local.debian:9000/#!/home
+        description: Container management
+
+- Media:
+    - Jellyfin:
+        icon: jellyfin.svg
+        href: http://local.debian:8096
+        description: Media Player
+    - Jellyseerr:
+        icon: jellyseerr.svg
+        href: http://local.debian:5055/
+        description: Media Requests
+    - Immich:
+        icon: immich.svg
+        href: http://local.debian:2283
+        description: Photos
+
+- Torrent:
+    - qBittorrent:
+        icon: qbittorrent.svg
+        href: http://local.debian:8080/
+        description: Linux ISO Server
+    - Sonarr:
+        icon: sonarr.png
+        href: http://local.debian:8989/
+        siteMonitor: local.debian:8989/
+        description: TV Pull Automation
+    - Radarr:
+        icon: radarr.png
+        href: http://local.debian:7878/
+        siteMonitor: local.debian:7878/
+        description: Film Pull Automation
+    - Prowlarr:
+        icon: prowlarr.svg
+        href: http://local.debian:9696/
+        description: Index Pull Automation
+
+- Network and IoT:
+    - OPNSense:
+        icon: opnsense.svg
+        href: https://192.168.1.1
+        description: Router
+    - Adguard Home:
+        icon: adguard-home.svg
+        href: http://192.168.1.1
+        description: DNS
+    - Unifi:
+        icon: unifi.svg
+        href: https://homeassistant.local:8443
+        description: Network hardware management
+    - Home Assistant:
+        icon: home-assistant.svg
+        href: http://homeassistant.local:8123/
+        description: Home Automation
+
+- Access and Services:
+    - Vaultwarden:
+        icon: bitwarden.svg
+        href: https://vault.artsbentley.com
+        description: Self-hosted Bitwarden Admin Interface
+    - Mealie:
+        icon: mealie.svg
+        href: http://local.debian:9925/
+        description: Recipe manager
