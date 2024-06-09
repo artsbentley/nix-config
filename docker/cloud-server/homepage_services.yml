@@ -21,6 +21,10 @@
         icon: immich.svg
         href: http://local.debian:2283
         description: Photos
+    - Paperless:
+        icon: paperless.svg
+        href: http://local.debian:8000/
+        description: PDF and file management
 
 - Torrent:
     - qBittorrent:
@@ -65,6 +69,10 @@
         icon: bitwarden.svg
         href: https://vault.artsbentley.com
         description: Self-hosted Bitwarden Admin Interface
+    - Syncthing:
+        icon: syncthing.svg
+        href: http://local.debian:8384/
+        description: Syncing service
     - Mealie:
         icon: mealie.svg
         href: http://local.debian:9925/
