@@ -68,8 +68,8 @@ services:
     container_name: syncthing
     hostname: syncthing #optional
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
     volumes:
       - /home/arar/docker/appdata/syncthing/config:/config
