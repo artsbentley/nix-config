@@ -10,7 +10,6 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZ}
       - BW_CLIENTID=$BW_CLIENTID
       - BW_CLIENTSECRET=$BW_CLIENTSECRET
       - BW_PASSWORD=$BW_PASSWORD
