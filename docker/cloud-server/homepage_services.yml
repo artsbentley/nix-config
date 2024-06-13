@@ -71,7 +71,7 @@
         description: Self-hosted Bitwarden Admin Interface
     - Syncthing:
         icon: syncthing.svg
-        href: http://local.debian:8384/
+        href: https://local.debian:8384/
         description: Syncing service
     - Mealie:
         icon: mealie.svg
