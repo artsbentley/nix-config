@@ -1,18 +1,86 @@
-TODO: seperate nixos into modules, see here:
-https://github.com/LongerHV/nixos-configuration/blob/f844fab9280eeefcf689c68b1f630cd42fa3cc8a/modules/nixos/homelab/default.nix
-https://www.reddit.com/r/homelab/comments/vhnjna/building_a_home_server_on_nixos/
+# nix-config
 
+Configuration files for my NixOS and nix-darwin machines.
 
+Very much a work in progress.
 
+## Installation runbook (NixOS)
 
-### scripts
-#####  attach smb 
-`sudo mount -t cifs -o username=,password=,uid=1000,gid=1000,dir_mode=0777,file_mode=0777 //192.168.2.5//nas mnt/nas`
+Create a root password using the TTY
+```bash
+sudo su
+passwd
+```
 
-##### running iperf
-on server:
-- `iperf -s -D` to start deamon
-- `htop` to show stats
+From your host, copy the public SSH key to the server
+```bash
+ssh-add ~/.ssh/arar
+ssh-copy-id -i ~/.ssh/arar root@<NIXOS-IP>
+ssh root@<NIXOS-IP>
+```
 
-on client (arar mac):
-- `iperf3 -B 192.168.2.3 -c 192.168.2.10 -t 60 `
+Enable flakes
+```bash
+mkdir -p ~/.config/nix
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+```
+
+Partition and mount the drives using [disko](https://github.com/nix-community/disko)
+```bash
+DISK='/dev/disk/by-id/ata-Samsung_SSD_870_EVO_250GB_S6PENL0T902873K'
+
+curl https://raw.githubusercontent.com/arar/nix-config/main/disko/zfs-root/default.nix \
+    -o /tmp/disko.nix
+sed -i "s|to-be-filled-during-installation|$DISK|" /tmp/disko.nix
+nix --experimental-features "nix-command flakes" run github:nix-community/disko \
+    -- --mode disko /tmp/disko.nix
+```
+
+Install git and git-crypt
+```bash
+nix-env -f '<nixpkgs>' -iA git
+nix-env -f '<nixpkgs>' -iA git-crypt
+```
+
+Clone this repository
+```bash
+mkdir -p /mnt/etc/nixos
+git clone https://github.com/arar/nix-config.git /mnt/etc/nixos
+```
+
+Put the private and GPG key into place (required for secret management)
+```bash
+mkdir -p /mnt/home/arar/.ssh
+exit
+scp ~/.ssh/id_ed25519 root@<NIXOS-IP>:/mnt/home/arar/.ssh
+scp ~/.ssh/git-crypt-nix root@<NIXOS-IP>:/mnt/home/arar/.ssh
+ssh root@<NIXOS-IP>
+chmod 700 /mnt/home/arar/.ssh
+chmod 600 /mnt/home/arar/.ssh/*
+```
+
+Unlock the git-crypt vault
+```bash
+cd /mnt/etc/nixos
+git-crypt unlock /mnt/home/arar/.ssh/git-crypt-nix
+```
+
+Install the system
+```bash
+nixos-install \
+--root "/mnt" \
+--no-root-passwd \
+--flake "git+file:///mnt/etc/nixos#hostname" # alison, emily, etc.
+```
+
+Unmount the filesystems
+```bash
+umount "/mnt/boot/esp"
+umount -Rl "/mnt"
+zpool export -a
+```
+
+Reboot
+```bash
+reboot
+```
