@@ -16,13 +16,6 @@
     allowedTCPPorts = [ 5357 ];
     allowedUDPPorts = [ 3702 ];
   };
-}
-
-{
-  imports =
-    [
-      (modulesPath + "/profiles/qemu-guest.nix")
-    ];
 
   boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
@@ -60,18 +53,14 @@
   #   };
   # };
 
-  #imports = [
-  #./backup
-  #];
+  # imports = [
+  #   ./backup
+  # ];
+
   networking = {
     hostName = "nixos";
     timeZone = "Europe/Berlin";
     hostId = "0730ae51";
-  };
-
-  powerManagement.powertop.enable = true;
-
-  networking = {
     useDHCP = true;
     networkmanager.enable = false;
     firewall = {
@@ -79,6 +68,8 @@
       trustedInterfaces = [ "enp1s0" ];
     };
   };
+
+  powerManagement.powertop.enable = true;
 
   virtualisation.docker.storageDriver = "overlay2";
   system.autoUpgrade.enable = true;
@@ -104,5 +95,5 @@
     gcc
     intel-gpu-tools
   ];
-
 }
+
