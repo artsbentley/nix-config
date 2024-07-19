@@ -12,6 +12,6 @@ in
   "hashedUserPassword.age".publicKeys = keys;
   "vaultPassword.age".publicKeys = keys;
   # NOTE: not sure what gitincludes does yet
-  "gitIncludes.age".publicKeys = keys;
+  #"gitIncludes.age".publicKeys = keys;
   "protonvpnCredentials.age".publicKeys = keys;
 }
