@@ -55,7 +55,7 @@
 
   networking = {
     hostName = "nixos";
-    timeZone = "Europe/Berlin";
+    #timeZone = "Europe/Berlin";
     hostId = "0730ae51";
     useDHCP = true;
     networkmanager.enable = false;
