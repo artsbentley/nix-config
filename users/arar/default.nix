@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: 
+{ config, pkgs, lib, ... }:
 {
   nix.settings.trusted-users = [ "arar" ];
 
@@ -11,14 +11,6 @@
     file = ../../secrets/hashedUserPassword.age;
   };
 
-
-  email = {
-    fromAddress = "moe@notthebe.ee";
-    toAddress = "server_announcements@mailbox.org";
-    smtpServer = "email-smtp.eu-west-1.amazonaws.com";
-    smtpUsername = "AKIAYYXVLL34J7LSXFZF";
-    smtpPasswordPath = config.age.secrets.smtpPassword.path;
-  };
 
 
   users = {
@@ -35,10 +27,10 @@
     };
     groups = {
       arar = {
-        gid= 1000;
+        gid = 1000;
       };
     };
   };
   programs.zsh.enable = true;
 
-  }
+}
