@@ -12,10 +12,6 @@
   };
   users.users.arar.extraGroups = [ "share" ];
 
-  networking.firewall = {
-    allowedTCPPorts = [ 5357 ];
-    allowedUDPPorts = [ 3702 ];
-  };
 
   boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
@@ -64,6 +60,8 @@
     useDHCP = true;
     networkmanager.enable = false;
     firewall = {
+      allowedTCPPorts = [ 5357 ];
+      allowedUDPPorts = [ 3702 ];
       allowPing = true;
       trustedInterfaces = [ "enp1s0" ];
     };
