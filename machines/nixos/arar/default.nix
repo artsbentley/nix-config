@@ -1,4 +1,4 @@
-{ inputs, networksLocal, lib, config, vars, pkgs, ... }:
+{ modulesPath, inputs, networksLocal, lib, config, vars, pkgs, ... }:
 {
   users = {
     groups.share = {
@@ -19,6 +19,20 @@
 }
 
 {
+  imports =
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
+    ];
+
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ ];
+  boot.extraModulePackages = [ ];
+
+  swapDevices = [ ];
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   # boot.kernelModules = [ "coretemp" "jc42" "lm78" "f71882fg" ];
   # hardware.cpu.intel.updateMicrocode = true;
   # hardware.enableRedistributableFirmware = true;
