@@ -76,7 +76,6 @@
             # Base configuration and modules
             ./modules/podman
             ./modules/tailscale
-            ./modules/zfs-root
 
             # Import the machine config + secrets
             ./machines/nixos
