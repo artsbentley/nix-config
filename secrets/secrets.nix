@@ -10,6 +10,7 @@ in
   "sonarrApiKey.age".publicKeys = keys;
   "immichDatabase.age".publicKeys = keys;
   "hashedUserPassword.age".publicKeys = keys;
+  "vaultPassword.age".publicKeys = keys;
   # NOTE: not sure what gitincludes does yet
   "gitIncludes.age".publicKeys = keys;
 }
