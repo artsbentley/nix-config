@@ -22,6 +22,12 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  fileSystems."/" =
+    {
+      device = "/dev/disk/by-uuid/b5160afe-16b2-4ec3-bab0-ee17491e3485";
+      fsType = "ext4";
+    };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
