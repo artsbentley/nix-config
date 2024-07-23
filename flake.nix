@@ -1,9 +1,9 @@
 {
   inputs = {
-    secrets = {
-      url = "git+file:secrets"; # the submodule is in the ./subproject dir
-      flake = false;
-    };
+    # secrets = {
+    #   url = "git+file:secrets"; # the submodule is in the ./subproject dir
+    #   flake = false;
+    # };
     nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
