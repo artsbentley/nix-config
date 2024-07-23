@@ -92,7 +92,6 @@
             # ./containers/homepage
 
             # User-specific configurations
-			./machines/nixos/arar/hardware-configuration.nix
             # ./users/arar
             # home-manager.nixosModules.home-manager
             # {

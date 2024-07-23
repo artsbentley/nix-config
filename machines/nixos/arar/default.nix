@@ -42,7 +42,7 @@
   # };
 
   imports = [
-    ./hardware-configuration
+    ./hardware-configuration.nix
   ];
 
   networking = {
