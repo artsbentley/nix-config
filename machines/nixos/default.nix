@@ -42,9 +42,9 @@
     };
   };
   services.openssh = {
-    enable = lib.mkDefault true;
+    enable = true;
     settings = {
-      PasswordAuthentication = lib.mkDefault true;
+      PasswordAuthentication = true;
       PermitRootLogin = "no";
     };
     ports = [ 69 ];
