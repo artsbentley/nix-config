@@ -47,7 +47,7 @@
       PasswordAuthentication = true;
       PermitRootLogin = "no";
     };
-    ports = [ 69 ];
+    # ports = [ 69 ];
     # hostKeys = [
     #   {
     #     path = "/persist/ssh/ssh_host_ed25519_key";
