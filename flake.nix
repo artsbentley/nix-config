@@ -93,7 +93,7 @@
             # ./containers/homepage
 
             # User-specific configurations
-            # ./users/arar
+            ./users/arar
             # home-manager.nixosModules.home-manager
             # {
             #   home-manager.useGlobalPkgs = false;

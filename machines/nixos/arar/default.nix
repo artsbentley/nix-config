@@ -14,6 +14,10 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
+
   # boot.kernelModules = [ "coretemp" "jc42" "lm78" "f71882fg" ];
   # hardware.cpu.intel.updateMicrocode = true;
   # hardware.enableRedistributableFirmware = true;
@@ -40,10 +44,6 @@
   #     };
   #   };
   # };
-
-  # imports = [
-  #   ./hardware-configuration.
-  # ];
 
   networking = {
     hostName = "nixos";
