@@ -80,6 +80,7 @@
             # Import the machine config + secrets
             ./machines/nixos
             ./machines/nixos/arar
+            ./machines/nixos/arar/hardware
             # ./secrets
             agenix.nixosModules.default
 

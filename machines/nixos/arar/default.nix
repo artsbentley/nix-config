@@ -41,9 +41,9 @@
   #   };
   # };
 
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  # imports = [
+  #   ./hardware-configuration.
+  # ];
 
   networking = {
     hostName = "nixos";
