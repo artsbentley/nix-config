@@ -67,6 +67,14 @@
   programs.mosh.enable = true;
   programs.htop.enable = true;
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/arar/nix-config/flake.nix";
+  };
+
+
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -107,4 +115,5 @@
   ];
 
 }
+
 
