@@ -46,7 +46,7 @@
   # };
 
   networking = {
-    hostName = "nixos";
+    hostName = "arar";
     #timeZone = "Europe/Berlin";
     hostId = "0730ae51";
     useDHCP = true;
