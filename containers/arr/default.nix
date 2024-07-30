@@ -42,7 +42,7 @@ in
         extraOptions = [
         ];
 		ports = [
-		"127.0.0.1:8989:8989"
+		"8989:8989"
 		];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
@@ -61,7 +61,7 @@ in
         autoStart = true;
         extraOptions = [ ];
 		ports = [
-		"127.0.0.1:9696:9696"
+		"9696:9696"
 		];
         volumes = [
           "${vars.serviceConfigRoot}/prowlarr:/config"
@@ -78,7 +78,7 @@ in
         autoStart = true;
         extraOptions = [ ];
 		ports = [
-		"127.0.0.1:7878:7878"
+		"7878:7878"
 		];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
