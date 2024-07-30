@@ -33,6 +33,16 @@ in
   #
   # '';
 
+  services.cockpit = {
+    enable = true;
+    port = 9090;
+    settings = {
+      WebService = {
+        AllowUnencrypted = true;
+      };
+    };
+  };
+
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {
     containers = {
