@@ -14,6 +14,8 @@ let
 in
 {
 
+  # TODO: setup recylarr 
+  #
   # system.activationScripts.recyclarr_configure = ''
   #   sed=${pkgs.gnused}/bin/sed
   #   configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
@@ -33,6 +35,7 @@ in
   #
   # '';
 
+  # TODO: move cockpit elsewhere
   services.cockpit = {
     enable = true;
     port = 9090;
@@ -61,6 +64,9 @@ in
         ];
         environment = {
           TZ = vars.timeZone;
+		  # TODO: implement this way of configuring the PUID and PGID
+		  # PUID = "${toString config.users.users.josh.uid}";
+		  # PGID = "${toString config.users.groups.plex.gid}";
           PUID = "994";
           GUID = "993";
           UMASK = "002";
