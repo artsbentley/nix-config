@@ -81,7 +81,7 @@
             ./machines/nixos
             ./machines/nixos/arar
             ./machines/nixos/arar/hardware
-            ./secrets
+            # ./secrets
             agenix.nixosModules.default
 
             # Services and applications

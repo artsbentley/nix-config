@@ -26,6 +26,7 @@ with lib;
       ".." = "cd ..";
       "c" = "clear";
       "l" = "exa -lbF -l --icons -a --git";
+      "ls" = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
       "update" = "cd ~/nix-config && sudo nixos-rebuild switch --flake .#arar";
     };
     #histSize = 10000;

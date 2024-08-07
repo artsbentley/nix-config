@@ -1,12 +1,12 @@
 { inputs, lib, config, pkgs, ... }:
 let
-  nixpkgs = {
-    overlays = [ ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
+  # nixpkgs = {
+  #   overlays = [ ];
+  #   config = {
+  #     allowUnfree = true;
+  #     allowUnfreePredicate = (_: true);
+  #   };
+  # };
 in
 {
   home.username = "arar";
@@ -18,6 +18,7 @@ in
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
+  # TODO: put dotfiles in nix repo and use relative path below 
   home.file = {
     ".zshrc".source = ~/dotfiles/zshrc/.zshrc;
     ".config/wezterm".source = ~/dotfiles/wezterm;
