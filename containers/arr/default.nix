@@ -37,7 +37,7 @@ in
 
   # TODO: move cockpit elsewhere
   services.cockpit = {
-    enable = true;
+    enable = config.age.secrets.test.path;
     port = 9090;
     settings = {
       WebService = {
@@ -54,9 +54,9 @@ in
         autoStart = true;
         extraOptions = [
         ];
-		ports = [
-		"8989:8989"
-		];
+        ports = [
+          "8989:8989"
+        ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/TV:/tv"
@@ -64,9 +64,9 @@ in
         ];
         environment = {
           TZ = vars.timeZone;
-		  # TODO: implement this way of configuring the PUID and PGID
-		  # PUID = "${toString config.users.users.josh.uid}";
-		  # PGID = "${toString config.users.groups.plex.gid}";
+          # TODO: implement this way of configuring the PUID and PGID
+          # PUID = "${toString config.users.users.josh.uid}";
+          # PGID = "${toString config.users.groups.plex.gid}";
           PUID = "994";
           GUID = "993";
           UMASK = "002";
@@ -76,9 +76,9 @@ in
         image = "binhex/arch-prowlarr";
         autoStart = true;
         extraOptions = [ ];
-		ports = [
-		"9696:9696"
-		];
+        ports = [
+          "9696:9696"
+        ];
         volumes = [
           "${vars.serviceConfigRoot}/prowlarr:/config"
         ];
@@ -93,9 +93,9 @@ in
         image = "lscr.io/linuxserver/radarr";
         autoStart = true;
         extraOptions = [ ];
-		ports = [
-		"7878:7878"
-		];
+        ports = [
+          "7878:7878"
+        ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/Movies:/movies"
