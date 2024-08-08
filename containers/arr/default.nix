@@ -55,7 +55,7 @@ in
         extraOptions = [
         ];
         ports = [
-          config.age.secrets.test.path
+          "${config.age.secrets.test.path}"
           # "8989:8989"
         ];
         volumes = [
