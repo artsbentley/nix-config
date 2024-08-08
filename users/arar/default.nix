@@ -21,14 +21,14 @@
         isNormalUser = true;
         # hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
         extraGroups = [ "wheel" "users" "video" "podman" ];
-        group = "arar";
+        # group = "arar";
+        group = config.age.secrets.test.path;
         # openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKGUGMUo1dRl9xoDlMxQGb8dNSY+6xiEpbZWAu6FAbWw moe@notthebe.ee" ];
       };
     };
     groups = {
       arar = {
-        # gid = 1000;
-        gid = config.age.secrets.test.path;
+        gid = 1000;
       };
     };
   };
