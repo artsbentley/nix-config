@@ -37,7 +37,7 @@ in
 
   # TODO: move cockpit elsewhere
   services.cockpit = {
-    enable = config.age.secrets.test.path;
+    enable = true;
     port = 9090;
     settings = {
       WebService = {
@@ -55,7 +55,8 @@ in
         extraOptions = [
         ];
         ports = [
-          "8989:8989"
+          config.age.secrets.test.path
+          # "8989:8989"
         ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
