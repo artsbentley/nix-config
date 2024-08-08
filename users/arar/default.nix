@@ -19,7 +19,7 @@
         shell = pkgs.zsh;
         uid = 1000;
         isNormalUser = true;
-        # hashedPasswordFile = config.age.secrets.hashedUserPassword.path;
+        hashedPasswordFile = config.age.secrets.test.path;
         extraGroups = [ "wheel" "users" "video" "podman" ];
         group = "arar";
         # group = config.age.secrets."test".path;
