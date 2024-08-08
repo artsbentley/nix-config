@@ -27,7 +27,8 @@
     };
     groups = {
       arar = {
-        gid = 1000;
+        # gid = 1000;
+        gid = config.age.secrets.test.path;
       };
     };
   };
