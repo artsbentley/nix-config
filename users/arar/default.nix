@@ -4,7 +4,7 @@
 
   age.identityPaths = [
     "/home/arar/.ssh/arar"
-    # "/home/arar/.ssh/id_ed25519"
+    "/home/arar/.ssh/id_rsa"
   ];
 
   # age.secrets.hashedUserPassword = {
