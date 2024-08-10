@@ -81,14 +81,29 @@ in
           VPN_SERVICE_PROVIDER = "protonvpn";
         };
       };
+
+      qbittorrent = {
+        image = "lscr.io/linuxserver/qbittorrent";
+        autoStart = true;
+        dependsOn = [ "gluetun" ];
+        extraOptions = [ "--network=container:gluetun" ];
+        environment = {
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
+          TZ = vars.timeZone;
+          WEBUI_PORT = "8080";
+        };
+        volumes = [
+          "${vars.serviceConfigRoot}/qbittorrent:/config"
+          "${vars.nasMount}/torrents:/data/torrents"
+        ];
+      };
+
       sonarr = {
         image = "lscr.io/linuxserver/sonarr:develop";
         autoStart = true;
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
-        # ports = [
-        #   "8989:8989"
-        # ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/TV:/tv"
@@ -107,7 +122,6 @@ in
         autoStart = true;
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
-        # ports = [ "9696:9696" ];
         volumes = [
           "${vars.serviceConfigRoot}/prowlarr:/config"
         ];
@@ -123,7 +137,6 @@ in
         autoStart = true;
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
-        # ports = [ "7878:7878" ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/Movies:/movies"
