@@ -46,6 +46,10 @@ in
     };
   };
 
+  services.portainer = {
+    enable = true;
+  };
+
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {
     containers = {
