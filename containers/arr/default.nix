@@ -49,14 +49,36 @@ in
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {
     containers = {
+      gluetun = {
+        image = "qmcgaw/gluetun";
+        autoStart = true;
+        extraOptions = [
+          "--cap-add=NET_ADMIN"
+          "--device=/dev/net/tun:/dev/net/tun"
+        ];
+        ports = [
+          "6881:6881"
+          "6881:6881/udp"
+          "8080:8080" # qbittorrent
+          "9696:9696" # Prowlarr
+          "8989:8989" # Sonarr
+          "7878:7878" # Radarr
+        ];
+        environmentFiles = [
+          config.age.secrets.protonVpnUser.path
+          config.age.secrets.protonVpnPass.path
+        ];
+        environment = {
+          VPN_SERVICE_PROVIDER = "protonvpn";
+        };
+      };
       sonarr = {
         image = "lscr.io/linuxserver/sonarr:develop";
         autoStart = true;
-        extraOptions = [
-        ];
-        ports = [
-          "8989:8989"
-        ];
+        extraOptions = [ "--network=container:gluetun" ];
+        # ports = [
+        #   "8989:8989"
+        # ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/TV:/tv"
@@ -67,18 +89,14 @@ in
           # TODO: implement this way of configuring the PUID and PGID
           PUID = "${toString config.users.users.share.uid}";
           PGID = "${toString config.users.groups.share.gid}";
-          # PUID = "994";
-          # GUID = "993";
           UMASK = "002";
         };
       };
       prowlarr = {
         image = "binhex/arch-prowlarr";
         autoStart = true;
-        extraOptions = [ ];
-        ports = [
-          "9696:9696"
-        ];
+        extraOptions = [ "--network=container:gluetun" ];
+        # ports = [ "9696:9696" ];
         volumes = [
           "${vars.serviceConfigRoot}/prowlarr:/config"
         ];
@@ -92,10 +110,8 @@ in
       radarr = {
         image = "lscr.io/linuxserver/radarr";
         autoStart = true;
-        extraOptions = [ ];
-        ports = [
-          "7878:7878"
-        ];
+        extraOptions = [ "--network=container:gluetun" ];
+        # ports = [ "7878:7878" ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/Movies:/movies"
@@ -108,6 +124,27 @@ in
           UMASK = "002";
         };
       };
+
+      #
+      # qbittorrent:
+      #   image: lscr.io/linuxserver/qbittorrent
+      #   container_name: qbittorrent
+      #   network_mode: "service:gluetun"
+      #   environment:
+      #     - PUID=${PUID}
+      #     - PGID=${PGID}
+      #     - TZ=${TZ}
+      #     - WEBUI_PORT=8080
+      #   volumes:
+      #     - /home/arar/docker/appdata/qbittorrent:/config
+      #     - /home/arar/nas/server/data/torrents:/data/torrents
+      #   depends_on:
+      #     - gluetun
+      #   restart: always
+
+
+
+
       #      booksonic = {
       #        image = "lscr.io/linuxserver/booksonic-air";
       #        autoStart = true;
