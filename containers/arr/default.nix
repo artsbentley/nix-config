@@ -54,7 +54,7 @@ in
         autoStart = true;
         ports = [ "127.0.0.1:9000:9000" ];
         volumes = [
-          "${vars.serviceConfigRoot}/portainer:/data"
+          "portainer_data:/data"
           "/var/run/docker.sock:/var/run/docker.sock"
         ];
       };
