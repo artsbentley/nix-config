@@ -65,10 +65,10 @@ in
         environment = {
           TZ = vars.timeZone;
           # TODO: implement this way of configuring the PUID and PGID
-          # PUID = "${toString config.users.users.josh.uid}";
-          # PGID = "${toString config.users.groups.plex.gid}";
-          PUID = "994";
-          GUID = "993";
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
+          # PUID = "994";
+          # GUID = "993";
           UMASK = "002";
         };
       };
