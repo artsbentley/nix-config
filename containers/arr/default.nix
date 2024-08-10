@@ -75,8 +75,7 @@ in
           "7878:7878" # Radarr
         ];
         environmentFiles = [
-          config.age.secrets.protonVpnUser.path
-          config.age.secrets.protonVpnPass.path
+          config.age.secrets.protonvpnCredentials.path
         ];
         environment = {
           VPN_SERVICE_PROVIDER = "protonvpn";
