@@ -58,84 +58,84 @@ in
         ];
       };
 
-      gluetun = {
-        image = "qmcgaw/gluetun";
-        autoStart = true;
-        extraOptions = [
-          "--cap-add=NET_ADMIN"
-          "--device=/dev/net/tun:/dev/net/tun"
-        ];
-        ports = [
-          "6881:6881"
-          "6881:6881/udp"
-          "8080:8080" # qbittorrent
-          "9696:9696" # Prowlarr
-          "8989:8989" # Sonarr
-          "7878:7878" # Radarr
-        ];
-        environmentFiles = [
-          config.age.secrets.protonVpnUser.path
-          config.age.secrets.protonVpnPass.path
-        ];
-        environment = {
-          VPN_SERVICE_PROVIDER = "protonvpn";
-        };
-      };
-      sonarr = {
-        image = "lscr.io/linuxserver/sonarr:develop";
-        autoStart = true;
-        dependsOn = [ "gluetun" ];
-        extraOptions = [ "--network=container:gluetun" ];
-        # ports = [
-        #   "8989:8989"
-        # ];
-        volumes = [
-          "${vars.nasMount}/Media/Downloads:/downloads"
-          "${vars.nasMount}/Media/TV:/tv"
-          "${vars.serviceConfigRoot}/sonarr:/config"
-        ];
-        environment = {
-          TZ = vars.timeZone;
-          # TODO: implement this way of configuring the PUID and PGID
-          PUID = "${toString config.users.users.share.uid}";
-          PGID = "${toString config.users.groups.share.gid}";
-          UMASK = "002";
-        };
-      };
-      prowlarr = {
-        image = "binhex/arch-prowlarr";
-        autoStart = true;
-        dependsOn = [ "gluetun" ];
-        extraOptions = [ "--network=container:gluetun" ];
-        # ports = [ "9696:9696" ];
-        volumes = [
-          "${vars.serviceConfigRoot}/prowlarr:/config"
-        ];
-        environment = {
-          TZ = vars.timeZone;
-          PUID = "${toString config.users.users.share.uid}";
-          PGID = "${toString config.users.groups.share.gid}";
-          UMASK = "002";
-        };
-      };
-      radarr = {
-        image = "lscr.io/linuxserver/radarr";
-        autoStart = true;
-        dependsOn = [ "gluetun" ];
-        extraOptions = [ "--network=container:gluetun" ];
-        # ports = [ "7878:7878" ];
-        volumes = [
-          "${vars.nasMount}/Media/Downloads:/downloads"
-          "${vars.nasMount}/Media/Movies:/movies"
-          "${vars.serviceConfigRoot}/radarr:/config"
-        ];
-        environment = {
-          TZ = vars.timeZone;
-          PUID = "${toString config.users.users.share.uid}";
-          PGID = "${toString config.users.groups.share.gid}";
-          UMASK = "002";
-        };
-      };
+      # gluetun = {
+      #   image = "qmcgaw/gluetun";
+      #   autoStart = true;
+      #   extraOptions = [
+      #     "--cap-add=NET_ADMIN"
+      #     "--device=/dev/net/tun:/dev/net/tun"
+      #   ];
+      #   ports = [
+      #     "6881:6881"
+      #     "6881:6881/udp"
+      #     "8080:8080" # qbittorrent
+      #     "9696:9696" # Prowlarr
+      #     "8989:8989" # Sonarr
+      #     "7878:7878" # Radarr
+      #   ];
+      #   environmentFiles = [
+      #     config.age.secrets.protonVpnUser.path
+      #     config.age.secrets.protonVpnPass.path
+      #   ];
+      #   environment = {
+      #     VPN_SERVICE_PROVIDER = "protonvpn";
+      #   };
+      # };
+      # sonarr = {
+      #   image = "lscr.io/linuxserver/sonarr:develop";
+      #   autoStart = true;
+      #   dependsOn = [ "gluetun" ];
+      #   extraOptions = [ "--network=container:gluetun" ];
+      #   # ports = [
+      #   #   "8989:8989"
+      #   # ];
+      #   volumes = [
+      #     "${vars.nasMount}/Media/Downloads:/downloads"
+      #     "${vars.nasMount}/Media/TV:/tv"
+      #     "${vars.serviceConfigRoot}/sonarr:/config"
+      #   ];
+      #   environment = {
+      #     TZ = vars.timeZone;
+      #     # TODO: implement this way of configuring the PUID and PGID
+      #     PUID = "${toString config.users.users.share.uid}";
+      #     PGID = "${toString config.users.groups.share.gid}";
+      #     UMASK = "002";
+      #   };
+      # };
+      # prowlarr = {
+      #   image = "binhex/arch-prowlarr";
+      #   autoStart = true;
+      #   dependsOn = [ "gluetun" ];
+      #   extraOptions = [ "--network=container:gluetun" ];
+      #   # ports = [ "9696:9696" ];
+      #   volumes = [
+      #     "${vars.serviceConfigRoot}/prowlarr:/config"
+      #   ];
+      #   environment = {
+      #     TZ = vars.timeZone;
+      #     PUID = "${toString config.users.users.share.uid}";
+      #     PGID = "${toString config.users.groups.share.gid}";
+      #     UMASK = "002";
+      #   };
+      # };
+      # radarr = {
+      #   image = "lscr.io/linuxserver/radarr";
+      #   autoStart = true;
+      #   dependsOn = [ "gluetun" ];
+      #   extraOptions = [ "--network=container:gluetun" ];
+      #   # ports = [ "7878:7878" ];
+      #   volumes = [
+      #     "${vars.nasMount}/Media/Downloads:/downloads"
+      #     "${vars.nasMount}/Media/Movies:/movies"
+      #     "${vars.serviceConfigRoot}/radarr:/config"
+      #   ];
+      #   environment = {
+      #     TZ = vars.timeZone;
+      #     PUID = "${toString config.users.users.share.uid}";
+      #     PGID = "${toString config.users.groups.share.gid}";
+      #     UMASK = "002";
+      #   };
+      # };
 
       #
       # qbittorrent:
