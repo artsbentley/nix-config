@@ -49,6 +49,15 @@ in
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {
     containers = {
+      portainer = {
+        image = "portainer/portainer-ce";
+        autoStart = true;
+        ports = [ "9000:9000" ];
+        volumes = [
+          "${vars.serviceConfigRoot}/portainer:/data"
+        ];
+      };
+
       gluetun = {
         image = "qmcgaw/gluetun";
         autoStart = true;
