@@ -52,7 +52,7 @@ in
       portainer = {
         image = "portainer/portainer-ce";
         autoStart = true;
-        ports = [ "9000:9000" ];
+        ports = [ "127.0.0.1:9000:9000" ];
         volumes = [
           "${vars.serviceConfigRoot}/portainer:/data"
           "/var/run/docker.sock:/var/run/docker.sock"
