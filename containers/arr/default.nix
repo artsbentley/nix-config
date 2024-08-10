@@ -55,7 +55,7 @@ in
         ports = [ "127.0.0.1:9000:9000" ];
         volumes = [
           "portainer_data:/data"
-          "/var/run/docker.sock:/var/run/docker.sock"
+          "/run/podman/podman.sock:/var/run/docker.sock"
         ];
       };
 
