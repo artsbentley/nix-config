@@ -18,8 +18,7 @@ in
   # NOTE: not sure what gitincludes does yet
   #
   #"gitIncludes.age".publicKeys = keys;
-  "protonVpnUser.age".publicKeys = keys;
-  "protonVpnPass.age".publicKeys = keys;
+  "protonvpnCredentials.age".publicKeys = keys;
   "test.age".publicKeys = keys;
 }
 

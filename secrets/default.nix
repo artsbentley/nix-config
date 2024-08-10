@@ -4,8 +4,7 @@
   age = {
     secrets = {
       test.file = ./test.age;
-      protonVpnUser.file = ./protonVpnUser.age;
-      protonVpnPass.file = ./protonVpnPass.age;
+      protonvpnCredentials.file = ./protonvpnCredentials.age;
     };
   };
 }
