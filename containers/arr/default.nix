@@ -55,6 +55,7 @@ in
         ports = [ "9000:9000" ];
         volumes = [
           "${vars.serviceConfigRoot}/portainer:/data"
+          "/var/run/docker.sock:/var/run/docker.sock"
         ];
       };
 
