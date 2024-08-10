@@ -84,8 +84,8 @@ in
         ];
         environment = {
           TZ = vars.timeZone;
-          PUID = "994";
-          GUID = "993";
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
           UMASK = "002";
         };
       };
@@ -103,8 +103,8 @@ in
         ];
         environment = {
           TZ = vars.timeZone;
-          PUID = "994";
-          GUID = "993";
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
           UMASK = "002";
         };
       };
