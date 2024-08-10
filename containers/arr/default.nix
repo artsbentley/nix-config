@@ -46,10 +46,6 @@ in
     };
   };
 
-  services.portainer = {
-    enable = true;
-  };
-
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {
     containers = {
@@ -79,6 +75,7 @@ in
       sonarr = {
         image = "lscr.io/linuxserver/sonarr:develop";
         autoStart = true;
+        dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         # ports = [
         #   "8989:8989"
@@ -99,6 +96,7 @@ in
       prowlarr = {
         image = "binhex/arch-prowlarr";
         autoStart = true;
+        dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         # ports = [ "9696:9696" ];
         volumes = [
@@ -114,6 +112,7 @@ in
       radarr = {
         image = "lscr.io/linuxserver/radarr";
         autoStart = true;
+        dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         # ports = [ "7878:7878" ];
         volumes = [
