@@ -87,9 +87,9 @@
             # Services and applications
             # ./containers/paperless-ngx
             # ./containers/deluge
-            # ./containers/arr
-            # ./containers/paperless
-            # ./containers/mealie
+            ./containers/arr
+            ./containers/paperless
+            ./containers/mealie
             # ./containers/jellyfin
             # ./containers/vaultwarden
             # ./containers/homepage
