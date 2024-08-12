@@ -10,7 +10,7 @@ let
     "${vars.nasMount}/Media/TV"
     "${vars.nasMount}/Media/Movies"
     "${vars.nasMount}/Media/Audiobooks"
-    "${vars.nasMount}/torrents"
+    # "${vars.nasMount}/torrents"
   ];
 in
 {
@@ -94,6 +94,7 @@ in
           TZ = vars.timeZone;
           WEBUI_PORT = "8080";
         };
+        # TODO: sort out proper directory structure and permissions
         volumes = [
           "${vars.serviceConfigRoot}/qbittorrent:/config"
           "${vars.nasMount}/torrents:/data/torrents"
@@ -118,6 +119,7 @@ in
           UMASK = "002";
         };
       };
+
       prowlarr = {
         image = "binhex/arch-prowlarr";
         autoStart = true;
@@ -133,6 +135,7 @@ in
           UMASK = "002";
         };
       };
+
       radarr = {
         image = "lscr.io/linuxserver/radarr";
         autoStart = true;
@@ -151,22 +154,62 @@ in
         };
       };
 
-      #
-      # qbittorrent:
-      #   image: lscr.io/linuxserver/qbittorrent
-      #   container_name: qbittorrent
-      #   network_mode: "service:gluetun"
+      jellyfin = {
+        image = "jellyfin/jellyfin";
+        autoStart = true;
+        # extraOptions = [ "--network=container:gluetun" ];
+        volumes = [
+          # TODO: redo nas directory structure according to trash guides
+          "${vars.nasMount}/Media/Books:/Books:ro"
+          "${vars.nasMount}/Media/Music:/Books:ro"
+          "${vars.nasMount}/Media/Shows:/Shows:ro"
+          "${vars.nasMount}/Media/Movies:/Movies:ro"
+          "${vars.serviceConfigRoot}/jellyfin/config:/config"
+          "${vars.serviceConfigRoot}/jellyfin/cache:/cache"
+        ];
+        environment = {
+          TZ = vars.timeZone;
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
+          UMASK = "002";
+        };
+        ports = [
+          "8096:8096"
+          "8920:8920"
+          "7359:7359/udp"
+          "1900:1900/udp"
+        ];
+        #devices: uncomment these and amend if you require GPU accelerated transcoding
+        #  - /dev/dri/renderD128:/dev/dri/renderD128
+        #  - /dev/dri/card0:/dev/dri/card0
+      };
+
+
+      # jellyfin:
+      #   image: jellyfin/jellyfin
+      #   container_name: jellyfin
+      #   user: ${PUID}:${PGID}
+      #   #group_add:
+      #   #  - '109'  # This needs to be the group id of running `stat -c '%g' /dev/dri/renderD128` on the docker host
       #   environment:
-      #     - PUID=${PUID}
-      #     - PGID=${PGID}
-      #     - TZ=${TZ}
-      #     - WEBUI_PORT=8080
+      #     - TZ=Europe/London
       #   volumes:
-      #     - /home/arar/docker/appdata/qbittorrent:/config
-      #     - /home/arar/nas/server/data/torrents:/data/torrents
-      #   depends_on:
-      #     - gluetun
-      #   restart: always
+      #     - /home/arar/docker/appdata/jellyfin/config:/config
+      #     - /home/arar/docker/appdata/jellyfin/cache:/cache
+      #     - /home/arar/nas/server/data/media/movies:/Movies:ro
+      #     - /home/arar/nas/server/data/media/shows:/Shows:ro
+      #     - /home/arar/nas/server/data/books/:/Books:ro
+      #     - /home/arar/nas/server/data/music:/Music:ro
+      #   ports:
+      #     - 8096:8096
+      #     - 8920:8920 #optional
+      #     - 7359:7359/udp #optional
+      #     - 1900:1900/udp #optional
+      #   #devices: uncomment these and amend if you require GPU accelerated transcoding
+      #   #  - /dev/dri/renderD128:/dev/dri/renderD128
+      #   #  - /dev/dri/card0:/dev/dri/card0
+
+
 
 
 
