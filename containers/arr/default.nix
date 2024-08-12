@@ -2,7 +2,7 @@
 let
   directories = [
     "${vars.serviceConfigRoot}/portainer"
-    # "${vars.serviceConfigRoot}/jellyfin"
+    "${vars.serviceConfigRoot}/jellyfin"
     "${vars.serviceConfigRoot}/jellyfin/cache"
     "${vars.serviceConfigRoot}/jellyfin/config"
     "${vars.serviceConfigRoot}/jellyseerr"
@@ -177,8 +177,8 @@ in
         user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
         environment = {
           TZ = vars.timeZone;
-          # PUID = "${toString config.users.users.share.uid}";
-          # PGID = "${toString config.users.groups.share.gid}";
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
           UMASK = "002";
         };
         ports = [
