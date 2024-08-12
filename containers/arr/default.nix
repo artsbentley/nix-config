@@ -12,6 +12,7 @@ let
     "${vars.nasMount}/Media/Downloads"
     "${vars.nasMount}/Media/TV"
     "${vars.nasMount}/Media/Movies"
+    "${vars.nasMount}/Media/Music"
     "${vars.nasMount}/Media/Audiobooks"
     # "${vars.nasMount}/torrents"
   ];
@@ -164,7 +165,7 @@ in
         volumes = [
           # TODO: redo nas directory structure according to trash guides
           "${vars.nasMount}/Media/Books:/Books:ro"
-          "${vars.nasMount}/Media/Music:/Books:ro"
+          "${vars.nasMount}/Media/Music:/Music:ro"
           "${vars.nasMount}/Media/Shows:/Shows:ro"
           "${vars.nasMount}/Media/Movies:/Movies:ro"
           "${vars.serviceConfigRoot}/jellyfin/config:/config"
