@@ -67,7 +67,8 @@ in
         ];
         environment = {
           PAPERLESS_REDIS = "redis://paperless-redis:6379";
-          PAPERLESS_OCR_LANGUAGE = "eng nld";
+          PAPERLESS_OCR_LANGUAGE = "eng";
+          PAPERLESS_OCR_LANGUAGES = "nld";
           PAPERLESS_FILENAME_FORMAT = "{created}/{correspondent}/{title}";
           PAPERLESS_TIME_ZONE = "${vars.timeZone}";
           PAPERLESS_CONSUMER_POLLING = "1";
