@@ -80,7 +80,7 @@ in
         };
       };
       paperless-redis = {
-        image = "docer.io/library/redis:7";
+        image = "docker.io/library/redis:7";
         autoStart = true;
         # extraOptions = [
         #   "--network = container:paperless "
