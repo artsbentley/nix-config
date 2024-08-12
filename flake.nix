@@ -89,6 +89,7 @@
             # ./containers/deluge
             ./containers/arr
             ./containers/paperless
+            ./containers/mealie
             # ./containers/jellyfin
             # ./containers/vaultwarden
             # ./containers/homepage
