@@ -2,7 +2,7 @@
 let
   directories = [
     "${vars.serviceConfigRoot}/portainer"
-    "${vars.serviceConfigRoot}/jellyfin"
+    # "${vars.serviceConfigRoot}/jellyfin"
     "${vars.serviceConfigRoot}/jellyfin/cache"
     "${vars.serviceConfigRoot}/jellyfin/config"
     "${vars.serviceConfigRoot}/jellyseerr"
