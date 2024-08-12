@@ -40,8 +40,9 @@
         df = "df -h";
         du = "du -ch";
         ipp = "curl ipinfo.io/ip";
-        # aspm = "sudo lspci -vv | awk '/ASPM/{print $0}' RS= | grep --color -P '(^[a-z0-9:.]+|ASPM )'";
         mkdir = "mkdir -p";
+        home = "cd ~";
+        c = "clear";
 
         ".." = "cd ..";
         "..." = "cd ../..";
