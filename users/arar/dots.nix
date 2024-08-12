@@ -1,20 +1,23 @@
 { inputs, lib, config, pkgs, ... }:
 let
-  # nixpkgs = {
-  #   overlays = [ ];
-  #   config = {
-  #     allowUnfree = true;
-  #     allowUnfreePredicate = (_: true);
-  #   };
-  # };
+  home = {
+    username = "arar";
+    homeDirectory = "/home/arar";
+    stateVersion = "23.11";
+  };
+
 in
 {
-  home.username = "arar";
-  home.homeDirectory = "/home/arar";
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  nixpkgs = {
+    overlays = [
+    ];
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
 
-  # Makes sense for user specific applications that shouldn't be available system-wide
-  home.packages = [ ];
+  home = home;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
