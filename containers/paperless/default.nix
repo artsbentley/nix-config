@@ -52,6 +52,7 @@ in
       paperless = {
         image = "ghcr.io/paperless-ngx/paperless-ngx";
         autoStart = true;
+        ports = [ "8000:8000" ];
         extraOptions = [
           "--device=/dev/dri:/dev/dri"
         ];
