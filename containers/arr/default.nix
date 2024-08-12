@@ -2,6 +2,9 @@
 let
   directories = [
     "${vars.serviceConfigRoot}/sonarr"
+    "${vars.serviceConfigRoot}/portainer"
+    "${vars.serviceConfigRoot}/jellyfin"
+    "${vars.serviceConfigRoot}/jellyseerr"
     "${vars.serviceConfigRoot}/radarr"
     "${vars.serviceConfigRoot}/prowlarr"
     "${vars.serviceConfigRoot}/recyclarr"

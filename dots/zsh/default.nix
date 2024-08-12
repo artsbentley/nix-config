@@ -33,6 +33,10 @@
       };
       shellAliases = {
         la = "ls --color -lha";
+        ls = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
+        tree = "${pkgs.eza}/bin/eza --color=auto --tree";
+        cal = "cal -m";
+        grep = "grep --color=auto";
         df = "df -h";
         du = "du -ch";
         ipp = "curl ipinfo.io/ip";
