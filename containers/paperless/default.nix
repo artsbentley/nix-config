@@ -59,7 +59,7 @@ in
           "${vars.nasMount}/Documents/Paperless/Documents:/usr/src/paperless/media"
           "${vars.nasMount}/Documents/Paperless/Import:/usr/src/paperless/consume"
           "${vars.nasMount}/Documents/Paperless/Export:/usr/src/paperless/export"
-          "${vars.serviceConfigRoot}/paperless/data:/usr/src/paperless/data"
+          "${vars.serviceConfigRoot}/paperless:/usr/src/paperless/data"
         ];
         environmentFiles = [
           config.age.secrets.paperless.path
