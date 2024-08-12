@@ -28,13 +28,13 @@
           { name = "zsh-users/zsh-completions"; }
           { name = "zsh-users/zsh-history-substring-search"; }
           { name = "unixorn/warhol.plugin.zsh"; }
-          { name = "arar/prompt"; tags = [ as:theme ]; }
+          # { name = "arar/prompt"; tags = [ as:theme ]; }
         ];
       };
       shellAliases = {
         la = "ls --color -lha";
-        l = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
-        tree = "${pkgs.eza}/bin/eza --color=auto --tree";
+        l = "${pkgs.eza}/bin/eza --group-directories-first -lbF -l --icons -a --git --sort=type --color=always";
+        lt = "${pkgs.eza}/bin/eza --color=auto --tree";
         cal = "cal -m";
         grep = "rg --color=auto";
         df = "df -h";
@@ -42,6 +42,10 @@
         ipp = "curl ipinfo.io/ip";
         # aspm = "sudo lspci -vv | awk '/ASPM/{print $0}' RS= | grep --color -P '(^[a-z0-9:.]+|ASPM )'";
         mkdir = "mkdir -p";
+
+        ".." = "cd ..";
+        "..." = "cd ../..";
+
       };
 
       #initExtra = ''
@@ -86,4 +90,6 @@
     };
   };
 }
+
+
 
