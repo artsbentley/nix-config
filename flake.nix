@@ -96,17 +96,17 @@
 
             # User-specific configurations
             ./users/arar
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.useGlobalPkgs = false;
-            #   home-manager.extraSpecialArgs = { inherit inputs; };
-            #   home-manager.users.arar.imports = [
-            #     agenix.homeManagerModules.default
-            #     nix-index-database.hmModules.nix-index
-            #     ./users/arar/dots.nix
-            #   ];
-            #   home-manager.backupFileExtension = "bak";
-            # }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.arar.imports = [
+                agenix.homeManagerModules.default
+                nix-index-database.hmModules.nix-index
+                ./users/arar/dots.nix
+              ];
+              home-manager.backupFileExtension = "bak";
+            }
           ];
         };
 
