@@ -80,11 +80,11 @@ in
         };
       };
       paperless-redis = {
-        image = "redis";
+        image = "docer.io/library/redis:7";
         autoStart = true;
-        extraOptions = [
-          "--network = container:paperless "
-        ];
+        # extraOptions = [
+        #   "--network = container:paperless "
+        # ];
       };
     };
   };
