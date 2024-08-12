@@ -164,7 +164,6 @@ in
       jellyfin = {
         image = "jellyfin/jellyfin";
         autoStart = true;
-        # extraOptions = [ "--network=container:gluetun" ];
         volumes = [
           # TODO: redo nas directory structure according to trash guides
           "${vars.nasMount}/Media/Books:/Books:ro"
@@ -190,38 +189,21 @@ in
         #devices: uncomment these and amend if you require GPU accelerated transcoding
         #  - /dev/dri/renderD128:/dev/dri/renderD128
         #  - /dev/dri/card0:/dev/dri/card0
+        #
+        #
       };
 
-
-      # jellyfin:
-      #   image: jellyfin/jellyfin
-      #   container_name: jellyfin
-      #   user: ${PUID}:${PGID}
-      #   #group_add:
-      #   #  - '109'  # This needs to be the group id of running `stat -c '%g' /dev/dri/renderD128` on the docker host
-      #   environment:
-      #     - TZ=Europe/London
-      #   volumes:
-      #     - /home/arar/docker/appdata/jellyfin/config:/config
-      #     - /home/arar/docker/appdata/jellyfin/cache:/cache
-      #     - /home/arar/nas/server/data/media/movies:/Movies:ro
-      #     - /home/arar/nas/server/data/media/shows:/Shows:ro
-      #     - /home/arar/nas/server/data/books/:/Books:ro
-      #     - /home/arar/nas/server/data/music:/Music:ro
-      #   ports:
-      #     - 8096:8096
-      #     - 8920:8920 #optional
-      #     - 7359:7359/udp #optional
-      #     - 1900:1900/udp #optional
-      #   #devices: uncomment these and amend if you require GPU accelerated transcoding
-      #   #  - /dev/dri/renderD128:/dev/dri/renderD128
-      #   #  - /dev/dri/card0:/dev/dri/card0
-
-
-
-
-
-
+      jellyseerr = {
+        autoStart = true;
+        image = "fallenbagel/jellyseerr:latest";
+        volumes = [ "${vars.serviceConfigRoot}/jellyseerr:/app/config" ];
+        ports = [ "5055:5055" ];
+        environment = {
+          TZ = vars.timeZone;
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
+        };
+      };
       #      booksonic = {
       #        image = "lscr.io/linuxserver/booksonic-air";
       #        autoStart = true;
