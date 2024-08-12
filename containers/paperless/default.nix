@@ -23,7 +23,7 @@ in
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
 
   networking.firewall.allowedTCPPorts = [
-    8080 # WebDAV
+    8088 # WebDAV
   ];
 
   services.webdav = {
@@ -33,7 +33,7 @@ in
     environmentFile = config.age.secrets.paperless.path;
     settings = {
       address = "0.0.0.0";
-      port = 8080;
+      port = 8088;
       scope = "${vars.nasMount}/Documents/Paperless/Import";
       modify = true;
       auth = true;
@@ -48,6 +48,7 @@ in
 
   virtualisation.oci-containers = {
     containers = {
+      # TODO: add gotenberg and tika
       paperless = {
         image = "ghcr.io/paperless-ngx/paperless-ngx";
         autoStart = true;
@@ -55,9 +56,9 @@ in
           "--device=/dev/dri:/dev/dri"
         ];
         volumes = [
-          "${vars.cacheArray}/Documents/Paperless/Documents:/usr/src/paperless/media"
-          "${vars.cacheArray}/Documents/Paperless/Import:/usr/src/paperless/consume"
-          "${vars.cacheArray}/Documents/Paperless/Export:/usr/src/paperless/export"
+          "${vars.nasMount}/Documents/Paperless/Documents:/usr/src/paperless/media"
+          "${vars.nasMount}/Documents/Paperless/Import:/usr/src/paperless/consume"
+          "${vars.nasMount}/Documents/Paperless/Export:/usr/src/paperless/export"
           "${vars.serviceConfigRoot}/paperless/data:/usr/src/paperless/data"
         ];
         environmentFiles = [
@@ -65,27 +66,28 @@ in
         ];
         environment = {
           PAPERLESS_REDIS = "redis://paperless-redis:6379";
-          PAPERLESS_OCR_LANGUAGE = "deu";
-          PAPERLESS_FILENAME_FORMAT = "{created}-{correspondent}-{title}";
+          PAPERLESS_OCR_LANGUAGE = "eng nld";
+          PAPERLESS_FILENAME_FORMAT = "{created}/{correspondent}/{title}";
           PAPERLESS_TIME_ZONE = "${vars.timeZone}";
-          PAPERLESS_URL = "https://paperless.${vars.domainName}";
-          PAPERLESS_ADMIN_USER = "arar";
           PAPERLESS_CONSUMER_POLLING = "1";
-          PAPERLESS_SECRET_KEY = "changeme";
-          USERMAP_UID = "994";
-          UID = "994";
-          GID = "9943";
-          USERMAP_GID = "993";
+          # PAPERLESS_ADMIN_USER = "arar";
+          # PAPERLESS_SECRET_KEY = "changeme";
+          # ${toString config.users.users.share.uid}"
+          USERMAP_UID = "${toString config.users.users.share.uid}";
+          UID = "${toString config.users.users.share.uid}";
+          GID = "${toString config.users.users.share.gid}";
+          USERMAP_GID = "${toString config.users.users.share.gid}";
         };
       };
       paperless-redis = {
         image = "redis";
         autoStart = true;
         extraOptions = [
-          "--network=container:paperless"
+          "--network = container:paperless "
         ];
       };
     };
   };
 }
+
 
