@@ -75,8 +75,8 @@ in
           # ${toString config.users.users.share.uid}"
           USERMAP_UID = "${toString config.users.users.share.uid}";
           UID = "${toString config.users.users.share.uid}";
-          GID = "${toString config.users.users.share.gid}";
-          USERMAP_GID = "${toString config.users.users.share.gid}";
+          GID = "${toString config.users.groups.share.gid}";
+          USERMAP_GID = "${toString config.users.groups.share.gid}";
         };
       };
       paperless-redis = {
