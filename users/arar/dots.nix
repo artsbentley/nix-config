@@ -38,7 +38,7 @@ in
     # ../../dots/nvim/default.nix
     # ../../dots/neofetch/default.nix
     # ./packages.nix
-    # ./gitconfig.nix
+    ./gitconfig.nix
   ];
 
   programs.nix-index = {

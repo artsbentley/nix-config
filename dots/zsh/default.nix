@@ -36,6 +36,7 @@
         l = "${pkgs.eza}/bin/eza --group-directories-first -lbF -l --icons -a --git --sort=type --color=always";
         lt = "${pkgs.eza}/bin/eza --color=auto --tree";
         cal = "cal -m";
+        cat = "bat";
         grep = "rg --color=auto";
         df = "df -h";
         du = "du -ch";
