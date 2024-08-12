@@ -55,7 +55,7 @@ in
         autoStart = true;
         ports = [ "9000:9000" ];
         volumes = [
-          "portainer_data:/data"
+          "${vars.serviceConfigRoot}/portainer:/data"
           "/run/podman/podman.sock:/var/run/docker.sock"
         ];
       };
