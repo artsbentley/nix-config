@@ -10,7 +10,7 @@ let
 in
 {
   home.username = "arar";
-  home.homeDirectory = "/Users/arar";
+  home.homeDirectory = "/home/arar";
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # Makes sense for user specific applications that shouldn't be available system-wide
