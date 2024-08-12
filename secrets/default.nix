@@ -5,6 +5,7 @@
     secrets = {
       test.file = ./test.age;
       protonvpnCredentials.file = ./protonvpnCredentials.age;
+      paperless.file = ./paperless.age;
     };
   };
 }

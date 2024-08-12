@@ -19,6 +19,7 @@ in
   #
   #"gitIncludes.age".publicKeys = keys;
   "protonvpnCredentials.age".publicKeys = keys;
+  "paperless".publicKeys = keys;
   "test.age".publicKeys = keys;
 }
 
