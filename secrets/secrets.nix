@@ -21,5 +21,6 @@ in
   "protonvpnCredentials.age".publicKeys = keys;
   "paperless.age".publicKeys = keys;
   "test.age".publicKeys = keys;
+  "vaultwarden.age".publicKeys = keys;
 }
 
