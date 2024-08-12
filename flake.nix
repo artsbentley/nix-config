@@ -88,6 +88,7 @@
             # ./containers/paperless-ngx
             # ./containers/deluge
             ./containers/arr
+            ./containers/paperless
             # ./containers/jellyfin
             # ./containers/vaultwarden
             # ./containers/homepage
