@@ -170,10 +170,11 @@ in
           "${vars.serviceConfigRoot}/jellyfin/config:/config"
           "${vars.serviceConfigRoot}/jellyfin/cache:/cache"
         ];
+        user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
         environment = {
           TZ = vars.timeZone;
-          PUID = "${toString config.users.users.share.uid}";
-          PGID = "${toString config.users.groups.share.gid}";
+          # PUID = "${toString config.users.users.share.uid}";
+          # PGID = "${toString config.users.groups.share.gid}";
           UMASK = "002";
         };
         ports = [
@@ -247,4 +248,5 @@ in
     };
   };
 }
+
 
