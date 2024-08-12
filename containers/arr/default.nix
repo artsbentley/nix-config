@@ -14,6 +14,7 @@ let
     "${vars.nasMount}/Media/Movies"
     "${vars.nasMount}/Media/Music"
     "${vars.nasMount}/Media/Audiobooks"
+    "${vars.nasMount}/Media/Books"
     # "${vars.nasMount}/torrents"
   ];
 in
