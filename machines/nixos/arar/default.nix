@@ -33,7 +33,7 @@
     };
   };
 
-  fileSystems."/mnt/backupshare" =
+  fileSystems."/home/arar/backupshare" =
     {
       device = "//192.168.1.123/backupshare";
       fsType = "cifs";
