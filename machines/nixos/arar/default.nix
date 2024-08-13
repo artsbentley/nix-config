@@ -35,7 +35,7 @@
 
   fileSystems."/home/arar/backupshare" =
     {
-      device = "//192.168.1.123/mnt/backupshare";
+      device = "//192.168.1.123/backupshare";
       fsType = "cifs";
       options = [ "username=fileshare" "password=fileshare" "x-systemd.automount" "noauto" ];
       # device = "//192.168.1.123/backupshare";
