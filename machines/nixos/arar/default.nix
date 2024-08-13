@@ -33,6 +33,15 @@
     };
   };
 
+  fileSystems."/mnt/backupshare" =
+    {
+      device = "//192.168.1.123/backupshare";
+      fsType = "cifs";
+      options = [ "username=fileshare" "password=fileshare" "x-systemd.automount" "noauto" "uid=993" "gid=994" ];
+      # options = [ "guest" "x-systemd.automount" "noauto" ];
+    };
+
+
   powerManagement.powertop.enable = true;
 
   virtualisation.docker.storageDriver = "overlay2";
