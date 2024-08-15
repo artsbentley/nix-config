@@ -85,13 +85,10 @@
             agenix.nixosModules.default
 
             # Services and applications
-            # ./containers/paperless-ngx
-            # ./containers/deluge
             ./containers/arr
             ./containers/paperless
             ./containers/mealie
-            # ./containers/jellyfin
-            # ./containers/vaultwarden
+            ./containers/vaultwarden
             # ./containers/homepage
 
             # User-specific configurations

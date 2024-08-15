@@ -22,22 +22,22 @@ in
       };
     };
     # TODO this needs a cronjob to be run daily
-    bw-export = {
-      image = "0netx/bw-export";
-      # autoStart = true;
-      volumes = [
-        "${vars.nasMount}/Backup/vaultwarden/arar/data:/var/attachment"
-        "${vars.nasMount}/Backup/vaultwarden/arar/attachment:/var/attachment"
-      ];
-      # NOTE: this .env might collide with vaultwarden, if it does, seperate out into
-      # its own env file
-      environmentFiles = [ config.age.secrets.vaultwarden.path ];
-      environment = {
-        PUID = "${toString config.users.users.share.uid}";
-        PGID = "${toString config.users.groups.share.gid}";
-        KEEP_LAST_BACKUPS = 50;
-      };
-    };
+    # bw-export = {
+    #   image = "0netx/bw-export";
+    #   # autoStart = true;
+    #   volumes = [
+    #     "${vars.nasMount}/Backup/vaultwarden/arar/data:/var/attachment"
+    #     "${vars.nasMount}/Backup/vaultwarden/arar/attachment:/var/attachment"
+    #   ];
+    #   # NOTE: this .env might collide with vaultwarden, if it does, seperate out into
+    #   # its own env file
+    #   environmentFiles = [ config.age.secrets.vaultwarden.path ];
+    #   environment = {
+    #     PUID = "${toString config.users.users.share.uid}";
+    #     PGID = "${toString config.users.groups.share.gid}";
+    #     KEEP_LAST_BACKUPS = 50;
+    #   };
+    # };
   };
 }
 
