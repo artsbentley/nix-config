@@ -23,5 +23,6 @@ in
   "test.age".publicKeys = keys;
   "vaultwarden.age".publicKeys = keys;
   "smbCredentials.age".publicKeys = keys;
+  "cloudflareTunnel.age".publicKeys = keys;
 }
 

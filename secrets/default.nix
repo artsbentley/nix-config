@@ -8,6 +8,7 @@
       paperless.file = ./paperless.age;
       vaultwarden.file = ./vaultwarden.age;
       smbCredentials.file = ./smbCredentials.age;
+      cloudflareTunnel.file = ./cloudflareTunnel.age;
     };
   };
 }
