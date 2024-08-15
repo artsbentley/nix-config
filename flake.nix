@@ -89,6 +89,7 @@
             ./containers/paperless
             ./containers/mealie
             ./containers/vaultwarden
+            ./containers/cloudflare
             # ./containers/homepage
 
             # User-specific configurations
