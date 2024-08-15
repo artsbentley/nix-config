@@ -33,7 +33,7 @@
     };
   };
 
-  fileSystems."/home/arar/backupshare" =
+  fileSystems."/home/arar/testbackupshare" =
     {
       device = "//192.168.1.123/backupshare";
       fsType = "cifs";
