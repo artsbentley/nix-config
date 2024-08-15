@@ -37,7 +37,7 @@
     {
       device = "//192.168.1.123/backupshare";
       fsType = "cifs";
-      options = [ "username=share" "password=share" "x-systemd.automount" "noauto" "uid=993" "gid=993" ];
+      options = [ "username=share" "password=share" "x-systemd.automount" "noauto" "uid=994" "gid=993" ];
       # options = [ "guest" "x-systemd.automount" "noauto" ];
     };
 
