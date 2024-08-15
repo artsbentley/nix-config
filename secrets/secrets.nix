@@ -22,5 +22,6 @@ in
   "paperless.age".publicKeys = keys;
   "test.age".publicKeys = keys;
   "vaultwarden.age".publicKeys = keys;
+  "smbCredentials".publicKeys = keys;
 }
 

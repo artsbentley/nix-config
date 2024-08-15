@@ -7,6 +7,7 @@
       protonvpnCredentials.file = ./protonvpnCredentials.age;
       paperless.file = ./paperless.age;
       vaultwarden.file = ./vaultwarden.age;
+      smbCredentials.file = ./smbCredentials.age;
     };
   };
 }

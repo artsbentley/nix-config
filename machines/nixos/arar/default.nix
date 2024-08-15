@@ -38,8 +38,15 @@
       device = "//192.168.1.123/backupshare";
       fsType = "cifs";
       # options = [ "username=share" "password=share" "x-systemd.automount" "noauto" "uid=1000" "gid=991" ];
-      options = [ "guest" "x-systemd.automount" "noauto" ];
+      # options = [ "guest" "x-systemd.automount" "noauto" ];
+      options =
+        let
+          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+        in
+        [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path}" ];
     };
+
+
 
 
   powerManagement.powertop.enable = true;
