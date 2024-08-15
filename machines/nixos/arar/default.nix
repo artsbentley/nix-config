@@ -37,13 +37,10 @@
     {
       device = "//192.168.1.123/backupshare";
       fsType = "cifs";
-      # options = [ "username=share" "password=share" "x-systemd.automount" "noauto" "uid=1000" "gid=991" ];
-      # options = [ "guest" "x-systemd.automount" "noauto" ];
       options =
         let
           automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
         in
-        # [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path}" ];
         [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=994,gid=993,file_mode=0775,dir_mode=0775" ];
     };
 
