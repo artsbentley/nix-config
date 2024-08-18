@@ -76,6 +76,8 @@ in
           PAPERLESS_CONSUMER_POLLING = "1";
           UID = "${toString config.users.users.share.uid}";
           GID = "${toString config.users.groups.share.gid}";
+          USERMAP_UID = "${toString config.users.users.share.uid}";
+          USERMAP_GID = "${toString config.users.groups.share.gid}";
         };
       };
       paperless-redis = {
