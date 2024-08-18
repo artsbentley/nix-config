@@ -56,7 +56,6 @@ in
         ports = [ "8000:8000" ];
         extraOptions = [
           "--device=/dev/dri:/dev/dri"
-          "--user 1010:1010"
         ];
         volumes = [
           "${vars.nasMount}/Documents/Paperless/Documents:/usr/src/paperless/media"
