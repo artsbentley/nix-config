@@ -2,10 +2,12 @@
 {
   users = {
     groups.share = {
-      gid = 993;
+      # gid = 993;
+      gid = 1010;
     };
     users.share = {
-      uid = 994;
+      # uid = 994;
+      uid = 1010;
       isSystemUser = true;
       group = "share";
     };
@@ -33,6 +35,7 @@
     };
   };
 
+  #TODO: create path for SMB mount from the config var "nasMount aswell"
   fileSystems."/home/arar/testbackupshare" =
     {
       device = "//192.168.1.123/backupshare";
@@ -41,7 +44,7 @@
         let
           automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
         in
-        [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=994,gid=993,file_mode=0775,dir_mode=0775" ];
+        [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=1010,gid=1010,file_mode=0775,dir_mode=0775" ];
     };
 
 

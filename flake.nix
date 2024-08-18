@@ -85,6 +85,7 @@
             agenix.nixosModules.default
 
             # Services and applications
+            # TODO: setup GPU acceleration for jellyfin, paperless and immich
             ./containers/arr
             ./containers/paperless
             ./containers/mealie

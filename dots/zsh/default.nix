@@ -51,7 +51,6 @@
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
-
         ".." = "cd ..";
         "..." = "cd ../..";
 
@@ -59,6 +58,8 @@
       initExtra = ''
         for conf in "$HOME/.config/zsh/"*.zsh; do source "$conf"; done; unset conf
       '';
+
+      # TODO: add bitwarden CLI tooling and secrets to make bw_session env var work 
 
       #initExtra = ''
       #  # Cycle back in the suggestions menu using Shift+Tab

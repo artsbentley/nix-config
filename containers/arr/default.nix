@@ -204,22 +204,7 @@ in
           PGID = "${toString config.users.groups.share.gid}";
         };
       };
-      #      booksonic = {
-      #        image = "lscr.io/linuxserver/booksonic-air";
-      #        autoStart = true;
-      #        extraOptions = [ ];
-      #        volumes = [
-      #          "${vars.nasMount}/Media/Audiobooks:/audiobooks"
-      #          "${vars.serviceConfigRoot}/booksonic:/config"
-      #        ];
-      #        environment = {
-      #          TZ = vars.timeZone;
-      #          PUID = "994";
-      #          GUID = "993";
-      #          CONTEXT_PATH = "/";
-      #          UMASK = "002";
-      #        };
-      #      };
+
       # recyclarr = {
       #   image = "ghcr.io/recyclarr/recyclarr";
       #   user = "994:993";
