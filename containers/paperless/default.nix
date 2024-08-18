@@ -56,6 +56,7 @@ in
         ports = [ "8000:8000" ];
         extraOptions = [
           "--device=/dev/dri:/dev/dri"
+          "--user 1010:1010"
         ];
         volumes = [
           "${vars.nasMount}/Documents/Paperless/Documents:/usr/src/paperless/media"
@@ -73,13 +74,8 @@ in
           PAPERLESS_FILENAME_FORMAT = "{created}/{correspondent}/{title}";
           PAPERLESS_TIME_ZONE = "${vars.timeZone}";
           PAPERLESS_CONSUMER_POLLING = "1";
-          # PAPERLESS_ADMIN_USER = "arar";
-          # PAPERLESS_SECRET_KEY = "changeme";
-          # ${toString config.users.users.share.uid}"
-          # USERMAP_UID = "${toString config.users.users.share.uid}";
           UID = "${toString config.users.users.share.uid}";
           GID = "${toString config.users.groups.share.gid}";
-          # USERMAP_GID = "${toString config.users.groups.share.gid}";
         };
       };
       paperless-redis = {
