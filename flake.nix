@@ -87,7 +87,7 @@
             # Services and applications
             # TODO: setup GPU acceleration for jellyfin, paperless and immich
             ./containers/arr
-            ./containers/paperless
+            # ./containers/paperless
             ./containers/mealie
             ./containers/vaultwarden
             ./containers/cloudflare
