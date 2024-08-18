@@ -22,29 +22,30 @@ in
   };
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
 
-  networking.firewall.allowedTCPPorts = [
-    8088 # WebDAV
-  ];
-
-  services.webdav = {
-    enable = true;
-    user = "share";
-    group = "share";
-    environmentFile = config.age.secrets.paperless.path;
-    settings = {
-      address = "0.0.0.0";
-      port = 8088;
-      scope = "${vars.nasMount}/Documents/Paperless/Import";
-      modify = true;
-      auth = true;
-      users = [
-        {
-          username = "arar";
-          password = "{env}PASSWORD";
-        }
-      ];
-    };
-  };
+  # TODO: enable webdav
+  # networking.firewall.allowedTCPPorts = [
+  #   8088 # WebDAV
+  # ];
+  #
+  # services.webdav = {
+  #   enable = true;
+  #   user = "share";
+  #   group = "share";
+  #   environmentFile = config.age.secrets.paperless.path;
+  #   settings = {
+  #     address = "0.0.0.0";
+  #     port = 8088;
+  #     scope = "${vars.nasMount}/Documents/Paperless/Import";
+  #     modify = true;
+  #     auth = true;
+  #     users = [
+  #       {
+  #         username = "arar";
+  #         password = "{env}PASSWORD";
+  #       }
+  #     ];
+  #   };
+  # };
 
   virtualisation.oci-containers = {
     containers = {
