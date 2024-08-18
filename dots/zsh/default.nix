@@ -51,6 +51,8 @@
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
+        "stopdocker" = "sudo systemctl stop --all 'podman-*'";
+        "startdocker" = "sudo systemctl start --all 'podman-*'";
         ".." = "cd ..";
         "..." = "cd ../..";
 
