@@ -10,11 +10,11 @@
     userName = "artsbentley";
     userEmail = "artsbentley@gmail.com";
 
-    extraConfig = {
-      core = {
-        sshCommand = "ssh -o 'IdentitiesOnly=yes' -i ~/.ssh/arar";
-      };
-    };
+    # extraConfig = {
+    #   core = {
+    #     sshCommand = "ssh -o 'IdentitiesOnly=yes' -i ~/.ssh/arar";
+    #   };
+    # };
     #    includes = [
     #      {
     #        path = "~" + (lib.removePrefix "$HOME" config.age.secrets.gitIncludes.path);

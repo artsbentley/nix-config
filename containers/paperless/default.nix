@@ -77,8 +77,8 @@ in
           PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://gotenberg:3000";
           PAPERLESS_TIKA_ENDPOINT = "http://tika:9998";
 
-          UID = "${toString config.users.users.share.uid}";
-          GID = "${toString config.users.groups.share.gid}";
+          # UID = "${toString config.users.users.share.uid}";
+          # GID = "${toString config.users.groups.share.gid}";
           USERMAP_UID = "${toString config.users.users.share.uid}";
           USERMAP_GID = "${toString config.users.groups.share.gid}";
         };
@@ -88,6 +88,7 @@ in
         autoStart = true;
         # extraOptions = [ "--network = container:paperless " ];
       };
+
       gotenberg = {
         image = "docker.io/gotenberg/gotenberg:7.10";
         autoStart = true;
@@ -95,6 +96,7 @@ in
         # entrypoint = "gotenberg";
         cmd = [ "gotenberg" "--chromium-disable-javascript=true" "--chromium-allow-list=file:///tmp/.*" ];
       };
+
       tika = {
         image = "ghcr.io/paperless-ngx/tika:latest";
         autoStart = true;
