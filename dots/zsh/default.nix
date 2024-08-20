@@ -57,6 +57,8 @@
         "..." = "cd ../..";
 
       };
+      # TODO: need to decide if i want to continue this route or just implement full
+      # on nix config fo zsh
       initExtra = ''
         for conf in "$HOME/.config/zsh/"*.zsh; do source "$conf"; done; unset conf
       '';

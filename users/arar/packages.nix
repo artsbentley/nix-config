@@ -4,6 +4,4 @@
     tmux
     yazi
   ];
-
 }
-

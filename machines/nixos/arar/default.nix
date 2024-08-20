@@ -47,9 +47,6 @@
         [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=1010,gid=1010,file_mode=0775,dir_mode=0775" ];
     };
 
-
-
-
   powerManagement.powertop.enable = true;
 
   virtualisation.docker.storageDriver = "overlay2";

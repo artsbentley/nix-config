@@ -54,6 +54,16 @@ in
     };
   };
 
+  system.activationScripts.createDirectories = lib.mkOrder 50 ''
+    # Create directories and set ownership
+    for dir in ${lib.concatStringsSep " " directories}; do
+      if [ ! -d "$dir" ]; then
+        mkdir -p "$dir"
+        chown share:share "$dir"
+        chmod 0775 "$dir"
+      fi
+    done
+  '';
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {
     containers = {
