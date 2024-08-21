@@ -46,12 +46,12 @@ in
 
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
-    $sed -i "s/Put your Sonarr URL here/http:\/\/localhost:8989/g" $configFile
+    $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" $configFile
 
     printf "\n" >> $configFile
     cat $tempRadarr >> $configFile
     $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
-    $sed -i "s/Put your Radarr URL here/http:\/\/localhost:7878/g" $configFile
+    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" $configFile
 
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
