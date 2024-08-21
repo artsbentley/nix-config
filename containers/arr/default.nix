@@ -212,17 +212,17 @@ in
         };
       };
 
-      # recyclarr = {
-      #   image = "ghcr.io/recyclarr/recyclarr";
-      #   user = "994:993";
-      #   autoStart = true;
-      #   volumes = [
-      #     "${vars.serviceConfigRoot}/recyclarr:/config"
-      #   ];
-      #   environment = {
-      #     CRON_SCHEDULE = "@daily";
-      #   };
-      # };
+      recyclarr = {
+        image = "ghcr.io/recyclarr/recyclarr";
+        user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
+        autoStart = true;
+        volumes = [
+          "${vars.serviceConfigRoot}/recyclarr:/config"
+        ];
+        environment = {
+          CRON_SCHEDULE = "@daily";
+        };
+      };
     };
   };
 }
