@@ -28,25 +28,33 @@ in
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
     configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
-    sonarr="${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml"
+
+    # Copy the templates to a temporary writable location
+    tempSonarr=$(mktemp)
+    tempRadarr=$(mktemp)
+    cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" $tempSonarr
+    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" $tempRadarr
+
     sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
-    radarr="${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml"
     radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
 
     # Remove the specified line from the Sonarr template
-    $sed -i"" "/- template: sonarr-quality-definition-series/d" $sonarr
+    $sed -i "/- template: sonarr-quality-definition-series/d" $tempSonarr
 
     # Remove the specified line from the Radarr template
-    $sed -i"" "/- template: radarr-quality-definition-movie/d" $radarr
+    $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
-    cat $sonarr > $configFile
-    $sed -i"" "s/Put your API key here/$sonarrApiKey/g" $configFile
-    $sed -i"" "s/Put your Sonarr URL here/http:\/\/localhost:8989/g" $configFile
+    cat $tempSonarr > $configFile
+    $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
+    $sed -i "s/Put your Sonarr URL here/http:\/\/localhost:8989/g" $configFile
 
-    printf "\n" >> ${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
-    cat $radarr >> ${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
-    $sed -i"" "s/Put your API key here/$radarrApiKey/g" $configFile
-    $sed -i"" "s/Put your Radarr URL here/http:\/\/localhost:7878/g" $configFile
+    printf "\n" >> $configFile
+    cat $tempRadarr >> $configFile
+    $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
+    $sed -i "s/Put your Radarr URL here/http:\/\/localhost:7878/g" $configFile
+
+    # Clean up temporary files
+    rm $tempSonarr $tempRadarr
   '';
 
   # TODO: move cockpit elsewhere
