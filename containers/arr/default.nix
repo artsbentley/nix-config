@@ -25,24 +25,29 @@ in
 
   # TODO: setup recylarr 
   #
-  # system.activationScripts.recyclarr_configure = ''
-  #   sed=${pkgs.gnused}/bin/sed
-  #   configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
-  #   sonarr="${inputs.recyclarr-configs}/sonarr/templates/web-2160p-v4.yml"
-  #   sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
-  #   radarr="${inputs.recyclarr-configs}/radarr/templates/remux-web-2160p.yml"
-  #   radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
-  #
-  #   cat $sonarr > $configFile
-  #   $sed -i"" "s/Put your API key here/$sonarrApiKey/g" $configFile
-  #   $sed -i"" "s/Put your Sonarr URL here/https:\/\/sonarr.${vars.domainName}/g" $configFile
-  #
-  #   printf "\n" >> ${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
-  #   cat $radarr >> ${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
-  #   $sed -i"" "s/Put your API key here/$radarrApiKey/g" $configFile
-  #   $sed -i"" "s/Put your Radarr URL here/https:\/\/radarr.${vars.domainName}/g" $configFile
-  #
-  # '';
+  system.activationScripts.recyclarr_configure = ''
+    sed=${pkgs.gnused}/bin/sed
+    configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
+    sonarr="${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml"
+    sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
+    radarr="${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml"
+    radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
+
+    # Remove the specified line from the Sonarr template
+    $sed -i"" "/- template: sonarr-quality-definition-series/d" $sonarr
+
+    # Remove the specified line from the Radarr template
+    $sed -i"" "/- template: radarr-quality-definition-movie/d" $radarr
+
+    cat $sonarr > $configFile
+    $sed -i"" "s/Put your API key here/$sonarrApiKey/g" $configFile
+    $sed -i"" "s/Put your Sonarr URL here/http:\/\/localhost:8989/g" $configFile
+
+    printf "\n" >> ${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
+    cat $radarr >> ${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
+    $sed -i"" "s/Put your API key here/$radarrApiKey/g" $configFile
+    $sed -i"" "s/Put your Radarr URL here/http:\/\/localhost:7878/g" $configFile
+  '';
 
   # TODO: move cockpit elsewhere
   services.cockpit = {

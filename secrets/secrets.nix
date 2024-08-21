@@ -24,5 +24,7 @@ in
   "vaultwarden.age".publicKeys = keys;
   "smbCredentials.age".publicKeys = keys;
   "cloudflareTunnel.age".publicKeys = keys;
+  "sonarrApiKey.age".publicKeys = keys;
+  "radarrApiKey.age".publicKeys = keys;
 }
 
