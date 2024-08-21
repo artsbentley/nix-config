@@ -170,7 +170,7 @@ in
           # TODO: redo nas directory structure according to trash guides
           "${vars.nasMount}/Media/Books:/Books:ro"
           "${vars.nasMount}/Media/Music:/Music:ro"
-          "${vars.nasMount}/Media/Shows:/Shows:ro"
+          "${vars.nasMount}/Media/TV:/TV:ro"
           "${vars.nasMount}/Media/Movies:/Movies:ro"
           "${vars.serviceConfigRoot}/jellyfin/config:/config"
           "${vars.serviceConfigRoot}/jellyfin/cache:/cache"
