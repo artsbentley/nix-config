@@ -51,7 +51,7 @@ in
     printf "\n" >> $configFile
     cat $tempRadarr >> $configFile
     $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
-    $sed -i "s/Put your Radarr URL here/http:?\/\/radarr:7878/g" $configFile
+    $sed -i "s/Put your Radarr URL here/http:\/\/radarr:7878/g" $configFile
 
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
