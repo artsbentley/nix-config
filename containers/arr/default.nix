@@ -228,7 +228,7 @@ in
           "${vars.serviceConfigRoot}/recyclarr:/config"
         ];
         environment = {
-          CRON_SCHEDULE = "@daily";
+          CRON_SCHEDULE = "@every 1m";
         };
       };
     };
