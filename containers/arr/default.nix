@@ -234,7 +234,7 @@ in
           "${vars.serviceConfigRoot}/recyclarr:/config"
         ];
         environment = {
-          CRON_SCHEDULE = "*/5 * * * *";
+          CRON_SCHEDULE = "*/2 * * * *";
         };
       };
     };
