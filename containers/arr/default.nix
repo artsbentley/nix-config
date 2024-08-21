@@ -23,7 +23,7 @@ let
 in
 {
 
-  # TODO: setup recylarr 
+  # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
   #
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
@@ -51,7 +51,7 @@ in
     printf "\n" >> $configFile
     cat $tempRadarr >> $configFile
     $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
-    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" $configFile
+    $sed -i "s/Put your Radarr URL here/radarr:7878/g" $configFile
 
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
