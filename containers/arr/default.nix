@@ -1,7 +1,7 @@
 { inputs, lib, config, pkgs, vars, ... }:
 let
-  shareUid = toString config.users.users.share.uid;
-  shareGid = toString config.users.groups.share.gid;
+  # shareUid = toString config.users.users.share.uid;
+  # shareGid = toString config.users.groups.share.gid;
 
   directories = [
     "${vars.serviceConfigRoot}/portainer"
@@ -20,7 +20,6 @@ let
     "${vars.nasMount}/Media/Music"
     "${vars.nasMount}/Media/Audiobooks"
     "${vars.nasMount}/Media/Books"
-    # "${vars.nasMount}/torrents"
   ];
 in
 {
@@ -108,7 +107,7 @@ in
         # TODO: sort out proper directory structure and permissions
         volumes = [
           "${vars.serviceConfigRoot}/qbittorrent:/config"
-          "${vars.nasMount}/torrents:/data/torrents"
+          "${vars.nasMount}/Media/Downloads:/data/torrents"
         ];
       };
 

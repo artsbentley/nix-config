@@ -1,4 +1,4 @@
-{ modulesPath, inputs, networksLocal, lib, config, vars, pkgs, ... }:
+{ modformfulesPath, inputs, networksLocal, lib, config, vars, pkgs, ... }:
 {
   users = {
     groups.share = {
@@ -35,8 +35,7 @@
     };
   };
 
-  #TODO: create path for SMB mount from the config var "nasMount aswell"
-  fileSystems."/home/arar/testbackupshare" =
+  fileSystems."${vars.nasMount}" =
     {
       device = "//192.168.1.123/backupshare";
       fsType = "cifs";
