@@ -44,20 +44,14 @@ in
     # Remove the specified line from the Radarr template
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
-    # Uncomment the next 6 lines after finding the specific commented line in Sonarr template
-    $sed -i "/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/,+6 s/^# //" $tempSonarr
-
-    # Uncomment the next 6 lines after finding the specific commented line in Radarr template
-    $sed -i "/# - trash_ids:/,+6 s/^# //" $tempRadarr
-
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
-    $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" $configFile
+    $sed -i "s/Put your Sonarr URL here/http:\/\/localhost:8989/g" $configFile
 
     printf "\n" >> $configFile
     cat $tempRadarr >> $configFile
     $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
-    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" $configFile
+    $sed -i "s/Put your Radarr URL here/http:\/\/localhost:7878/g" $configFile
 
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
@@ -229,6 +223,7 @@ in
       recyclarr = {
         image = "ghcr.io/recyclarr/recyclarr";
         user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
+        extraOptions = [ "--network=container:gluetun" ];
         autoStart = true;
         volumes = [
           "${vars.serviceConfigRoot}/recyclarr:/config"
