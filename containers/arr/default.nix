@@ -13,7 +13,6 @@ let
     "${vars.serviceConfigRoot}/radarr"
     "${vars.serviceConfigRoot}/prowlarr"
     "${vars.serviceConfigRoot}/recyclarr"
-    "${vars.serviceConfigRoot}/booksonic"
     "${vars.nasMount}/Media/Downloads"
     "${vars.nasMount}/Media/TV"
     "${vars.nasMount}/Media/Movies"
