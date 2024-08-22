@@ -75,7 +75,7 @@
           modules = [
             # Base configuration and modules
             ./modules/podman
-            # ./modules/tailscale
+            ./modules/tailscale
 
             # Import the machine config + secrets
             ./machines/nixos
