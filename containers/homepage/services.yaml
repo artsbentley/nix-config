@@ -67,7 +67,7 @@
 - Access and Services:
     - Vaultwarden:
         icon: bitwarden.svg
-        href: https://vault.artsbentley.com
+        href: https://pass.arar.dev
         description: Self-hosted Bitwarden Admin Interface
     - Syncthing:
         icon: syncthing.svg
