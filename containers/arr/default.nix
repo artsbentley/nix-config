@@ -59,8 +59,11 @@ in
 
   # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
   #
+  # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
+  #
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
+    awk=${pkgs.gawk}/bin/awk
     configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
 
     # Copy the templates to a temporary writable location
@@ -78,25 +81,23 @@ in
     # Remove the specified line from the Radarr template
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
-    # Uncomment the lines after the specific comment in the Sonarr template
-    $sed -i "/Uncomment the next six lines to allow x265 HD releases with HDR\/DV/{
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-    }" $tempSonarr
+    # Use awk to uncomment the lines following the specific comment in the Sonarr template
+    $awk '
+      /Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {
+        print; for(i=0; i<6; i++) { getline; sub(/^# /, ""); print; }
+        next
+      }
+      { print }
+    ' $tempSonarr > ${tempSonarr}.new && mv ${tempSonarr}.new $tempSonarr
 
-    # Uncomment the lines after the specific comment in the Radarr template
-    $sed -i "/Uncomment the next six lines to allow x265 HD releases with HDR\/DV/{
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-      N; s/^# //;
-    }" $tempRadarr
+    # Use awk to uncomment the lines following the specific comment in the Radarr template
+    $awk '
+      /Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {
+        print; for(i=0; i<6; i++) { getline; sub(/^# /, ""); print; }
+        next
+      }
+      { print }
+    ' $tempRadarr > ${tempRadarr}.new && mv ${tempRadarr}.new $tempRadarr
 
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
@@ -110,6 +111,7 @@ in
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
   '';
+
 
 
 
