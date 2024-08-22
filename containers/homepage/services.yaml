@@ -5,45 +5,45 @@
         description: Virtual environment
     - Portainer:
         icon: portainer.svg
-        href: http://local.debian:9000/#!/home
+        href: http://local.nixos:9000/#!/home
         description: Container management
 
 - Media:
     - Jellyfin:
         icon: jellyfin.svg
-        href: http://local.debian:8096
+        href: http://local.nixos:8096
         description: Media Player
     - Jellyseerr:
         icon: jellyseerr.svg
-        href: http://local.debian:5055/
+        href: http://local.nixos:5055/
         description: Media Requests
     - Immich:
         icon: immich.svg
-        href: http://local.debian:2283
+        href: http://local.nixos:2283
         description: Photos
     - Paperless:
         icon: paperless.svg
-        href: http://local.debian:8000/
+        href: http://local.nixos:8000/
         description: PDF and file management
 
 - Torrent:
     - qBittorrent:
         icon: qbittorrent.svg
-        href: http://local.debian:8080/
+        href: http://local.nixos:8080/
         description: Linux ISO Server
     - Sonarr:
         icon: sonarr.png
-        href: http://local.debian:8989/
-        siteMonitor: local.debian:8989/
+        href: http://local.nixos:8989/
+        siteMonitor: local.nixos:8989/
         description: TV Pull Automation
     - Radarr:
         icon: radarr.png
-        href: http://local.debian:7878/
-        siteMonitor: local.debian:7878/
+        href: http://local.nixos:7878/
+        siteMonitor: local.nixos:7878/
         description: Film Pull Automation
     - Prowlarr:
         icon: prowlarr.svg
-        href: http://local.debian:9696/
+        href: http://local.nixos:9696/
         description: Index Pull Automation
 
 - Network and IoT:
@@ -71,9 +71,9 @@
         description: Self-hosted Bitwarden Admin Interface
     - Syncthing:
         icon: syncthing.svg
-        href: https://local.debian:8384/
+        href: https://local.nixos:8384/
         description: Syncing service
     - Mealie:
         icon: mealie.svg
-        href: http://local.debian:9925/
+        href: http://local.nixos:9925/
         description: Recipe manager
