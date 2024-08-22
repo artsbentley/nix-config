@@ -25,6 +25,38 @@ in
 
   # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
   #
+  # system.activationScripts.recyclarr_configure = ''
+  #   sed=${pkgs.gnused}/bin/sed
+  #   configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
+  #
+  #   # Copy the templates to a temporary writable location
+  #   tempSonarr=$(mktemp)
+  #   tempRadarr=$(mktemp)
+  #   cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" $tempSonarr
+  #   cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" $tempRadarr
+  #
+  #   sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
+  #   radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
+  #
+  #   # Remove the specified line from the Sonarr template
+  #   $sed -i "/- template: sonarr-quality-definition-series/d" $tempSonarr
+  #
+  #   # Remove the specified line from the Radarr template
+  #   $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
+  #
+  #   cat $tempSonarr > $configFile
+  #   $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
+  #   $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" $configFile
+  #
+  #   printf "\n" >> $configFile
+  #   cat $tempRadarr >> $configFile
+  #   $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
+  #   $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" $configFile
+  #
+  #   # Clean up temporary files
+  #   rm $tempSonarr $tempRadarr
+  # '';
+
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
     configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
@@ -44,6 +76,26 @@ in
     # Remove the specified line from the Radarr template
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
+    # Uncomment the lines after the specific comment in the Sonarr template
+    $sed -i "/Uncomment the next six lines to allow x265 HD releases with HDR\/DV/{
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+    }" $tempSonarr
+
+    # Uncomment the lines after the specific comment in the Radarr template
+    $sed -i "/Uncomment the next six lines to allow x265 HD releases with HDR\/DV/{
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+      n; s/^# //;
+    }" $tempRadarr
+
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
     $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" $configFile
@@ -56,6 +108,7 @@ in
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
   '';
+
 
   # TODO: move cockpit elsewhere
   services.cockpit = {
@@ -229,7 +282,7 @@ in
           "${vars.serviceConfigRoot}/recyclarr:/config"
         ];
         environment = {
-          CRON_SCHEDULE = "*/2 * * * *";
+          CRON_SCHEDULE = "@daily";
         };
       };
     };
