@@ -79,10 +79,10 @@ in
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
     # Uncomment the six lines for x265 HD in Sonarr config
-    $sed -i "/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/,+4 s/# //g" $tempSonarr
+    $sed -i '/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {n;N;N;N;N;N; s/# \(.*\)/\1/g;}' $tempSonarr
 
     # Uncomment the six lines for x265 HD in Radarr config
-    $sed -i "/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/,+4 s/# //g" $tempRadarr
+    $sed -i '/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {n;N;N;N;N;N; s/# \(.*\)/\1/g;}' $tempRadarr
 
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
