@@ -4,6 +4,7 @@ let
     "${vars.serviceConfigRoot}/mealie"
   ];
 in
+# TODO: setup creation of automatic backups
 {
   systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   virtualisation.oci-containers = {

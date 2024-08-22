@@ -37,7 +37,7 @@
 
   fileSystems."${vars.nasMount}" =
     {
-      device = "//192.168.1.123/backupshare";
+      device = "//192.168.1.123/servermount";
       fsType = "cifs";
       options =
         let
