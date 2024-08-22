@@ -11,6 +11,7 @@
       cloudflareTunnel.file = ./cloudflareTunnel.age;
       sonarrApiKey.file = ./sonarrApiKey.age;
       radarrApiKey.file = ./radarrApiKey.age;
+      tailscaleAuthKey.file = ./tailscaleAuthKey.age;
     };
   };
 }

@@ -26,5 +26,6 @@ in
   "cloudflareTunnel.age".publicKeys = keys;
   "sonarrApiKey.age".publicKeys = keys;
   "radarrApiKey.age".publicKeys = keys;
+  "tailscaleAuthKey.age".publicKeys = keys;
 }
 
