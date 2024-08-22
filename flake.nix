@@ -91,7 +91,7 @@
             ./containers/mealie
             ./containers/vaultwarden
             ./containers/cloudflare
-            # ./containers/homepage
+            ./containers/homepage
 
             # User-specific configurations
             ./users/arar
