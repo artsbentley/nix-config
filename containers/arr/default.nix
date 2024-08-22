@@ -78,19 +78,17 @@ in
     # Remove the specified line from the Radarr template
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
-    # Enable the 265 lines in the Sonarr template by uncommenting the specified lines
-    $sed -i "s/^# \(- 47435ece6b99a0b477caf360e79ba0bb # x265 (HD)\)$/\1/" $tempSonarr
-    $sed -i "s/^# \(\s*assign_scores_to:\)$/\1/" $tempSonarr
-    $sed -i "s/^# \(\s*- name: WEB-1080p\)$/\1/" $tempSonarr
-    $sed -i "s/^# \(\s*score: 0\)$/\1/" $tempSonarr
-    $sed -i "s/^# \(- 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR\/DV)\)$/\1/" $tempSonarr
+    # Uncomment the six lines for x265 HD in Sonarr config
+    $sed -i "s/# - 47435ece6b99a0b477caf360e79ba0bb/- 47435ece6b99a0b477caf360e79ba0bb/" $tempSonarr
+    $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempSonarr
+    $sed -i "s/# - name: WEB-1080p/- name: WEB-1080p/" $tempSonarr
+    $sed -i "s/# score: 0/score: 0/" $tempSonarr
 
-    # Enable the 265 lines in the Radarr template by uncommenting the specified lines
-    $sed -i "s/^# \(- dc98083864ea246d05a42df0d05f81cc # x265 (HD)\)$/\1/" $tempRadarr
-    $sed -i "s/^# \(\s*assign_scores_to:\)$/\1/" $tempRadarr
-    $sed -i "s/^# \(\s*- name: Remux + WEB 1080p\)$/\1/" $tempRadarr
-    $sed -i "s/^# \(\s*score: 0\)$/\1/" $tempRadarr
-    $sed -i "s/^# \(- 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR\/DV)\)$/\1/" $tempRadarr
+    # Uncomment the six lines for x265 HD in Radarr config
+    $sed -i "s/# - dc98083864ea246d05a42df0d05f81cc/- dc98083864ea246d05a42df0d05f81cc/" $tempRadarr
+    $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempRadarr
+    $sed -i "s/# - name: Remux + WEB 1080p/- name: Remux + WEB 1080p/" $tempRadarr
+    $sed -i "s/# score: 0/score: 0/" $tempRadarr
 
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
