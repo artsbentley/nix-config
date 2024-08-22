@@ -59,6 +59,22 @@ in
 
   # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
   #
+  # Uncomment the six lines for x265 HD in Sonarr config
+  # $sed -i "s/# - 47435ece6b99a0b477caf360e79ba0bb/- 47435ece6b99a0b477caf360e79ba0bb/" $tempSonarr
+  # $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempSonarr
+  # $sed -i "s/# - name: WEB-1080p/- name: WEB-1080p/" $tempSonarr
+  # $sed -i "s/# score: 0/score: 0/" $tempSonarr
+  # $sed -i "s/# - trash_ids:/- trash_ids/" $tempSonarr
+  # $sed -i "s/# - 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR/DV):/- 9b64dff695c2115facf1b6ea59c9bd07/" $tempSonarr
+  #
+  # # Uncomment the six lines for x265 HD in Radarr config
+  # $sed -i "s/# - dc98083864ea246d05a42df0d05f81cc/- dc98083864ea246d05a42df0d05f81cc/" $tempRadarr
+  # $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempRadarr
+  # $sed -i "s/# - name: Remux + WEB 1080p/- name: Remux + WEB 1080p/" $tempRadarr
+  # $sed -i "s/# score: 0/score: 0/" $tempRadarr
+  # $sed -i "s/# - trash_ids:/- trash_ids/" $tempRadarr
+  # $sed -i "s/# - 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR/DV):/- 839bea857ed2c0a8e084f3cbdbd65ecb/" $tempRadarr
+
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
     configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
@@ -77,23 +93,6 @@ in
 
     # Remove the specified line from the Radarr template
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
-
-    # Uncomment the six lines for x265 HD in Sonarr config
-    $sed -i "s/# - 47435ece6b99a0b477caf360e79ba0bb/- 47435ece6b99a0b477caf360e79ba0bb/" $tempSonarr
-    $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempSonarr
-    $sed -i "s/# - name: WEB-1080p/- name: WEB-1080p/" $tempSonarr
-    $sed -i "s/# score: 0/score: 0/" $tempSonarr
-    $sed -i "s/# - trash_ids:/- trash_ids/" $tempSonarr
-    $sed -i "s/# - 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR/DV):/- 9b64dff695c2115facf1b6ea59c9bd07/" $tempSonarr
-
-    # Uncomment the six lines for x265 HD in Radarr config
-    $sed -i "s/# - dc98083864ea246d05a42df0d05f81cc/- dc98083864ea246d05a42df0d05f81cc/" $tempRadarr
-    $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempRadarr
-    $sed -i "s/# - name: Remux + WEB 1080p/- name: Remux + WEB 1080p/" $tempRadarr
-    $sed -i "s/# score: 0/score: 0/" $tempRadarr
-    $sed -i "s/# - trash_ids:/- trash_ids/" $tempRadarr
-    $sed -i "s/# - 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR/DV):/- 839bea857ed2c0a8e084f3cbdbd65ecb/" $tempRadarr
-
 
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
