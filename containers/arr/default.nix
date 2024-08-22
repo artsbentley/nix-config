@@ -57,6 +57,8 @@ in
   #   rm $tempSonarr $tempRadarr
   # '';
 
+  # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
+  #
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
     configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
@@ -78,22 +80,22 @@ in
 
     # Uncomment the lines after the specific comment in the Sonarr template
     $sed -i "/Uncomment the next six lines to allow x265 HD releases with HDR\/DV/{
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
     }" $tempSonarr
 
     # Uncomment the lines after the specific comment in the Radarr template
     $sed -i "/Uncomment the next six lines to allow x265 HD releases with HDR\/DV/{
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
-      n; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
+      N; s/^# //;
     }" $tempRadarr
 
     cat $tempSonarr > $configFile
@@ -108,6 +110,7 @@ in
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
   '';
+
 
 
   # TODO: move cockpit elsewhere
