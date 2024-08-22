@@ -61,53 +61,48 @@ in
   #
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
-    awk=${pkgs.gawk}/bin/awk
     configFile=${vars.serviceConfigRoot}/recyclarr/recyclarr.yml
 
     # Copy the templates to a temporary writable location
     tempSonarr=$(mktemp)
     tempRadarr=$(mktemp)
-    cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" "$tempSonarr"
-    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" "$tempRadarr"
+    cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" $tempSonarr
+    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" $tempRadarr
 
     sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
     radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
 
     # Remove the specified line from the Sonarr template
-    $sed -i "/- template: sonarr-quality-definition-series/d" "$tempSonarr"
+    $sed -i "/- template: sonarr-quality-definition-series/d" $tempSonarr
 
     # Remove the specified line from the Radarr template
-    $sed -i "/- template: radarr-quality-definition-movie/d" "$tempRadarr"
+    $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
-    # Use awk to uncomment the lines following the specific comment in the Sonarr template
-    $awk "
-      /Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {
-        print; for(i=0; i<6; i++) { getline; sub(/^# /, \"\"); print; }
-        next
-      }
-      { print }
-    " "$tempSonarr" > "$tempSonarr.new" && mv "$tempSonarr.new" "$tempSonarr"
+    # Enable the 265 lines in the Sonarr template by uncommenting the specified lines
+    $sed -i "s/^# \(- 47435ece6b99a0b477caf360e79ba0bb # x265 (HD)\)$/\1/" $tempSonarr
+    $sed -i "s/^# \(\s*assign_scores_to:\)$/\1/" $tempSonarr
+    $sed -i "s/^# \(\s*- name: WEB-1080p\)$/\1/" $tempSonarr
+    $sed -i "s/^# \(\s*score: 0\)$/\1/" $tempSonarr
+    $sed -i "s/^# \(- 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR\/DV)\)$/\1/" $tempSonarr
 
-    # Use awk to uncomment the lines following the specific comment in the Radarr template
-    $awk "
-      /Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {
-        print; for(i=0; i<6; i++) { getline; sub(/^# /, \"\"); print; }
-        next
-      }
-      { print }
-    " "$tempRadarr" > "$tempRadarr.new" && mv "$tempRadarr.new" "$tempRadarr"
+    # Enable the 265 lines in the Radarr template by uncommenting the specified lines
+    $sed -i "s/^# \(- dc98083864ea246d05a42df0d05f81cc # x265 (HD)\)$/\1/" $tempRadarr
+    $sed -i "s/^# \(\s*assign_scores_to:\)$/\1/" $tempRadarr
+    $sed -i "s/^# \(\s*- name: Remux + WEB 1080p\)$/\1/" $tempRadarr
+    $sed -i "s/^# \(\s*score: 0\)$/\1/" $tempRadarr
+    $sed -i "s/^# \(- 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR\/DV)\)$/\1/" $tempRadarr
 
-    cat "$tempSonarr" > "$configFile"
-    $sed -i "s/Put your API key here/$sonarrApiKey/g" "$configFile"
-    $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" "$configFile"
+    cat $tempSonarr > $configFile
+    $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
+    $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" $configFile
 
-    printf "\n" >> "$configFile"
-    cat "$tempRadarr" >> "$configFile"
-    $sed -i "s/Put your API key here/$radarrApiKey/g" "$configFile"
-    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" "$configFile"
+    printf "\n" >> $configFile
+    cat $tempRadarr >> $configFile
+    $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
+    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" $configFile
 
     # Clean up temporary files
-    rm "$tempSonarr" "$tempRadarr"
+    rm $tempSonarr $tempRadarr
   '';
 
 
