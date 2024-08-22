@@ -84,7 +84,7 @@ in
     $sed -i "s/# - name: WEB-1080p/- name: WEB-1080p/" $tempSonarr
     $sed -i "s/# score: 0/score: 0/" $tempSonarr
     $sed -i "s/# - trash_ids:/- trash_ids/" $tempSonarr
-    $sed -i "s/# - 9b64dff695c2115facf1b6ea59c9bd07:/- 9b64dff695c2115facf1b6ea59c9bd07/" $tempSonarr
+    $sed -i "s/# - 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR/DV):/- 9b64dff695c2115facf1b6ea59c9bd07/" $tempSonarr
 
     # Uncomment the six lines for x265 HD in Radarr config
     $sed -i "s/# - dc98083864ea246d05a42df0d05f81cc/- dc98083864ea246d05a42df0d05f81cc/" $tempRadarr
@@ -92,7 +92,7 @@ in
     $sed -i "s/# - name: Remux + WEB 1080p/- name: Remux + WEB 1080p/" $tempRadarr
     $sed -i "s/# score: 0/score: 0/" $tempRadarr
     $sed -i "s/# - trash_ids:/- trash_ids/" $tempRadarr
-    $sed -i "s/# - 839bea857ed2c0a8e084f3cbdbd65ecb:/- 839bea857ed2c0a8e084f3cbdbd65ecb/" $tempRadarr
+    $sed -i "s/# - 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR/DV):/- 839bea857ed2c0a8e084f3cbdbd65ecb/" $tempRadarr
 
 
     cat $tempSonarr > $configFile
