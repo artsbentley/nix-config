@@ -79,16 +79,10 @@ in
     $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
 
     # Uncomment the six lines for x265 HD in Sonarr config
-    $sed -i "s/# - 47435ece6b99a0b477caf360e79ba0bb/- 47435ece6b99a0b477caf360e79ba0bb/" $tempSonarr
-    $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempSonarr
-    $sed -i "s/# - name: WEB-1080p/- name: WEB-1080p/" $tempSonarr
-    $sed -i "s/# score: 0/score: 0/" $tempSonarr
+    $sed -i "/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/,+4 s/# //g" $tempSonarr
 
     # Uncomment the six lines for x265 HD in Radarr config
-    $sed -i "s/# - dc98083864ea246d05a42df0d05f81cc/- dc98083864ea246d05a42df0d05f81cc/" $tempRadarr
-    $sed -i "s/# assign_scores_to:/assign_scores_to:/" $tempRadarr
-    $sed -i "s/# - name: Remux + WEB 1080p/- name: Remux + WEB 1080p/" $tempRadarr
-    $sed -i "s/# score: 0/score: 0/" $tempRadarr
+    $sed -i "/# Uncomment the next six lines to allow x265 HD releases with HDR\/DV/,+4 s/# //g" $tempRadarr
 
     cat $tempSonarr > $configFile
     $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
@@ -102,6 +96,7 @@ in
     # Clean up temporary files
     rm $tempSonarr $tempRadarr
   '';
+
 
 
 
