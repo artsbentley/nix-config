@@ -59,8 +59,6 @@ in
 
   # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
   #
-  # TODO: enable 265 by uncommenting the last 6 lines of the recyclarr configs
-  #
   system.activationScripts.recyclarr_configure = ''
     sed=${pkgs.gnused}/bin/sed
     awk=${pkgs.gawk}/bin/awk
@@ -69,48 +67,50 @@ in
     # Copy the templates to a temporary writable location
     tempSonarr=$(mktemp)
     tempRadarr=$(mktemp)
-    cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" $tempSonarr
-    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" $tempRadarr
+    cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" "$tempSonarr"
+    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" "$tempRadarr"
 
     sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
     radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
 
     # Remove the specified line from the Sonarr template
-    $sed -i "/- template: sonarr-quality-definition-series/d" $tempSonarr
+    $sed -i "/- template: sonarr-quality-definition-series/d" "$tempSonarr"
 
     # Remove the specified line from the Radarr template
-    $sed -i "/- template: radarr-quality-definition-movie/d" $tempRadarr
+    $sed -i "/- template: radarr-quality-definition-movie/d" "$tempRadarr"
 
     # Use awk to uncomment the lines following the specific comment in the Sonarr template
-    $awk '
+    $awk "
       /Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {
-        print; for(i=0; i<6; i++) { getline; sub(/^# /, ""); print; }
+        print; for(i=0; i<6; i++) { getline; sub(/^# /, \"\"); print; }
         next
       }
       { print }
-    ' $tempSonarr > ${tempSonarr}.new && mv ${tempSonarr}.new $tempSonarr
+    " "$tempSonarr" > "$tempSonarr.new" && mv "$tempSonarr.new" "$tempSonarr"
 
     # Use awk to uncomment the lines following the specific comment in the Radarr template
-    $awk '
+    $awk "
       /Uncomment the next six lines to allow x265 HD releases with HDR\/DV/ {
-        print; for(i=0; i<6; i++) { getline; sub(/^# /, ""); print; }
+        print; for(i=0; i<6; i++) { getline; sub(/^# /, \"\"); print; }
         next
       }
       { print }
-    ' $tempRadarr > ${tempRadarr}.new && mv ${tempRadarr}.new $tempRadarr
+    " "$tempRadarr" > "$tempRadarr.new" && mv "$tempRadarr.new" "$tempRadarr"
 
-    cat $tempSonarr > $configFile
-    $sed -i "s/Put your API key here/$sonarrApiKey/g" $configFile
-    $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" $configFile
+    cat "$tempSonarr" > "$configFile"
+    $sed -i "s/Put your API key here/$sonarrApiKey/g" "$configFile"
+    $sed -i "s/Put your Sonarr URL here/http:\/\/127.0.0.1:8989/g" "$configFile"
 
-    printf "\n" >> $configFile
-    cat $tempRadarr >> $configFile
-    $sed -i "s/Put your API key here/$radarrApiKey/g" $configFile
-    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" $configFile
+    printf "\n" >> "$configFile"
+    cat "$tempRadarr" >> "$configFile"
+    $sed -i "s/Put your API key here/$radarrApiKey/g" "$configFile"
+    $sed -i "s/Put your Radarr URL here/http:\/\/127.0.0.1:7878/g" "$configFile"
 
     # Clean up temporary files
-    rm $tempSonarr $tempRadarr
+    rm "$tempSonarr" "$tempRadarr"
   '';
+
+
 
 
 
