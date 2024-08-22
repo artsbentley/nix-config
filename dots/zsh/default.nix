@@ -51,7 +51,9 @@
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
-        stopdocker = "sudo systemctl stop --all 'podman-*'";
+        stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder
+		prune -f -a && podman network prune -f && podman image prune -a -f &&
+		podman container prune -f";
         startdocker = "sudo systemctl start --all 'podman-*'";
         ".." = "cd ..";
         "..." = "cd ../..";
