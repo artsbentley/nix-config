@@ -12,7 +12,7 @@
     ];
     enable = true;
   };
-  services.tailscale.useRoutingFeatures = "client";
+  services.tailscale.useRoutingFeatures = "both";
   systemd.services.tailscale-autoconnect = {
     description = "Automatic connection to Tailscale";
 
