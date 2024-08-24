@@ -45,15 +45,13 @@
     backups = {
       appdata-local = {
         timerConfig = {
-          OnCalendar = "Mon..Sat *-*-* 05:00:00";
+          OnCalendar = "05:00";
           Persistent = true;
         };
         repository = "${vars.nasMount}/Backups/restic/appdata";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
-        pruneOpts = [
-          "--keep-last 20"
-        ];
+        pruneOpts = [ "--keep-last 20" ];
         exclude = [
           "recyclarr/repo"
           "recyclarr/repositories"
