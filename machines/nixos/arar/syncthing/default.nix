@@ -19,7 +19,7 @@ in
       overrideDevices = false;
       dataDir = "${vars.nasMount}/Syncthing";
       # configDir = "${vars.serviceConfigRoot}/syncthing";
-      configDir = "home/arar/appdata/syncthing";
+      configDir = "/home/arar/appdata/syncthing";
     };
   };
 }
