@@ -45,7 +45,7 @@
     backups = {
       appdata-local = {
         # NOTE: wip
-        user = "share";
+        # user = "share";
         timerConfig = {
           OnCalendar = "Mon..Sat *-*-* 05:00:00";
           Persistent = true;
