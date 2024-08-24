@@ -13,8 +13,8 @@ in
   services = {
     syncthing = {
       enable = true;
-      user = "root";
-      group = "root";
+      user = "share";
+      group = "share";
       guiAddress = "0.0.0.0:8384";
       overrideFolders = false;
       overrideDevices = false;
