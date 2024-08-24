@@ -46,7 +46,7 @@
         df = "df -h";
         du = "du -ch";
         ipp = "curl ipinfo.io/ip";
-        mkdir = "mkdir -p";
+        # mkdir = "mkdir -p";
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
