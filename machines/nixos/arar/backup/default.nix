@@ -62,7 +62,7 @@
           "/tmp/appdata-local-${config.networking.hostName}.tar"
         ];
         backupPrepareCommand = ''
-          ${pkgs.systemd}/bin/systemctl stop podman-*
+          ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
           ${pkgs.gnutar}/bin/tar -cf /tmp/appdata-local-${config.networking.hostName}.tar ${vars.serviceConfigRoot}
           ${pkgs.restic}/bin/restic -r "${config.services.restic.backups.appdata-local.repository}" -p ${config.age.secrets.resticPassword.path} unlock
         '';
