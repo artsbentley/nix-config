@@ -53,6 +53,16 @@
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
         pruneOpts = [ "--keep-last 20" ];
+
+		# TODO: create better pruning
+		# pruneOpts = [
+		#          "--keep-last 5"
+		#          "--keep-daily 7"
+		#          "--keep-weekly 6"
+		#          "--keep-monthly 12"
+		#          "--keep-yearly 75"
+		#        ];
+
         exclude = [
           "recyclarr/repo"
           "recyclarr/repositories"
