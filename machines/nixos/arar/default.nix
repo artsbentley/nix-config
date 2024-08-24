@@ -46,6 +46,18 @@
         [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=1010,gid=1010,file_mode=0775,dir_mode=0775" ];
     };
 
+  fileSystems."${vars.rootMountRoot}" =
+    {
+      device = "//192.168.1.123/rootmount";
+      fsType = "cifs";
+      options =
+        let
+          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+        in
+        [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=1010,gid=1010,file_mode=0775,dir_mode=0775" ];
+    };
+
+
   powerManagement.powertop.enable = true;
 
   virtualisation.docker.storageDriver = "overlay2";

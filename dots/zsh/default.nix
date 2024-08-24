@@ -33,6 +33,8 @@
           # { name = "arar/prompt"; tags = [ as:theme ]; }
         ];
       };
+      # NOTE: this might not work properly if home manager is symlinking all .config
+      # directories
       dotDir = ".config/zsh";
       shellAliases = {
         la = "ls --color -lha";
@@ -58,11 +60,10 @@
         "..." = "cd ../..";
 
       };
-      # TODO: need to decide if i want to continue this route or just implement full
-      # on nix config fo zsh
+      # TODO: need to decide if i want to continue this route or just implement
+      #  config in .zsh files
       initExtra = ''
         for conf in "$HOME/.config/zsh/"*.zsh; do source "$conf"; done; unset conf
-
 
          export EDITOR=nvim || export EDITOR=vim
          export LANG=en_US.UTF-8
@@ -119,6 +120,7 @@
   programs.bat = {
     enable = true;
     config = {
+      # TODO: theme not working currently
       theme = "Gruvbox";
       italic-text = "always";
     };

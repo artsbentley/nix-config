@@ -4,6 +4,7 @@
 
   # nasMount = "/home/arar/nas";
   nasMount = "/home/arar/nas";
+  nasMountRoot = "/home/arar/rootmount-nas";
   serviceConfigRoot = "/home/arar/appdata";
 }
 
