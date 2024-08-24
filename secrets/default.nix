@@ -13,6 +13,7 @@
       radarrApiKey.file = ./radarrApiKey.age;
       tailscaleAuthKey.file = ./tailscaleAuthKey.age;
       bitwardenSession.file = ./bitwardenSession.age;
+      resticPassword.file = ./resticPassword.age;
     };
   };
 }

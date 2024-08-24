@@ -23,5 +23,8 @@ in
   "radarrApiKey.age".publicKeys = keys;
   "tailscaleAuthKey.age".publicKeys = keys;
   "bitwardenSession.age".publicKeys = keys;
+  "resticPassword.age".publicKeys = keys;
 }
+
+
 
