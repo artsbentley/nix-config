@@ -9,15 +9,10 @@ let
 in
 {
   # "secret1.age".publicKeys = [ user1 system1 ];
-  #"paperless.age".publicKeys = keys;
-  #"radarrApiKey.age".publicKeys = keys;
-  #"sonarrApiKey.age".publicKeys = keys;
-  #"immichDatabase.age".publicKeys = keys;
-  #"hashedUserPassword.age".publicKeys = keys;
-  #"vaultPassword.age".publicKeys = keys;
   # NOTE: not sure what gitincludes does yet
   #
   #"gitIncludes.age".publicKeys = keys;
+
   "protonvpnCredentials.age".publicKeys = keys;
   "paperless.age".publicKeys = keys;
   "test.age".publicKeys = keys;
@@ -27,5 +22,6 @@ in
   "sonarrApiKey.age".publicKeys = keys;
   "radarrApiKey.age".publicKeys = keys;
   "tailscaleAuthKey.age".publicKeys = keys;
+  "bitwardenSession.age".publicKeys = keys;
 }
 

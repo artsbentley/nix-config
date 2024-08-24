@@ -12,8 +12,11 @@
       sonarrApiKey.file = ./sonarrApiKey.age;
       radarrApiKey.file = ./radarrApiKey.age;
       tailscaleAuthKey.file = ./tailscaleAuthKey.age;
+      bitwardenSession.file = ./bitwardenSession.age;
     };
   };
 }
+
+
 
 
