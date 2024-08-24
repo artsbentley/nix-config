@@ -16,7 +16,7 @@ in
         ports = [ "9898:9898" ];
         volumes = [
           "${vars.serviceConfigRoot}/backrest:/config"
-          "${vars.nasMount}/Backups/restic:data"
+          "${vars.nasMount}/Backups/restic:/data"
           # Uncomment and adjust these as needed
           # "${server.data}/backrest:/data"
           # "${server.cache}/backrest:/cache"
