@@ -44,13 +44,11 @@
     };
     backups = {
       appdata-local = {
-        # NOTE: wip
-        # user = "share";
         timerConfig = {
           OnCalendar = "Mon..Sat *-*-* 05:00:00";
           Persistent = true;
         };
-        repository = "rest:http://localhost:8000/appdata-local-${config.networking.hostName}";
+        repository = "${vars.nasMount}/Backups/appdata";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
         pruneOpts = [
@@ -61,22 +59,13 @@
           "recyclarr/repositories"
         ];
         paths = [
-          "/tmp/appdata-local-${config.networking.hostName}.tar"
+          "${vars.serviceConfigRoot}"
         ];
         backupPrepareCommand = ''
           ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
-          ${pkgs.gnutar}/bin/tar -cf /tmp/appdata-local-${config.networking.hostName}.tar ${vars.serviceConfigRoot}
-          ${pkgs.restic}/bin/restic -r "${config.services.restic.backups.appdata-local.repository}" -p ${config.age.secrets.resticPassword.path} unlock
         '';
         backupCleanupCommand = ''
-          rm -rf /tmp/appdata-local*
           ${pkgs.systemd}/bin/systemctl start --all "podman-*"
-          # if [[ $SERVICE_RESULT =~ "success" ]]; then
-          #   message=$(journalctl -xeu restic-backups-appdata-local | grep Files: | tail -1 | sed 's/^.*Files/Files/g')
-          # else
-          #   message=$(journalctl --unit=restic-backups-appdata-local.service -n 20 --no-pager)
-          #     fi
-          #     /run/current-system/sw/bin/notify -s "$SERVICE_RESULT" -t "Backup Job appdata-local" -m "$message"
         '';
       };
 
