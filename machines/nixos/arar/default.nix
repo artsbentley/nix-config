@@ -46,7 +46,7 @@
         [ "${automount_opts},credentials=${config.age.secrets.smbCredentials.path},uid=1010,gid=1010,file_mode=0775,dir_mode=0775" ];
     };
 
-  fileSystems."${vars.rootMountRoot}" =
+  fileSystems."${vars.nasMountRoot}" =
     {
       device = "//192.168.1.123/rootmount";
       fsType = "cifs";
