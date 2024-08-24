@@ -82,7 +82,7 @@
             ./machines/nixos/arar
             ./machines/nixos/arar/hardware
             ./machines/nixos/arar/backup
-            # ./machines/nixos/arar/syncthing
+            ./machines/nixos/arar/syncthing
             ./secrets
             agenix.nixosModules.default
 
