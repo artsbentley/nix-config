@@ -63,11 +63,6 @@
       initExtra = ''
         for conf in "$HOME/.config/zsh/"*.zsh; do source "$conf"; done; unset conf
 
-         # if [ $(uname) = "Darwin" ]; then 
-         #   path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-         #   export BW_SESSION=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.bitwardenSession.path})
-         #   export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" 
-         # fi
 
          export EDITOR=nvim || export EDITOR=vim
          export LANG=en_US.UTF-8
