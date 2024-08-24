@@ -37,7 +37,7 @@
   services.restic = {
     server = {
       enable = true;
-      dataDir = "${vars.nasMount}/Backups/restics";
+      dataDir = "${vars.nasMount}/Backups/restic";
       extraFlags = [
         "--no-auth"
       ];
