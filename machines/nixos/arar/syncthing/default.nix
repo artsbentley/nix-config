@@ -14,12 +14,12 @@ in
     syncthing = {
       enable = true;
       user = "share";
+      group = "share";
       guiAddress = "0.0.0.0:8384";
       overrideFolders = false;
       overrideDevices = false;
       dataDir = "${vars.nasMount}/Syncthing";
-      # configDir = "${vars.serviceConfigRoot}/syncthing";
-      configDir = "/home/arar/appdata/syncthing";
+      configDir = "${vars.serviceConfigRoot}/syncthing";
     };
   };
 }
