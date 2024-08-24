@@ -69,12 +69,12 @@
         backupCleanupCommand = ''
           rm -rf /tmp/appdata-local*
           ${pkgs.systemd}/bin/systemctl start --all "podman-*"
-          if [[ $SERVICE_RESULT =~ "success" ]]; then
-            message=$(journalctl -xeu restic-backups-appdata-local | grep Files: | tail -1 | sed 's/^.*Files/Files/g')
-          else
-            message=$(journalctl --unit=restic-backups-appdata-local.service -n 20 --no-pager)
-              fi
-              /run/current-system/sw/bin/notify -s "$SERVICE_RESULT" -t "Backup Job appdata-local" -m "$message"
+          # if [[ $SERVICE_RESULT =~ "success" ]]; then
+          #   message=$(journalctl -xeu restic-backups-appdata-local | grep Files: | tail -1 | sed 's/^.*Files/Files/g')
+          # else
+          #   message=$(journalctl --unit=restic-backups-appdata-local.service -n 20 --no-pager)
+          #     fi
+          #     /run/current-system/sw/bin/notify -s "$SERVICE_RESULT" -t "Backup Job appdata-local" -m "$message"
         '';
       };
 
