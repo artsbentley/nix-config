@@ -3,6 +3,6 @@
     gh
     tmux
     yazi
-    atuin
+    # atuin
   ];
 }
