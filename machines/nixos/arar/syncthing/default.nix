@@ -17,7 +17,7 @@ in
       guiAddress = "0.0.0.0:8384";
       overrideFolders = false;
       overrideDevices = false;
-      dataDir = "${vars.nasMount}/Syncthing";
+      dataDir = "home/arar/nas/Syncthing";
       configDir = "${vars.serviceConfigRoot}/syncthing";
     };
   };
