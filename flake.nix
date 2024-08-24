@@ -81,6 +81,7 @@
             ./machines/nixos
             ./machines/nixos/arar
             ./machines/nixos/arar/hardware
+            ./machines/nixos/arar/backup
             ./secrets
             agenix.nixosModules.default
 

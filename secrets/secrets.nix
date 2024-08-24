@@ -13,6 +13,7 @@ in
   #
   #"gitIncludes.age".publicKeys = keys;
 
+  #TODO: backup the individual passwords to bitwarden
   "protonvpnCredentials.age".publicKeys = keys;
   "paperless.age".publicKeys = keys;
   "test.age".publicKeys = keys;
