@@ -23,7 +23,7 @@
         description: Photos
     - Paperless:
         icon: paperless.svg
-        href: http://local.nixos:8000/
+        href: http://local.nixos:8010/
         description: PDF and file management
 
 - Torrent:

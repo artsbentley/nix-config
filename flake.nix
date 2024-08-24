@@ -93,6 +93,7 @@
             ./containers/vaultwarden
             ./containers/cloudflare
             ./containers/homepage
+            ./containers/backrest
 
             # User-specific configurations
             ./users/arar

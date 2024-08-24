@@ -17,6 +17,7 @@ in
           volumes = [
             "${vars.serviceConfigRoot}/backrest:/config"
             # TODO: which volumes to mount
+            "${vars.nasMount}/Backups/restic:data"
             # "${server.data}/backrest:/data"
             # "${server.cache}/backrest:/cache"
             # "${server.data}:/userdata"
