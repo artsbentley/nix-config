@@ -37,7 +37,7 @@
   services.restic = {
     server = {
       enable = true;
-      dataDir = "${vars.nasMount}/Backups/restic";
+      # dataDir = "${vars.nasMount}/Backups/restic";
       extraFlags = [
         "--no-auth"
       ];
@@ -48,7 +48,7 @@
           OnCalendar = "Mon..Sat *-*-* 05:00:00";
           Persistent = true;
         };
-        repository = "${vars.nasMount}/Backups/appdata";
+        repository = "${vars.nasMount}/Backups/restic/appdata";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
         pruneOpts = [
