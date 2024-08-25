@@ -30,6 +30,9 @@ in
           "root-syncthing" = {
             path = "${vars.nasMount}/Syncthing";
           };
+          "banana" = {
+            path = "${vars.nasMount}/Syncthing/banana";
+          };
         };
       };
     };
