@@ -12,26 +12,33 @@ in
     allowedTCPPorts = [ 8384 22000 ];
     allowedUDPPorts = [ 22000 21027 ];
   };
+  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
   services = {
     syncthing = {
       enable = true;
       user = "arar";
       # group = "share";
       guiAddress = "0.0.0.0:8384";
-      overrideFolders = false;
-      overrideDevices = false;
+      overrideFolders = true;
+      overrideDevices = true;
       dataDir = "${vars.nasMount}/Syncthing";
       configDir = "${vars.serviceConfigRoot}/syncthing";
       settings = {
+        devices = {
+          "arar-iphone" = { id = "HA2QVX3-UPFG5JT-TUYESKM-Z4XVNPW-CJQF6SX-GMXGOQ7-OPIPQBX-HMPHMAO"; };
+        };
         folders = {
           "Downloads" = {
             path = "${vars.nasMount}/Syncthing/Downloads";
+            devices = [ "arar-iphone" ];
           };
           "root-syncthing" = {
             path = "${vars.nasMount}/Syncthing";
+            devices = [ "arar-iphone" ];
           };
           "banana" = {
             path = "${vars.nasMount}/Syncthing/banana";
+            devices = [ "arar-iphone" ];
           };
         };
       };
