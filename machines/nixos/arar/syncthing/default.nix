@@ -34,7 +34,7 @@ in
           };
           "root-syncthing" = {
             path = "${vars.nasMount}/Syncthing";
-            devices = [ "arar-iphone" ];
+            # devices = [ "arar-iphone" ];
           };
           "banana" = {
             path = "${vars.nasMount}/Syncthing/banana";
