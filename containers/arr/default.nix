@@ -112,6 +112,7 @@ in
         ports = [
           "6881:6881"
           "6881:6881/udp"
+          "6767:6767" # bazarr
           "8080:8080" # qbittorrent
           "9696:9696" # Prowlarr
           "8989:8989" # Sonarr
@@ -198,7 +199,7 @@ in
 
       bazarr = {
         image = "ghcr.io/linuxserver/bazarr";
-        ports = [ "6767:6767" ];
+        extraOptions = [ "--network=container:gluetun" ];
         volumes = [
           "${vars.serviceConfigRoot}/bazarr:/config"
           "${vars.nasMount}/Media/Movies:/movies"
