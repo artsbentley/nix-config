@@ -36,8 +36,8 @@ in
           #   path = "${vars.nasMount}/Syncthing";
           #   devices = [ "arar-iphone" ];
           # };
-          "banana" = {
-            path = "${vars.nasMount}/Syncthing/banana";
+          "obsidian" = {
+            path = "${vars.nasMount}/Syncthing/obsidian";
             devices = [ "arar-iphone" ];
           };
         };
