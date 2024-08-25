@@ -18,7 +18,7 @@ in
       user = "arar";
       # group = "share";
       guiAddress = "0.0.0.0:8384";
-      overrideFolders = true;
+      overrideFolders = false;
       overrideDevices = false;
       dataDir = "${vars.nasMount}/Syncthing";
       configDir = "${vars.serviceConfigRoot}/syncthing";
