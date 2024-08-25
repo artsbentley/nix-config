@@ -13,6 +13,7 @@ let
     "${vars.serviceConfigRoot}/radarr"
     "${vars.serviceConfigRoot}/prowlarr"
     "${vars.serviceConfigRoot}/recyclarr"
+    "${vars.serviceConfigRoot}/bazarr"
     "${vars.nasMount}/Media/Downloads"
     "${vars.nasMount}/Media/TV"
     "${vars.nasMount}/Media/Movies"
@@ -192,6 +193,22 @@ in
           PUID = "${toString config.users.users.share.uid}";
           PGID = "${toString config.users.groups.share.gid}";
           UMASK = "002";
+        };
+      };
+
+      bazarr = {
+        image = "ghcr.io/linuxserver/bazarr";
+        ports = [ "6767:6767" ];
+        volumes = [
+          "${vars.serviceConfigRoot}/bazarr:/config"
+          "${vars.nasMount}/Media/Movies:/movies"
+          "${vars.nasMount}/Media/TV:/tv"
+        ];
+        # extraOptions = [ "--network=host" ];
+        environment = {
+          TZ = vars.timeZone;
+          PUID = "${toString config.users.users.share.uid}";
+          PGID = "${toString config.users.groups.share.gid}";
         };
       };
 
