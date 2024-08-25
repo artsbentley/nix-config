@@ -25,6 +25,8 @@ in
   "tailscaleAuthKey.age".publicKeys = keys;
   "bitwardenSession.age".publicKeys = keys;
   "resticPassword.age".publicKeys = keys;
+  "syncthingCert.age".publicKeys = keys;
+  "syncthingKey.age".publicKeys = keys;
 }
 
 

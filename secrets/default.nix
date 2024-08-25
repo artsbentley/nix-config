@@ -14,6 +14,8 @@
       tailscaleAuthKey.file = ./tailscaleAuthKey.age;
       bitwardenSession.file = ./bitwardenSession.age;
       resticPassword.file = ./resticPassword.age;
+      syncthingKey.file = ./syncthingKey.age;
+      syncthingCert.file = ./syncthingCert.age;
     };
   };
 }

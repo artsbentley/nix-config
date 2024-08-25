@@ -1,4 +1,4 @@
-{ vars, ... }:
+{ vars, config, ... }:
 let
   directories = [
     "${vars.serviceConfigRoot}/syncthing"
@@ -19,6 +19,8 @@ in
       user = "arar";
       # group = "share";
       guiAddress = "0.0.0.0:8384";
+      key = config.age.secrets.syncthingKey.path;
+      cert = config.age.secrets.syncthingCert.path;
       overrideFolders = true;
       overrideDevices = true;
       dataDir = "${vars.nasMount}/Syncthing";
