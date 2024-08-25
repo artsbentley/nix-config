@@ -32,10 +32,10 @@ in
             path = "${vars.nasMount}/Syncthing/Downloads";
             devices = [ "arar-iphone" ];
           };
-          "root-syncthing" = {
-            path = "${vars.nasMount}/Syncthing";
-            # devices = [ "arar-iphone" ];
-          };
+          # "root-syncthing" = {
+          #   path = "${vars.nasMount}/Syncthing";
+          #   devices = [ "arar-iphone" ];
+          # };
           "banana" = {
             path = "${vars.nasMount}/Syncthing/banana";
             devices = [ "arar-iphone" ];
