@@ -15,7 +15,7 @@
   #
   # TODO: put dotfiles in nix repo and use relative path below 
   home.file = {
-    ".config/zsh".source = ../..dotfiles/zsh;
+    ".config/zsh".source = "../..dotfiles/zsh";
     # ".config/wezterm".source = ~/dotfiles/wezterm;
     # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;
