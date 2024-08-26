@@ -2,10 +2,10 @@
 
 - [ ] integrate existing dotfiles into home manager
 - [ ] setup vaultwarden backup + syncthing to devices
-- [ ] arr stack + bazarr
+
 - [ ] restore films form backup drive
-- [ ] setup restic on backup drive
 - [ ] sync everything from old laptops to SMB
+- [ ] setup restic on external drive
 
 - [ ] homepage integration with API's (proxmox, syncthing, etc)
 - [ ] homeassistant
@@ -16,7 +16,7 @@ https://www.reddit.com/r/homelab/comments/vhnjna/building_a_home_server_on_nixos
 
 ## scripts
 
-### attach smb
+### attaching smb
 
 `sudo mount -t cifs -o username=,password=,uid=1000,gid=1000,dir_mode=0777,file_mode=0777 //192.168.2.5//nas mnt/nas`
 

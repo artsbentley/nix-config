@@ -105,7 +105,7 @@
               home-manager.users.arar.imports = [
                 agenix.homeManagerModules.default
                 nix-index-database.hmModules.nix-index
-                ./users/arar/dots.nix
+                ./users/arar/dotfiles.nix
               ];
               home-manager.backupFileExtension = "bak";
             }
