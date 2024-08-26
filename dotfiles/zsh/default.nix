@@ -61,7 +61,7 @@
       # TODO: need to decide if i want to continue this route or just implement
       #  config in .zsh files
       initExtra = ''
-        for conf in "$HOME/.config/zsh/"*.zsh; do source "$conf"; done; unset conf
+        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
 
          export EDITOR=nvim || export EDITOR=vim
          export LANG=en_US.UTF-8

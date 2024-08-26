@@ -16,7 +16,7 @@
   # TODO: wrap dotfiles directory location in variable
   # TODO: put dotfiles in nix repo and use relative path below 
   home.file = {
-    ".config/zsh/yazi.zsh".source = ../../dotfiles/zsh/yazi.zsh;
+    ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
     # ".config/zsh".source = builtins.path { path = ../../dotfiles/zsh; };
 
     # ".config/wezterm".source = ~/dotfiles/wezterm;
