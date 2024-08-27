@@ -23,6 +23,9 @@ nix:
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	sudo nixos-rebuild switch --flake '.#arar'
 
+mac:
+	nix build .#darwinConfigurations.arar
+
 home:
 	git pull
 	home-manager switch --flake '.#arar@nixos'
