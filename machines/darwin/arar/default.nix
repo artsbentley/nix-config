@@ -94,7 +94,7 @@
       "watchexec"
       "xcodegen"
       "yazi"
-      "zig"
+      # "zig"
       "zsh-autosuggestions"
       "zsh-syntax-highlighting"
     ];
