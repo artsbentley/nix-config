@@ -24,12 +24,10 @@
 
   home.file = {
     ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
-    # ".config/zsh".source = builtins.path { path = ../../dotfiles/zsh; };
-
+    ".config/nvim".source = ../../dotfiles/nvim;
     # ".config/wezterm".source = ~/dotfiles/wezterm;
     # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;
-    # ".config/nvim".source = ~/dotfiles/nvim;
     # ".config/nix".source = ~/dotfiles/nix;
     # ".config/nix-darwin".source = ~/dotfiles/nix-darwin;
     # ".config/tmux".source = ~/dotfiles/tmux;
