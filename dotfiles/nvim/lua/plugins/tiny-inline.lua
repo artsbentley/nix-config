@@ -1,0 +1,15 @@
+return {}
+-- return {
+--     "rachartier/tiny-inline-diagnostic.nvim",
+--     event = "VeryLazy",
+--     opts = {},
+--     keys = {
+--         {
+--             "<leader>lv",
+--             function()
+--                 require("tiny-inline-diagnostic").toggle()
+--             end,
+--             desc = "Toggle (v)irtual text diagnostics",
+--         },
+--     },
+-- }
