@@ -54,14 +54,14 @@
         passwordFile = config.age.secrets.resticPassword.path;
         pruneOpts = [ "--keep-last 20" ];
 
-		# TODO: create better pruning
-		# pruneOpts = [
-		#          "--keep-last 5"
-		#          "--keep-daily 7"
-		#          "--keep-weekly 6"
-		#          "--keep-monthly 12"
-		#          "--keep-yearly 75"
-		#        ];
+        # TODO: create better pruning
+        # pruneOpts = [
+        #          "--keep-last 5"
+        #          "--keep-daily 7"
+        #          "--keep-weekly 6"
+        #          "--keep-monthly 12"
+        #          "--keep-yearly 75"
+        #        ];
 
         exclude = [
           "recyclarr/repo"
@@ -70,6 +70,9 @@
         paths = [
           "${vars.serviceConfigRoot}"
         ];
+        # TODO: setup zipping of appdata before every backup so that every snapshot
+        # contains a backup of itself, not relying on previous data, see
+        # wolfgang repo 
         backupPrepareCommand = ''
           ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
         '';

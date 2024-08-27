@@ -10,6 +10,8 @@
   };
 
   home.username = "arar";
+  # NOTE: switch to xdg instead:
+  #   xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   home.homeDirectory = "/home/arar";
   home.stateVersion = "23.11";
   #
@@ -25,18 +27,11 @@
   home.file = {
     ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
     ".config/nvim".source = ../../dotfiles/nvim;
-    # ".config/wezterm".source = ~/dotfiles/wezterm;
-    # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;
-    # ".config/nix".source = ~/dotfiles/nix;
-    # ".config/nix-darwin".source = ~/dotfiles/nix-darwin;
-    # ".config/tmux".source = ~/dotfiles/tmux;
   };
 
   imports = [
     ../../dotfiles/zsh/default.nix
-    # ../../dotfiles/nvim/default.nix
-    # ../../dotfiles/neofetch/default.nix
     ./packages.nix
     ./gitconfig.nix
   ];
