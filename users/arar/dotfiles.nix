@@ -15,6 +15,13 @@
   #
   # TODO: wrap dotfiles directory location in variable
   # TODO: put dotfiles in nix repo and use relative path below 
+
+  # NOTE: better solution?
+  # home.file."${config.xdg.configHome}" = {
+  #   source = ../../dotfiles;
+  #   recursive = true;
+  # };
+
   home.file = {
     ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
     # ".config/zsh".source = builtins.path { path = ../../dotfiles/zsh; };
