@@ -11,9 +11,9 @@
     useGlobalPkgs = false; # makes hm use nixos's pkgs value
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
-      nixpkgs.overlays = [
-        inputs.nur.overlay
-      ];
+      # nixpkgs.overlays = [
+      #   inputs.nur.overlay
+      # ];
       home.homeDirectory = lib.mkForce "/Users/arar";
 
       home.file = {
@@ -28,8 +28,8 @@
       imports = [
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
-        ../../users/arar/dotfiles.nix
-        ../../users/arar/age.nix
+        # ../../users/arar/dotfiles.nix
+        # ../../users/arar/age.nix
         # TODO: 
         # import other modules
         # ../../dotfiles/tmux
