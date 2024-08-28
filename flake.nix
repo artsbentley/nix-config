@@ -53,6 +53,7 @@
     #in
     {
 
+      # TODO: add work machine with special imports
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = {
