@@ -17,7 +17,7 @@
     };
 
     taps = [
-      "noahgorstein/tap/jqp"
+      # "noahgorstein/tap/jqp"
       "morantron/tmux-fingers"
       # "dustinblackman/tap/oatmeal"
       "julien-cpsn/atac"
