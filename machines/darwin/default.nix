@@ -16,6 +16,7 @@
       # ];
       home.homeDirectory = lib.mkForce "/Users/arar";
 
+      home.stateVersion = "23.11";
       home.file = {
         # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
         # ".config/nvim".source = ../../dotfiles/nvim;
