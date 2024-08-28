@@ -109,7 +109,7 @@
       "tailscale"
       # "bambu-studio" FAILED
       "element"
-      # "aerospace"  FAILED
+      "nikitabobko/aerospace"
       "alacritty"
       "arc"
       "balenaetcher"
