@@ -16,6 +16,14 @@
       no_quarantine = true;
     };
 
+    tabs =
+      [
+        "noahgorstein/jqp"
+        "morantron/tmux-fingers"
+        "joshmedeski/sesh/sesh"
+        "dustinblackman/tap/oatmeal"
+        "julien-cpsn/atac"
+      ];
 
     # TODO: 
     # check which need to be in a brew and which can be managed by HM input
@@ -37,7 +45,6 @@
       "dbmate"
       "direnv"
       "dive"
-      # "dustinblackman/tap/oatmeal"
       "elixir"
       "exercism"
       "fd"
@@ -54,8 +61,6 @@
       "goose"
       "htop"
       "hurl"
-      "joshmedeski/sesh/sesh"
-      # "julien-cpsn/atac"
       "just"
       "lazydocker"
       "lazygit"
@@ -63,11 +68,9 @@
       "librdkafka"
       "mas"
       "mise"
-      # "morantron/tmux-fingers"
       "mosquitto"
       "neovim"
       "ninja"
-      # "noahgorstein/jqp"
       "ollama"
       "openjdk@11"
       "openssl@1.1"
