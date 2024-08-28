@@ -1,5 +1,4 @@
 function update() {
-    cd ~/nix-config
     git pull
     
     if [[ "$(uname)" == "Darwin" ]]; then
@@ -9,7 +8,5 @@ function update() {
     else
         sudo nixos-rebuild switch --flake .#arar
     fi
-
-    cd -
 }
 
