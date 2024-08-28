@@ -14,12 +14,13 @@
     brewPrefix = "/opt/homebrew/bin";
     caskArgs = {
       no_quarantine = true;
+
     };
 
     taps = [
       # "noahgorstein/tap/jqp"
-      "morantron/tmux-fingers"
       # "dustinblackman/tap/oatmeal"
+      "morantron/tmux-fingers"
       "julien-cpsn/atac"
     ];
 
@@ -175,7 +176,7 @@
     git-crypt
     iperf3
     deploy-rs
-    eza
+    # eza
     neofetch
     tmux
     rsync
