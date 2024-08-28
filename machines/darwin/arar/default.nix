@@ -20,7 +20,6 @@
     # TODO: 
     # check which need to be in a brew and which can be managed by HM input
     brews = [
-      "apache-spark"
       "atlas"
       "atuin"
       "automake"
