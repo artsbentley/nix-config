@@ -24,7 +24,8 @@ nix:
 	sudo nixos-rebuild switch --flake '.#arar'
 
 mac:
-	nix build .#darwinConfigurations.arar
+	nix build .#darwinConfigurations.arar.system --show-trace --impure
+	./result/sw/bin/darwin-rebuild switch --flake "$$(pwd)#arar"
 
 home:
 	git pull
