@@ -16,14 +16,12 @@
       no_quarantine = true;
     };
 
-    taps =
-      [
-        "noahgorstein/jqp"
-        "morantron/tmux-fingers"
-        "joshmedeski/sesh/sesh"
-        "dustinblackman/tap/oatmeal"
-        "julien-cpsn/atac"
-      ];
+    taps = [
+      "noahgorstein/tap/jqp"
+      "morantron/tmux-fingers"
+      # "dustinblackman/tap/oatmeal"
+      "julien-cpsn/atac"
+    ];
 
     # TODO: 
     # check which need to be in a brew and which can be managed by HM input
@@ -33,6 +31,7 @@
       "automake"
       "azure-cli"
       "bacon"
+      "joshmedeski/sesh/sesh"
       "bash"
       "bat"
       "bazel"
