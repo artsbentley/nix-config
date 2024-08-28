@@ -16,7 +16,7 @@
       # ];
       home.homeDirectory = lib.mkForce "/Users/arar";
 
-      home.stateVersion = "23.11";
+      # home.stateVersion = "23.11";
       home.file = {
         # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
         # ".config/nvim".source = ../../dotfiles/nvim;
@@ -29,8 +29,8 @@
       imports = [
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
-        # ../../users/arar/dotfiles.nix
-        # ../../users/arar/age.nix
+        ../../users/arar/dotfiles.nix
+        ../../users/arar/age.nix
         # TODO: 
         # import other modules
         # ../../dotfiles/tmux

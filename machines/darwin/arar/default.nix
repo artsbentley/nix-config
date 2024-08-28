@@ -180,7 +180,6 @@
     neofetch
     tmux
     rsync
-    ncdu
     nmap
     jq
     yq
