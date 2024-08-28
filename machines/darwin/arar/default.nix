@@ -100,6 +100,7 @@
     ];
 
     casks = [
+      "nikitabobko/tap/aerospace"
       "notion"
       "telegram"
       "libreoffice"
