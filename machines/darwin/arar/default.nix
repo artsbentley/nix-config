@@ -176,7 +176,6 @@
     git-crypt
     iperf3
     deploy-rs
-    # eza
     neofetch
     tmux
     rsync
