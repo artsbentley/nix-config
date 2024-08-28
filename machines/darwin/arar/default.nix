@@ -16,7 +16,7 @@
       no_quarantine = true;
     };
 
-    tabs =
+    taps =
       [
         "noahgorstein/jqp"
         "morantron/tmux-fingers"
