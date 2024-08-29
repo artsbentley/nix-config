@@ -28,7 +28,7 @@
   system = {
     defaults = {
       trackpad = {
-        Clicking = false;
+        Clicking = true;
         TrackpadThreeFingerDrag = true;
       };
       finder = {

@@ -60,6 +60,7 @@
       "fx"
       "fzf"
       "gh"
+      "yq"
       "git"
       "git-delta"
       "gitmoji"
@@ -92,7 +93,6 @@
       "s3cmd"
       "sbt"
       "scala"
-      "spotify-tui"
       "sshs"
       "starship"
       "step"
@@ -136,7 +136,6 @@
       "hammerspoon"
       "keepassxc"
       "loop"
-      # "lulu"
       # "microsoft-auto-update"
       "microsoft-excel"
       "microsoft-powerpoint"
@@ -186,7 +185,7 @@
     deploy-rs
     neofetch
     tmux
-    # rsync
+    rsync
     nmap
     jq
     yq
@@ -207,7 +206,7 @@
     slack
     mattermost
     sentry-cli
-    # vscode
+    vscode
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
