@@ -15,7 +15,7 @@
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
       home.homeDirectory = lib.mkForce "/Users/arar";
-
+      home.stateVersion = "23.11";
       imports = [
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
