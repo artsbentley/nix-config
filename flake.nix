@@ -58,10 +58,6 @@
           inherit inputs;
           #inherit inputs networksLocal networksExternal;
         };
-        environment.systemPackages = [
-          nixpkgs.sshs
-        ];
-
         modules = [
           agenix.darwinModules.default
           ./machines/darwin

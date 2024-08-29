@@ -97,7 +97,7 @@
       "s3cmd"
       "sbt"
       "scala"
-      # "sshs"
+      "sshs"
       "starship"
       "step"
       "strongswan"
@@ -209,6 +209,7 @@
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
+    emacs
   ];
 
   services.nix-daemon.enable = lib.mkForce
