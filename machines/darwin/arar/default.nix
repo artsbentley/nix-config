@@ -6,9 +6,6 @@
 
   # home-manager.users.YourUserName = { pkgs, ... }: { };
   # system.defaults.dock.autohide = false;
-  programs.fish.enable = true;
-  environment.systemPackages = with pkgs; [ tree wget ripgrep file fd zip ];
-
 
   imports = [
     ./system.nix
@@ -154,65 +151,66 @@
 
 
   };
-  # environment.systemPackages = with pkgs; [
-  #   (python311Full.withPackages (ps: with ps; [
-  #     pip
-  #     jmespath
-  #     requests
-  #     setuptools
-  #     pyyaml
-  #   ]))
-  #   ansible-language-server
-  #   vault
-  #   yq
-  #   git-lfs
-  #   pre-commit
-  #   bfg-repo-cleaner
-  #   go
-  #   gotools
-  #   gopls
-  #   go-outline
-  #   gopls
-  #   gopkgs
-  #   gocode-gomod
-  #   godef
-  #   golint
-  #   colima
-  #   docker
-  #   docker-compose
-  #   utm
-  #   wget
-  #   git-crypt
-  #   iperf3
-  #   deploy-rs
-  #   neofetch
-  #   tmux
-  #   rsync
-  #   nmap
-  #   jq
-  #   yq
-  #   ripgrep
-  #   sqlite
-  #   pwgen
-  #   gnupg
-  #   inputs.agenix.packages."${system}".default
-  #   bitwarden-cli
-  #   yt-dlp
-  #   ffmpeg
-  #   chromedriver
-  #   mosh
-  #   discord
-  #   git-filter-repo
-  #   spotify
-  #   httpie
-  #   slack
-  #   mattermost
-  #   sentry-cli
-  #   vscode
-  #   google-cloud-sdk
-  #   pinentry.curses
-  #   nixos-rebuild
-  # ];
+  environment.systemPackages = with pkgs; [
+    (python311Full.withPackages (ps: with ps; [
+      pip
+      jmespath
+      requests
+      setuptools
+      pyyaml
+    ]))
+    chromium
+    ansible-language-server
+    vault
+    yq
+    git-lfs
+    pre-commit
+    bfg-repo-cleaner
+    go
+    gotools
+    gopls
+    go-outline
+    gopls
+    gopkgs
+    gocode-gomod
+    godef
+    golint
+    colima
+    docker
+    docker-compose
+    utm
+    wget
+    git-crypt
+    iperf3
+    deploy-rs
+    neofetch
+    tmux
+    rsync
+    nmap
+    jq
+    yq
+    ripgrep
+    sqlite
+    pwgen
+    gnupg
+    inputs.agenix.packages."${system}".default
+    bitwarden-cli
+    yt-dlp
+    ffmpeg
+    chromedriver
+    mosh
+    discord
+    git-filter-repo
+    spotify
+    httpie
+    slack
+    mattermost
+    sentry-cli
+    vscode
+    google-cloud-sdk
+    pinentry.curses
+    nixos-rebuild
+  ];
 
   services.nix-daemon.enable = lib.mkForce
     true;
