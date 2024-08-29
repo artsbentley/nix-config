@@ -4,11 +4,6 @@
     ulimit -n 2048
   '';
 
-  # home-manager.users.YourUserName = { pkgs, ... }: { };
-  # system.defaults.dock.autohide = false;
-  programs.fish.enable = true;
-
-
   imports = [
     ./system.nix
   ];
@@ -209,7 +204,6 @@
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
-    emacs
   ];
 
   services.nix-daemon.enable = lib.mkForce
