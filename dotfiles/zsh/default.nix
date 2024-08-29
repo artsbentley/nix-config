@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     grc
     bat
+    yq
   ];
 
   programs = {
