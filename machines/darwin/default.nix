@@ -8,8 +8,7 @@
   };
   imports = [ <home-manager/nix-darwin> ];
   home-manager = {
-    # useGlobalPkgs = false; # makes hm use nixos's pkgs value
-    useGlobalPkgs = true; # makes hm use nixos's pkgs value
+    useGlobalPkgs = false; # makes hm use nixos's pkgs value
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
