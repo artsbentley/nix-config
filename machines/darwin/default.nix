@@ -25,7 +25,7 @@
       ];
 
       home.packages = with pkgs; [
-        neovim # Neovim package
+        # neovim # Neovim package
         # Add more packages here if needed
       ];
 
