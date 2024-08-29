@@ -62,12 +62,14 @@
       "fzf"
       "gh"
       "yq"
+      "jq"
       "git"
       "git-delta"
       "gitmoji"
       "gleam"
       "gnu-sed"
       "go"
+      "gopls"
       "golang-migrate"
       "goose"
       "htop"
@@ -90,6 +92,7 @@
       "qmk/qmk/qmk"
       "rsyslog"
       "rust"
+      "ripgrep"
       "rustup"
       "s3cmd"
       "sbt"
@@ -128,6 +131,7 @@
       "arc"
       "balenaetcher"
       "bitwarden"
+      "bitwarden-cli"
       "bruno"
       "cyberduck"
       "eqmac"
@@ -163,15 +167,12 @@
     ]))
     ansible-language-server
     vault
-    yq
     git-lfs
     pre-commit
     bfg-repo-cleaner
     go
     gotools
-    gopls
     go-outline
-    gopls
     gopkgs
     gocode-gomod
     godef
@@ -188,9 +189,6 @@
     tmux
     rsync
     nmap
-    jq
-    yq
-    ripgrep
     sqlite
     pwgen
     gnupg
@@ -200,7 +198,7 @@
     ffmpeg
     chromedriver
     mosh
-    discord
+    # discord
     git-filter-repo
     spotify
     httpie
