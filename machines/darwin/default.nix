@@ -17,12 +17,16 @@
       # ];
       home.homeDirectory = lib.mkForce "/Users/arar";
 
-      # home.stateVersion = "23.11";
-      home.file = {
-        # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
-        # ".config/nvim".source = ../../dotfiles/nvim;
-        # ".config/wezterm".source = ../../dotfiles/wezterm;
-      };
+      home.packages = with pkgs; [
+        yq
+      ];
+
+
+      # home.file = {
+      # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
+      # ".config/nvim".source = ../../dotfiles/nvim;
+      # ".config/wezterm".source = ../../dotfiles/wezterm;
+      # };
 
       # NOTE: 
       # zsh and nvim are taken care of in nix server config, no need to
