@@ -13,9 +13,6 @@
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
       home.homeDirectory = lib.mkForce "/Users/arar";
-      home.environment.systemPackages = with pkgs; [
-        wget
-      ];
       home.packages = with pkgs; [
         yq
       ];
