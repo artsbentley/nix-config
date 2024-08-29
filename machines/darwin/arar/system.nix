@@ -40,7 +40,7 @@
       dock = {
         # Quick Note on the bottom right hot corner
         wvous-br-corner = 14;
-        autohide = false;
+        autohide = true;
         tilesize = 50;
       };
       NSGlobalDomain = {
