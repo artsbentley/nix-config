@@ -186,7 +186,7 @@
     deploy-rs
     neofetch
     tmux
-    rsync
+    # rsync
     nmap
     jq
     yq
@@ -207,7 +207,7 @@
     slack
     mattermost
     sentry-cli
-    vscode
+    # vscode
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
