@@ -25,17 +25,10 @@
       ];
 
       home.packages = with pkgs; [
-        # neovim # Neovim package
+        neovim # Neovim package
         # Add more packages here if needed
       ];
 
-      # Optionally, configure Neovim
-      programs.neovim = {
-        enable = true;
-        # Set custom Neovim settings here, for example:
-        # vimAlias = true; # If you want to use 'vim' command to open Neovim
-        # Configure additional plugins if needed
-      };
 
       # home.file = {
       # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
