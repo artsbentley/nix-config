@@ -131,7 +131,7 @@
       "arc"
       "balenaetcher"
       "bitwarden"
-      "bitwarden-cli"
+      # "bitwarden-cli"
       "bruno"
       "cyberduck"
       "eqmac"
