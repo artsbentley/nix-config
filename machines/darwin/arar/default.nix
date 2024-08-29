@@ -4,6 +4,10 @@
     ulimit -n 2048
   '';
 
+  # home-manager.users.YourUserName = { pkgs, ... }: { };
+  system.defaults.dock.autohide = false;
+
+
   homebrew = {
     enable = true;
     onActivation = {
