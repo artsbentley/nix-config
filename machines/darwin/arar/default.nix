@@ -5,8 +5,12 @@
   '';
 
   # home-manager.users.YourUserName = { pkgs, ... }: { };
-  system.defaults.dock.autohide = false;
+  # system.defaults.dock.autohide = false;
 
+
+  imports = [
+    ./system.nix
+  ];
 
   homebrew = {
     enable = true;
@@ -209,7 +213,8 @@
     nixos-rebuild
   ];
 
-  services.nix-daemon.enable = lib.mkForce true;
+  services.nix-daemon.enable = lib.mkForce
+    true;
 
   system.stateVersion = 4;
 }
