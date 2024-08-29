@@ -162,6 +162,7 @@
       pyyaml
     ]))
     ansible-language-server
+    chromium
     vault
     yq
     git-lfs
