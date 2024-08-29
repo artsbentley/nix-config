@@ -16,8 +16,6 @@
   home.stateVersion = "23.11";
   #
   # TODO: wrap dotfiles directory location in variable
-  # TODO: put dotfiles in nix repo and use relative path below 
-
   # NOTE: better solution?
   # home.file."${config.xdg.configHome}" = {
   #   source = ../../dotfiles;
@@ -42,7 +40,6 @@
   };
 
   programs.home-manager.enable = true;
-
   systemd.user.startServices = "sd-switch";
 }
 

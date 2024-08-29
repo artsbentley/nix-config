@@ -13,19 +13,6 @@
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
       home.homeDirectory = lib.mkForce "/Users/arar";
-      home.packages = with pkgs; [
-        yq
-      ];
-
-      # home.file = {
-      # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
-      # ".config/nvim".source = ../../dotfiles/nvim;
-      # ".config/wezterm".source = ../../dotfiles/wezterm;
-      # };
-
-      # NOTE: 
-      # zsh and nvim are taken care of in nix server config, no need to
-      # import here
       imports = [
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
@@ -35,8 +22,12 @@
         # import other modules
         # ../../dotfiles/tmux
       ];
+      # home.file = {
+      # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
+      # ".config/nvim".source = ../../dotfiles/nvim;
+      # ".config/wezterm".source = ../../dotfiles/wezterm;
+      # };
     };
-
     backupFileExtension = "bak";
   };
 
