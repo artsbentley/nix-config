@@ -15,15 +15,27 @@
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
       home.homeDirectory = lib.mkForce "/Users/arar";
-      home.stateVersion = "23.11";
       imports = [
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
 
-        # ../../users/arar/dotfiles.nix
+        ../../users/arar/dotfiles.nix
         ../../users/arar/age.nix
         # ./arar/system.nix
       ];
+
+      home.packages = with pkgs; [
+        neovim # Neovim package
+        # Add more packages here if needed
+      ];
+
+      # Optionally, configure Neovim
+      programs.neovim = {
+        enable = true;
+        # Set custom Neovim settings here, for example:
+        # vimAlias = true; # If you want to use 'vim' command to open Neovim
+        # Configure additional plugins if needed
+      };
 
       # home.file = {
       # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
