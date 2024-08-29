@@ -70,7 +70,7 @@
       "mas"
       "mise"
       "mosquitto"
-      # "neovim"
+      "neovim"
       "ninja"
       "ollama"
       "openjdk@11"

@@ -24,12 +24,6 @@
         # ./arar/system.nix
       ];
 
-      home.packages = with pkgs; [
-        neovim # Neovim package
-        # Add more packages here if needed
-      ];
-
-
       # home.file = {
       # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
       # ".config/nvim".source = ../../dotfiles/nvim;
