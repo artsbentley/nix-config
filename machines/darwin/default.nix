@@ -20,7 +20,7 @@
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
 
-        ../../users/arar/dotfiles.nix
+        # ../../users/arar/dotfiles.nix
         ../../users/arar/age.nix
         # ./arar/system.nix
       ];
