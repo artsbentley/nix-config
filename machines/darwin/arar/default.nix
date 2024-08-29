@@ -6,6 +6,8 @@
 
   # home-manager.users.YourUserName = { pkgs, ... }: { };
   # system.defaults.dock.autohide = false;
+  programs.fish.enable = true;
+
 
   imports = [
     ./system.nix
@@ -159,7 +161,6 @@
       setuptools
       pyyaml
     ]))
-    chromium
     ansible-language-server
     vault
     yq
