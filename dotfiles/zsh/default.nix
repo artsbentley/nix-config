@@ -2,8 +2,9 @@
   home.packages = with pkgs; [
     grc
     bat
-    yq
   ];
+
+  programs.jq.enable = true;
 
   programs = {
     starship = {
