@@ -112,9 +112,9 @@
       "google-chrome"
       "handbrake"
       "tailscale"
-      # "bambu-studio" FAILED
+      "bambu-studio"
       "element"
-      # "nikitabobko/aerospace"
+      "bambu-studio"
       "alacritty"
       "arc"
       "balenaetcher"

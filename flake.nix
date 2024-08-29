@@ -62,7 +62,7 @@
           agenix.darwinModules.default
           ./machines/darwin
           ./machines/darwin/arar
-          ./machines/darwin/arar/system.nix
+          # ./machines/darwin/arar/system.nix
         ];
       };
 
