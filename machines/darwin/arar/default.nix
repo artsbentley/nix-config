@@ -97,7 +97,7 @@
       "s3cmd"
       "sbt"
       "scala"
-      "sshs"
+      # "sshs"
       "starship"
       "step"
       "strongswan"
