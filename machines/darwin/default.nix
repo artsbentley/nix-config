@@ -21,6 +21,7 @@
 
         ../../users/arar/dotfiles.nix
         ../../users/arar/age.nix
+        ./arar/system.nix
       ];
 
       # home.file = {

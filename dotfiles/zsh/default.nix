@@ -4,7 +4,6 @@
     bat
   ];
 
-  programs.jq.enable = true;
 
   programs = {
     starship = {
