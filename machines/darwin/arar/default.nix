@@ -7,7 +7,7 @@
   # home-manager.users.YourUserName = { pkgs, ... }: { };
   # system.defaults.dock.autohide = false;
   programs.fish.enable = true;
-  home.packages = with pkgs; [ tree wget ripgrep file fd zip ];
+  packages = with pkgs; [ tree wget ripgrep file fd zip ];
 
 
   imports = [
