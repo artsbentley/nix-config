@@ -6,7 +6,7 @@
 
   # home-manager.users.YourUserName = { pkgs, ... }: { };
   # system.defaults.dock.autohide = false;
-  services.dropbox.enable = true;
+  programs.fish.enable = true;
 
 
   imports = [
