@@ -25,6 +25,10 @@
       </plist>
     '';
   };
+
+  # Enable sudo authentication with TouchID
+  security.pam.enableSudoTouchIdAuth = true;
+
   system = {
     defaults = {
       trackpad = {
