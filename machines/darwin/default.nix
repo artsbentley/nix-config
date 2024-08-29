@@ -10,25 +10,25 @@
   home-manager = {
     useGlobalPkgs = false; # makes hm use nixos's pkgs value
     useUserPackages = true;
+    backupFileExtension = "bak";
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
       home.homeDirectory = lib.mkForce "/Users/arar";
+
       imports = [
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
+
         ../../users/arar/dotfiles.nix
         ../../users/arar/age.nix
-        # TODO: 
-        # import other modules
-        # ../../dotfiles/tmux
       ];
+
       # home.file = {
       # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
       # ".config/nvim".source = ../../dotfiles/nvim;
       # ".config/wezterm".source = ../../dotfiles/wezterm;
       # };
     };
-    backupFileExtension = "bak";
   };
 
   nix.settings.max-jobs = "auto";

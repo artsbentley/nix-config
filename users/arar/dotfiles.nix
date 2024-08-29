@@ -9,9 +9,8 @@
     };
   };
 
+  # NOTE: switch to xdg instead: xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   home.username = "arar";
-  # NOTE: switch to xdg instead:
-  #   xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   home.homeDirectory = "/home/arar";
   home.stateVersion = "23.11";
   #
@@ -40,6 +39,7 @@
   };
 
   programs.home-manager.enable = true;
+
   systemd.user.startServices = "sd-switch";
 }
 
