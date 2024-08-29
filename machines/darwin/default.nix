@@ -8,14 +8,13 @@
   };
   imports = [ <home-manager/nix-darwin> ];
   home-manager = {
-    # useGlobalPkgs = false; # makes hm use nixos's pkgs value
-    useGlobalPkgs = true; # makes hm use nixos's pkgs value
+    useGlobalPkgs = false; # makes hm use nixos's pkgs value
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
       home.homeDirectory = lib.mkForce "/Users/arar";
-      home.packages = with pkgs; [
-        yq
+      environment.systemPackages = with pkgs; [
+        wget
       ];
 
       # home.file = {
