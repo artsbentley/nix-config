@@ -20,23 +20,26 @@ in
           WEBSOCKET_ENABLED = "true";
         };
       };
+
     };
-    # TODO this needs a cronjob to be run daily
-    # bw-export = {
-    #   image = "0netx/bw-export";
-    #   # autoStart = true;
-    #   volumes = [
-    #     "${vars.nasMount}/Backup/vaultwarden/arar/data:/var/attachment"
-    #     "${vars.nasMount}/Backup/vaultwarden/arar/attachment:/var/attachment"
-    #   ];
-    #   # NOTE: this .env might collide with vaultwarden, if it does, seperate out into
-    #   # its own env file
-    #   environmentFiles = [ config.age.secrets.vaultwarden.path ];
-    #   environment = {
-    #     PUID = "${toString config.users.users.share.uid}";
-    #     PGID = "${toString config.users.groups.share.gid}";
-    #     KEEP_LAST_BACKUPS = 50;
-    #   };
+
+  };
+  # TODO this needs a cronjob to be run daily
+  bw-backup = {
+    image = "0netx/bw-export";
+    # autoStart = false;
+    volumes = [
+      "${vars.nasMount}/Backups/vaultwarden/arar/data:/var/attachment"
+      "${vars.nasMount}/Backups/vaultwarden/arar/attachment:/var/attachment"
+    ];
+    # NOTE: this .env might collide with vaultwarden, if it does, seperate out into
+    # its own env file
+    environmentFiles = [ config.age.secrets.vaultwarden.path ];
+    environment = {
+      PUID = "${toString config.users.users.share.uid}";
+      PGID = "${toString config.users.groups.share.gid}";
+      KEEP_LAST_BACKUPS = 50;
+    };
     # };
   };
 }
