@@ -2,6 +2,8 @@
 let
   directories = [
     "${vars.serviceConfigRoot}/vaultwarden"
+    "${vars.nasMount}/Backups/vaultwarden/arar/data"
+    "${vars.nasMount}/Backups/vaultwarden/arar/attachment"
   ];
 in
 {
@@ -23,7 +25,7 @@ in
 
       bw-backup = {
         image = "0netx/bw-export";
-        # autoStart = false;
+        autoStart = true;
         volumes = [
           "${vars.nasMount}/Backups/vaultwarden/arar/data:/var/data"
           "${vars.nasMount}/Backups/vaultwarden/arar/attachment:/var/attachment"
