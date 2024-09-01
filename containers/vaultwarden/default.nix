@@ -25,7 +25,7 @@ in
         image = "0netx/bw-export";
         # autoStart = false;
         volumes = [
-          "${vars.nasMount}/Backups/vaultwarden/arar/data:/var/attachment"
+          "${vars.nasMount}/Backups/vaultwarden/arar/data:/var/data"
           "${vars.nasMount}/Backups/vaultwarden/arar/attachment:/var/attachment"
         ];
         # NOTE: this .env might collide with vaultwarden, if it does, seperate out into
