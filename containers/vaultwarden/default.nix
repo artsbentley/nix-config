@@ -34,7 +34,7 @@ in
         environment = {
           PUID = "${toString config.users.users.share.uid}";
           PGID = "${toString config.users.groups.share.gid}";
-          KEEP_LAST_BACKUPS = 50;
+          KEEP_LAST_BACKUPS = "50";
         };
       };
     };
