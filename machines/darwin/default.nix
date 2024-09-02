@@ -23,6 +23,7 @@
         ../../users/arar/age.nix
         # ./arar/system.nix
       ];
+      home-manager.users.terrior.nixpkgs.config.allowUnfree = true;
 
       # home.file = {
       # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
