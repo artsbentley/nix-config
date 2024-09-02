@@ -1,13 +1,13 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  nixpkgs = {
-    overlays = [
-    ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #   ];
+  #   config = {
+  #     allowUnfree = true;
+  #     allowUnfreePredicate = (_: true);
+  #   };
+  # };
 
   # NOTE: 
   # switch to xdg instead: xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
