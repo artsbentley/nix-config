@@ -71,7 +71,7 @@
       # };
 
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        # pkgs = import nixpkgs { system = "aarch64-darwin"; };
         system = "aarch64-darwin";
         specialArgs = {
           inherit inputs;
