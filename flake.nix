@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
@@ -52,17 +52,35 @@
     #      networksLocal = import ./machines/networksLocal.nix;
     #in
     {
+      # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
+      #   system = "aarch64-darwin";
+      #   specialArgs = {
+      #     inherit inputs;
+      #     #inherit inputs networksLocal networksExternal;
+      #   };
+      #   modules = [
+      #     agenix.darwinModules.default
+      #     ./machines/darwin
+      #     ./machines/darwin/arar
+      #     # ./machines/darwin/arar/system.nix
+      #   ];
+      # };
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        specialArgs = {
-          inherit inputs;
-          #inherit inputs networksLocal networksExternal;
-        };
+        specialArgs = { inherit inputs; };
         modules = [
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.arar = import ./machines/dar/arar/default.nix;
+            programs.home-manager.enable = true;
+            system.stateVersion = 4;
+            nix.configureBuildUsers = true;
+            nix.useDaemon = true;
+          }
           agenix.darwinModules.default
-          ./machines/darwin
-          ./machines/darwin/arar
-          # ./machines/darwin/arar/system.nix
+          # ./machines/dar
+          # ./machines/dar/arar
         ];
       };
 

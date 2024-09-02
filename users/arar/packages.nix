@@ -4,5 +4,8 @@
     tmux
     yazi
     # atuin
+    wget
+    htop
+    sops
   ];
 }
