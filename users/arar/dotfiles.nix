@@ -34,7 +34,6 @@
     ./gitconfig.nix
   ];
 
-  programs.kitty.enable = true;
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true;
