@@ -1,5 +1,12 @@
 { pkgs, ... }: {
   # here go the darwin preferences and config items
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   programs.zsh.enable = true;
   environment = {
     shells = with pkgs; [ bash zsh ];
