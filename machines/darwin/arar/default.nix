@@ -161,7 +161,6 @@
       pyyaml
     ]))
     ansible-language-server
-    vault
     git-lfs
     pre-commit
     bfg-repo-cleaner
