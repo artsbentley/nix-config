@@ -34,6 +34,7 @@
     ./gitconfig.nix
   ];
 
+  programs.exa.enable = true;
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true;
