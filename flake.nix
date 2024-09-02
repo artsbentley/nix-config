@@ -52,38 +52,39 @@
     #      networksLocal = import ./machines/networksLocal.nix;
     #in
     {
-      # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-      #   system = "aarch64-darwin";
-      #   specialArgs = {
-      #     inherit inputs;
-      #     #inherit inputs networksLocal networksExternal;
-      #   };
-      #   modules = [
-      #     agenix.darwinModules.default
-      #     ./machines/darwin
-      #     ./machines/darwin/arar
-      #     # ./machines/darwin/arar/system.nix
-      #   ];
-      # };
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          #inherit inputs networksLocal networksExternal;
+        };
         modules = [
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.arar = import ./machines/dar/arar/default.nix;
-            programs.home-manager.enable = true;
-            system.stateVersion = 4;
-            nix.configureBuildUsers = true;
-            nix.useDaemon = true;
-          }
           agenix.darwinModules.default
-          # ./machines/dar
-          # ./machines/dar/arar
+          ./machines/darwin
+          ./machines/darwin/arar
+          # ./machines/darwin/arar/system.nix
         ];
       };
+
+      # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
+      #   system = "aarch64-darwin";
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     home-manager.darwinModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.arar = import ./machines/dar/arar/default.nix;
+      #       programs.home-manager.enable = true;
+      #       system.stateVersion = 4;
+      #       nix.configureBuildUsers = true;
+      #       nix.useDaemon = true;
+      #     }
+      #     agenix.darwinModules.default
+      #     # ./machines/dar
+      #     # ./machines/dar/arar
+      #   ];
+      # };
 
       nixosConfigurations = {
         arar = nixpkgs.lib.nixosSystem {
