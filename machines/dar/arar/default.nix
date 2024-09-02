@@ -67,7 +67,7 @@
       "gopls"
       "golang-migrate"
       "goose"
-      "htop"
+      # "htop"
       "hurl"
       "just"
       "lazydocker"
