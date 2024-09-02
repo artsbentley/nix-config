@@ -4,7 +4,8 @@
     #   url = "git+file:secrets"; # the submodule is in the ./subproject dir
     #   flake = false;
     # };
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-unstable";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
