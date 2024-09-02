@@ -50,21 +50,18 @@
     {
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        specialArgs = {
-          inherit inputs;
-          nixpkgs.config.allowUnfree = true;
-          nixpkgs.config.allowUnfreePredicate = (_: true);
-        };
+        specialArgs = { inherit inputs; };
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules = [
           ./machines/dar
           home-manager.darwinModules.home-manager
           agenix.darwinModules.default
-
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.config.allowUnfreePredicate = (_: true);
               users.arar.imports = [ ./machines/dar/home-manager ];
             };
           }

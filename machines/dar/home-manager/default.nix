@@ -14,6 +14,7 @@
     CLICLOLOR = 1;
     EDITOR = "nvim";
   };
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = (_: true);
 
@@ -34,10 +35,4 @@
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
-  programs.alacritty = {
-    enable = true;
-    settings.font.normal.family = "MesloLGS Nerd Font Mono";
-    settings.font.size = 16;
-  };
-  home.file.".inputrc".source = ./dotfiles/inputrc;
 }
