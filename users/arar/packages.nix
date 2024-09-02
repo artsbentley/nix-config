@@ -7,5 +7,6 @@
     wget
     htop
     sops
+    neofetch
   ];
 }
