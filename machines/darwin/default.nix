@@ -14,7 +14,6 @@
     backupFileExtension = "bak";
     extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
     users.arar = { config, pkgs, ... }: {
-      nixpkgs.config.allowUnfree = true;
       home.homeDirectory = lib.mkForce "/Users/arar";
       imports = [
         inputs.nix-index-database.hmModules.nix-index
