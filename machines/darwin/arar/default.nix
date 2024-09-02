@@ -187,7 +187,7 @@
     pwgen
     gnupg
     inputs.agenix.packages."${system}".default
-    bitwarden-cli
+    # bitwarden-cli
     yt-dlp
     ffmpeg
     chromedriver

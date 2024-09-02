@@ -125,7 +125,7 @@
       "alacritty"
       "arc"
       "balenaetcher"
-      "bitwarden"
+      # "bitwarden"
       # "bitwarden-cli"
       "bruno"
       "cyberduck"
