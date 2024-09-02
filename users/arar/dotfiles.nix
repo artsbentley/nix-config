@@ -12,9 +12,7 @@
   # NOTE: 
   # switch to xdg instead: xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   home.username = "arar";
-  # BUG:
-  # this depends on the system, linux/ mac
-  # home.homeDirectory = "/home/arar";
+  home.homeDirectory = "/home/arar";
   home.stateVersion = "23.11";
   #
   # TODO: wrap dotfiles directory location in variable

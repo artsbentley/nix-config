@@ -47,44 +47,45 @@
     , nur
     , ...
     }@inputs:
-    #let
-    #      networksExternal = import ./machines/networksExternal.nix;
-    #      networksLocal = import ./machines/networksLocal.nix;
-    #in
     {
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        specialArgs = {
-          inherit inputs;
-          #inherit inputs networksLocal networksExternal;
-        };
+        specialArgs = { inherit inputs; };
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+
         modules = [
+          ./machines/dar
+          home-manager.darwinModules.home-manager
           agenix.darwinModules.default
-          ./machines/darwin
-          ./machines/darwin/arar
-          # ./machines/darwin/arar/system.nix
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.arar.imports = [ ./machines/dar/home-manager ];
+            };
+          }
         ];
+
+
       };
 
+      #   {
       # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-      #   system = "aarch64-darwin";
-      #   specialArgs = { inherit inputs; };
-      #   modules = [
-      #     home-manager.darwinModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users.arar = import ./machines/dar/arar/default.nix;
-      #       programs.home-manager.enable = true;
-      #       system.stateVersion = 4;
-      #       nix.configureBuildUsers = true;
-      #       nix.useDaemon = true;
-      #     }
-      #     agenix.darwinModules.default
-      #     # ./machines/dar
-      #     # ./machines/dar/arar
-      #   ];
-      # };
+      #               pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      #       system = "aarch64-darwin";
+      #       specialArgs = {
+      #         inherit inputs;
+      #         #inherit inputs networksLocal networksExternal;
+      #       };
+      #       modules = [
+      #         agenix.darwinModules.default
+      #         ./machines/darwin
+      #         ./machines/darwin/arar
+      #         # ./machines/darwin/arar/system.nix
+      #       ];
+      #     };
+
+
 
       nixosConfigurations = {
         arar = nixpkgs.lib.nixosSystem {

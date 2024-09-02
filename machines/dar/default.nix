@@ -1,37 +1,32 @@
-{ inputs, pkgs, lib, ... }:
-{
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
+{ pkgs, ... }: {
+  # here go the darwin preferences and config items
+  programs.zsh.enable = true;
+  environment = {
+    shells = with pkgs; [ bash zsh ];
+    loginShell = pkgs.zsh;
+    systemPackages = [ pkgs.coreutils pkgs.vim pkgs.htop ];
+    systemPath = [ "/opt/homebrew/bin" ];
+    pathsToLink = [ "/Applications" ];
   };
-  imports = [ <home-manager/nix-darwin> ];
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-
-
-  home-manager = {
-    backupFileExtension = "bak";
-    extraSpecialArgs = { inherit inputs; }; # allows access to flake inputs in hm modules
-    users.arar = { config, pkgs, ... }: {
-      home.homeDirectory = lib.mkForce "/Users/arar";
-      imports = [
-        # inputs.nix-index-database.hmModules.nix-index
-        inputs.agenix.homeManagerModules.default
-        # ../../users/arar/dotfiles.nix
-        ../../users/arar/age.nix
-        ./arar/system.nix
-      ];
-
-      # home.file = {
-      # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
-      # ".config/nvim".source = ../../dotfiles/nvim;
-      # ".config/wezterm".source = ../../dotfiles/wezterm;
-      # };
-    };
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToEscape = true;
+  fonts.fontDir.enable = true; # DANGER
+  fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
+  services.nix-daemon.enable = true;
+  system.defaults = {
+    finder.AppleShowAllExtensions = true;
+    finder._FXShowPosixPathInTitle = true;
+    dock.autohide = true;
+    NSGlobalDomain.AppleShowAllExtensions = true;
+    NSGlobalDomain.InitialKeyRepeat = 14;
+    NSGlobalDomain.KeyRepeat = 1;
   };
+  # backwards compat; don't change
+  system.stateVersion = 4;
 
-  nix.settings.max-jobs = "auto";
+  imports = [ ./arar/default.nix ];
 }
 
