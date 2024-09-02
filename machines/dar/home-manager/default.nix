@@ -14,6 +14,9 @@
     CLICLOLOR = 1;
     EDITOR = "nvim";
   };
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (_: true);
+
   programs.bat.enable = true;
   programs.bat.config.theme = "TwoDark";
   programs.fzf.enable = true;
