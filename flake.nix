@@ -70,7 +70,7 @@
         nixpkgs.hostPlatform = "aarch64-darwin";
         security.pam.enableSudoTouchIdAuth = true;
 
-        users.users.omerxx.home = "/Users/arar";
+        users.users.arar.home = "/Users/arar";
         home-manager.backupFileExtension = "bak";
         nix.configureBuildUsers = true;
         nix.useDaemon = true;
