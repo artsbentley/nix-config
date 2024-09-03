@@ -97,7 +97,7 @@
       };
     in
     {
-      darwinConfigurations."Omers-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           # this is mac config
