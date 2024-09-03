@@ -89,7 +89,6 @@
         homebrew.casks = [
           "wireshark"
           "google-chrome"
-          "firefox"
         ];
         homebrew.brews = [
           "imagemagick"
