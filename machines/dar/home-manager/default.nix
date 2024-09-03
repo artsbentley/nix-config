@@ -6,7 +6,7 @@
     ripgrep
     fd
     curl
-    less
+    sess
     vim
   ];
   home.sessionVariables = {

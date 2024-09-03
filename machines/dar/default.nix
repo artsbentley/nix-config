@@ -1,32 +1,32 @@
-{ pkgs, ... }: {
-  # here go the darwin preferences and config items
-  programs.zsh.enable = true;
-  environment = {
-    shells = with pkgs; [ bash zsh ];
-    loginShell = pkgs.zsh;
-    systemPackages = [ pkgs.coreutils pkgs.vim pkgs.htop ];
-    systemPath = [ "/opt/homebrew/bin" ];
-    pathsToLink = [ "/Applications" ];
-  };
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-  system.keyboard.enableKeyMapping = true;
-  system.keyboard.remapCapsLockToEscape = true;
-  # fonts.fontDir.enable = true; # DANGER
-  # fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
-  services.nix-daemon.enable = true;
-  system.defaults = {
-    finder.AppleShowAllExtensions = true;
-    finder._FXShowPosixPathInTitle = true;
-    dock.autohide = true;
-    NSGlobalDomain.AppleShowAllExtensions = true;
-    NSGlobalDomain.InitialKeyRepeat = 14;
-    NSGlobalDomain.KeyRepeat = 1;
-  };
-  # backwards compat; don't change
-  system.stateVersion = 4;
+{ config, pkgs, ... }:
 
-  imports = [ ./arar/default.nix ];
+{
+  home.username = "arar	";
+  home.homeDirectory = "/Users/arar";
+  home.stateVersion = "24.11";
+
+  # Makes sense for user specific applications that shouldn't be available system-wide
+  home.packages = [
+  ];
+
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+
+  home.sessionVariables = { };
+
+  home.sessionPath = [
+    "/run/current-system/sw/bin"
+    "$HOME/.nix-profile/bin"
+  ];
+  programs.home-manager.enable = true;
+  programs.zsh = {
+    enable = true;
+    initExtra = ''
+      # Add any additional configurations here
+      export PATH=/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
+    '';
+  };
 }
-
