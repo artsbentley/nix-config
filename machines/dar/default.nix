@@ -7,12 +7,15 @@
 
   # Makes sense for user specific applications that shouldn't be available system-wide
   home.packages = [
+    pkgs.atac
+    pkgs.neovim
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
 
   home.sessionVariables = { };
+
 
   home.sessionPath = [
     "/run/current-system/sw/bin"

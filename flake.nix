@@ -57,7 +57,7 @@
             pkgs.direnv
             pkgs.age
             pkgs.sshs
-            pkgs.atac
+            # pkgs.atac
             pkgs.termshark
             pkgs.portal
             pkgs.glow
