@@ -113,7 +113,7 @@
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."arar-mac".pkgs;
+      # darwinPackages = self.darwinConfigurations."arar-mac".pkgs;
 
 
       # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
