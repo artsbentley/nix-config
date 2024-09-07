@@ -102,7 +102,7 @@
         modules = [
           # this is mac config
           configuration
-          ./machines/darwin
+          ./machines/darwin/arar
           # this is HM config
           home-manager.darwinModules.home-manager
           {
