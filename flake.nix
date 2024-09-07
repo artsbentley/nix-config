@@ -49,67 +49,67 @@
     , nur
     , ...
     }@inputs:
-    let
-      configuration = { pkgs, ... }: {
-        environment.systemPackages =
-          [
-            pkgs.vim
-            pkgs.direnv
-            pkgs.age
-            pkgs.sshs
-            # pkgs.atac
-            pkgs.termshark
-            pkgs.portal
-            pkgs.glow
-          ];
-
-        services.nix-daemon.enable = true;
-        nix.settings.experimental-features = "nix-command flakes";
-        programs.zsh.enable = true;
-        nixpkgs.hostPlatform = "aarch64-darwin";
-        security.pam.enableSudoTouchIdAuth = true;
-
-        users.users.arar.home = "/Users/arar";
-        home-manager.backupFileExtension = "bak";
-        nix.configureBuildUsers = true;
-        nix.useDaemon = true;
-        nixpkgs = {
-          config = {
-            allowUnfree = true;
-            allowUnfreePredicate = (_: true);
-          };
-        };
-
-        system.configurationRevision = self.rev or self.dirtyRev or null;
-        system.stateVersion = 4;
-        system.defaults = {
-          dock.autohide = true;
-          dock.mru-spaces = false;
-          finder.AppleShowAllExtensions = true;
-          finder.FXPreferredViewStyle = "clmv";
-          # loginwindow.LoginwindowText = "devops-toolbox";
-          # screencapture.location = "~/Pictures/screenshots";
-          # screensaver.askForPasswordDelay = 10;
-        };
-      };
-    in
+    # let
+    #   configuration = { pkgs, ... }: {
+    #     environment.systemPackages =
+    #       [
+    #         pkgs.vim
+    #         pkgs.direnv
+    #         pkgs.age
+    #         pkgs.sshs
+    #         # pkgs.atac
+    #         pkgs.termshark
+    #         pkgs.portal
+    #         pkgs.glow
+    #       ];
+    #
+    #     services.nix-daemon.enable = true;
+    #     nix.settings.experimental-features = "nix-command flakes";
+    #     programs.zsh.enable = true;
+    #     nixpkgs.hostPlatform = "aarch64-darwin";
+    #     security.pam.enableSudoTouchIdAuth = true;
+    #
+    #     users.users.arar.home = "/Users/arar";
+    #     home-manager.backupFileExtension = "bak";
+    #     nix.configureBuildUsers = true;
+    #     nix.useDaemon = true;
+    #     nixpkgs = {
+    #       config = {
+    #         allowUnfree = true;
+    #         allowUnfreePredicate = (_: true);
+    #       };
+    #     };
+    #
+    #     system.configurationRevision = self.rev or self.dirtyRev or null;
+    #     system.stateVersion = 4;
+    #     system.defaults = {
+    #       dock.autohide = true;
+    #       dock.mru-spaces = false;
+    #       finder.AppleShowAllExtensions = true;
+    #       finder.FXPreferredViewStyle = "clmv";
+    #       # loginwindow.LoginwindowText = "devops-toolbox";
+    #       # screencapture.location = "~/Pictures/screenshots";
+    #       # screensaver.askForPasswordDelay = 10;
+    #     };
+    #   };
+    # in
     {
-      darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        specialArgs = { inherit inputs; };
-        modules = [
-          # this is mac config
-          configuration
-          ./machines/darwin/arar
-          # this is HM config
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.arar = import ./machines/darwin;
-          }
-        ];
-      };
+      # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
+      #   system = "aarch64-darwin";
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     # this is mac config
+      #     configuration
+      #     ./machines/darwin/arar
+      #     # this is HM config
+      #     home-manager.darwinModules.home-manager
+      #     {
+      #       home-manager.useGlobalPkgs = true;
+      #       home-manager.useUserPackages = true;
+      #       home-manager.users.arar = import ./machines/darwin;
+      #     }
+      #   ];
+      # };
 
       # Expose the package set, including overlays, for convenience.
       # darwinPackages = self.darwinConfigurations."arar-mac".pkgs;
@@ -139,20 +139,20 @@
 
       # NOTE: 
       # old working config
-      # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-      #   # pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      #   system = "aarch64-darwin";
-      #   specialArgs = {
-      #     inherit inputs;
-      #     #inherit inputs networksLocal networksExternal;
-      #   };
-      #   modules = [
-      #     agenix.darwinModules.default
-      #     ./machines/darwin
-      #     ./machines/darwin/arar
-      #     # ./machines/darwin/arar/system.nix
-      #   ];
-      # };
+      darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
+        # pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        system = "aarch64-darwin";
+        specialArgs = {
+          inherit inputs;
+          #inherit inputs networksLocal networksExternal;
+        };
+        modules = [
+          agenix.darwinModules.default
+          ./machines/darwin
+          ./machines/darwin/arar
+          # ./machines/darwin/arar/system.nix
+        ];
+      };
 
 
 
