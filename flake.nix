@@ -65,8 +65,6 @@
         services.nix-daemon.enable = true;
         nix.settings.experimental-features = "nix-command flakes";
         programs.zsh.enable = true;
-        system.configurationRevision = self.rev or self.dirtyRev or null;
-        system.stateVersion = 4;
         nixpkgs.hostPlatform = "aarch64-darwin";
         security.pam.enableSudoTouchIdAuth = true;
 
@@ -75,6 +73,8 @@
         nix.configureBuildUsers = true;
         nix.useDaemon = true;
 
+        system.configurationRevision = self.rev or self.dirtyRev or null;
+        system.stateVersion = 4;
         system.defaults = {
           dock.autohide = true;
           dock.mru-spaces = false;
@@ -85,14 +85,15 @@
           # screensaver.askForPasswordDelay = 10;
         };
 
-        homebrew.enable = true;
-        homebrew.casks = [
-          "wireshark"
-          "google-chrome"
-        ];
-        homebrew.brews = [
-          "imagemagick"
-        ];
+
+        # homebrew.enable = true;
+        # homebrew.casks = [
+        #   "wireshark"
+        #   "google-chrome"
+        # ];
+        # homebrew.brews = [
+        #   "imagemagick"
+        # ];
       };
     in
     {
@@ -101,6 +102,7 @@
         modules = [
           # this is mac config
           configuration
+          ./machines/darwin
           # this is HM config
           home-manager.darwinModules.home-manager
           {
