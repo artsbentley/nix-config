@@ -91,18 +91,6 @@
           # screencapture.location = "~/Pictures/screenshots";
           # screensaver.askForPasswordDelay = 10;
         };
-
-
-        homebrew.enable = true;
-        homebrew.casks = [
-          "wireshark"
-          "google-chrome"
-        ];
-        homebrew.brews = [
-          "imagemagick"
-          "lazydocker"
-          "jq"
-        ];
       };
     in
     {
@@ -112,13 +100,13 @@
         modules = [
           # this is mac config
           configuration
-          # ./machines/darwin/arar
+          ./machines/darwin/arar
           # this is HM config
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.arar = import ./machines/dar;
+            home-manager.users.arar = import ./machines/darwin;
           }
         ];
       };
