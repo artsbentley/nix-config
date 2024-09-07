@@ -72,6 +72,12 @@
         home-manager.backupFileExtension = "bak";
         nix.configureBuildUsers = true;
         nix.useDaemon = true;
+        nixpkgs = {
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = (_: true);
+          };
+        };
 
         system.configurationRevision = self.rev or self.dirtyRev or null;
         system.stateVersion = 4;
