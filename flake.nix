@@ -62,6 +62,7 @@
             pkgs.portal
             pkgs.glow
           ];
+
         services.nix-daemon.enable = true;
         nix.settings.experimental-features = "nix-command flakes";
         programs.zsh.enable = true;
@@ -92,14 +93,16 @@
         };
 
 
-        # homebrew.enable = true;
-        # homebrew.casks = [
-        #   "wireshark"
-        #   "google-chrome"
-        # ];
-        # homebrew.brews = [
-        #   "imagemagick"
-        # ];
+        homebrew.enable = true;
+        homebrew.casks = [
+          "wireshark"
+          "google-chrome"
+        ];
+        homebrew.brews = [
+          "imagemagick"
+          "lazydocker"
+          "jq"
+        ];
       };
     in
     {
@@ -109,7 +112,7 @@
         modules = [
           # this is mac config
           configuration
-          ./machines/darwin/arar
+          # ./machines/darwin/arar
           # this is HM config
           home-manager.darwinModules.home-manager
           {
