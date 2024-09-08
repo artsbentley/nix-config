@@ -11,9 +11,7 @@
     sensibleOnTop = false;
     # TODO: 
     # proper home dir
-    extraConfig = ''
-            	source-file ~/.config/tmux/tmuxconfig.conf
-      		'';
+    extraConfig = ''source-file ~/.config/tmux/tmuxconfig.conf'';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       fzf-tmux-url
