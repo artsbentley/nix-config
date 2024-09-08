@@ -107,8 +107,8 @@
                 # BUG: currently not working
                 bind-key "J" display-popup "wkt"
 
-      		  bind-key "T" display-popup -E -w 40% "sesh-dev connect \"$(
-        sesh-dev list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡'
+      		  bind-key "T" display-popup -E -w 40% "sesh connect \"$(
+        sesh list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡'
       )\""
 
                 # TODO: migrte to sesh V2
