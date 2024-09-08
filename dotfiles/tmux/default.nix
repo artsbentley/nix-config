@@ -123,12 +123,6 @@
             	# 	--bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)'
             )"
 
-                # set -g @plugin 'joshmedeski/t-smart-tmux-session-manager'
-                set -g @plugin 'joshmedeski/tmux-fzf-url'
-                set -g @plugin 'tmux-plugins/tmux-yank'
-                set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
-                set -g @plugin 'fcsonline/tmux-thumbs'
-
                 # enable yazi image preview
                 set -g allow-passthrough on
                 set -ga update-environment TERM
