@@ -24,7 +24,7 @@
         ../../users/arar/age.nix
         ../../dotfiles/tmux
         ../../dotfiles/wezterm
-        ../../dotfiles/yazi
+        # ../../dotfiles/yazi
       ];
 
       # home.file = {
