@@ -109,7 +109,7 @@
     ];
 
     casks = [
-      "nikitabobko/tap/aerospace"
+      # "nikitabobko/tap/aerospace"
       "notion"
       "telegram"
       "libreoffice"
