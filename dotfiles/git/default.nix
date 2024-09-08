@@ -17,20 +17,19 @@
         syntax-theme = "GitHub";
       };
     };
-    init = {
-      defaultBranch = "main";
-    };
-    core = {
-      excludesfile = "~/.config/git/ignore";
-      autocrlf = "input";
-    };
     aliases = {
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
     };
     extraConfig = {
       branch.autosetuprebase = "always";
       color.ui = true;
-      init.defaultBranch = "main";
+      core = {
+        excludesfile = "~/.config/git/ignore";
+        autocrlf = "input";
+      };
+      init = {
+        defaultBranch = "main";
+      };
     };
 
     # extraConfig = {
