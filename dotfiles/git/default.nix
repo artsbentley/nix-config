@@ -38,5 +38,9 @@
     #      }
     #    ];
   };
+
+  home.file = {
+    ".config/git/ignore".source = ./config/ignore;
+  };
 }
 

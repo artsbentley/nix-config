@@ -23,15 +23,14 @@
   # };
 
   home.file = {
-    ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
     ".config/nvim".source = ../../dotfiles/nvim;
-    # ".config/starship".source = ~/dotfiles/starship;
   };
 
   imports = [
     ../../dotfiles/zsh/default.nix
+    ../../dotfiles/git/default.nix
     ./packages.nix
-    ./gitconfig.nix
+
   ];
 
   programs.nix-index = {

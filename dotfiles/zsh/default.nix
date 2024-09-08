@@ -4,6 +4,10 @@
     bat
   ];
 
+  home.file = {
+    ".config/zsh/initExtra".source = ./initExtra;
+    # ".config/starship".source = ~/dotfiles/starship;
+  };
 
   programs = {
     starship = {
