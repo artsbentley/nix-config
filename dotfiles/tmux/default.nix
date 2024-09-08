@@ -3,9 +3,9 @@
   home.packages = with pkgs; [
     tmux
   ];
-  home.file = {
-    ".config/tmux/tmuxconfig.conf".source = ../../dotfiles/tmux/tmuxconfig.conf;
-  };
+  # home.file = {
+  #   ".config/tmux/tmuxconfig.conf".source = ../../dotfiles/tmux/tmuxconfig.conf;
+  # };
   programs.tmux = {
     enable = true;
     aggressiveResize = true;
