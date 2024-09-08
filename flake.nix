@@ -115,15 +115,12 @@
       # darwinPackages = self.darwinConfigurations."arar-mac".pkgs;
       # };
 
-      # NOTE: 
-      # old working config
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-        # pkgs = import nixpkgs { system = "aarch64-darwin"; };
         system = "aarch64-darwin";
         specialArgs = {
           inherit inputs;
-          #inherit inputs networksLocal networksExternal;
         };
+        # ADD NON-NIXOS/ SERVER PACKAGES HERE
         modules = [
           agenix.darwinModules.default
           ./machines/darwin

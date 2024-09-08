@@ -19,8 +19,10 @@
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
 
+        # ADD NON-NIXOS/ SERVER PACKAGES HERE
         ../../users/arar/dotfiles.nix
         ../../users/arar/age.nix
+        ../../dotfiles/tmux
         # ./arar/system.nix
       ];
 
