@@ -18,6 +18,7 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       fzf-tmux-url
+      jump
       yank
       tmux-thumbs
       t-smart-tmux-session-manager
