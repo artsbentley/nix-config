@@ -25,7 +25,6 @@
   home.file = {
     ".config/nvim".source = ../../dotfiles/nvim;
   };
-
   imports = [
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix

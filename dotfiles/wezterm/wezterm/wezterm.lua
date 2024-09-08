@@ -130,7 +130,7 @@ local config = {
 		-- k.cmd_to_tmux_prefix("N", "%"),
 		k.cmd_to_tmux_prefix("o", "s"),
 		k.cmd_to_tmux_prefix("O", "F"),
-		k.cmd_to_tmux_prefix("u", "u"),
+		k.cmd_to_tmux_prefix("u", "u"), -- fzf url
 		k.cmd_to_tmux_prefix("T", "!"),
 		k.cmd_to_tmux_prefix("t", "c"),
 		k.cmd_to_tmux_prefix("w", "x"),

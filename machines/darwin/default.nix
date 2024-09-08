@@ -23,14 +23,14 @@
         ../../users/arar/dotfiles.nix
         ../../users/arar/age.nix
         ../../dotfiles/tmux
-        # ./arar/system.nix
+        ../../dotfiles/wezterm
       ];
 
       # home.file = {
       # ".config/zsh/initExtra".source = ../../dotfiles/zsh/initExtra;
-      # ".config/nvim".source = ../../dotfiles/nvim;
       # ".config/wezterm".source = ../../dotfiles/wezterm;
       # };
+
     };
   };
 
