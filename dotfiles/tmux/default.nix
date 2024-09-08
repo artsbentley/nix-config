@@ -130,7 +130,7 @@
           set -ga update-environment TERM
           set -ga update-environment TERM_PROGRAM '';
     plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
+      # vim-tmux-navigator
       tmux-fzf-url
       yank
       tmux-thumbs
