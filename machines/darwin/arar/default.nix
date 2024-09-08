@@ -105,6 +105,7 @@
       # "zig"
       "zsh-autosuggestions"
       "zsh-syntax-highlighting"
+      "gum"
     ];
 
     casks = [
