@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Set LG tv to PC
+# @raycast.mode silent
+# @raycast.packageName System
+#
+# Optional parameters:
+# @raycast.icon 📺
+#
+# Documentation:
+# @raycast.description Copy the last downloaded file to the clipboard.
+
+
+import asyncio
+from bscpylgtv import WebOsClient
+
+async def runloop():
+    client = await WebOsClient.create('192.168.1.120', states=["software_info"])
+    await client.connect()
+
+    # await client.set_input("HDMI_2")
+    await client.set_device_info("HDMI_1", "pc", "pc")
+    await client.disconnect()
+
+asyncio.run(runloop())
+

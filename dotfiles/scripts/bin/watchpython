@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Check if an argument is provided
+if [ $# -eq 0 ]; then
+	echo "Error: No Python file provided."
+	echo "Usage: $0 <python_file>"
+	exit 1
+fi
+
+# Get the Python file name from the argument
+python_file=$1
+
+# Run watchexec with the provided Python file
+watchexec --restart --clear --quiet --no-process-group --stop-signal SIGKILL -- python "$python_file"

@@ -25,6 +25,12 @@
         ../../dotfiles/tmux
         ../../dotfiles/wezterm
         ../../dotfiles/aerospace
+
+        # TODO:
+        # direnv
+        # dive
+        # raycast
+        # binaries/scripts + add to PATH
       ];
 
       # home.file = {
