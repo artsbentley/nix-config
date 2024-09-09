@@ -28,7 +28,8 @@
   imports = [
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
-    # ../../dotfiles/yazi/default.nix
+    ../../dotfiles/scripts/default.nix
+    ../../dotfiles/yazi/default.nix
     ./packages.nix
 
   ];
