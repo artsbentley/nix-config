@@ -30,6 +30,7 @@
     ../../dotfiles/git/default.nix
     ../../dotfiles/scripts/default.nix
     ../../dotfiles/yazi/default.nix
+    ../../dotfiles/lazygit/default.nix
     ./packages.nix
 
   ];

@@ -9,6 +9,7 @@
     		'';
 }
 
+# NOTE: other options to configure this
 # {
 #   home.file = {
 #     ".local/bin" = {
@@ -16,6 +17,7 @@
 #       recursive = true;
 #     };
 #   };
+#
 # let
 #   binPath = "${config.home.homeDirectory}/.local/bin";
 #   scriptsPath = "${config.home.homeDirectory}/dotfiles/modules/home/scripts";
