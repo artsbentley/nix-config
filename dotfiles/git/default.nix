@@ -1,4 +1,4 @@
-{ config, inputs, lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 {
   #  age.secrets.gitIncludes = {
   #    file = ../../secrets/gitIncludes.age;
