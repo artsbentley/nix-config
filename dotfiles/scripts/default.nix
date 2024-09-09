@@ -1,7 +1,9 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  home.sessionPath = [
-    "./bin"
-  ];
+  home.file = {
+    ".local/bin" = {
+      source = ./scripts;
+      recursive = true;
+    };
+  };
 }
-
