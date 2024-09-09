@@ -15,6 +15,17 @@
         navigate = true;
         line-numbers = true;
         syntax-theme = "gruvbox";
+        features = "decorations interactive";
+
+        interactive = {
+          keep-plus-minus-markers = false;
+        };
+
+        decorations = {
+          commit-decoration-style = "bold yellow box ul";
+          file-style = "bold yellow ul";
+          file-decoration-style = "none";
+        };
       };
     };
     aliases = {
