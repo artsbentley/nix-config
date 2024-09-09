@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ config, inputs, lib, config, pkgs, ... }:
 {
   #  age.secrets.gitIncludes = {
   #    file = ../../secrets/gitIncludes.age;
@@ -14,8 +14,8 @@
       options = {
         navigate = true;
         line-numbers = true;
-        syntax-theme = "gruvbox-dark";
-        # syntax-theme = config.programs.bat.config.theme;
+        # syntax-theme = "gruvbox-dark";
+        syntax-theme = config.programs.bat.config.theme;
         dark = true;
         side-by-side = true;
         hyperlinks = true;
