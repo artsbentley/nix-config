@@ -14,7 +14,7 @@
       options = {
         navigate = true;
         line-numbers = true;
-        syntax-theme = "GitHub";
+        syntax-theme = "gruvbox";
       };
     };
     aliases = {
