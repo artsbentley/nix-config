@@ -128,7 +128,7 @@
     enable = true;
     config = {
       # TODO: theme not working currently
-      theme = "gruvbox-light";
+      theme = "gruvbox-dark";
       italic-text = "always";
     };
   };

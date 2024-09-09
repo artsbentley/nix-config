@@ -14,7 +14,7 @@
       options = {
         navigate = true;
         line-numbers = true;
-        syntax-theme = "gruvbox";
+        syntax-theme = "gruvbox-dark";
         # syntax-theme = config.programs.bat.config.theme;
         dark = true;
         side-by-side = true;
