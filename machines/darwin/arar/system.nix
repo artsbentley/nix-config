@@ -47,70 +47,69 @@
           defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
           		'';
       };
-      defaults = {
-
-        # show all file extensions in Finder
-        NSGlobalDomain.AppleShowAllExtensions = true;
-        finder.AppleShowAllExtensions = true;
-
-        # key repeat initial delay
-        NSGlobalDomain.InitialKeyRepeat = 15;
-
-        # key repeat rate
-        NSGlobalDomain.KeyRepeat = 2;
-
-        #disable beep
-        NSGlobalDomain."com.apple.sound.beep.volume" = 0.000;
-
-        # enable tap to click
-        trackpad.Clicking = true;
-
-        # enable three finger drag
-        trackpad.TrackpadThreeFingerDrag = true;
-
-        # autohide dock
-        dock.autohide = true;
-        dock.autohide-delay = 0.0;
-
-        # disable dock magnification
-        dock.magnification = false;
-
-        # dock icons normal size
-        dock.tilesize = 40;
-
-        # dock minimize/maximize effect
-        dock.mineffect = "scale";
-
-        # disable automatic space sort by recent use
-        dock.mru-spaces = false;
-
-        # hide recent apps in dock
-        dock.show-recents = true;
-
-        # set list view as default Finder view
-        finder.FXPreferredViewStyle = "clmv";
-
-        # show Finder path bar
-        finder.ShowPathbar = true;
-
-        # show Finder status bar
-        finder.ShowStatusBar = true;
-
-        # disable shadows when screenshotting windows
-        screencapture.disable-shadow = true;
-
-        finder = {
-          FXDefaultSearchScope = "SCcf";
-          FXEnableExtensionChangeWarning = false;
-        };
-      };
-      activationScripts.postUserActivation.text = ''
-        # Following line should allow us to avoid a logout/login cycle
-        /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-        launchctl stop com.apple.Dock.agent
-        launchctl start com.apple.Dock.agent
-      '';
     };
+    defaults = {
+      # show all file extensions in Finder
+      NSGlobalDomain.AppleShowAllExtensions = true;
+      finder.AppleShowAllExtensions = true;
+
+      # key repeat initial delay
+      NSGlobalDomain.InitialKeyRepeat = 15;
+
+      # key repeat rate
+      NSGlobalDomain.KeyRepeat = 2;
+
+      #disable beep
+      NSGlobalDomain."com.apple.sound.beep.volume" = 0.000;
+
+      # enable tap to click
+      trackpad.Clicking = true;
+
+      # enable three finger drag
+      trackpad.TrackpadThreeFingerDrag = true;
+
+      # autohide dock
+      dock.autohide = true;
+      dock.autohide-delay = 0.0;
+
+      # disable dock magnification
+      dock.magnification = false;
+
+      # dock icons normal size
+      dock.tilesize = 40;
+
+      # dock minimize/maximize effect
+      dock.mineffect = "scale";
+
+      # disable automatic space sort by recent use
+      dock.mru-spaces = false;
+
+      # hide recent apps in dock
+      dock.show-recents = true;
+
+      # set list view as default Finder view
+      finder.FXPreferredViewStyle = "clmv";
+
+      # show Finder path bar
+      finder.ShowPathbar = true;
+
+      # show Finder status bar
+      finder.ShowStatusBar = true;
+
+      # disable shadows when screenshotting windows
+      screencapture.disable-shadow = true;
+
+      finder = {
+        FXDefaultSearchScope = "SCcf";
+        FXEnableExtensionChangeWarning = false;
+      };
+    };
+    activationScripts.postUserActivation.text = ''
+      # Following line should allow us to avoid a logout/login cycle
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+      launchctl stop com.apple.Dock.agent
+      launchctl start com.apple.Dock.agent
+    '';
   };
 }
 
