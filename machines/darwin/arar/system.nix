@@ -63,13 +63,14 @@
       finder.QuitMenuItem = true;
 
       # key repeat rate
-      NSGlobalDomain.KeyRepeat = 10;
+      NSGlobalDomain.KeyRepeat = 1;
 
       #disable beep
       NSGlobalDomain."com.apple.sound.beep.volume" = 0.000;
 
       # disable period after double-space
       NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+      NSGlobalDomain._HIHideMenuBar = true;
 
       # enable tap to click
       trackpad.Clicking = true;
@@ -92,7 +93,6 @@
 
       # disable automatic space sort by recent use
       dock.mru-spaces = false;
-
 
       # hide recent apps in dock
       dock.show-recents = true;
