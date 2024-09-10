@@ -24,6 +24,7 @@
     taps = [
       # "noahgorstein/tap/jqp"
       # "dustinblackman/tap/oatmeal"
+      "zen-browser/browser"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
     ];
