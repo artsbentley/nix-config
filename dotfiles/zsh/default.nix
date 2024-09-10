@@ -6,8 +6,6 @@
 
   home.file = {
     ".config/zsh/initExtra".source = ./initExtra;
-    # ".config/direnv".source = ../direnv;
-    # ".config/starship".source = ~/dotfiles/starship;
   };
 
   programs = {

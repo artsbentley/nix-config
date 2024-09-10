@@ -56,11 +56,20 @@
       # key repeat initial delay
       NSGlobalDomain.InitialKeyRepeat = 15;
 
+      # Disable quarantine for downloaded files
+      LaunchServices.LSQuarantine = false;
+
+      # Allow quitting Finder from the menu
+      finder.QuitMenuItem = true;
+
       # key repeat rate
       NSGlobalDomain.KeyRepeat = 2;
 
       #disable beep
       NSGlobalDomain."com.apple.sound.beep.volume" = 0.000;
+
+      # disable period after double-space
+      NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
 
       # enable tap to click
       trackpad.Clicking = true;
@@ -83,6 +92,7 @@
 
       # disable automatic space sort by recent use
       dock.mru-spaces = false;
+
 
       # hide recent apps in dock
       dock.show-recents = true;
