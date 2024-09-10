@@ -18,7 +18,6 @@
     brewPrefix = "/opt/homebrew/bin";
     caskArgs = {
       no_quarantine = true;
-
     };
 
     taps = [
@@ -114,7 +113,7 @@
     ];
 
     casks = [
-      "zen-browser"
+      # "zen-browser"
       "nikitabobko/tap/aerospace"
       "notion"
       "telegram"

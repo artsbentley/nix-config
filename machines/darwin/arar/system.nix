@@ -49,9 +49,20 @@
       };
     };
     defaults = {
+      finder = {
+        _FXShowPosixPathInTitle = true;
+        AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
+        FXPreferredViewStyle = "clmv"; # set list view as default Finder view
+        ShowPathbar = true;
+        ShowStatusBar = true;
+        QuitMenuItem = true; # Allow quitting Finder from the menu
+        # FXDefaultSearchScope = "SCcf";
+        FXEnableExtensionChangeWarning = false;
+      };
+
       # show all file extensions in Finder
       NSGlobalDomain.AppleShowAllExtensions = true;
-      finder.AppleShowAllExtensions = true;
 
       # key repeat initial delay
       NSGlobalDomain.InitialKeyRepeat = 10;
@@ -59,8 +70,6 @@
       # Disable quarantine for downloaded files
       LaunchServices.LSQuarantine = false;
 
-      # Allow quitting Finder from the menu
-      finder.QuitMenuItem = true;
 
       # key repeat rate
       NSGlobalDomain.KeyRepeat = 1;
@@ -97,22 +106,10 @@
       # hide recent apps in dock
       dock.show-recents = true;
 
-      # set list view as default Finder view
-      finder.FXPreferredViewStyle = "clmv";
-
-      # show Finder path bar
-      finder.ShowPathbar = true;
-
-      # show Finder status bar
-      finder.ShowStatusBar = true;
 
       # disable shadows when screenshotting windows
       screencapture.disable-shadow = true;
 
-      finder = {
-        FXDefaultSearchScope = "SCcf";
-        FXEnableExtensionChangeWarning = false;
-      };
     };
     activationScripts.postUserActivation.text = ''
       # Following line should allow us to avoid a logout/login cycle
