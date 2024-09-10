@@ -54,7 +54,7 @@
       finder.AppleShowAllExtensions = true;
 
       # key repeat initial delay
-      NSGlobalDomain.InitialKeyRepeat = 15;
+      NSGlobalDomain.InitialKeyRepeat = 10;
 
       # Disable quarantine for downloaded files
       LaunchServices.LSQuarantine = false;
@@ -63,7 +63,7 @@
       finder.QuitMenuItem = true;
 
       # key repeat rate
-      NSGlobalDomain.KeyRepeat = 2;
+      NSGlobalDomain.KeyRepeat = 10;
 
       #disable beep
       NSGlobalDomain."com.apple.sound.beep.volume" = 0.000;
@@ -85,7 +85,7 @@
       dock.magnification = false;
 
       # dock icons normal size
-      dock.tilesize = 40;
+      dock.tilesize = 70;
 
       # dock minimize/maximize effect
       dock.mineffect = "scale";
@@ -117,8 +117,8 @@
     activationScripts.postUserActivation.text = ''
       # Following line should allow us to avoid a logout/login cycle
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-      # launchctl stop com.apple.Dock.agent
-      # launchctl start com.apple.Dock.agent
+      launchctl stop com.apple.Dock.agent
+      launchctl start com.apple.Dock.agent
     '';
   };
 }
