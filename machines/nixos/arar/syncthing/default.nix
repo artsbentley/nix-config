@@ -45,7 +45,7 @@ in
           # };
           "obsidian" = {
             path = "${vars.nasMount}/Syncthing/obsidian";
-            devices = [ "arar-iphone" ];
+            devices = [ "arar-iphone" "arar-mac" ];
             ignorePerms = true;
           };
         };

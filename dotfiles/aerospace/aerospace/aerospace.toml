@@ -122,8 +122,8 @@ alt-h = 'resize smart +70'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-3 = 'move-node-to-workspace S'
+alt-shift-4 = 'move-node-to-workspace T'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
@@ -188,6 +188,11 @@ run = ['layout tiling', 'move-node-to-workspace T']
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
+# check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace S']
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace S']
 
