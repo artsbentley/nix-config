@@ -26,6 +26,7 @@
       # "dustinblackman/tap/oatmeal"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
+      "zen-browser/browser"
     ];
 
     # TODO: 
