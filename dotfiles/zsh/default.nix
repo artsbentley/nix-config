@@ -83,15 +83,18 @@
       #  config in .zsh files
       initExtra = ''
         if [ $(uname) = "Darwin" ]; then 
-          path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+            path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
         fi
 
-              for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
 
-               export EDITOR=nvim || export EDITOR=vim
-               export LANG=en_US.UTF-8
-               export LC_CTYPE=en_US.UTF-8
-               export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+        export EDITOR=nvim || export EDITOR=vim
+        export LANG=en_US.UTF-8
+        export LC_CTYPE=en_US.UTF-8
+        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^r' _atuin_search_widget
       '';
 
 
