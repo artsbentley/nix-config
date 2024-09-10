@@ -82,76 +82,76 @@
       # TODO: need to decide if i want to continue this route or just implement
       #  config in .zsh files
       initExtra = ''
-                if [ $(uname) = "Darwin" ]; then 
-                    path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-                fi
+                        if [ $(uname) = "Darwin" ]; then 
+                            path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+                        fi
 
-                for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+                        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
 
-                export EDITOR=nvim || export EDITOR=vim
-                export LANG=en_US.UTF-8
-                export LC_CTYPE=en_US.UTF-8
-                export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+                        export EDITOR=nvim || export EDITOR=vim
+                        export LANG=en_US.UTF-8
+                        export LC_CTYPE=en_US.UTF-8
+                        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-        		# Bind ctrl-r but not up arrow
-        		eval "$(atuin init zsh --disable-up-arrow)"
-        ';
-
-
+        				# Bind ctrl-r but not up arrow
+        				eval "$(atuin init zsh --disable-up-arrow)"
+      '';
 
 
-              # TODO: add bitwarden CLI tooling and secrets to make bw_session env var work 
-
-              #initExtra = ''
-        #  # Cycle back in the suggestions menu using Shift+Tab
-        #  bindkey '^[[Z' reverse-menu-complete
-
-        #  bindkey '^B' autosuggest-toggle
-        #  # Make Ctrl+W remove one path segment instead of the whole path
-        #  WORDCHARS=''${WORDCHARS/\/}
-
-        #  # Highlight the selected suggestion
-        #  zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-        #  zstyle ':completion:*' menu yes=long select
-
-        #    if [ $(uname) = "Darwin" ]; then 
-        #      path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-        #      export BW_SESSION=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.bitwardenSession.path})
-        #      export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" 
-        #    fi
-        #
-        #    export EDITOR=nvim || export EDITOR=vim
-        #    export LANG=en_US.UTF-8
-        #    export LC_CTYPE=en_US.UTF-8
-        #    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 
-        #    if [ $(uname) = "Darwin" ]; then 
-        #      alias lsblk="diskutil list"
-        #      ulimit -n 2048
-        #    fi 
+      # TODO: add bitwarden CLI tooling and secrets to make bw_session env var work 
 
-        #    source $ZPLUG_HOME/repos/unixorn/warhol.plugin.zsh/warhol.plugin.zsh
-        #    bindkey '^[[A' history-substring-search-up
-        #    bindkey '^[[B' history-substring-search-down
+      #initExtra = ''
+      #  # Cycle back in the suggestions menu using Shift+Tab
+      #  bindkey '^[[Z' reverse-menu-complete
 
-        #    if command -v motd &> /dev/null
-        #    then
-        #      motd
-        #    fi
-        #    bindkey -e
-        #'';
-        };
+      #  bindkey '^B' autosuggest-toggle
+      #  # Make Ctrl+W remove one path segment instead of the whole path
+      #  WORDCHARS=''${WORDCHARS/\/}
+
+      #  # Highlight the selected suggestion
+      #  zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      #  zstyle ':completion:*' menu yes=long select
+
+      #    if [ $(uname) = "Darwin" ]; then 
+      #      path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+      #      export BW_SESSION=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.bitwardenSession.path})
+      #      export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" 
+      #    fi
+      #
+      #    export EDITOR=nvim || export EDITOR=vim
+      #    export LANG=en_US.UTF-8
+      #    export LC_CTYPE=en_US.UTF-8
+      #    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+
+      #    if [ $(uname) = "Darwin" ]; then 
+      #      alias lsblk="diskutil list"
+      #      ulimit -n 2048
+      #    fi 
+
+      #    source $ZPLUG_HOME/repos/unixorn/warhol.plugin.zsh/warhol.plugin.zsh
+      #    bindkey '^[[A' history-substring-search-up
+      #    bindkey '^[[B' history-substring-search-down
+
+      #    if command -v motd &> /dev/null
+      #    then
+      #      motd
+      #    fi
+      #    bindkey -e
+      #'';
     };
-    programs.bat = {
-      enable = true;
-      config = {
-        # TODO: theme not working currently
-        theme = "gruvbox-dark";
-        italic-text = "always";
-      };
+  };
+  programs.bat = {
+    enable = true;
+    config = {
+      # TODO: theme not working currently
+      theme = "gruvbox-dark";
+      italic-text = "always";
     };
-  }
+  };
+}
 
 
 
