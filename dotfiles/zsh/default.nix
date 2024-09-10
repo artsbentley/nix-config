@@ -16,6 +16,7 @@
 
     atuin = {
       enable = true;
+      flags = [ "--disable-up-arrow" ];
       enableZshIntegration = true;
       enableBashIntegration = true;
       settings = {
@@ -82,19 +83,16 @@
       # TODO: need to decide if i want to continue this route or just implement
       #  config in .zsh files
       initExtra = ''
-                        if [ $(uname) = "Darwin" ]; then 
-                            path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-                        fi
+        if [ $(uname) = "Darwin" ]; then 
+            path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+        fi
 
-                        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
 
-                        export EDITOR=nvim || export EDITOR=vim
-                        export LANG=en_US.UTF-8
-                        export LC_CTYPE=en_US.UTF-8
-                        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-        				# Bind ctrl-r but not up arrow
-        				eval "$(atuin init zsh --disable-up-arrow)"
+        export EDITOR=nvim || export EDITOR=vim
+        export LANG=en_US.UTF-8
+        export LC_CTYPE=en_US.UTF-8
+        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
       '';
 
 
