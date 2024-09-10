@@ -32,11 +32,12 @@ in
         };
         devices = {
           "arar-iphone" = { id = "HA2QVX3-UPFG5JT-TUYESKM-Z4XVNPW-CJQF6SX-GMXGOQ7-OPIPQBX-HMPHMAO"; };
+          "arar-mac" = { id = "6GXBNUY-UZOTP5D-BPXNSU2-3S2WRXN-PGSPWTL-LKWP4EU-JNAGNYM-R36ZDQ5 "; };
         };
         folders = {
           "Downloads" = {
             path = "${vars.nasMount}/Syncthing/Downloads";
-            devices = [ "arar-iphone" ];
+            devices = [ "arar-iphone" "arar-mac" ];
           };
           # "root-syncthing" = {
           #   path = "${vars.nasMount}/Syncthing";
