@@ -6,6 +6,7 @@
 
   home.file = {
     ".config/zsh/initExtra".source = ./initExtra;
+    ".config/direnv".source = ../direnv;
     # ".config/starship".source = ~/dotfiles/starship;
   };
 
@@ -13,6 +14,22 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+    };
+
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      settings = {
+        dialect = "uk";
+        filter_mode_shell_up_key_binding = "session";
+        workspaces = true;
+        invert = true;
+        style = "compact";
+        inline_height = 16;
+        enter_accept = false;
+        ctrl_n_shortcuts = true;
+      };
     };
 
     zoxide = {
@@ -23,6 +40,7 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
 
     zsh = {

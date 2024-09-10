@@ -22,10 +22,8 @@
   #   recursive = true;
   # };
 
-  home.file = {
-    ".config/nvim".source = ../../dotfiles/nvim;
-  };
   imports = [
+    ../../dotfiles/nvim/default.nix
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
     ../../dotfiles/scripts/default.nix

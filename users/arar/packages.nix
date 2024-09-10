@@ -3,6 +3,7 @@
     gh
     tmux
     yazi
+    direnv
     # atuin
     wget
     htop
