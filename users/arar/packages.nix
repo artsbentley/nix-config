@@ -6,6 +6,7 @@
     direnv
     # atuin
     wget
+    xclip
     htop
     sops
     neofetch
