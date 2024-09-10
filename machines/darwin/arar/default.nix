@@ -26,7 +26,11 @@
       # "dustinblackman/tap/oatmeal"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
-      "zen-browser/browser"
+      {
+        name = "zen-browser/browser";
+        clone_target = "https://github.com/zen-browser/desktop.git";
+        force_auto_update = true;
+      }
     ];
 
     # TODO: 
