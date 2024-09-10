@@ -26,6 +26,10 @@ in
       dataDir = "${vars.nasMount}/Syncthing";
       configDir = "${vars.serviceConfigRoot}/syncthing";
       settings = {
+        gui = {
+          user = "arar";
+          password = "pass";
+        };
         devices = {
           "arar-iphone" = { id = "HA2QVX3-UPFG5JT-TUYESKM-Z4XVNPW-CJQF6SX-GMXGOQ7-OPIPQBX-HMPHMAO"; };
         };
