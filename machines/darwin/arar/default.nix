@@ -114,6 +114,7 @@
     ];
 
     casks = [
+      "zen-browser"
       "nikitabobko/tap/aerospace"
       "notion"
       "telegram"
