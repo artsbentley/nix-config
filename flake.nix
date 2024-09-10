@@ -34,6 +34,8 @@
     };
 
     nur.url = "github:nix-community/nur";
+    zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
+
 
   };
 
@@ -47,6 +49,7 @@
     , nix-index-database
     , agenix
     , nur
+    , zen-browser
     , ...
     }@inputs:
     # let

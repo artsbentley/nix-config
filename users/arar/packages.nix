@@ -3,6 +3,7 @@
     gh
     tmux
     yazi
+    zen-browser.packages.x86_64-linux.zen-browser
     direnv
     # atuin
     wget
