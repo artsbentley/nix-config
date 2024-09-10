@@ -188,6 +188,7 @@
     pwgen
     gnupg
     inputs.agenix.packages."${system}".default
+    inputs.zen-browser.packages.x86_64-linux.zen-browser
     # bitwarden-cli
     yt-dlp
     ffmpeg
