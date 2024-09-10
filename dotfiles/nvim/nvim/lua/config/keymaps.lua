@@ -105,9 +105,6 @@ end, { silent = true })
 --     vim.lsp.buf.signature_help()
 -- end)
 
-local toggleterm = require("toggleterm")
-toggleterm.setup(vim.keymap.set("n", "<S-l>", "<cmd>ToggleTerm size=15 persist_mode= true direction=horizontal<CR>"))
-
 local trouble = require("trouble")
 trouble.setup(vim.keymap.set("n", "<S-x>", "<cmd>TroubleToggle document_diagnostics<cr>"))
 
@@ -151,16 +148,17 @@ vim.keymap.set("i", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
 vim.keymap.set("n", "<leader>a", "<cmd>HarpoonAddFile<cr>", { desc = "Add to Harpoon" })
 vim.keymap.set("n", "<leader>A", "<cmd>HarpoonShowMenu<cr>", { desc = "Show Harpoon" })
 
-vim.keymap.set("n", "<f1>", "<cmd>HarpoonNav1<cr>", { desc = "Harpoon Buffer 1" })
-vim.keymap.set("i", "<f1>", "<cmd>HarpoonNav1<cr>", { desc = "Harpoon Buffer 1" })
-vim.keymap.set("n", "<f2>", "<cmd>HarpoonNav2<cr>", { desc = "Harpoon Buffer 2" })
-vim.keymap.set("i", "<f2>", "<cmd>HarpoonNav2<cr>", { desc = "Harpoon Buffer 2" })
-vim.keymap.set("n", "<f3>", "<cmd>HarpoonNav3<cr>", { desc = "Harpoon Buffer 3" })
-vim.keymap.set("i", "<f3>", "<cmd>HarpoonNav3<cr>", { desc = "Harpoon Buffer 3" })
-vim.keymap.set("n", "<f4>", "<cmd>HarpoonNav4<cr>", { desc = "Harpoon Buffer 4" })
-vim.keymap.set("i", "<f4>", "<cmd>HarpoonNav4<cr>", { desc = "Harpoon Buffer 4" })
-vim.keymap.set("n", "<f5>", "<cmd>HarpoonNav5<cr>", { desc = "Harpoon Buffer 5" })
-vim.keymap.set("i", "<f5>", "<cmd>HarpoonNav5<cr>", { desc = "Harpoon Buffer 5" })
+vim.keymap.set("n", "<S,l>", "<cmd>:b#<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<f1>", "<cmd>:b#<cr>", { desc = "Switch to last buffer", noremap = true, silent = true })
+vim.keymap.set("i", "<f1>", "<cmd>:b#<cr>", { desc = "Switch to last buffer", noremap = true, silent = true })
+vim.keymap.set("n", "<f2>", "<cmd>HarpoonNav1<cr>", { desc = "Harpoon Buffer 1" })
+vim.keymap.set("i", "<f2>", "<cmd>HarpoonNav1<cr>", { desc = "Harpoon Buffer 1" })
+vim.keymap.set("n", "<f3>", "<cmd>HarpoonNav2<cr>", { desc = "Harpoon Buffer 2" })
+vim.keymap.set("i", "<f3>", "<cmd>HarpoonNav2<cr>", { desc = "Harpoon Buffer 2" })
+vim.keymap.set("n", "<f4>", "<cmd>HarpoonNav3<cr>", { desc = "Harpoon Buffer 3" })
+vim.keymap.set("i", "<f4>", "<cmd>HarpoonNav3<cr>", { desc = "Harpoon Buffer 3" })
+vim.keymap.set("n", "<f5>", "<cmd>HarpoonNav4<cr>", { desc = "Harpoon Buffer 4" })
+vim.keymap.set("i", "<f5>", "<cmd>HarpoonNav4<cr>", { desc = "Harpoon Buffer 4" })
 
 -- LSP RESTART
 vim.keymap.set("n", "<leader>cc", "<cmd>LspRestart<CR>", { desc = "Start LSP" })
@@ -170,13 +168,15 @@ vim.keymap.set("n", "<leader>cc", "<cmd>LspRestart<CR>", { desc = "Start LSP" })
 -- vim.keymap.set("n", "<C-e>", "<C-e>zz")
 
 --  MINI FILES NEOTREE OVERWRITE
-vim.keymap.set("n", "<leader>e", function()
-    require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-end, { desc = "Open mini.files (directory of current file)" })
-
-vim.keymap.set("n", "<leader>E", function()
-    require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-end, { desc = "Open mini.files (directory of current file)" })
+-- vim.keymap.set("n", "<leader>e", function()
+--     require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+-- end, { desc = "Open mini.files (directory of current file)" })
+--
+-- vim.keymap.set("n", "<leader>E", function()
+--     require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+-- end, { desc = "Open mini.files (directory of current file)" })
+vim.keymap.set("n", "<leader>e", "<cmd>Yazi<cr>", { desc = "Open Yazi (directory of current file)" })
+vim.keymap.set("n", "<leader>E", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi (current work directory)" })
 
 -- spider
 -- vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })

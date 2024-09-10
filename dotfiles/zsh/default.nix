@@ -68,6 +68,8 @@
         df = "df -h";
         du = "du -ch";
         ipp = "curl ipinfo.io/ip";
+        vi = "nvim";
+        vim = "nvim";
         # mkdir = "mkdir -p";
         home = "cd ~";
         c = "clear";
