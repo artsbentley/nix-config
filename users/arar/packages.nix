@@ -10,5 +10,6 @@
     htop
     sops
     neofetch
+    nerdfonts
   ];
 }

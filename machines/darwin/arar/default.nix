@@ -137,7 +137,6 @@
       "cyberduck"
       "eqmac"
       "font-hack-nerd-font"
-      "font-sf-mono-nerd-font"
       "google-drive"
       "hammerspoon"
       "keepassxc"
