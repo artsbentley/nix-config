@@ -25,7 +25,7 @@
       # "dustinblackman/tap/oatmeal"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
-      "nikitabobko/aerospace"
+      # "nikitabobko/aerospace"
       {
         name = "zen-browser/browser";
         clone_target = "https://github.com/zen-browser/desktop.git";
@@ -114,7 +114,7 @@
 
     casks = [
       # "zen-browser"
-      "nikitabobko/tap/aerospace"
+      # "nikitabobko/tap/aerospace"
       "notion"
       "telegram"
       "libreoffice"
