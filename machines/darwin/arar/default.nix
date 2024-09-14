@@ -42,7 +42,7 @@
       "automake"
       "azure-cli"
       "bacon"
-      "joshmedeski/sesh"
+      # "joshmedeski/sesh"
       "bash"
       "bat"
       "bazel"
