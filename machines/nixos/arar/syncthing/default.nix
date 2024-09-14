@@ -32,7 +32,7 @@ in
         };
         devices = {
           "arar-iphone" = { id = "HA2QVX3-UPFG5JT-TUYESKM-Z4XVNPW-CJQF6SX-GMXGOQ7-OPIPQBX-HMPHMAO"; };
-          "arar-mac" = { id = "6GXBNUY-UZOTP5D-BPXNSU2-3S2WRXN-PGSPWTL-LKWP4EU-JNAGNYM-R36ZDQ5 "; };
+          "arar-mac" = { id = "IW5V2SU-BOSHRFM-GJ54OLI-V75KBOH-RWVMBJX-KWB6E63-FZVQJZD-P3AWMQ4"; };
         };
         folders = {
           "Downloads" = {
