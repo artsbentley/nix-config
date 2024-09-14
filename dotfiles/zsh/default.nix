@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     grc
     bat
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   fonts.fontconfig.enable = true;
 
