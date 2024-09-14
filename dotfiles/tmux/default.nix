@@ -14,6 +14,7 @@
     keyMode = "vi";
     baseIndex = 1;
     extraConfig = lib.strings.fileContents ./tmux.conf;
+    shell = "${pkgs.zsh}/bin/zsh";
 
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
