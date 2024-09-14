@@ -77,7 +77,7 @@
       NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false; # disable period after double-space
       NSGlobalDomain._HIHideMenuBar = true; # hide the menu bar
       NSGlobalDomain.NSWindowShouldDragOnGesture = true; # allows to drag windows from anywhere
-      NSGlobalDomain."com.apple.trackpad.scaling" = 3; # trackpad speed 1 to 3
+      NSGlobalDomain."com.apple.trackpad.scaling" = 3.0; # trackpad speed 1 to 3
 
       trackpad.Clicking = true; # enable tap to click
       trackpad.TrackpadThreeFingerDrag = true; # enable three finger drag
