@@ -26,6 +26,7 @@
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
       "nikitabobko/aerospace"
+      "joshmedeski/sesh"
       {
         name = "zen-browser/browser";
         clone_target = "https://github.com/zen-browser/desktop.git";
