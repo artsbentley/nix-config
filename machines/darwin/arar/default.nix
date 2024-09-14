@@ -112,6 +112,7 @@
       "zsh-syntax-highlighting"
       "gum"
       "syncthing"
+
     ];
 
     casks = [
