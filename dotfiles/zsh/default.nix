@@ -2,13 +2,14 @@
   home.packages = with pkgs; [
     grc
     bat
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
+  fonts.fontconfig.enable = true;
 
   home.file = {
     ".config/zsh/initExtra".source = ./initExtra;
   };
 
-  font.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   programs = {
     starship = {
