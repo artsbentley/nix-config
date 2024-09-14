@@ -5,7 +5,7 @@
   ];
   programs.wezterm = {
     enable = true;
-    # enableZshIntegration = true;
+    enableZshIntegration = true;
   };
   home.file = {
     ".config/wezterm".source = ./wezterm;
