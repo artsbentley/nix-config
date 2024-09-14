@@ -49,9 +49,7 @@
       };
     };
 
-    keyboard = {
-      remapCapsLockToEscape.enable = true;
-    };
+    keyboard.remapCapsLockToEscape = true;
     defaults = {
       finder = {
         _FXShowPosixPathInTitle = true;
