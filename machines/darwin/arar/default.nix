@@ -25,6 +25,7 @@
       # "dustinblackman/tap/oatmeal"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
+      "nikitabobko/aerospace"
       {
         name = "zen-browser/browser";
         clone_target = "https://github.com/zen-browser/desktop.git";
