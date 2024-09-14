@@ -4,11 +4,11 @@
     lazygit
   ];
   #
-  # programs.lazygit = {
-  #   enable = true;
-  # };
+  programs.lazygit = {
+    enable = true;
+  };
   home.file = {
-    ".config/lazygit".source = ./lazygit;
+    ".config/lazygit/config.yml".source = ./lazygit/config.yml;
   };
 }
 
