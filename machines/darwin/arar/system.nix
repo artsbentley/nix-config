@@ -47,9 +47,10 @@
           defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
           		'';
       };
-      keyboard = {
-        remapCapsLockToEscape.enable = true;
-      };
+    };
+
+    keyboard = {
+      remapCapsLockToEscape.enable = true;
     };
     defaults = {
       finder = {
