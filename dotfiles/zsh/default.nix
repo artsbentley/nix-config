@@ -74,6 +74,7 @@
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
+        XDG_CONFIG_HOME = "$HOME/.config";
         stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder prune -f -a && podman network prune -f && podman image prune -a -f && podman container prune -f";
         startdocker = "sudo systemctl start --all 'podman-*'";
         # update = "cd ~/nix-config && git pull && sudo nixos-rebuild switch --flake .#arar && cd -";
