@@ -74,7 +74,6 @@
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
-        XDG_CONFIG_HOME = "$HOME/.config";
         stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder prune -f -a && podman network prune -f && podman image prune -a -f && podman container prune -f";
         startdocker = "sudo systemctl start --all 'podman-*'";
         # update = "cd ~/nix-config && git pull && sudo nixos-rebuild switch --flake .#arar && cd -";
@@ -86,16 +85,17 @@
       # TODO: need to decide if i want to continue this route or just implement
       #  config in .zsh files
       initExtra = ''
-        if [ $(uname) = "Darwin" ]; then 
-            path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-        fi
+        	if [ $(uname) = "Darwin" ]; then 
+        		path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+        	fi
 
-        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+        	for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
 
-        export EDITOR=nvim || export EDITOR=vim
-        export LANG=en_US.UTF-8
-        export LC_CTYPE=en_US.UTF-8
-        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+        	export EDITOR=nvim || export EDITOR=vim
+        	export LANG=en_US.UTF-8
+        	export LC_CTYPE=en_US.UTF-8
+        	export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+        	export XDG_CONFIG_HOME="$HOME/.config"
       '';
 
 
