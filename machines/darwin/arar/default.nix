@@ -88,7 +88,6 @@
       "openssl@1.1"
       "pipx"
       "python@3.10"
-      "qmk/qmk/qmk"
       "rsyslog"
       "rust"
       "ripgrep"
