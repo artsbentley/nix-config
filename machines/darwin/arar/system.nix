@@ -66,54 +66,38 @@
         FXEnableExtensionChangeWarning = false;
       };
 
-      # show all file extensions in Finder
-      NSGlobalDomain.AppleShowAllExtensions = true;
+      NSGlobalDomain.AppleShowAllExtensions = true; # show all file extensions in Finder
+      LaunchServices.LSQuarantine = false; # Disable quarantine for downloaded files
 
-      # key repeat initial delay
-      NSGlobalDomain.InitialKeyRepeat = 10;
+      NSGlobalDomain.KeyRepeat = 1; # key repeat rate
+      NSGlobalDomain.InitialKeyRepeat = 10; # key repeat initial delay
 
-      # Disable quarantine for downloaded files
-      LaunchServices.LSQuarantine = false;
+      NSGlobalDomain."com.apple.sound.beep.volume" = 0.000; #disable beep
 
+      NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false; # disable period after double-space
+      NSGlobalDomain._HIHideMenuBar = true; # hide the menu bar
+      NSGlobalDomain.NSWindowShouldDragOnGesture = true; # allows to drag windows from anywhere
+      NSGlobalDomain."com.apple.trackpad.scaling" = 3; # trackpad speed 1 to 3
 
-      # key repeat rate
-      NSGlobalDomain.KeyRepeat = 1;
+      trackpad.Clicking = true; # enable tap to click
+      trackpad.TrackpadThreeFingerDrag = true; # enable three finger drag
+      trackpad.Dragging = true; # enable dragging items by tapping trackpad
+      trackpad.TrackpadRightClick = true;
 
-      #disable beep
-      NSGlobalDomain."com.apple.sound.beep.volume" = 0.000;
+      universalaccess.closeViewScrollWheelToggle = true; # use scroll gesture with the Ctrl (^) modifier key to zoom
+      universalaccess.reduceMotion = true; # disable animations
 
-      # disable period after double-space
-      NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-      NSGlobalDomain._HIHideMenuBar = true;
-
-      # enable tap to click
-      trackpad.Clicking = true;
-
-      # enable three finger drag
-      trackpad.TrackpadThreeFingerDrag = true;
-
-      # autohide dock
-      dock.autohide = true;
+      dock.autohide = true; # autohide dock
       dock.autohide-delay = 0.0;
+      dock.show-recents = false; # hide recent apps in dock
+      dock.magnification = false; # disable dock magnification
+      dock.tilesize = 70; # dock icons normal size
+      dock.mineffect = "scale"; # dock minimize/maximize effect
+      dock.mru-spaces = false; # disable automatic space sort by recent use
 
-      # disable dock magnification
-      dock.magnification = false;
+      screencapture.disable-shadow = true; # disable shadows when screenshotting windows
 
-      # dock icons normal size
-      dock.tilesize = 70;
-
-      # dock minimize/maximize effect
-      dock.mineffect = "scale";
-
-      # disable automatic space sort by recent use
-      dock.mru-spaces = false;
-
-      # hide recent apps in dock
-      dock.show-recents = true;
-
-
-      # disable shadows when screenshotting windows
-      screencapture.disable-shadow = true;
+      menuExtraClock.Show24Hour = true; # show 24 hour clock
 
     };
     activationScripts.postUserActivation.text = ''
