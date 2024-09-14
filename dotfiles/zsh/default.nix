@@ -8,6 +8,8 @@
     ".config/zsh/initExtra".source = ./initExtra;
   };
 
+  font.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+
   programs = {
     starship = {
       enable = true;
