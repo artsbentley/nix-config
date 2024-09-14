@@ -25,7 +25,7 @@
       # "dustinblackman/tap/oatmeal"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
-      # "nikitabobko/aerospace"
+      "nikitabobko/aerospace"
       {
         name = "zen-browser/browser";
         clone_target = "https://github.com/zen-browser/desktop.git";
@@ -42,7 +42,7 @@
       "automake"
       "azure-cli"
       "bacon"
-      "joshmedeski/sesh/sesh"
+      # "joshmedeski/sesh/sesh"
       "bash"
       "bat"
       "bazel"
