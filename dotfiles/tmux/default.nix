@@ -22,6 +22,7 @@
       yank
       tmux-thumbs
       t-smart-tmux-session-manager
+      tmux-floax
     ];
   };
 }
