@@ -115,7 +115,7 @@
 
     casks = [
       # "zen-browser"
-      # "nikitabobko/tap/aerospace"
+      "nikitabobko/tap/aerospace"
       "notion"
       "telegram"
       "libreoffice"
