@@ -156,6 +156,7 @@
       "vlc"
       "vnc-viewer"
       "wezterm"
+      "syncthing"
     ];
 
 
