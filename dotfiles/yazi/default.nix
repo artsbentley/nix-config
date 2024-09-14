@@ -9,11 +9,11 @@
     exiftool # Read EXIF metadata
   ];
 
-  # programs.yazi = {
-  #   enable = true;
-  #   enableBashIntegration = true;
-  #   enableZshIntegration = true;
-  # };
+  programs.yazi = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
 
   home.file = {
     ".config/yazi".source = ./yazi;
