@@ -84,8 +84,8 @@
       trackpad.Dragging = true; # enable dragging items by tapping trackpad
       trackpad.TrackpadRightClick = true;
 
-      universalaccess.closeViewScrollWheelToggle = true; # use scroll gesture with the Ctrl (^) modifier key to zoom
-      universalaccess.reduceMotion = true; # disable animations
+      # universalaccess.closeViewScrollWheelToggle = true; # use scroll gesture with the Ctrl (^) modifier key to zoom
+      # universalaccess.reduceMotion = true; # disable animations
 
       dock.autohide = true; # autohide dock
       dock.autohide-delay = 0.0;
