@@ -86,6 +86,7 @@ alt-shift-right = 'move right'
 # TODO: use a resize mode?
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
+alt-shift-h = 'exec-and-forget aerospace macos-native-minimize'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-3 = "workspace S"
