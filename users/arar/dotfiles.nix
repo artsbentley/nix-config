@@ -23,8 +23,6 @@
   # };
 
   imports = [
-    # ../../dotfiles/nvim/default.nix
-    # ../../dotfiles/scripts/default.nix
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
     ../../dotfiles/yazi/default.nix
