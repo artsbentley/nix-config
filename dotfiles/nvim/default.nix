@@ -22,7 +22,7 @@
       pushd /home/arar/nix-config/dotfiles
 
       # Symlink only 'nvim' into the .config directory
-      ${pkgs.stow}/bin/stow -vt $(home_dir)/.config nvim
+      ${pkgs.stow}/bin/stow -vt /home/arar/.config nvim
 
       # Return to the previous directory
       popd
