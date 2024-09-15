@@ -19,7 +19,7 @@
       fi
 
       # Change to dotfiles directory
-      pushd home/arar/nix-config/dotfiles
+      pushd /home/arar/nix-config/dotfiles
 
       # Symlink only 'nvim' into the .config directory
       ${pkgs.stow}/bin/stow -vt $(home_dir)/.config nvim
