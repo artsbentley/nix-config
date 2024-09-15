@@ -14,8 +14,7 @@
       fi
 
       pushd $home_dir/nix-config/dotfiles
-      ${pkgs.stow}/bin/stow -vt $home_dir/.config nvim
-
+      ${pkgs.stow}/bin/stow -vt $home_dir/.config nvim scripts
       popd
     '';
   };

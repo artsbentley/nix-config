@@ -24,11 +24,12 @@
 
   imports = [
     # ../../dotfiles/nvim/default.nix
+    # ../../dotfiles/scripts/default.nix
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
-    ../../dotfiles/scripts/default.nix
     ../../dotfiles/yazi/default.nix
     ../../dotfiles/lazygit/default.nix
+    ../../dotfiles/default.nix
     ../../dotfiles/stow.nix
     ./packages.nix
 
