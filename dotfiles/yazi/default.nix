@@ -15,10 +15,10 @@
     enableZshIntegration = true;
   };
 
-  # home.file = {
-  #   ".config/yazi".source = ./yazi;
-  # };
   home.file = {
-    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./yazi;
+    ".config/yazi".source = ./yazi;
   };
+  # home.file = {
+  #   ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./yazi;
+  # };
 }
