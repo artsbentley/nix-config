@@ -13,9 +13,9 @@
       # Detect the OS (Darwin or Linux)
       os=$(uname)
       if [ "$os" = "Darwin" ]; then
-        home_dir="/Users/$whoami"
+        home_dir="/Users/$(whoami)"
       else
-        home_dir="/home/$whoami"
+        home_dir="/home/$(whoami)"
       fi
 
       # Change to dotfiles directory
