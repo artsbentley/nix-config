@@ -15,7 +15,7 @@
             # fi
       	  # home_dir="$HOME/$(whoami)"
             pushd "$HOME/nix-config/dotfiles"
-            ${pkgs.stow}/bin/stow -vt $home_dir/.config nvim scripts yazi
+            ${pkgs.stow}/bin/stow -vt $HOME/.config nvim scripts yazi
             popd
     '';
   };
