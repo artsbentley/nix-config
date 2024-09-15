@@ -13,22 +13,21 @@
       # Detect the OS (Darwin or Linux)
       os=$(uname)
       if [ "$os" = "Darwin" ]; then
-        home_dir="/Users/arar"
+        home_dir="/Users/$systemSettings_username"
       else
-        home_dir="/home/arar"
+        home_dir="/home/$systemSettings_username"
       fi
 
       # Change to dotfiles directory
-      pushd /home/arar/nix-config/dotfiles
+      pushd $home_dir/nix-conf/dotfiles
 
       # Symlink only 'nvim' into the .config directory
-      ${pkgs.stow}/bin/stow -vt /home/arar/.config nvim
+      ${pkgs.stow}/bin/stow -vt $home_dir/.config nvim
 
       # Return to the previous directory
       popd
     '';
   };
-
 }
 
 
