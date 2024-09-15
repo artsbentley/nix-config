@@ -29,7 +29,7 @@
     ../../dotfiles/scripts/default.nix
     ../../dotfiles/yazi/default.nix
     ../../dotfiles/lazygit/default.nix
-    ../../dotfiles/raycast/default.nix
+    ../../dotfiles/stow.nix
     ./packages.nix
 
   ];

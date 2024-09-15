@@ -4,10 +4,6 @@
     stow
   ];
 
-  # home.file = {
-  #   ".config/nvim".source = ./nvim;
-  # };
-
   home.activation = {
     dotfileSetup = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       os=$(uname)
@@ -24,5 +20,6 @@
     '';
   };
 }
+
 
 

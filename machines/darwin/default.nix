@@ -25,6 +25,7 @@
         ../../dotfiles/tmux
         ../../dotfiles/wezterm
         ../../dotfiles/aerospace
+        ../../dotfiles/raycast
 
 
         # TODO:
