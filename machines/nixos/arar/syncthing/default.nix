@@ -37,7 +37,7 @@ in
         folders = {
           "Downloads" = {
             path = "${vars.nasMount}/Syncthing/Downloads";
-            devices = [ "arar-iphone" "arar-mac" ];
+            devices = [ "arar-mac" ];
           };
           # "root-syncthing" = {
           #   path = "${vars.nasMount}/Syncthing";
