@@ -112,6 +112,16 @@ trouble.setup(vim.keymap.set("n", "<S-x>", "<cmd>TroubleToggle document_diagnost
 vim.keymap.set("n", "<C-d>", "11<C-d>zz")
 vim.keymap.set("n", "<C-u>", "11<C-u>zz")
 
+-- REMAP next and previous search to center screen
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<C-e>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-n>", "<cmd>cprev<CR>zz")
+
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
 -- TMUX NAVIGATOR
 local nvim_tmux_nav = require("nvim-tmux-navigation")
 
