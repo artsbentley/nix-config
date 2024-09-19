@@ -2,7 +2,6 @@
 {
   # load module config to top-level configuration
   #
-  imports = [ /etc/nixos/hardware-configuration.nix ];
 
   system.stateVersion = "22.11";
 

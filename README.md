@@ -43,6 +43,38 @@ git clone git@github.com:artsbentley/nix-config.git
 git clone https://github.com/artsbentley/nix-config.git
 ```
 
+overwrite the hardware configuration
+
+```bash
+cp /etc/nixos/hardware-configuration.nix machines/nixos/arar/hardware/default.nix
+```
+
+add ssh key for easy ssh
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub arar@local.nixos
+```
+
+add age ssh certificate
+
+```bash
+
+```
+
+restore appdata
+
+```bash
+restic restore <snapshot-id> --target /home/arar/appdata -r nas/Backups/restic/appdata
+```
+
+adjust ownership if needed
+
+```bash
+sudo chown -R share:share appdata
+```
+
+retrieve new tailscale auth token and set agenix secret
+
 ## setting up mac
 
 ```bash
