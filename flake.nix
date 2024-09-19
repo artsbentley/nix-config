@@ -150,7 +150,8 @@
             # Import the machine config + secrets
             ./machines/nixos
             ./machines/nixos/arar
-            ./machines/nixos/arar/hardware
+            # NOTE: note sure if hardware config is best read from git repo or not
+            # ./machines/nixos/arar/hardware
             ./machines/nixos/arar/backup
             ./machines/nixos/arar/syncthing
             ./secrets
