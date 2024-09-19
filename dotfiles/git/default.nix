@@ -30,6 +30,8 @@
         excludesfile = "~/.config/git/ignore";
         autocrlf = "input";
       };
+      pull.rebase = true;
+      push.default = "tracking";
       init = {
         defaultBranch = "main";
       };
