@@ -25,7 +25,6 @@
   imports = [
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
-    ../../dotfiles/lazygit/default.nix
     ../../dotfiles/default.nix
     ../../dotfiles/stow.nix
     ./packages.nix
