@@ -157,6 +157,7 @@
       "vnc-viewer"
       "wezterm"
       "syncthing"
+      "hugo"
     ];
 
 
