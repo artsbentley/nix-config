@@ -9,7 +9,7 @@
     dotfileSetup = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
 
       pushd "$HOME/nix-config/dotfiles"
-      ${pkgs.stow}/bin/stow --override -vt $HOME/.config nvim scripts yazi lazygit
+      ${pkgs.stow}/bin/stow --override -vt $HOME/.config nvim scripts yazi 
       popd
     '';
   };
