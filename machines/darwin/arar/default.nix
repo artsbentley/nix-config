@@ -96,7 +96,6 @@
       "rustup"
       "s3cmd"
       "sbt"
-      "scala"
       "sshs"
       "starship"
       "step"
@@ -112,6 +111,7 @@
       "zsh-syntax-highlighting"
       "gum"
       "syncthing"
+      "hugo"
 
     ];
 
@@ -157,7 +157,6 @@
       "vnc-viewer"
       "wezterm"
       "syncthing"
-      "hugo"
     ];
 
 
