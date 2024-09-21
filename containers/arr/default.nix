@@ -150,8 +150,9 @@ in
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         volumes = [
-          "${vars.nasMount}/Media/Downloads:/downloads"
-          "${vars.nasMount}/Media/TV:/tv"
+          # "${vars.nasMount}/Media/Downloads:/downloads"
+          # "${vars.nasMount}/Media/TV:/tv"
+          "${vars.nasMount}/Media:/media"
           "${vars.serviceConfigRoot}/sonarr:/config"
         ];
         environment = {
@@ -185,8 +186,9 @@ in
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         volumes = [
-          "${vars.nasMount}/Media/Downloads:/downloads"
-          "${vars.nasMount}/Media/Movies:/movies"
+          # "${vars.nasMount}/Media/Downloads:/downloads"
+          # "${vars.nasMount}/Media/Movies:/movies"
+          "${vars.nasMount}/Media:/media"
           "${vars.serviceConfigRoot}/radarr:/config"
         ];
         environment = {
