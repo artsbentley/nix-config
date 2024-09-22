@@ -68,6 +68,10 @@
   programs.mosh.enable = true;
   programs.htop.enable = true;
 
+  # USB hdd
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -113,6 +117,11 @@
     git-crypt
     bfg-repo-cleaner
     deploy-rs
+
+    # USB harddrive
+    usbutils
+    udiskie
+    udisks
   ];
 
 }
