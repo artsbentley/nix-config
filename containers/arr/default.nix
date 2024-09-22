@@ -51,7 +51,7 @@ in
     # Copy the templates to a temporary writable location
     tempSonarr=$(mktemp)
     tempRadarr=$(mktemp)
-    cp "${inputs.recyclarr-configs}/sonarr/templates/web-1080p-v4.yml" $tempSonarr
+    cp "${inputs.recyclarr-configs}/sonarr/templates/web-2160p-v4.yml" $tempSonarr
     cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" $tempRadarr
 
     sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
