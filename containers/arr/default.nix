@@ -52,7 +52,7 @@ in
     tempSonarr=$(mktemp)
     tempRadarr=$(mktemp)
     cp "${inputs.recyclarr-configs}/sonarr/templates/web-2160p-v4.yml" $tempSonarr
-    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-1080p.yml" $tempRadarr
+    cp "${inputs.recyclarr-configs}/radarr/templates/remux-web-2160p.yml" $tempRadarr
 
     sonarrApiKey=$(cat "${config.age.secrets.sonarrApiKey.path}")
     radarrApiKey=$(cat "${config.age.secrets.radarrApiKey.path}")
@@ -264,8 +264,8 @@ in
           "${vars.serviceConfigRoot}/recyclarr:/config"
         ];
         environment = {
-          CRON_SCHEDULE = "@daily";
-          # CRON_SCHEDULE = "* * * * *";
+          # CRON_SCHEDULE = "@daily";
+          CRON_SCHEDULE = "* * * * *";
         };
       };
     };
