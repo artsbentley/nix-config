@@ -219,10 +219,7 @@ in
         autoStart = true;
         volumes = [
           # TODO: redo nas directory structure according to trash guides
-          "${vars.nasMount}/Media/Books:/Books:ro"
-          "${vars.nasMount}/Media/Music:/Music:ro"
-          "${vars.nasMount}/Media/TV:/TV:ro"
-          "${vars.nasMount}/Media/Movies:/Movies:ro"
+          "${vars.nasMount}/Media:/Media"
           "${vars.serviceConfigRoot}/jellyfin/config:/config"
           "${vars.serviceConfigRoot}/jellyfin/cache:/cache"
         ];
@@ -231,7 +228,7 @@ in
           TZ = vars.timeZone;
           PUID = "${toString config.users.users.share.uid}";
           PGID = "${toString config.users.groups.share.gid}";
-          UMASK = "002";
+          # UMASK = "002";
         };
         ports = [
           "8096:8096"
