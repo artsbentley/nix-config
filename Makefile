@@ -19,12 +19,12 @@
 # 	sudo nixos-rebuild switch --flake '.#personal'
 
 nix:
-	git pull
+	git pull --autostash
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	sudo nixos-rebuild switch --flake '.#arar'
 
 mac:
-	git pull	
+	git pull --autostash
 	nix build .#darwinConfigurations.arar.system --show-trace --impure  
 	./result/sw/bin/darwin-rebuild switch --flake "$$(pwd)#arar" --impure 
 
