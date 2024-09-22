@@ -141,6 +141,7 @@ in
         volumes = [
           "${vars.serviceConfigRoot}/qbittorrent:/config"
           "${vars.nasMount}/Media/Downloads:/data/torrents"
+          "${vars.nasMount}/Media/Downloads:/downloads"
         ];
       };
 
@@ -186,9 +187,9 @@ in
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         volumes = [
-          # "${vars.nasMount}/Media/Downloads:/downloads"
-          # "${vars.nasMount}/Media/Movies:/movies"
-          "${vars.nasMount}/Media:/media"
+          "${vars.nasMount}/Media/Downloads:/downloads"
+          "${vars.nasMount}/Media/Movies:/movies"
+          # "${vars.nasMount}/Media:/media"
           "${vars.serviceConfigRoot}/radarr:/config"
         ];
         environment = {
