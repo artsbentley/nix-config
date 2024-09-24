@@ -164,6 +164,7 @@
             ./containers/vaultwarden
             ./containers/cloudflare
             ./containers/homepage
+            ./containers/gitea
             # ./containers/backrest
 
             # User-specific configurations
