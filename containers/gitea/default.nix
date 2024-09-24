@@ -13,6 +13,7 @@ in
     environment = {
       USER_UID = "${toString config.users.users.share.uid}";
       USER_GID = "${toString config.users.groups.share.gid}";
+	  RUN_USER = "share";
     };
     volumes = [
       "${vars.serviceConfigRoot}/gitea:/data"
