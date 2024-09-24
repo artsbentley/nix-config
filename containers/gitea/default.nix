@@ -20,7 +20,7 @@ in
       "/etc/localtime:/etc/localtime:ro"
     ];
     ports = [
-      "3001:3000"
+      "3010:3000"
       "222:22"
     ];
   };
