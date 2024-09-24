@@ -64,7 +64,8 @@ add age ssh certificate
 restore appdata
 
 ```bash
-restic restore <snapshot-id> --target /home/arar/appdata -r nas/Backups/restic/appdata
+eza nas/Backups/restic/appdata/snapshots -l --sort newest
+restic restore latest --target /home/arar/appdata -r nas/Backups/restic/appdata
 ```
 
 adjust ownership if needed
