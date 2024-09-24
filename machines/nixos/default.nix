@@ -65,6 +65,7 @@
   nix.settings.experimental-features = lib.mkDefault [ "nix-command" "flakes" ];
 
   services.automatic-timezoned.enable = true;
+  services.localtimed.enable = true;
 
   programs.git.enable = true;
   programs.mosh.enable = true;
