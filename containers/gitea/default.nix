@@ -14,7 +14,7 @@ in
       USER_UID = "${toString config.users.users.share.uid}";
       USER_GID = "${toString config.users.groups.share.gid}";
 	  USER = "share";
-	  # USERNAME = "share";
+	  DISABLE_REGISTRATION = "true";
     };
     volumes = [
       "${vars.serviceConfigRoot}/gitea:/data"
