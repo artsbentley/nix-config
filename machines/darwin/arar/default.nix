@@ -147,7 +147,6 @@
       # "microsoft-auto-update"
       "microsoft-excel"
       "microsoft-powerpoint"
-      "microsoft-word"
       "orbstack"
       "postman"
       "raycast"
@@ -157,7 +156,7 @@
       "vnc-viewer"
       "wezterm"
       "syncthing"
-      "shapr3d"
+      "obsidian"
     ];
 
 
