@@ -22,7 +22,6 @@
 
     taps = [
       # "noahgorstein/tap/jqp"
-      # "dustinblackman/tap/oatmeal"
       "morantron/tmux-fingers"
       "julien-cpsn/atac"
       "nikitabobko/aerospace"
@@ -208,6 +207,7 @@
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
+    libreoffice
   ];
 
   services.nix-daemon.enable = lib.mkForce
