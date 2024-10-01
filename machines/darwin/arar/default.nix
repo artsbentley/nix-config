@@ -37,13 +37,11 @@
     # TODO: 
     # check which need to be in a brew and which can be managed by HM input
     brews = [
-      "eza"
       "atlas"
       "atuin"
       "automake"
       "azure-cli"
       "bacon"
-      "joshmedeski/sesh/sesh"
       "bash"
       "bat"
       "bazel"
@@ -58,23 +56,26 @@
       "dive"
       "elixir"
       "exercism"
+      "eza"
       "fd"
       "fx"
       "fzf"
       "gh"
-      "yq"
-      "jq"
       "git"
       "git-delta"
       "gitmoji"
       "gleam"
       "gnu-sed"
       "go"
-      "gopls"
       "golang-migrate"
       "goose"
+      "gopls"
+      "gum"
       "htop"
+      "hugo"
       "hurl"
+      "joshmedeski/sesh/sesh"
+      "jq"
       "just"
       "lazydocker"
       "lazygit"
@@ -90,37 +91,32 @@
       "openssl@1.1"
       "pipx"
       "python@3.10"
+      "ripgrep"
       "rsyslog"
       "rust"
-      "ripgrep"
       "rustup"
       "s3cmd"
-      "sbt"
       "sshs"
       "starship"
       "step"
       "strongswan"
+      "syncthing"
       "taskwarrior-tui"
       "tree"
       "vite"
       "watchexec"
       "xcodegen"
       "yazi"
+      "yq"
       "zig"
       "zsh-autosuggestions"
       "zsh-syntax-highlighting"
-      "gum"
-      "syncthing"
-      "hugo"
-
     ];
 
     casks = [
       # "zen-browser"
       "nikitabobko/tap/aerospace"
-      "notion"
       "telegram"
-      "libreoffice"
       "signal"
       "karabiner-elements"
       "grid"
@@ -144,9 +140,9 @@
       "hammerspoon"
       "keepassxc"
       "loop"
-      # "microsoft-auto-update"
       "microsoft-excel"
       "microsoft-powerpoint"
+      "microsoft-word"
       "orbstack"
       "postman"
       "raycast"
@@ -157,6 +153,7 @@
       "wezterm"
       "syncthing"
       "obsidian"
+      "discord"
     ];
 
 
@@ -202,14 +199,11 @@
     ffmpeg
     chromedriver
     mosh
-    # discord
     git-filter-repo
     spotify
     httpie
     slack
     mattermost
-    sentry-cli
-    vscode
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
