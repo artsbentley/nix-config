@@ -43,6 +43,7 @@
       "bacon"
       "bash"
       "bat"
+      "bitwarden-cli"
       "bazel"
       "certbot"
       "cmake"
@@ -130,7 +131,6 @@
       "arc"
       "balenaetcher"
       "bitwarden"
-      # "bitwarden-cli"
       "bruno"
       "cyberduck"
       "eqmac"
@@ -207,7 +207,6 @@
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
-    libreoffice
   ];
 
   services.nix-daemon.enable = lib.mkForce
