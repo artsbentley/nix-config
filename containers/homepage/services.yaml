@@ -80,7 +80,7 @@
         href: https://local.nixos:8384/
         description: Syncing service
     - Actual:
-        icon: actual.svg
+        icon: actual.png
         href: https://local.nixos:5006/
         description: Budget manager
     - Mealie:
