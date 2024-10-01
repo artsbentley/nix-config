@@ -164,6 +164,7 @@
             ./containers/vaultwarden
             ./containers/cloudflare
             ./containers/homepage
+            ./containers/actualbudget
             ./containers/gitea
             # ./containers/backrest
 
