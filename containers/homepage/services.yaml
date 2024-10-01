@@ -7,6 +7,10 @@
         icon: portainer.svg
         href: http://local.nixos:9000/#!/home
         description: Container management
+    - Gitea:
+        icon: gitea.svg
+        href: http://local.nixos:3010/
+        description: Git server
 
 - Media:
     - Jellyfin:
@@ -34,13 +38,15 @@
     - Sonarr:
         icon: sonarr.png
         href: http://local.nixos:8989/
-        siteMonitor: local.nixos:8989/
         description: TV Pull Automation
     - Radarr:
         icon: radarr.png
         href: http://local.nixos:7878/
-        siteMonitor: local.nixos:7878/
         description: Film Pull Automation
+    - Bazarr:
+        icon: bazarr.png
+        href: http://local.nixos:6767/
+        description: Subtitle Pull Automation
     - Prowlarr:
         icon: prowlarr.svg
         href: http://local.nixos:9696/
@@ -73,6 +79,10 @@
         icon: syncthing.svg
         href: https://local.nixos:8384/
         description: Syncing service
+    - Actual:
+        icon: actual.svg
+        href: https://local.nixos:5006/
+        description: Budget manager
     - Mealie:
         icon: mealie.svg
         href: http://local.nixos:9925/
