@@ -90,6 +90,7 @@
       initExtra = ''
         	if [ $(uname) = "Darwin" ]; then 
         		path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+                export BW_SESSION=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.bitwardenSession.path})
         	fi
 
         	for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
