@@ -154,6 +154,7 @@
       "syncthing"
       "obsidian"
       "discord"
+      "libreoffice"
     ];
 
 
