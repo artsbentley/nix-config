@@ -31,21 +31,21 @@ layout:
     columns: 4
   Network and IoT:
     header: true
-    style: row
+    style: column
     columns: 4
   Media:
     header: true
-    style: row
+    style: column
     columns: 4
   Monitoring:
     header: true
-    style: row
+    style: column
     columns: 4
   Torrent:
     header: true
-    style: row
+    style: column
     columns: 4
   Access and Services:
     header: true
-    style: row
+    style: column
     columns: 4
