@@ -6,6 +6,7 @@
     extraPackages = with pkgs; [
       tree-sitter
       lua-language-server
+      lua_ls
       luaformatter
       stylua
       bash-language-server
