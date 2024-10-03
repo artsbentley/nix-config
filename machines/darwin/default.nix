@@ -26,6 +26,7 @@
         ../../dotfiles/wezterm
         ../../dotfiles/aerospace
         ../../dotfiles/raycast
+        ../../dotfiles/nvim
 
 
         # TODO:
