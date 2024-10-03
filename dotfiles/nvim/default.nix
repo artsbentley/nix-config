@@ -5,6 +5,15 @@
     extraLuaPackages = (ps: with ps; [ luarocks rocks-nvim ]);
     extraPackages = with pkgs; [
       tree-sitter
+      lua-language-server
+      stylua
+      bash-language-server
+      dockerfile-language-server-nodejs
+      nil
+      nixfmt-classic
+      black
+      pyright
+      ruff-lsp
     ];
     extraWrapperArgs = [
       "--prefix"
