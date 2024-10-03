@@ -12,5 +12,6 @@
     neofetch
     nerdfonts
     nodejs
+    luarocks
   ];
 }
