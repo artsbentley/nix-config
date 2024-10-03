@@ -13,5 +13,6 @@
     nerdfonts
     nodejs
     luarocks
+    unzip
   ];
 }
