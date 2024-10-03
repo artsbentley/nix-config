@@ -166,6 +166,7 @@
             ./containers/homepage
             ./containers/actualbudget
             ./containers/gitea
+            ./containers/stirling
             # ./containers/backrest
 
             # User-specific configurations
