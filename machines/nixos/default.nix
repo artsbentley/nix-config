@@ -88,7 +88,11 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
-    extraLuaPackages = ps: [ ps.rocks-nvim ];
+    extraLuaPackages = rocks: [ rocks.luarocks ];
+    #TODO:  add other LSP
+    extraPackages = with pkgs; [
+      tree-sitter
+    ];
   };
 
   security = {
