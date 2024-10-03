@@ -6,6 +6,7 @@
     extraPackages = with pkgs; [
       tree-sitter
       lua-language-server
+      luaformatter
       stylua
       bash-language-server
       dockerfile-language-server-nodejs
