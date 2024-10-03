@@ -3,6 +3,9 @@
 {
   programs.neovim = {
     extraLuaPackages = (ps: with ps; [ luarocks rocks-nvim ]);
+    extraPackages = with pkgs; [
+      tree-sitter
+    ];
     extraWrapperArgs = [
       "--prefix"
       "PATH"
