@@ -11,6 +11,6 @@
     sops
     neofetch
     nerdfonts
-    npm
+    nodejs
   ];
 }
