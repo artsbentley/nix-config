@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "debugloop/telescope-undo.nvim",
         "danielfalk/smart-open.nvim",
+        "Myzel394/jsonfly.nvim",
     },
     config = function()
         require("telescope").setup({
@@ -20,6 +21,7 @@ return {
         })
         require("telescope").load_extension("undo")
         require("telescope").load_extension("smart_open")
+        require("telescope").load_extension("jsonfly")
     end,
     keys = {
         -- { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
