@@ -83,3 +83,28 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 nix-shell '<home-manager>' -A install
 ```
+
+nas structure:
+
+```bash
+nas
+├── Backups
+│   ├── restic
+│   │   ├── appdata
+│   └── vaultwarden
+├── Documents
+│   └── Paperless
+│       ├── Documents
+│       ├── Export
+│       └── Import
+├── Media
+│   ├── Audiobooks
+│   ├── Books
+│   ├── Downloads
+│   ├── Movies
+│   ├── Music
+│   └── TV
+└── Syncthing
+    ├── Downloads
+    └── obsidian
+```
