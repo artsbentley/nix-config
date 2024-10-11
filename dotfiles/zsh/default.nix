@@ -78,7 +78,9 @@
         c = "clear";
         ":Yazi" = "ya";
 
+        # GIT 
         gpl = "git pull --rebase --autostash";
+        ghinit = "gh repo create $(basename '$PWD ') --private --source=. --remote=origin";
 
         stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder prune -f -a && podman network prune -f && podman image prune -a -f && podman container prune -f";
         startdocker = "sudo systemctl start --all 'podman-*'";
