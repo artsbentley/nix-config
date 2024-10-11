@@ -26,6 +26,7 @@
       "julien-cpsn/atac"
       "nikitabobko/aerospace"
       "joshmedeski/sesh"
+      "dustinblackman/oatmeal"
       {
         name = "zen-browser/browser";
         clone_target = "https://github.com/zen-browser/desktop.git";
@@ -111,6 +112,7 @@
       "zig"
       "zsh-autosuggestions"
       "zsh-syntax-highlighting"
+      "dustinblackman/tap/oatmeal"
     ];
 
     casks = [
@@ -154,6 +156,7 @@
       "obsidian"
       "discord"
       "libreoffice"
+      "ollama"
     ];
 
 

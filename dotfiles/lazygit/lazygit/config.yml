@@ -75,7 +75,7 @@ customCommands:
     loadingText: "Loading gitmoji"
     subprocess: true
   - key: "F"
-    command: "git pull --rebase --autostash {{ SelectedLocalBranch.Name }}"
+    command: "git pull --rebase --autostash {{.SelectedLocalBranch.Name}}"
     context: "localBranches"
     stream: true
   - key: "O"
