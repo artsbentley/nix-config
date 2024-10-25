@@ -13,7 +13,7 @@
             	  scripts \
             	  yazi \
             	  lazygit \
-      		      oatmeal \
+      		      oatmeal
                   popd
     '';
   };
