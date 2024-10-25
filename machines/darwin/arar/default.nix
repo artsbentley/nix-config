@@ -26,7 +26,7 @@
       "julien-cpsn/atac"
       "nikitabobko/aerospace"
       "joshmedeski/sesh"
-      "dustinblackman/oatmeal"
+      # "dustinblackman/oatmeal"
       {
         name = "zen-browser/browser";
         clone_target = "https://github.com/zen-browser/desktop.git";
@@ -100,6 +100,7 @@
       "sshs"
       "starship"
       "step"
+      "sqlc"
       "strongswan"
       "syncthing"
       "taskwarrior-tui"
@@ -156,7 +157,6 @@
       "obsidian"
       "discord"
       "libreoffice"
-      "ollama"
     ];
 
 

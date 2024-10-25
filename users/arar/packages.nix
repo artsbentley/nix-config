@@ -14,5 +14,6 @@
     nodejs
     luarocks
     unzip
+    # golangci-lint
   ];
 }

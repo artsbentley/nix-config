@@ -106,6 +106,7 @@
       # "zig"
       "zsh-autosuggestions"
       "zsh-syntax-highlighting"
+      "uv"
     ];
 
     casks = [
@@ -156,6 +157,7 @@
   environment.systemPackages = with pkgs; [
     (python311Full.withPackages (ps: with ps; [
       pip
+      scrapy
       jmespath
       requests
       setuptools
