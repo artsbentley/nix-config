@@ -1,9 +1,9 @@
 { inputs, lib, config, pkgs, ... }:
 {
   home.file = {
-    ".config/direnv".source = .config/direnv;
-    # ".config/direnv/direnvrc".source = ./direnv;
-    # ".config/direnv/direnv.toml".source = ./direnv/;
+    # ".config/direnv".source = ./direnv;
+    ".config/direnv/direnvrc".source = ./direnv/direnvrc;
+    ".config/direnv/direnv.toml".source = ./direnv/direnv.toml;
 
   };
 }
