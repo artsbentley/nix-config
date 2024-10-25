@@ -114,6 +114,7 @@
       "zsh-autosuggestions"
       "zsh-syntax-highlighting"
       "dustinblackman/tap/oatmeal"
+      "uv"
     ];
 
     casks = [
