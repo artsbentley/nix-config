@@ -27,7 +27,7 @@
         ../../dotfiles/aerospace
         ../../dotfiles/raycast
         ../../dotfiles/nvim
-        # ../../dotfiles/direnv
+        ../../dotfiles/direnv
 
 
         # TODO:
