@@ -159,29 +159,29 @@
       "discord"
       "libreoffice"
     ];
-
-    home.packages = with pkgs; [
-      gh
-      tmux
-      yazi
-      # direnv
-      # atuin
-      wget
-      xclip
-      htop
-      sops
-      neofetch
-      nerdfonts
-      nodejs
-      luarocks
-      unzip
-      templ
-      ruff
-      d2
-      # golangci-lint
-    ];
-
   };
+
+  home.packages = with pkgs; [
+    gh
+    tmux
+    yazi
+    # direnv
+    # atuin
+    wget
+    xclip
+    htop
+    sops
+    neofetch
+    nerdfonts
+    nodejs
+    luarocks
+    unzip
+    templ
+    ruff
+    d2
+    # golangci-lint
+  ];
+
   environment.systemPackages = with pkgs; [
     (python311Full.withPackages (ps: with ps; [
       pip
