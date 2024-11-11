@@ -215,7 +215,7 @@ in
       };
 
       jellyfin = {
-        image = "jellyfin/jellyfin";
+        image = "jellyfin/jellyfin:10.10.1";
         autoStart = true;
         volumes = [
           # TODO: redo nas directory structure according to trash guides
