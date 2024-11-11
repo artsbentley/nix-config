@@ -167,7 +167,7 @@
             ./containers/actualbudget
             ./containers/gitea
             ./containers/stirling
-            ./containers/watchtower
+            # ./containers/watchtower
             # ./containers/backrest
 
             # User-specific configurations
