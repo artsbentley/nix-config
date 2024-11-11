@@ -115,6 +115,8 @@
       "zsh-syntax-highlighting"
       "dustinblackman/tap/oatmeal"
       "uv"
+      "postgresql"
+      "garrettkrohn/treekanga/treekanga"
     ];
 
     casks = [
@@ -211,7 +213,6 @@
     pinentry.curses
     nixos-rebuild
     direnv
-    postgresql
   ];
 
   services.nix-daemon.enable = lib.mkForce

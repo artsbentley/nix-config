@@ -11,6 +11,7 @@
   virtualisation.oci-containers = {
     backend = "podman";
   };
+  networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 5353 ];
   networking.firewall.interfaces.podman0.allowedUDPPorts = [
     1900
     8080

@@ -14,6 +14,7 @@ local config = {
 	-- 	w.get_wallpaper(),
 	-- 	b.get_background(),
 	-- },
+	max_fps = 120,
 
 	-- font
 	font = f.get_font(),
