@@ -184,7 +184,10 @@ in
         image = "lscr.io/linuxserver/radarr";
         autoStart = true;
         dependsOn = [ "gluetun" ];
-        extraOptions = [ "--network=container:gluetun" ];
+        extraOptions = [
+          "--network=container:gluetun"
+          "--pull=always"
+        ];
         volumes = [
           "${vars.nasMount}/Media/Downloads:/downloads"
           "${vars.nasMount}/Media/Movies:/movies"
