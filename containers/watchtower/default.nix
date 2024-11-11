@@ -9,6 +9,10 @@ in
   virtualisation.oci-containers.containers."watchtower" = {
     autoStart = true;
     image = "containrrr/watchtower";
+    environment = {
+      WATCHTOWER_POLL_INTERVAL = "60";
+      WATCHTOWER_CLEANUP = "true";
+    };
     volumes = [
       "${vars.serviceConfigRoot}/watchtower:/data"
       # "/var/run/docker.sock:/var/run/docker.sock"
