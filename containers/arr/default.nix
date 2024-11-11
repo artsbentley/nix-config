@@ -168,7 +168,10 @@ in
         image = "binhex/arch-prowlarr";
         autoStart = true;
         dependsOn = [ "gluetun" ];
-        extraOptions = [ "--network=container:gluetun" ];
+        extraOptions = [
+          "--network=container:gluetun"
+          "--pull=always"
+        ];
         volumes = [
           "${vars.serviceConfigRoot}/prowlarr:/config"
         ];
