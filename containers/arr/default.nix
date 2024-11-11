@@ -245,7 +245,7 @@ in
 
       jellyseerr = {
         autoStart = true;
-        image = "fallenbagel/jellyseerr:2";
+        image = "fallenbagel/jellyseerr:2.0.1";
         volumes = [ "${vars.serviceConfigRoot}/jellyseerr:/app/config" ];
         ports = [ "5055:5055" ];
         environment = {
