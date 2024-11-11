@@ -11,7 +11,7 @@ in
   virtualisation.oci-containers = {
     containers = {
       vaultwarden = {
-        image = "vaultwarden/server:latest";
+        image = "vaultwarden/server:1.32.4";
         autoStart = true;
         ports = [ "8081:80" ];
         extraOptions = [ ];
