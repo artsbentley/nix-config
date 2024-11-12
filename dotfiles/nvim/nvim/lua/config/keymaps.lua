@@ -203,9 +203,6 @@ vim.keymap.set("n", "<leader>w<S-e>", "<cmd>split<CR>", { desc = "Split window h
 -- buffer
 vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope" })
 
--- setup local leader
-vim.g.maplocalleader = ","
-
 -- special paste commands
 vim.keymap.set("n", "<leader>pq", 'Vi"p', { desc = "paste inner quote" })
 vim.keymap.set("n", "<leader>pw", "Viwp", { desc = "paste inner word" })

@@ -117,6 +117,7 @@
       "uv"
       "postgresql"
       "garrettkrohn/treekanga/treekanga"
+      "prettier"
     ];
 
     casks = [
@@ -213,6 +214,7 @@
     pinentry.curses
     nixos-rebuild
     direnv
+    prettierd
   ];
 
   services.nix-daemon.enable = lib.mkForce
