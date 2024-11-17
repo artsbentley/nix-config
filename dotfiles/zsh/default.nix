@@ -70,10 +70,11 @@
         grep = "rg --color=auto";
         df = "df -h";
         du = "du -ch";
+        fd = "fd --color=auto";
         ipp = "curl ipinfo.io/ip";
         vi = "nvim";
         vim = "nvim";
-        # mkdir = "mkdir -p";
+        mkdir = "mkdir -p";
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
