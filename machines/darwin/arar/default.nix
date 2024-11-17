@@ -160,7 +160,6 @@
       "syncthing"
       "obsidian"
       "discord"
-      "libreoffice"
     ];
   };
 
