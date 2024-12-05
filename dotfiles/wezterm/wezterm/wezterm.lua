@@ -17,7 +17,8 @@ local config = {
 	max_fps = 120,
 
 	-- fix for nixos textures
-	front_end = "WebGpu"
+	front_end = "WebGpu",
+	webgpu_power_preference = "HighPerformance",
 
 	-- font
 	font = f.get_font(),
