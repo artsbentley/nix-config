@@ -23,6 +23,12 @@ nix:
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	sudo nixos-rebuild switch --flake '.#arar'
 
+surface:
+	git pull --autostash
+	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
+	sudo nixos-rebuild switch --flake '.#surface' --experimental-features 'nix-command flakes'
+
+
 mac:
 	git pull --autostash
 	nix build .#darwinConfigurations.arar.system --show-trace --impure  
