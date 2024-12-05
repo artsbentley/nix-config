@@ -34,6 +34,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     nur.url = "github:nix-community/nur";
     zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
 
@@ -75,6 +77,9 @@
             vars = import ./machines/surface-nixos/vars.nix;
           };
           modules = [
+            # surface specific
+            ./machines/surface-nixos/surface-pkgs
+
             # Base configuration and modules
             ./modules/podman
             ./modules/tailscale
