@@ -26,6 +26,7 @@
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
     ../../dotfiles/default.nix
+    ../../dotfiles/wezterm/default.nix
     ../../dotfiles/stow.nix
     ./packages.nix
 
