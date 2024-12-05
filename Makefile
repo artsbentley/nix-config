@@ -26,7 +26,7 @@ nix:
 surface:
 	git pull --autostash
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
-	sudo nixos-rebuild switch --flake '.#surface' --experimental-features 'nix-command flakes'
+	sudo nixos-rebuild switch --flake '.#surface' 
 
 
 mac:
