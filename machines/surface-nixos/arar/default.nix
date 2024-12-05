@@ -28,7 +28,7 @@
     #timeZone = "Europe/Berlin";
     # hostId = "0730ae51";
     useDHCP = true;
-    networkmanager.enable = lib.Mkforce true;
+    networkmanager.enable = lib.mkForce true;
     firewall = {
       allowedTCPPorts = [ 5357 ];
       allowedUDPPorts = [ 3702 ];
