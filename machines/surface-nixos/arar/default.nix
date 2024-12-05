@@ -27,7 +27,7 @@
     hostName = "nixos";
     #timeZone = "Europe/Berlin";
     # hostId = "0730ae51";
-    useDHCP = true;
+    # useDHCP = true;
     networkmanager.enable = lib.mkForce true;
     firewall = {
       allowedTCPPorts = [ 5357 ];
