@@ -154,6 +154,7 @@
     git-crypt
     bfg-repo-cleaner
     deploy-rs
+    wezterm
 
     # USB harddrive
     usbutils
