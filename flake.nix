@@ -53,78 +53,12 @@
     , zen-browser
     , ...
     }@inputs:
-    # let
-    #   configuration = { pkgs, ... }: {
-    #     environment.systemPackages =
-    #       [
-    #         pkgs.vim
-    #         pkgs.direnv
-    #         pkgs.age
-    #         pkgs.sshs
-    #         # pkgs.atac
-    #         pkgs.termshark
-    #         pkgs.portal
-    #         pkgs.glow
-    #       ];
-    #
-    #     services.nix-daemon.enable = true;
-    #     nix.settings.experimental-features = "nix-command flakes";
-    #     programs.zsh.enable = true;
-    #     nixpkgs.hostPlatform = "aarch64-darwin";
-    #     security.pam.enableSudoTouchIdAuth = true;
-    #
-    #     users.users.arar.home = "/Users/arar";
-    #     home-manager.backupFileExtension = "bak";
-    #     nix.configureBuildUsers = true;
-    #     nix.useDaemon = true;
-    #     nixpkgs = {
-    #       config = {
-    #         allowUnfree = true;
-    #         allowUnfreePredicate = (_: true);
-    #       };
-    #     };
-    #
-    #     system.configurationRevision = self.rev or self.dirtyRev or null;
-    #     system.stateVersion = 4;
-    #     system.defaults = {
-    #       dock.autohide = true;
-    #       dock.mru-spaces = false;
-    #       finder.AppleShowAllExtensions = true;
-    #       finder.FXPreferredViewStyle = "clmv";
-    #       # loginwindow.LoginwindowText = "devops-toolbox";
-    #       # screencapture.location = "~/Pictures/screenshots";
-    #       # screensaver.askForPasswordDelay = 10;
-    #     };
-    #   };
-    # in
     {
-      # darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
-      #   system = "aarch64-darwin";
-      #   specialArgs = { inherit inputs; };
-      #   modules = [
-      #     # this is mac config
-      #     configuration
-      #     ./machines/darwin/arar
-      #     # this is HM config
-      #     home-manager.darwinModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users.arar = import ./machines/darwin;
-      #     }
-      #   ];
-      # };
-
-      # Expose the package set, including overlays, for convenience.
-      # darwinPackages = self.darwinConfigurations."arar-mac".pkgs;
-      # };
-
       darwinConfigurations."arar" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = {
           inherit inputs;
         };
-        # ADD NON-NIXOS/ SERVER PACKAGES HERE
         modules = [
           agenix.darwinModules.default
           ./machines/darwin
@@ -133,9 +67,44 @@
         ];
       };
 
-
-
       nixosConfigurations = {
+        surface = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            vars = import ./machines/surface-nixos/vars.nix;
+          };
+          modules = [
+            # Base configuration and modules
+            ./modules/podman
+            ./modules/tailscale
+
+            # Import the machine config + secrets
+            ./machines/surface-nixos
+            ./machines/surface-nixos/arar
+            ./machines/surface-nixos/arar/hardware
+            ./secrets
+            agenix.nixosModules.default
+
+            # Services and applications
+            # ./containers/backrest
+
+            # User-specific configurations
+            ./users/arar
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.arar.imports = [
+                agenix.homeManagerModules.default
+                nix-index-database.hmModules.nix-index
+                ./users/arar/dotfiles.nix
+              ];
+              home-manager.backupFileExtension = "bak";
+            }
+          ];
+        };
+
         arar = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
@@ -185,8 +154,6 @@
             }
           ];
         };
-
       };
-    };
-}
+    }
 
