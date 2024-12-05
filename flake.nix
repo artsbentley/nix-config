@@ -78,7 +78,7 @@
           };
           modules = [
             # surface specific
-            ./machines/surface-nixos/surface-pkgs
+            # ./machines/surface-nixos/surface-pkgs
 
             # Base configuration and modules
             ./modules/podman
