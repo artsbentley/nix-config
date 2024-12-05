@@ -23,13 +23,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
 
-
   networking = {
     hostName = "nixos";
     #timeZone = "Europe/Berlin";
     # hostId = "0730ae51";
     useDHCP = true;
-    networkmanager.enable = false;
+    networkmanager.enable = true;
     firewall = {
       allowedTCPPorts = [ 5357 ];
       allowedUDPPorts = [ 3702 ];
