@@ -10,7 +10,7 @@
     htop
     sops
     neofetch
-    nerdfonts
+    # nerdfonts
     nodejs
     luarocks
     unzip
