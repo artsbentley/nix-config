@@ -16,6 +16,9 @@ local config = {
 	-- },
 	max_fps = 120,
 
+	-- fix for nixos textures
+	front_end = "WebGpu"
+
 	-- font
 	font = f.get_font(),
 	-- font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
