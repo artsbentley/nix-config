@@ -18,7 +18,8 @@ local config = {
 
 	-- fix for nixos textures
 	front_end = "WebGpu",
-	webgpu_power_preference = "HighPerformance",
+	enable_wayland = false,
+	-- webgpu_power_preference = "HighPerformance",
 
 	-- font
 	font = f.get_font(),
