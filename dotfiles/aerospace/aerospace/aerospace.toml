@@ -213,7 +213,7 @@ if.app-id = 'org.whispersystems.signal-desktop'
 run = ['layout tiling', 'move-node-to-workspace G']
 
 [[on-window-detected]]
-if.app-id = 'com.tdesktop.Telegram'
+if.app-id = 'ru.keepcoder.Telegram'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace G']
 
