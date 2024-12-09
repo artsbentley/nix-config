@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-watchexec --restart --clear --quiet --no-process-group --stop-signal SIGKILL -- gleam run
+watchexec --restart --clear --quiet --no-process-group --stop-signal SIGKILL -- gleam run --no-print-progress

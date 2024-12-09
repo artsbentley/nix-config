@@ -69,7 +69,7 @@
         cat = "bat";
         grep = "rg --color=auto";
         df = "df -h";
-        du = "du -ch";
+        # du = "du -ch";
         fd = "fd --color=auto";
         ipp = "curl ipinfo.io/ip";
         vi = "nvim";
