@@ -20,6 +20,14 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
     end,
 })
 
+-- htmldjango is being set and is preventing rainbow delimiters
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
+    pattern = { "*.html" },
+    callback = function()
+        vim.cmd([[set filetype=html]])
+    end,
+})
+
 -- script to close all buffers that havent been "touched" source: https://www.reddit.com/r/neovim/comments/12c4ad8/closing_unused_buffers/
 local id = vim.api.nvim_create_augroup("startup", {
     clear = false,
@@ -44,15 +52,15 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     end,
 })
 
-vim.keymap.set("n", "<Leader>bc", function()
-    local curbufnr = vim.api.nvim_get_current_buf()
-    local buflist = vim.api.nvim_list_bufs()
-    for _, bufnr in ipairs(buflist) do
-        if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
-            vim.cmd("bd " .. tostring(bufnr))
-        end
-    end
-end, { silent = true, desc = "Close unused buffers" })
+-- vim.keymap.set("n", "<Leader>bc", function()
+--     local curbufnr = vim.api.nvim_get_current_buf()
+--     local buflist = vim.api.nvim_list_bufs()
+--     for _, bufnr in ipairs(buflist) do
+--         if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
+--             vim.cmd("bd " .. tostring(bufnr))
+--         end
+--     end
+-- end, { silent = true, desc = "Close unused buffers" })
 
 -- vim.api.nvim_create_autocmd("ColorScheme", {
 --     pattern = "*",

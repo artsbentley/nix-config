@@ -70,13 +70,16 @@ vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20" -- Set th
 vim.opt.isfname:append("@-@") -- Allow filenames with special characters
 vim.opt.signcolumn = "yes" -- Always show the sign column
 vim.opt.updatetime = 50 -- Set the time interval for writing swap files and updating changes
-vim.opt.wrap = false -- Disable line wrapping
+-- vim.opt.wrap = false -- Disable line wrapping
 
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 -- vim.g.lazyvim_python_lsp = "basedpyright"
 
 -- clipboard
 vim.opt.clipboard = ""
+
+-- prevents treesitter highlighting from being overwritten
+vim.highlight.priorities.semantic_tokens = 95
 
 -- Enable the option to require a Prettier config file
 -- If no prettier config file is found, the formatter will not be used
