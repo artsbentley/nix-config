@@ -12,3 +12,8 @@ desc = "Scroll content down"
 on = ["<C-u>"]
 run = "seek -10"
 desc = "Scroll content up"
+
+[[manager.prepend_keymap]]
+on = "<C-y>"
+run = ["plugin system-clipboard"]
+desc = "Copy to system-clipboard"
