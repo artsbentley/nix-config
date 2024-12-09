@@ -2,7 +2,8 @@ return {
     "echasnovski/mini.pairs",
     opts = {
         mappings = {
-            ["'"] = false,
+            ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "%s%s", register = { cr = false } },
+            -- ["'"] = false,
             -- ['"'] = false,
         },
     },
