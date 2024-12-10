@@ -125,6 +125,10 @@
     usbutils
     udiskie
     udisks
+
+    nodejs
+    nodePackages.prettier
+    nodePackages.prettier-plugin-jinja-template
   ];
 
 }

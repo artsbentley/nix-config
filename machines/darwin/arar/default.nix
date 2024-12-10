@@ -214,6 +214,7 @@
     nixos-rebuild
     direnv
     prettierd
+    clipboard-jh
   ];
 
   services.nix-daemon.enable = lib.mkForce
