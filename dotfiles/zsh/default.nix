@@ -2,9 +2,10 @@
   home.packages = with pkgs; [
     grc
     bat
-    # (pkgs.nerd-fonts.override { fonts = [ "JetBrainsMono" ]; })
+    (pkgs.nerd-fonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   fonts.fontconfig.enable = true;
+
 
   home.file = {
     ".config/zsh/initExtra".source = ./initExtra;
