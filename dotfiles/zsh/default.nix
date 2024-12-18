@@ -2,9 +2,9 @@
   home.packages = with pkgs; [
     grc
     bat
-    pkgs.nerd-fonts.jetbrains-mono
+    # pkgs.nerd-fonts.jetbrains-mono
   ];
-  # fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
 
 
   home.file = {
