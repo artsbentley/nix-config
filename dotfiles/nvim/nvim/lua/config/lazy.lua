@@ -44,6 +44,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
+-- needed for tiny inline to override default diagnostics
+vim.diagnostic.config({ virtual_text = false })
+
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
@@ -71,6 +74,9 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.formatting.prettier" },
         { import = "lazyvim.plugins.extras.coding.luasnip" },
         { import = "lazyvim.plugins.extras.linting.eslint" },
+        { import = "lazyvim.plugins.extras.editor.telescope" },
+        -- { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
+
         -- FORMATTING
         -- { import = "lazyvim.plugins.extras.formatting.black" },
         { import = "lazyvim.plugins.extras.dap.core" },

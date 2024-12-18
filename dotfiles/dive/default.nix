@@ -3,9 +3,5 @@
   home.packages = with pkgs; [
     dive
   ];
-
-  home.file = {
-    ".config/dive".source = ./dive;
-  };
 }
 

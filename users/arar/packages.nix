@@ -17,6 +17,7 @@
     templ
     ruff
     d2
-    # golangci-lint
+    golangci-lint
+    wezterm
   ];
 }

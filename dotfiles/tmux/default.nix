@@ -1,8 +1,9 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    tmux
-  ];
+  home.packages = with pkgs;
+    [
+      tmux
+    ];
   programs.tmux = {
     enable = true;
     aggressiveResize = true;
@@ -22,7 +23,6 @@
       jump
       yank
       tmux-thumbs
-      t-smart-tmux-session-manager
       tmux-floax
     ];
   };

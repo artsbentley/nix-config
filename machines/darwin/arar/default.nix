@@ -27,11 +27,11 @@
       "nikitabobko/aerospace"
       "joshmedeski/sesh"
       # "dustinblackman/oatmeal"
-      {
-        name = "zen-browser/browser";
-        clone_target = "https://github.com/zen-browser/desktop.git";
-        force_auto_update = true;
-      }
+      # {
+      #   name = "zen-browser/browser";
+      #   clone_target = "https://github.com/zen-browser/desktop.git";
+      #   force_auto_update = true;
+      # }
     ];
 
     # TODO: 
@@ -89,7 +89,8 @@
       "ninja"
       "ollama"
       "openjdk@11"
-      "openssl@1.1"
+      # "openssl@1.1"
+      "openssl"
       "pipx"
       "python@3.10"
       "ripgrep"
@@ -160,6 +161,7 @@
       "syncthing"
       "obsidian"
       "discord"
+      "drawio"
     ];
   };
 

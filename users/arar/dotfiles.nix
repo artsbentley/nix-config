@@ -15,19 +15,17 @@
   home.homeDirectory = "/home/arar";
   home.stateVersion = "23.11";
   #
-  # TODO: wrap dotfiles directory location in variable
-  # NOTE: better solution?
-  # home.file."${config.xdg.configHome}" = {
-  #   source = ../../dotfiles;
-  #   recursive = true;
-  # };
 
+  # TODO: 
+  # organize by variables within the nix files itself; isLinux isPersonal isServer
   imports = [
     ../../dotfiles/zsh/default.nix
     ../../dotfiles/git/default.nix
-    ../../dotfiles/default.nix
-    ../../dotfiles/wezterm/default.nix
-    ../../dotfiles/stow.nix
+    ../../dotfiles/nvim
+    ../../dotfiles/tmux/default.nix # NOTE: now tmux is used for the server aswell
+    ../../dotfiles/yazi/default.nix
+    # ../../dotfiles/wezterm/default.nix
+    ../../dotfiles/symlink.nix
     ./packages.nix
 
   ];

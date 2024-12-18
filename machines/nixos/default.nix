@@ -128,7 +128,6 @@
 
     nodejs
     nodePackages.prettier
-    nodePackages.prettier-plugin-jinja-template
   ];
 
 }

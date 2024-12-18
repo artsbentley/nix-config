@@ -19,15 +19,15 @@
         inputs.nix-index-database.hmModules.nix-index
         inputs.agenix.homeManagerModules.default
 
-        # ADD NON-NIXOS/ SERVER PACKAGES HERE
         ../../users/arar/dotfiles.nix
+        # ADD NON-NIXOS/ SERVER PACKAGES HERE
         ../../users/arar/age.nix
         ../../dotfiles/tmux
-        ../../dotfiles/wezterm
-        ../../dotfiles/aerospace
-        ../../dotfiles/raycast
-        ../../dotfiles/nvim
-        ../../dotfiles/direnv
+        # ../../dotfiles/nvim
+        # ../../dotfiles/wezterm
+        # ../../dotfiles/aerospace
+        # ../../dotfiles/raycast
+        # ../../dotfiles/direnv
 
 
         # TODO:

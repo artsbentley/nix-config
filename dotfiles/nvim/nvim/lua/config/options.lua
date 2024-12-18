@@ -19,7 +19,7 @@ vim.opt.termguicolors = true -- Enable true color support
 
 -- Column width
 -- vim.opt.colorcolumn = "81"
-vim.opt.textwidth = 80 -- Set the maximum text width to 80 characters
+vim.opt.textwidth = 100 -- Set the maximum text width to 80 characters
 
 -- Leader
 vim.g.mapleader = " " -- Set the global leader key to space
@@ -81,6 +81,11 @@ vim.opt.clipboard = ""
 -- prevents treesitter highlighting from being overwritten
 vim.highlight.priorities.semantic_tokens = 95
 
+-- required to disable diagnostics for tiny-inline plugin
+-- vim.diagnostic.config({ virtual_text = false })
+
 -- Enable the option to require a Prettier config file
 -- If no prettier config file is found, the formatter will not be used
 vim.g.lazyvim_prettier_needs_config = false
+
+vim.g.snacks_animate = false

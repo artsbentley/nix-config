@@ -20,9 +20,19 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
+    pattern = { "*.ex", "*.gleam", "*.nix" },
+    callback = function()
+        -- vim.cmd([[set filetype=markdown wrap linebreak nolist nospell]])
+        vim.opt.shiftwidth = 2
+    end,
+})
+
 -- htmldjango is being set and is preventing rainbow delimiters
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-    pattern = { "*.html" },
+    -- pattern = { "*.html" },
+    pattern = { "*.html", "*.heex" },
+
     callback = function()
         vim.cmd([[set filetype=html]])
     end,
