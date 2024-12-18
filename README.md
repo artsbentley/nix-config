@@ -46,6 +46,7 @@ git clone https://github.com/artsbentley/nix-config.git
 overwrite the hardware configuration
 
 ```bash
+mkdir -p machines/nixos/arar/hardware
 cp /etc/nixos/hardware-configuration.nix machines/nixos/arar/hardware/default.nix
 ```
 
@@ -58,7 +59,8 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub arar@local.nixos
 add age ssh certificate
 
 ```bash
-
+scp ~/.ssh/id_rsa arar@local.nixos:~/.ssh/
+scp ~/.ssh/id_rsa.pub arar@local.nixos:~/.ssh/
 ```
 
 restore appdata
