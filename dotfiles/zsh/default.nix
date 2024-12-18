@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     grc
     bat
-    (pkgs.nerd-fonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerd-fonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   fonts.fontconfig.enable = true;
 
