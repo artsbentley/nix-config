@@ -18,16 +18,20 @@
 
   # TODO: 
   # organize by variables within the nix files itself; isLinux isPersonal isServer
+  # place the collection of dotfiles in the dotfile directory itself
+  # imports = [
+  #   ../../dotfiles/zsh/default.nix
+  #   ../../dotfiles/git/default.nix
+  #   ../../dotfiles/nvim
+  #   ../../dotfiles/tmux/default.nix # NOTE: now tmux is used for the server aswell
+  #   ../../dotfiles/yazi/default.nix
+  #   # ../../dotfiles/wezterm/default.nix
+  #   ../../dotfiles/symlink.nix
+  #   ./packages.nix
+  # ];
   imports = [
-    ../../dotfiles/zsh/default.nix
-    ../../dotfiles/git/default.nix
-    ../../dotfiles/nvim
-    ../../dotfiles/tmux/default.nix # NOTE: now tmux is used for the server aswell
-    ../../dotfiles/yazi/default.nix
-    # ../../dotfiles/wezterm/default.nix
-    ../../dotfiles/symlink.nix
+    ../../dotfiles
     ./packages.nix
-
   ];
 
   programs.nix-index = {

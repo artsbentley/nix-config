@@ -22,17 +22,12 @@
         ../../users/arar/dotfiles.nix
         # ADD NON-NIXOS/ SERVER PACKAGES HERE
         ../../users/arar/age.nix
-        ../../dotfiles/tmux
+        # ../../dotfiles/tmux
         # ../../dotfiles/nvim
         # ../../dotfiles/wezterm
         # ../../dotfiles/aerospace
         # ../../dotfiles/raycast
         # ../../dotfiles/direnv
-
-
-        # TODO:
-        # direnv
-        # dive
       ];
     };
   };
