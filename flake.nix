@@ -139,8 +139,8 @@
             ./containers/cloudflare
             ./containers/homepage
             ./containers/actualbudget
-            # ./containers/gitea
             ./containers/stirling
+            # ./containers/gitea
             # ./containers/watchtower
             # ./containers/backrest
 
