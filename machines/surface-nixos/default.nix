@@ -13,6 +13,12 @@
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "weekly" ];
 
+  # NOTE: 
+  # seeing if this improves
+  # performance
+  services.xserver.videoDrivers = [ "intel" ];
+  hardware.opengl.enable = true;
+
   system.autoUpgrade = {
     enable = true;
     flake = inputs.self.outPath;
