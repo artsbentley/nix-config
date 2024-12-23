@@ -16,7 +16,10 @@
   # NOTE: 
   # seeing if this improves
   # performance
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver = {
+    vaapiDrivers = [ pkgs.intel-vaapi-driver ];
+    videoDrivers = [ "modesetting" ];
+  };
   hardware.opengl.enable = true;
 
   system.autoUpgrade = {
