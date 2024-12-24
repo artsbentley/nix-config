@@ -87,6 +87,8 @@
     gcc
     intel-gpu-tools
     lazygit
+    gum
+    fzf
   ];
 }
 
