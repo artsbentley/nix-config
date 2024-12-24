@@ -26,6 +26,7 @@
       "direnv"
       "dive"
       "wezterm"
+      "i3"
     ];
 
     # TODO:
