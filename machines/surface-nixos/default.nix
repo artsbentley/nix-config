@@ -114,6 +114,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.windowManager.i3.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -183,6 +184,12 @@
     wezterm
     sesh
     uv
+
+    i3
+    i3status
+    i3lock
+    dmenu
+    xorg.xinit
 
     # USB harddrive
     usbutils

@@ -1,0 +1,98 @@
+# i3 Configuration
+
+# Start at login
+exec --no-startup-id your-startup-command-here
+
+# Window gaps (mimicking AeroSpace gaps)
+gaps inner horizontal 2
+gaps inner vertical 2
+gaps outer left 2
+gaps outer bottom 2
+gaps outer top 2
+gaps outer right 2
+
+# Normalization (this would need custom scripts or i3-specific workarounds)
+# No direct equivalent in i3. Normalization likely needs to be managed outside of i3 config.
+
+# Default container layout (tiles, accordion)
+# i3 uses container-based layouts with tabs, stacking, and tiling.
+# Tiling layout is the default in i3, so you don't need to set this manually.
+# Accordion-like behavior can be handled by controlling window splits or using a custom script.
+
+# Keyboard Layout (you can configure this in your system settings, i3 doesn’t handle it directly)
+# No direct equivalent in i3, but ensure you set it in your system's environment if needed.
+
+# Keybindings (mapped to i3 keybindings)
+# These are based on your AeroSpace key mappings.
+
+# Layout Switching (tiles, accordion)
+bindsym $mod+period layout toggle splitv, splith
+bindsym $mod+comma layout toggle splith, splitv
+
+# Focus movement (same keys as AeroSpace)
+bindsym $mod+m focus left
+bindsym $mod+n focus down
+bindsym $mod+e focus up
+bindsym $mod+i focus right
+bindsym $mod+left focus left
+bindsym $mod+down focus down
+bindsym $mod+up focus up
+bindsym $mod+right focus right
+
+# Move window (same key as AeroSpace)
+bindsym $mod+Shift+m move left
+bindsym $mod+Shift+n move down
+bindsym $mod+Shift+e move up
+bindsym $mod+Shift+i move right
+bindsym $mod+Shift+left move left
+bindsym $mod+Shift+down move down
+bindsym $mod+Shift+up move up
+bindsym $mod+Shift+right move right
+
+# Resize window (smart resizing, like AeroSpace)
+bindsym $mod+Shift+- resize shrink width 50 px
+bindsym $mod+Shift+= resize grow width 50 px
+
+# Workspace switching (mapped to your workspace shortcuts)
+bindsym $mod+3 workspace $ws_S
+bindsym $mod+4 workspace $ws_T
+bindsym $mod+5 workspace $ws_5
+bindsym $mod+6 workspace $ws_6
+bindsym $mod+7 workspace $ws_7
+bindsym $mod+8 workspace $ws_8
+bindsym $mod+9 workspace $ws_9
+bindsym $mod+c workspace $ws_C
+bindsym $mod+f fullscreen
+bindsym $mod+g workspace $ws_G
+bindsym $mod+p workspace $ws_P
+bindsym $mod+r workspace $ws_R
+bindsym $mod+s workspace $ws_S
+bindsym $mod+t workspace $ws_T
+bindsym $mod+v workspace $ws_V
+bindsym $mod+w workspace $ws_W
+bindsym $mod+x workspace $ws_X
+bindsym $mod+z workspace $ws_Z
+
+# Move window to workspace
+bindsym $mod+Shift+1 move container to workspace $ws_1
+bindsym $mod+Shift+2 move container to workspace $ws_2
+bindsym $mod+Shift+3 move container to workspace $ws_S
+bindsym $mod+Shift+4 move container to workspace $ws_T
+
+# Workspace back and forth
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move workspace to monitor next
+
+# For handling app-specific behaviors
+for_window [class="Firefox"] workspace $ws_S
+for_window [class="WezTerm"] workspace $ws_T
+for_window [class="Slack"] workspace $ws_C
+for_window [class="Spotify"] workspace $ws_P
+for_window [class="Mail"] workspace $ws_X
+for_window [class="Zoom"] workspace $ws_Z
+for_window [class="Teams"] workspace $ws_Z
+for_window [class="Obsidian"] workspace $ws_W
+
+# Minimize windows (i3 doesn’t support native minimize; use hide or floating window mode)
+bindsym $mod+Shift+h hide
+
