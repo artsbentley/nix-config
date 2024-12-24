@@ -14,13 +14,21 @@
   nix.optimise.dates = [ "weekly" ];
 
   # NOTE: 
-  # seeing if this improves
-  # performance
+  # seeing if this improves performance
   services.xserver = {
     vaapiDrivers = [ pkgs.intel-vaapi-driver ];
     videoDrivers = [ "modesetting" ];
   };
   hardware.opengl.enable = true;
+
+  # NOTE: 
+  # seeing if this prevents screen flicker
+  boot.kernelParams = [
+    "i915.enable_psr=0" # Disable Panel Self Refresh
+    "i915.enable_fbc=0" # Disable Framebuffer Compression
+    "i915.enable_guc=2" # Enable GuC for better power management
+  ];
+
 
   system.autoUpgrade = {
     enable = true;
