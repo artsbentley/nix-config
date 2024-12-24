@@ -117,7 +117,18 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome = {
+    enable = true;
+    settings = {
+      "org.gnome.mutter" = {
+        "overlay-key" = "None"; # Disables the Activities Overview (Super key).
+      };
+      "org.gnome.settings-daemon.plugins.media-keys" = {
+        "custom-keybindings" = [ ]; # Removes all custom keybindings.
+      };
+    };
+  };
+
 
   services.xserver.xkb = {
     layout = "us";
