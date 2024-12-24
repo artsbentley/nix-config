@@ -115,13 +115,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   # WARNING:
-  # services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.i3.enable = true;
+  services.xserver.displayManager.sessionPackages = [ pkgs.i3 ];
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome = {
-    enable = true;
-  };
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome = {
+  #   enable = true;
+  # };
 
 
   services.xserver.xkb = {
@@ -187,11 +188,11 @@
     uv
 
     # WARNING: disable i3 for now
-    # i3
-    # i3status
-    # i3lock
-    # dmenu
-    # xorg.xinit
+    i3
+    i3status
+    i3lock
+    dmenu
+    xorg.xinit
 
     # USB harddrive
     usbutils
