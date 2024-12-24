@@ -119,20 +119,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome = {
     enable = true;
-    extraGSettingsOverrides = ''
-      # Disable the Super key for Activities Overview
-      [org.gnome.mutter]
-      overlay-key=""
-
-      # Disable any custom keybindings
-      [ org.gnome.settings-daemon.plugins.media-keys ]
-      custom-keybindings=[]
-    '';
-    extraGSettingsOverridePackages = [
-      pkgs.gsettings-desktop-schemas
-      pkgs.gnome-shell
-    ];
-
   };
 
 

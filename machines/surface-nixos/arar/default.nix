@@ -86,6 +86,7 @@
     gnumake
     gcc
     intel-gpu-tools
+    lazygit
   ];
 }
 
