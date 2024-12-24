@@ -197,6 +197,7 @@
     rofi-wayland
     networkmanagerapplet
     kitty
+    hyprland-qtutils
 
 
     # USB harddrive
