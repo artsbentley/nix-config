@@ -97,6 +97,12 @@
   };
 
 
+  # prevent machine from sleeping
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
