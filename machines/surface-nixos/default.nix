@@ -229,7 +229,7 @@
     udisks
 
     # applications
-    signal
+    signal-desktop
     discord
     bitwarden
   ];
