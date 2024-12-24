@@ -217,6 +217,7 @@
     dunst
     rofi-wayland
     networkmanagerapplet
+    pavucontrol
 
 
     # USB harddrive
