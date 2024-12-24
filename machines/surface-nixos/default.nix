@@ -128,6 +128,10 @@
       [ org.gnome.settings-daemon.plugins.media-keys ]
       custom-keybindings=[]
     '';
+    extraGSettingsOverridePackages = [
+      pkgs.gsettings-desktop-schemas
+      pkgs.gnome-shell
+    ];
 
   };
 
