@@ -8,6 +8,13 @@ local k = require("utils/keys")
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+-- Detect if system is Linux or macOS
+local is_linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
+	or wezterm.target_triple == "aarch64-unknown-linux-gnu"
+local is_macos = wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin"
+
+local modifier_key = is_macos and "CMD" or "SUPER" -- Switch CMD for macOS and SUPER for Linux
+
 local config = {
 	-- background
 	-- background = {
@@ -92,17 +99,11 @@ local config = {
 		k.cmd_shift_key("UpArrow", act.SendKey({ mods = "CTRL|META", key = "k" })),
 		k.cmd_shift_key("RightArrow", act.SendKey({ mods = "CTRL|META", key = "l" })),
 
-		-- k.cmd_key(".", k.multiple_actions(":ZenMode")),
-		-- k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
-		-- k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
-		-- k.cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
-
 		-- custom commands
 		k.cmd_key("f", k.multiple_actions(":Yazi")),
 		k.cmd_key("P", k.multiple_actions(":GoToGit")),
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
-		-- k.cmd_key("G", k.multiple_actions("lazygit")),
 		-- terminal fg with ctrl + z
 		k.cmd_key("m", act.SendKey({ mods = "CTRL", key = "z" })),
 
@@ -125,7 +126,6 @@ local config = {
 		k.cmd_to_tmux_prefix("E", '"'),
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"), -- lazygit
-		-- k.cmd_to_tmux_prefix("j", "O"),
 		k.cmd_to_tmux_prefix("j", "T"),
 		k.cmd_to_tmux_prefix("J", "J"),
 		k.cmd_to_tmux_prefix("R", "R"),
@@ -134,7 +134,6 @@ local config = {
 		k.cmd_to_tmux_prefix("L", ";"), -- switch last pane
 		k.cmd_to_tmux_prefix("y", "["), -- selecting mode
 
-		-- k.cmd_to_tmux_prefix("N", "%"),
 		k.cmd_to_tmux_prefix("o", "s"),
 		k.cmd_to_tmux_prefix("O", "F"),
 		k.cmd_to_tmux_prefix("u", "u"), -- fzf url
@@ -160,7 +159,7 @@ local config = {
 		),
 
 		{
-			mods = "CMD|SHIFT",
+			mods = modifier_key .. "|SHIFT",
 			key = "}",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -168,7 +167,7 @@ local config = {
 			}),
 		},
 		{
-			mods = "CMD|SHIFT",
+			mods = modifier_key .. "|SHIFT",
 			key = "{",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -194,18 +193,8 @@ local config = {
 			}),
 		},
 
-		-- FIX: disable binding
-		-- {
-		-- 	mods = "CMD",
-		-- 	key = "`",
-		-- 	action = act.Multiple({
-		-- 		act.SendKey({ mods = "CTRL", key = "b" }),
-		-- 		act.SendKey({ key = "n" }),
-		-- 	}),
-		-- },
-
 		{
-			mods = "CMD",
+			mods = modifier_key,
 			key = "~",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
