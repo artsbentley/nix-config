@@ -170,6 +170,7 @@
     bfg-repo-cleaner
     deploy-rs
     wezterm
+    sesh
 
     # USB harddrive
     usbutils
