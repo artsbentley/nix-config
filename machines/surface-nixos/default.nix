@@ -149,7 +149,6 @@
   services.printing.enable = true;
   security.rtkit.enable = true;
 
-  sound.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
