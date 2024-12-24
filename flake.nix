@@ -11,6 +11,7 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
     home-manager = {
       url = "github:nix-community/home-manager";
       # url = "github:nix-community/home-manager/release-23.11";
@@ -90,9 +91,6 @@
             ./machines/surface-nixos/arar/hardware
             ./secrets
             agenix.nixosModules.default
-
-            # Services and applications
-            # ./containers/backrest
 
             # User-specific configurations
             ./users/arar

@@ -21,6 +21,16 @@
   };
   hardware.opengl.enable = true;
 
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libvdpau-va-gl
+      libva
+      libva-utils
+    ];
+  };
+
+
   # NOTE: 
   # seeing if this prevents screen flicker
   boot.kernelParams = [
@@ -191,13 +201,22 @@
     uv
 
     # Hyprland
-    waybar
-    dunst
+    hyprland
     hyprpaper
+    hyprlock
+    hypridle
+    hyprshot
+    hyprpicker
+    hyprsunset
+    hyprgraphics
+    blueman
+    nwg-look
+    wlogout
+    waybar
+    inputs.hyprland-qtutils.packages."${pkgs.system}".default
+    dunst
     rofi-wayland
     networkmanagerapplet
-    kitty
-    hyprland-qtutils
 
 
     # USB harddrive
