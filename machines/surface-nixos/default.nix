@@ -196,6 +196,7 @@
     hyprpaper
     rofi-wayland
     networkmanagerapplet
+    kitty
 
 
     # USB harddrive
