@@ -222,8 +222,6 @@
     networkmanagerapplet
     pavucontrol
 
-    nerd-fonts
-    # font-awesome
 
     # USB harddrive
     usbutils
