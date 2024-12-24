@@ -116,7 +116,7 @@
   services.xserver.enable = true;
   # WARNING:
   services.xserver.windowManager.i3.enable = true;
-  services.xserver.displayManager.sessionPackages = [ pkgs.i3 ];
+  services.xserver.displayManager.sessionPackages = [ pkgs.i3 pkgs.xsession ];
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
