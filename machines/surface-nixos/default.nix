@@ -171,6 +171,7 @@
     deploy-rs
     wezterm
     sesh
+    uv
 
     # USB harddrive
     usbutils
