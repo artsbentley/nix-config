@@ -221,6 +221,7 @@
     rofi-wayland
     networkmanagerapplet
     pavucontrol
+    pamixer
 
 
     # USB harddrive
