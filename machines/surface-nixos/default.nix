@@ -227,6 +227,11 @@
     usbutils
     udiskie
     udisks
+
+    # applications
+    signal
+    discord
+    bitwarden
   ];
 
 }
