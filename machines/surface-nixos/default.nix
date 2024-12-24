@@ -100,6 +100,9 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  # nerd-fonts
+  fonts.fontDir.enable = true;
+
   programs.nh = {
     enable = true;
     clean.enable = true;
