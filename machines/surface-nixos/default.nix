@@ -227,7 +227,6 @@
 
     # sound
     pipewire
-    pipewire-alsa
     pipewire-pulse
     wireplumber
 
