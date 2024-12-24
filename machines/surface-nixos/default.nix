@@ -227,7 +227,6 @@
 
     # sound
     pipewire
-    pipewire-pulse
     wireplumber
 
     # USB harddrive
