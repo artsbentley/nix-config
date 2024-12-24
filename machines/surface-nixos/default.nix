@@ -220,7 +220,7 @@
     pavucontrol
 
     nerd-fonts
-    font-awesome
+    # font-awesome
 
     # USB harddrive
     usbutils
