@@ -240,6 +240,7 @@
     signal-desktop
     discord
     bitwarden
+    spotify
   ];
 
 }
