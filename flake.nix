@@ -36,6 +36,7 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    stylix.url = "github:danth/stylix";
 
     nur.url = "github:nix-community/nur";
     zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
@@ -78,6 +79,8 @@
             vars = import ./machines/surface-nixos/vars.nix;
           };
           modules = [
+            inputs.stylix.nixosModules.stylix
+            agenix.nixosModules.default
             # surface specific
             # ./machines/surface-nixos/surface-pkgs
 
@@ -90,7 +93,6 @@
             ./machines/surface-nixos/arar
             ./machines/surface-nixos/arar/hardware
             ./secrets
-            agenix.nixosModules.default
 
             # User-specific configurations
             ./users/arar
