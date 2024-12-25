@@ -34,7 +34,8 @@ local config = {
 	-- font = wezterm.font("Liga SFMono Nerd Font", { weight = "Medium" }),
 	-- font = wezterm.font("JetBrains Mono"),
 
-	font_size = 14.5,
+	font_size = is_linux and 11.0 or 14.5,
+	-- font_size = 14.5,
 	line_height = 1.35,
 
 	-- colors
