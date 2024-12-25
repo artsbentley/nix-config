@@ -227,7 +227,9 @@
 
     # sound
     pipewire
-    wireplumber
+    # wireplumber
+
+    brightnessctl
 
     # USB harddrive
     usbutils
