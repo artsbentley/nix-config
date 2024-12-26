@@ -5,10 +5,10 @@
     settings = {
       monitor = [ ",highres,auto,auto" ];
 
-      env = {
-        "XCURSOR_SIZE" = "24";
-        "HYPRCURSOR_SIZE" = "24";
-      };
+      # env = {
+      #   "XCURSOR_SIZE" = "24";
+      #   "HYPRCURSOR_SIZE" = "24";
+      # };
 
       general = {
         gaps_in = 2;
@@ -93,10 +93,10 @@
 
       device."epic-mouse-v1".sensitivity = -0.5;
 
-      bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
+      # bindm = [
+      #   "$mainMod, mouse:272, movewindow"
+      #   "$mainMod, mouse:273, resizewindow"
+      # ];
 
       bind = [
         "ALT, M, movefocus, l"
