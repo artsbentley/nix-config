@@ -5,7 +5,7 @@
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
 
   programs = {
-    # hyprpaper.enable = true;
+    hyprpaper.enable = true;
     rofi.enable = true;
     waybar = {
       enable = true;
@@ -26,8 +26,4 @@
   imports = [
     ../../dotfiles/hypr/default.nix
   ];
-
-  home.file = {
-    ".config/hypr/hyprpaper.conf".source = ../../dotfiles/hypr/hypr/hyprpaper.conf;
-  };
 }
