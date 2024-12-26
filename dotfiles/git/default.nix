@@ -24,6 +24,7 @@
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
     };
     extraConfig = {
+      credential.helper = "gh";
       rebase.updateRefs = true;
       branch.autosetuprebase = "always";
       color.ui = true;
