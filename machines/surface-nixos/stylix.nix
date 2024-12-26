@@ -1,8 +1,13 @@
 { pkgs, config, inputs, ... }:
 {
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
+  programs = {
+    waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
+    hyprland = {
+      enable = true;
+    };
   };
   stylix.targets = {
     waybar.enable = true;
