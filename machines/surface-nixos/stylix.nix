@@ -5,7 +5,6 @@
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
 
   programs = {
-    notify-osd.enable = true;
     rofi.enable = true;
     waybar = {
       enable = true;
@@ -21,6 +20,7 @@
     firefox.enable = true;
     gnome.enable = true;
     hyprland.enable = true;
+    hyprctl.enable = true;
     rofi.enable = true;
   };
   imports = [
