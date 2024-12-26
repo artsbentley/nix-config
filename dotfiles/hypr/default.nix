@@ -192,10 +192,8 @@
     extraConfig = ''
                   	  exec-once = nm-applet --indicator 
                   	  exec-once = dunst
-                  	  exec-once = hyprpaper
-                  	  exec-once = hyprpaper
             		  exec-once = swww query || swww init
-      			  exec-once = swww img "/home/arar/nix-config/machines/surface-nixos/wallpaper.jpg"
+      			  exec-once = swww img /home/arar/nix-config/machines/surface-nixos/wallpaper.jpg
                         	'';
   };
 }
