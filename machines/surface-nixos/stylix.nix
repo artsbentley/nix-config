@@ -5,6 +5,7 @@
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
 
   programs = {
+    rofi.enable = true;
     waybar = {
       enable = true;
       systemd.enable = true;
