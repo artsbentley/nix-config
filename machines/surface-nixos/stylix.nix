@@ -5,7 +5,7 @@
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
 
   programs = {
-    discord.enable = true;
+    hyprpaper.enable = true;
     rofi.enable = true;
     waybar = {
       enable = true;
