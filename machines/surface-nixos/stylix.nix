@@ -20,7 +20,6 @@
     firefox.enable = true;
     gnome.enable = true;
     hyprland.enable = true;
-    hyprctl.enable = true;
     rofi.enable = true;
   };
   imports = [
