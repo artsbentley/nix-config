@@ -247,6 +247,7 @@
     discord
     bitwarden
     spotify
+    tailscale
   ];
 
 }
