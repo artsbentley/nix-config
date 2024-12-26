@@ -191,7 +191,7 @@
     };
     extraConfig = ''
       	  exec-once = nm-applet --indicator 
-      	  exec-once = dusnt
+      	  exec-once = dunst
       	  exec-once = hyprpaper
             	'';
   };
