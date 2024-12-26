@@ -6,7 +6,6 @@
 
   programs = {
     hyprpaper.enable = true;
-    hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     rofi.enable = true;
     waybar = {
       enable = true;
@@ -27,4 +26,8 @@
   imports = [
     ../../dotfiles/hypr/default.nix
   ];
+
+  home.file = {
+    ".config/hypr/hyprpaper.conf".source = ../../dotfiles/hypr/hypr/hyprpaper.conf;
+  };
 }
