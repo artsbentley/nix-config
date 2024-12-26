@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
-  wayland.windowManager.hyperland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
+  wayland.windowManager.hyprland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
 
   programs = {
     waybar = {
