@@ -189,13 +189,10 @@
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
     };
-    exec-once = [
-      "nm-applet --indicator"
-      "dunst"
-      "hyprpaper"
-      "waybar"
-      ""
-    ];
+    exec-once = "nm-applet --indicator & dunst & hyprpaper & waybar";
+    # "dunst"
+    # "hyprpaper"
+    # "waybar"
   };
 }
 
