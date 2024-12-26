@@ -228,6 +228,7 @@
     networkmanagerapplet
     pavucontrol
     pamixer
+    swww
 
 
     # sound
