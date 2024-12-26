@@ -248,6 +248,7 @@
     bitwarden
     spotify
     tailscale
+    vlc
   ];
 
 }
