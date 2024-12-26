@@ -8,6 +8,7 @@
     ./nvim/default.nix
     ./tmux/default.nix
     ./yazi/default.nix
+    ./hypr/default.nix
 
     ./symlink.nix
   ];

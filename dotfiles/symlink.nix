@@ -27,7 +27,7 @@
       "dive"
       "wezterm"
       "i3"
-      "hypr"
+      # "hypr"
     ];
 
     # TODO:
