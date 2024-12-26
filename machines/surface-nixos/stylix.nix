@@ -1,6 +1,9 @@
 { pkgs, config, inputs, ... }:
 {
   wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
+  wayland.windowManager.hyperland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
+
   programs = {
     waybar = {
       enable = true;
