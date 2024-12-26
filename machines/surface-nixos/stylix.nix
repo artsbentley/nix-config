@@ -25,4 +25,7 @@
     hyprland.enable = true;
     rofi.enable = true;
   };
+  imports = [
+    ../../dotfiles/hypr/default.nix
+  ];
 }
