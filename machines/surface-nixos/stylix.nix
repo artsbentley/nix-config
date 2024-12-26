@@ -1,14 +1,9 @@
 { pkgs, config, inputs, ... }:
 {
-  home.packages = with pkgs; [
-    waybar
-    hyprland
-    hyprlock
-    hypr
-  ];
-}
-
-{
+  programs.waybar = {
+    enable = true;
+    systemd.enable = true;
+  };
   stylix.targets = {
     waybar.enable = true;
     tmux.enable = false;
