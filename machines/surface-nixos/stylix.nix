@@ -1,3 +1,13 @@
+{ pkgs, config, inputs, ... }:
+{
+  home.packages = with pkgs; [
+    waybar
+    hyprland
+    hyprlock
+    hypr
+  ];
+}
+
 {
   stylix.targets = {
     waybar.enable = true;
