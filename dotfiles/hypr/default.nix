@@ -76,8 +76,8 @@
       master.new_status = "master";
 
       misc = {
-        force_default_wallpaper = -1;
-        disable_hyprland_logo = false;
+        # force_default_wallpaper = -1;
+        # disable_hyprland_logo = false;
       };
 
       input = {
