@@ -193,7 +193,6 @@
       	  exec-once = nm-applet --indicator 
       	  exec-once = dusnt
       	  exec-once = hyprpaper
-      	  exec-once = waybar
             	'';
   };
 }
