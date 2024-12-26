@@ -5,7 +5,6 @@
   # wayland.windowManager.hyprland.extraConfig = builtins.readFile ../../dotfiles/hypr/hypr/hyprland.conf;
 
   programs = {
-    stylix.homeManagerModules.Stylix.image = ./wallpaper.jpg;
     rofi.enable = true;
     waybar = {
       enable = true;
