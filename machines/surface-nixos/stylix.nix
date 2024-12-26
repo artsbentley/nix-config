@@ -6,14 +6,12 @@
 
   programs = {
     hyprpaper.enable = true;
+    hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     rofi.enable = true;
     waybar = {
       enable = true;
       systemd.enable = true;
     };
-    # hyprland = {
-    #   enable = true;
-    # };
   };
   stylix.targets = {
     tmux.enable = false;
