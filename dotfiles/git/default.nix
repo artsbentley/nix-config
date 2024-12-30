@@ -25,6 +25,7 @@
     };
     extraConfig = {
       credential.helper = "${pkgs.gh}/bin/gh auth git-credential";
+      #  TODO:  setup this kind of credential store
       #  credential.helper = "store";
       #       credential."https://github.com" = {
       #         username = "apeyroux";
