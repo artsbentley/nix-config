@@ -208,6 +208,7 @@
     wezterm
     sesh
     uv
+	cargo
 
     # Hyprland
     hyprland
