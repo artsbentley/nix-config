@@ -2,8 +2,10 @@
   home.packages = with pkgs; [
     grc
     bat
+  ] ++ (if lib.isLinux then [
     nerd-fonts.jetbrains-mono
-  ];
+  ] else [ ]);
+
   fonts.fontconfig.enable = true;
 
 
