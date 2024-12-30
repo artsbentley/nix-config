@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     grc
     bat
-  ] ++ (if lib.isLinux then [
+  ] ++ (if pkgs.stdenv.isLinux then [
     nerd-fonts.jetbrains-mono
   ] else [ ]);
 
