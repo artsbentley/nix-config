@@ -24,17 +24,17 @@
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
     };
     extraConfig = {
-      credential.helper = "gh";
-		#  credential.helper = "store";
-		#       credential."https://github.com" = {
-		#         username = "apeyroux";
-		#         password = builtins.readFile ../secrets/github.password;
-		# credential.helper = "store";
-		#         credential."https://github.com" = {
-		#             username = "apeyroux";
-		#             password = builtins.readFile ../secrets/github.password;
-		#           };
-		#       };
+      credential.helper = "/home/arar/.nix-profile/bin/gh auth git-credential";
+      #  credential.helper = "store";
+      #       credential."https://github.com" = {
+      #         username = "apeyroux";
+      #         password = builtins.readFile ../secrets/github.password;
+      # credential.helper = "store";
+      #         credential."https://github.com" = {
+      #             username = "apeyroux";
+      #             password = builtins.readFile ../secrets/github.password;
+      #           };
+      #       };
       rebase.updateRefs = true;
       branch.autosetuprebase = "always";
       color.ui = true;
