@@ -3,6 +3,7 @@
     grc
     bat
   ] ++ (if pkgs.stdenv.isLinux then [
+    # TODO: clean this up with variables/ extraspecial args
     nerd-fonts.jetbrains-mono
   ] else [ ]);
 
@@ -160,7 +161,7 @@
     enable = true;
     config = {
       # TODO: theme not working currently
-      # theme = "gruvbox-dark";
+      theme = if !pkgs.stdenv.isLinux then "gruvbox-dark" else null;
       italic-text = "always";
     };
   };
