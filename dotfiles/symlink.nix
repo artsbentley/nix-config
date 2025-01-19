@@ -26,7 +26,6 @@
       "direnv"
       "dive"
       "wezterm"
-      "i3"
       # "hypr"
     ];
 

@@ -4,7 +4,7 @@
     bat
   ] ++ (if pkgs.stdenv.isLinux then [
     # TODO: clean this up with variables/ extraspecial args
-    nerd-fonts.jetbrains-mono
+    # nerd-fonts.jetbrains-mono
   ] else [ ]);
 
   fonts.fontconfig.enable = true;

@@ -1,4 +1,4 @@
 m (){
     mkdir -p -- "$1" &&
-    z "$1"
+    zoxide add "$1"
 }

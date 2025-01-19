@@ -19,7 +19,7 @@ vim.opt.termguicolors = true -- Enable true color support
 
 -- Column width
 -- vim.opt.colorcolumn = "81"
-vim.opt.textwidth = 100 -- Set the maximum text width to 80 characters
+vim.opt.textwidth = 81 -- Set the maximum text width to 80 characters
 
 -- Leader
 vim.g.mapleader = " " -- Set the global leader key to space

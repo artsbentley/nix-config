@@ -13,7 +13,7 @@
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
-      upgrade = true;
+      upgrade = false;
     };
     brewPrefix = "/opt/homebrew/bin";
     caskArgs = {
