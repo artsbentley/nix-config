@@ -161,7 +161,8 @@
     enable = true;
     config = {
       # TODO: theme not working currently
-      theme = if !pkgs.stdenv.isLinux then "gruvbox-dark" else null;
+      theme = "gruvbox-dark";
+      # theme = if !pkgs.stdenv.isLinux then "gruvbox-dark" else null;
       italic-text = "always";
     };
   };
