@@ -43,9 +43,9 @@ in
           #   path = "${vars.nasMount}/Syncthing";
           #   devices = [ "arar-iphone" ];
           # };
-          "obsidian" = {
-            path = "${vars.nasMount}/Syncthing/obsidian";
-            devices = [ "arar-iphone" "arar-mac" ];
+          "notes" = {
+            path = "${vars.nasMount}/Syncthing/notes";
+            # devices = [ "arar-iphone" "arar-mac" ];
             ignorePerms = true;
           };
         };
