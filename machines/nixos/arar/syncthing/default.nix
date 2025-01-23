@@ -17,7 +17,7 @@ in
     syncthing = {
       enable = true;
       user = "arar";
-      # group = "share";
+      group = "share";
       guiAddress = "0.0.0.0:8384";
       key = config.age.secrets.syncthingKey.path;
       cert = config.age.secrets.syncthingCert.path;
