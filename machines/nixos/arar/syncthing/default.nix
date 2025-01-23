@@ -7,19 +7,19 @@ in
 # TODO: decide if "share" user makes sense here or is "arar" would be better.
   # how would the interaction work for devices that arent the general server?
 {
-  systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
+  systemd.tmpfiles.rules = map (x: "d ${x} 0775 arar share - -") directories;
   networking.firewall = {
     allowedTCPPorts = [ 8384 22000 ];
     allowedUDPPorts = [ 22000 21027 ];
   };
-  users.users.share.extraGroups = [ "syncthing" ];
-  users.users.syncthing.extraGroups = [ "share" ];
-  users.users.syncthing.isSystemUser = true;
+  # users.users.share.extraGroups = [ "syncthing" ];
+  # users.users.syncthing.extraGroups = [ "share" ];
+  # users.users.syncthing.isSystemUser = true;
   # systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
   services = {
     syncthing = {
       enable = true;
-      user = "share";
+      user = "arar";
       # group = "share";
       guiAddress = "0.0.0.0:8384";
       # key = config.age.secrets.syncthingKey.path;
