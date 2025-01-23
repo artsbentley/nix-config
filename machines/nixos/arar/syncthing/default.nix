@@ -13,7 +13,8 @@ in
     allowedUDPPorts = [ 22000 21027 ];
   };
   users.users.share.extraGroups = [ "syncthing" ];
-  # users.users.syncthing.extraGroups = [ "share" ];
+  users.users.syncthing.extraGroups = [ "share" ];
+  users.users.syncthing.isSystemUser = true;
   # systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
   services = {
     syncthing = {
