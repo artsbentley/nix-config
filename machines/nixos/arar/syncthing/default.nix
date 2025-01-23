@@ -17,10 +17,10 @@ in
     syncthing = {
       enable = true;
       user = "share";
-      # group = "share";
+      group = "share";
       guiAddress = "0.0.0.0:8384";
-      key = config.age.secrets.syncthingKey.path;
-      cert = config.age.secrets.syncthingCert.path;
+      # key = config.age.secrets.syncthingKey.path;
+      # cert = config.age.secrets.syncthingCert.path;
       # overrideFolders = true;
       # overrideDevices = true;
       overrideFolders = false;
