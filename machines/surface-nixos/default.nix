@@ -219,6 +219,7 @@
     hyprpicker
     hyprsunset
     hyprgraphics
+    hyprshot
     blueman
     nwg-look
     wlogout
@@ -234,8 +235,6 @@
 
     # sound
     pipewire
-    # wireplumber
-
     brightnessctl
 
     # USB harddrive
