@@ -27,6 +27,7 @@ in
   "resticPassword.age".publicKeys = keys;
   "syncthingCert.age".publicKeys = keys;
   "syncthingKey.age".publicKeys = keys;
+  "openaiApiKey.age".publicKeys = keys;
 }
 
 

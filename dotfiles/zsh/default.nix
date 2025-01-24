@@ -109,6 +109,7 @@
         	export LC_CTYPE=en_US.UTF-8
         	export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
         	export XDG_CONFIG_HOME="$HOME/.config"
+            export OPENAI_API_KEY=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})
       '';
 
 
