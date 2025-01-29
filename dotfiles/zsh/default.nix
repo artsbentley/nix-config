@@ -51,9 +51,9 @@
 
     zsh = {
       enable = true;
-      sessionVariables = {
-        OPENAI_API_KEY = ''$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})'';
-      };
+      # sessionVariables = {
+      #   OPENAI_API_KEY = ''$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})'';
+      # };
 
       zplug = {
         enable = true;
