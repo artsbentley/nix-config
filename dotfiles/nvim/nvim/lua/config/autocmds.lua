@@ -13,6 +13,27 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+--     pattern = { "*.mdx", "*.md" },
+--     callback = function()
+--         vim.cmd("NoNeckPainToggleRightSide")
+--     end,
+-- })
+
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+--     pattern = "*",
+--     callback = function()
+--         vim.schedule(function()
+--             local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+--             local enabled = _G.NoNeckPain.state ~= nil and _G.NoNeckPain.state.enabled
+--
+--             if (filetype == "markdown" and not enabled) or (filetype ~= "markdown" and enabled) then
+--                 return vim.cmd("NoNeckPain")
+--             end
+--         end)
+--     end,
+-- })
+
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
     pattern = { "*.mdx", "*.md" },
     callback = function()

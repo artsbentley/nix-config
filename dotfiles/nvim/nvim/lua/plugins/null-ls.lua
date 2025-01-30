@@ -4,6 +4,7 @@ return {
         local null_ls = require("null-ls")
         null_ls.setup({
             debounce = 150,
+            temp_dir = "/tmp/null_ls",
             save_after_format = false,
             sources = {
                 -- null_ls.builtins.code_actions.cspell,

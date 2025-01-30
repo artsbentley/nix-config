@@ -1,6 +1,7 @@
 -- return {}
 return {
     "shortcuts/no-neck-pain.nvim",
+    event = "VeryLazy",
     keys = { { "<leader>wr", "<cmd>NoNeckPain<cr>", desc = "NoNeckPain: center buffer"} },
 	lazy = false,
 	config = {
@@ -10,7 +11,7 @@ return {
 		},
 		buffers = {
 			right = {
-	           enabled = false,
+	           enabled = true,
 	},
 
         wo = {

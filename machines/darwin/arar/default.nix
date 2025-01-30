@@ -119,6 +119,7 @@
       "postgresql"
       "garrettkrohn/treekanga/treekanga"
       "prettier"
+      # "bun"
     ];
 
     casks = [
@@ -162,6 +163,7 @@
       "obsidian"
       "discord"
       "drawio"
+      "cursor"
     ];
   };
 
@@ -217,6 +219,7 @@
     direnv
     prettierd
     clipboard-jh
+    bun
   ];
 
   services.nix-daemon.enable = lib.mkForce
