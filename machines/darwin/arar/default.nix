@@ -119,6 +119,9 @@
       "postgresql"
       "garrettkrohn/treekanga/treekanga"
       "prettier"
+      "marp-cli"
+      "age"
+      "gnupg"
       # "bun"
     ];
 
@@ -220,6 +223,7 @@
     prettierd
     clipboard-jh
     bun
+    gitAndTools.gitflow
   ];
 
   services.nix-daemon.enable = lib.mkForce
