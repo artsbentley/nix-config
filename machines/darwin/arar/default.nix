@@ -122,7 +122,6 @@
       "marp-cli"
       "age"
       "gnupg"
-      # "bun"
     ];
 
     casks = [
