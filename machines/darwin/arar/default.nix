@@ -139,7 +139,6 @@
       "bambu-studio"
       "element"
       "bambu-studio"
-      "alacritty"
       "arc"
       "balenaetcher"
       "bitwarden"
