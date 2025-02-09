@@ -166,6 +166,7 @@
       "discord"
       "drawio"
       "cursor"
+      "qbittorrent"
     ];
   };
 
