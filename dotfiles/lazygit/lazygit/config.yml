@@ -90,7 +90,5 @@ keybinding:
     togglePanel: "`"
     nextBlock-alt2: "~"
     prevBlock-alt2: "±"
-    # prevBlock: "[" # go to next page in list
-    # nextBlock: "]" # go to previous page in list
-    prevTab: "<backtab>"
-    nextTab: "<tab>"
+    # prevTab: "<backtab>"
+    # nextTab: "<tab>"
