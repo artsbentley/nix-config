@@ -26,6 +26,7 @@
       "direnv"
       "dive"
       "wezterm"
+      "gh-dash"
       # "hypr"
     ];
 
