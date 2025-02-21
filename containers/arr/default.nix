@@ -261,6 +261,7 @@ in
         };
       };
 
+      # check out this confuration of recyclarr https://github.com/TastyPi/nixos/blob/6572c7a7461373351047b6e59457d5a9bb9f87e7/nixos/server/oci-containers/recyclarr.nix
       recyclarr = {
         image = "ghcr.io/recyclarr/recyclarr";
         user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
