@@ -224,6 +224,7 @@
     clipboard-jh
     bun
     gitAndTools.gitflow
+    gh-dash
   ];
 
   services.nix-daemon.enable = lib.mkForce
