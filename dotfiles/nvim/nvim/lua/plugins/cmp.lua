@@ -98,6 +98,9 @@ return {
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = false,
                     }),
+                    ["<tab>"] = function(fallback)
+                        return LazyVim.cmp.map({ "snippet_forward", "ai_accept" }, fallback)()
+                    end,
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
@@ -105,9 +108,9 @@ return {
                     { name = "crates" },
                     { name = "emoji" },
                     { name = "calc" },
-                    -- { name = "copilot" },
                     { name = "path" },
                     { name = "nvim_lua" },
+                    -- { name = "copilot" },
                     -- { max_item_count = 4 },
                 }, {
                     {
