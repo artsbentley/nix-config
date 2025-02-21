@@ -220,3 +220,41 @@ vim.keymap.set("v", "y", '"+y', { noremap = true })
 
 vim.keymap.set("i", "<A-BS>", "<c-w>")
 vim.keymap.set("n", "<A-BS>", "i<c-w><Esc>")
+
+-- notes
+-- vim.keymap.set("n", "<c-n><c-n>", "':e <c-r><c-w>.md'", { expr = true })
+local function open_wiki_link()
+    -- Get the current cursor position (row and col)
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local line = vim.api.nvim_get_current_line()
+    local start_index = 1
+
+    while true do
+        -- Look for a wiki link pattern: [[...]]
+        local s, e = string.find(line, "%[%[.-%]%]", start_index)
+        if not s then
+            break
+        end
+
+        -- Check if the cursor is within the found brackets.
+        -- Note: vim column indices are 0-indexed.
+        if col >= (s - 1) and col <= (e - 1) then
+            -- Extract the text between the brackets
+            local link = string.sub(line, s, e)
+            -- Remove the surrounding "[[" and "]]"
+            link = link:sub(3, -3)
+            -- Replace spaces with hyphens
+            local file_name = link:gsub("%s+", "-")
+            local file_path = file_name .. ".md"
+            -- Open or create the markdown file
+            vim.cmd("edit " .. file_path)
+            return
+        end
+        start_index = e + 1
+    end
+
+    print("No wiki link found under cursor")
+end
+
+-- Map the function to a key combination (for example: <leader>wl)
+vim.keymap.set("n", "<c-n><c-n>", open_wiki_link, { desc = "Open wiki link as markdown file" })
