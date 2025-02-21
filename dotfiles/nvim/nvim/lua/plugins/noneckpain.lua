@@ -11,7 +11,7 @@ return {
 		},
 		buffers = {
 			right = {
-	           enabled = true,
+	           enabled = false,
 	},
 
         wo = {
