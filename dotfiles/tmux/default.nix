@@ -24,6 +24,8 @@
       yank
       tmux-thumbs
       tmux-floax
+      resurrect
+      continuum
     ];
   };
 }
