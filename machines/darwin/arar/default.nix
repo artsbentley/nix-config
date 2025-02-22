@@ -167,6 +167,7 @@
       "drawio"
       "cursor"
       "qbittorrent"
+      "autodesk-fusion"
     ];
   };
 
