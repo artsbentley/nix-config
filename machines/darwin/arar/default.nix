@@ -122,7 +122,7 @@
       "marp-cli"
       "age"
       "gnupg"
-
+      "zigup"
     ];
 
     casks = [
