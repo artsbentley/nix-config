@@ -86,6 +86,7 @@
 
             # Base configuration and modules
             ./modules/podman
+            ./modules/secrets
             # ./modules/tailscale
 
             # Import the machine config + secrets
