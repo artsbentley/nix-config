@@ -67,6 +67,7 @@
           agenix.darwinModules.default
           ./machines/darwin
           ./machines/darwin/arar
+          ./modules/secrets
           # ./machines/darwin/arar/system.nix
         ];
       };
@@ -86,7 +87,6 @@
 
             # Base configuration and modules
             ./modules/podman
-            ./modules/secrets
             # ./modules/tailscale
 
             # Import the machine config + secrets
