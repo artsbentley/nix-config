@@ -67,7 +67,6 @@
           agenix.darwinModules.default
           ./machines/darwin
           ./machines/darwin/arar
-          ./modules/secrets
           # ./machines/darwin/arar/system.nix
         ];
       };
