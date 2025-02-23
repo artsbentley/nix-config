@@ -19,6 +19,19 @@ return {
 
         -- see below for full list of optional dependencies 👇
     },
+    keys = {
+        { "<leader>zd", ":ObsidianToday<cr>", desc = "obsidian [d]aily" },
+        { "<leader>zT", ":ObsidianToday 1<cr>", desc = "obsidian [t]omorrow" },
+        { "<leader>zy", ":ObsidianToday -1<cr>", desc = "obsidian [y]esterday" },
+        { "<leader>zt", ":ObsidianTags>", desc = "obsidian [t]ags" },
+        -- { "<leader>nb", ":ObsidianBacklinks<cr>", desc = "obsidian [b]acklinks" },
+        -- { "<leader>nl", ":ObsidianLink<cr>", desc = "obsidian [l]ink selection" },
+        -- { "<leader>nf", ":ObsidianFollowLink<cr>", desc = "obsidian [f]ollow link" },
+        { "<leader>zn", ":ObsidianNew<cr>", desc = "obsidian [n]ew" },
+        { "<leader>ze", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
+        -- { "<leader>no", ":ObsidianQuickSwitch<cr>", desc = "obsidian [o]pen quickswitch" },
+        { "<leader>zO", ":ObsidianOpen<cr>", desc = "obsidian [O]pen in app" },
+    },
     opts = {
         -- A list of workspace names, paths, and configuration overrides.
         -- If you use the Obsidian app, the 'path' of a workspace should generally be
@@ -29,7 +42,7 @@ return {
         workspaces = {
             {
                 name = "obsidian",
-                path = "~/obsidian",
+                path = "~/notes/obsidian",
                 overrides = {
                     notes_subdir = "notes",
                 },
@@ -116,7 +129,8 @@ return {
                     suffix = suffix .. string.char(math.random(65, 90))
                 end
             end
-            return tostring(os.time()) .. "-" .. suffix
+            -- return tostring(os.time()) .. "-" .. suffix
+            return suffix
         end,
 
         -- Optional, customize how note file names are generated given the ID, target directory, and title.
@@ -148,7 +162,7 @@ return {
 
         -- Optional, boolean or a function that takes a filename and returns a boolean.
         -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-        disable_frontmatter = false,
+        disable_frontmatter = true,
 
         -- TODO: format the frontmatter
         -- Optional, alternatively you can customize the frontmatter data.
@@ -159,7 +173,9 @@ return {
                 note:add_alias(note.title)
             end
 
-            local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+            -- local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+            -- remove the alias attribute
+            local out = { id = note.id, tags = note.tags }
 
             -- `note.metadata` contains any manually added fields in the frontmatter.
             -- So here we just make sure those fields are kept in the frontmatter.
