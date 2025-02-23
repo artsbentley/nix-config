@@ -1,6 +1,8 @@
 return {
     "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "Avante" },
     opts = {
+        file_types = { "markdown", "Avante" },
         indent = {
             -- Turn on / off org-indent-mode
             enabled = true,
