@@ -1,5 +1,6 @@
 return {
     "dustinblackman/oatmeal.nvim",
+    lazy = true,
     cmd = { "Oatmeal" },
     keys = {
         { "<leader>gpt", mode = "v", "<cmd>Oatmeal<cr>", desc = "Start Oatmeal session" },

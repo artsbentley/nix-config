@@ -1,5 +1,6 @@
 return {
     "roobert/hoversplit.nvim",
+    event = "VeryLazy",
     config = function()
         require("hoversplit").setup({
             key_bindings = {
