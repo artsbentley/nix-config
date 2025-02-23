@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 -- vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files hidden=true]])
 -- TODO: add cwd to picker
 vim.cmd('command! -nargs=0 GoToFileHere lua Snacks.picker.files({finder="files", format="file", show_empty=true, supports_live=true, cwd=vim.fn.expand("%:p:h")})')
-vim.cmd([[command! -nargs=0 GoToGitFile :Telescope git_files hidden=true]])
+vim.cmd("command! -nargs=0 GoToGitFile lua Snacks.picker.git_files({hidden = true})")
 vim.cmd([[command! -nargs=0 TelescopeBuffers :lua require("telescope.builtin").buffers({ layout_strategy='vertical', layout_config={width=0.3, height=0.8}, sort_lastused = true })]])
 
 --  Telekasten
