@@ -2,22 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- TELESCOPE
--- live grep additonal arguments: https://github.com/nvim-telescope/telescope.nvim/issues/564
--- local actions = require("telescope.actions")
--- require("telescope").setup({
---     -- defaults = { },
---     pickers = {
---         live_grep = {
---             mappings = {
---                 i = { ["<C-a>"] = actions.to_fuzzy_refine },
---                 n = { ["<C-a>"] = actions.to_fuzzy_refine },
---             },
---         },
---     },
---     -- extensions = { },
--- })
-
 -- source: https://www.reddit.com/r/neovim/comments/udx0fi/telescopebuiltinlive_grep_and_operator/
 -- TELESCOPE NEEDS TO BE IN THIS DIRECTORY TO MAKE PROPER ADJUSTMENTS OVER
 -- LAZYVIM PREFERENCES
@@ -80,10 +64,6 @@ require("telescope").setup({
         },
     },
 })
-
--- require("oil").setup({
---     vim.keymap.set("n", "<Leader>E", "<cmd>lua require('oil').open_float()<CR>", { desc = "Open file" }),
--- })
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
     return vim.snippet.active({ direction = 1 }) and vim.snippet.jump(1)
@@ -165,14 +145,7 @@ vim.keymap.set("n", "<leader>cc", "<cmd>LspRestart<CR>", { desc = "Start LSP" })
 -- vim.keymap.set("n", "<C-o>", "<C-o>zz")
 -- vim.keymap.set("n", "<C-e>", "<C-e>zz")
 
---  MINI FILES NEOTREE OVERWRITE
--- vim.keymap.set("n", "<leader>e", function()
---     require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
--- end, { desc = "Open mini.files (directory of current file)" })
---
--- vim.keymap.set("n", "<leader>E", function()
---     require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
--- end, { desc = "Open mini.files (directory of current file)" })
+-- YAZI
 vim.keymap.set("n", "<leader>e", "<cmd>Yazi<cr>", { desc = "Open Yazi (directory of current file)" })
 vim.keymap.set("n", "<leader>E", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi (current work directory)" })
 
@@ -187,9 +160,6 @@ vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')
 -- window split
 vim.keymap.set("n", "<leader>we", "<cmd>vsplit<CR>", { desc = "Split window" })
 vim.keymap.set("n", "<leader>w<S-e>", "<cmd>split<CR>", { desc = "Split window horizontal" })
-
--- buffer
-vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope" })
 
 -- special paste commands
 vim.keymap.set("n", "<leader>pq", 'Vi"p', { desc = "paste inner quote" })
@@ -223,38 +193,5 @@ vim.keymap.set("n", "<A-BS>", "i<c-w><Esc>")
 
 -- notes
 -- vim.keymap.set("n", "<c-n><c-n>", "':e <c-r><c-w>.md'", { expr = true })
-local function open_wiki_link()
-    -- Get the current cursor position (row and col)
-    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-    local line = vim.api.nvim_get_current_line()
-    local start_index = 1
-
-    while true do
-        -- Look for a wiki link pattern: [[...]]
-        local s, e = string.find(line, "%[%[.-%]%]", start_index)
-        if not s then
-            break
-        end
-
-        -- Check if the cursor is within the found brackets.
-        -- Note: vim column indices are 0-indexed.
-        if col >= (s - 1) and col <= (e - 1) then
-            -- Extract the text between the brackets
-            local link = string.sub(line, s, e)
-            -- Remove the surrounding "[[" and "]]"
-            link = link:sub(3, -3)
-            -- Replace spaces with hyphens
-            local file_name = link:gsub("%s+", "-")
-            local file_path = file_name .. ".md"
-            -- Open or create the markdown file
-            vim.cmd("edit " .. file_path)
-            return
-        end
-        start_index = e + 1
-    end
-
-    print("No wiki link found under cursor")
-end
 
 -- Map the function to a key combination (for example: <leader>wl)
-vim.keymap.set("n", "<c-n><c-n>", open_wiki_link, { desc = "Open wiki link as markdown file" })
