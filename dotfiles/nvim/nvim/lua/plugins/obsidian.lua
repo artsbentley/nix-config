@@ -28,7 +28,7 @@ return {
         -- { "<leader>nl", ":ObsidianLink<cr>", desc = "obsidian [l]ink selection" },
         -- { "<leader>nf", ":ObsidianFollowLink<cr>", desc = "obsidian [f]ollow link" },
         { "<leader>zn", ":ObsidianNew<cr>", desc = "obsidian [n]ew" },
-        { "<leader>ze", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
+        { "<leader>zs", ":ObsidianSearch<cr>", desc = "obsidian [s]earch" },
         -- { "<leader>no", ":ObsidianQuickSwitch<cr>", desc = "obsidian [o]pen quickswitch" },
         { "<leader>zO", ":ObsidianOpen<cr>", desc = "obsidian [O]pen in app" },
     },

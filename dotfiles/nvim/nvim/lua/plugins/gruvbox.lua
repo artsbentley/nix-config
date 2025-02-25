@@ -43,7 +43,7 @@ return {
                     set_hl("RenderMarkdownH5Bg", palette.none, palette.markbg5)
                     set_hl("RenderMarkdownH6Bg", palette.none, palette.markbg6)
 
-                    -- FIX: General
+                    --  General
                     -- setHl("TSParameter", { fg = "#83a598" })
                     -- setHl("TSConstant", { fg = "#d3869b" })
                     setHl("@character.printf", { link = "yellow" })
@@ -54,12 +54,16 @@ return {
                         setHl("@constructor.lua", { fg = "#9b97a8" })
                     end, 1)
 
-                    -- FIX: cursorword
+                    -- cursorword
                     setHl("LspReferenceWrite", { underdashed = true })
                     setHl("LspReferenceRead", { underdotted = true })
                     setHl("LspReferenceText", {})
 
-                    -- FIX: no undercurls
+                    -- avante
+                    setHl("AvanteConflictIncoming", { bg = "#4a5a2a" })
+                    setHl("AvanteConflictCurrent", { bg = "#5c2f2e" })
+
+                    -- : no undercurls
                     hlCmd("DiagnosticUnderlineError gui=underline")
                     hlCmd("DiagnosticUnderlineWarn gui=underline")
                     hlCmd("DiagnosticUnderlineInfo gui=underline")
@@ -69,17 +73,17 @@ return {
                     hlCmd("SpellCap gui=underdotted")
                     hlCmd("SpellLocal gui=underdotted")
 
-                    -- FIX: no overly excessive underlines/bold
+                    -- no overly excessive underlines/bold
                     hlCmd("ErrorMsg gui=none")
                     hlCmd("WarningMsg gui=none")
 
-                    -- FIX: missing snacks.nvim highlights for trace
+                    -- missing snacks.nvim highlights for trace
                     setHl("SnacksNotifierTitleTrace", { link = "NotifyTraceTitle" })
                     setHl("SnacksNotifierTitleIcon", { link = "NotifyTraceIcon" })
                     setHl("SnacksNotifierTitleBorder", { link = "NotifyTraceBorder" })
                     setHl("SnacksNotifierTitleFooter", { link = "NotifyTraceBorder" })
 
-                    -- FIX: lazy.nvim,
+                    -- lazy.nvim,
                     setHl("Bold", { bold = true })
                     setHl("LazyReasonRequire", { link = "@variable.parameter" })
                 end,

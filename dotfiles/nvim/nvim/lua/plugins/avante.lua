@@ -6,6 +6,15 @@ return {
     version = false, -- set this if you want to always pull the latest change
 
     opts = {
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "avante",
+            callback = function()
+                -- Map <Esc> to quit after ensuring we're in normal mode
+                vim.keymap.set({ "n" }, "<Esc>", "<Cmd>stopinsert | bd!<CR>", { buffer = true })
+            end,
+        }),
+
+        build = "make",
         hints = { enabled = false },
         provider = "openai",
         windows = {
