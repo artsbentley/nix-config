@@ -3,7 +3,7 @@
 # Use this script in the 'Run Shell Script' Automator action when making a new 'Quick Action'. Set 'Pass input' to 'as arguments' and Workflow receives current 'text' and tick 'output replaces selected text'. You need 'jq' installed on your system for sanitisation.
 
 # Uncomment to use your zsh profile to load you Open AI API Key or replace $OPENAI_AI_KEY below.
-# source ~/.zshrc
+source ~/.zshrc
 
 # Copy the selected text to the clipboard (original text backup)
 echo "$1" | pbcopy
@@ -24,7 +24,7 @@ TEXT="$1"
 SANITIZED_TEXT=$(sanitize_input "$TEXT")
 
 # Create the JSON payload
-JSON_PAYLOAD=$(/opt/local/bin/jq -n --arg text "$SANITIZED_TEXT" '{
+JSON_PAYLOAD=$(jq -n --arg text "$SANITIZED_TEXT" '{
   model: "gpt-4o",
   messages: [
     {role: "system", content: "You are a helpful assistant that fixes spelling and grammar errors. Return only the corrected version of the text. Use UK British english, Oxford spelling."},
@@ -37,6 +37,6 @@ JSON_PAYLOAD=$(/opt/local/bin/jq -n --arg text "$SANITIZED_TEXT" '{
 RESPONSE=$(curl -s -X POST https://api.openai.com/v1/chat/completions \
 	-H "Content-Type: application/json" \
 	-H "Authorization: Bearer $API_KEY" \
-	--data "$JSON_PAYLOAD" | /opt/local/bin/jq -r '.choices[0].message.content')
+	--data "$JSON_PAYLOAD" | jq -r '.choices[0].message.content')
 
 echo "$RESPONSE"
