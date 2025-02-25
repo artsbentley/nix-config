@@ -32,12 +32,56 @@ return {
                     local config = vim.fn["gruvbox_material#get_configuration"]()
                     local palette = vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
                     local set_hl = vim.fn["gruvbox_material#highlight"]
+                    local setHl = function(...)
+                        vim.api.nvim_set_hl(0, ...)
+                    end
+                    local hlCmd = vim.cmd.highlight
                     set_hl("RenderMarkdownH1Bg", palette.none, palette.markbg1)
                     set_hl("RenderMarkdownH2Bg", palette.none, palette.markbg2)
                     set_hl("RenderMarkdownH3Bg", palette.none, palette.markbg3)
                     set_hl("RenderMarkdownH4Bg", palette.none, palette.markbg4)
                     set_hl("RenderMarkdownH5Bg", palette.none, palette.markbg5)
                     set_hl("RenderMarkdownH6Bg", palette.none, palette.markbg6)
+
+                    -- FIX: General
+                    -- setHl("TSParameter", { fg = "#83a598" })
+                    -- setHl("TSConstant", { fg = "#d3869b" })
+                    setHl("@character.printf", { link = "yellow" })
+                    setHl("@string.documentation.python", { link = "Comment" })
+                    setHl("@keyword.return", { bold = true, fg = "#f6843a" })
+                    setHl("TSPunctBracket", { fg = "#af7e5d" })
+                    vim.defer_fn(function()
+                        setHl("@constructor.lua", { fg = "#9b97a8" })
+                    end, 1)
+
+                    -- FIX: cursorword
+                    setHl("LspReferenceWrite", { underdashed = true })
+                    setHl("LspReferenceRead", { underdotted = true })
+                    setHl("LspReferenceText", {})
+
+                    -- FIX: no undercurls
+                    hlCmd("DiagnosticUnderlineError gui=underline")
+                    hlCmd("DiagnosticUnderlineWarn gui=underline")
+                    hlCmd("DiagnosticUnderlineInfo gui=underline")
+                    hlCmd("DiagnosticUnderlineHint gui=underline")
+                    hlCmd("SpellBad gui=underdotted")
+                    hlCmd("SpellError gui=underdotted")
+                    hlCmd("SpellCap gui=underdotted")
+                    hlCmd("SpellLocal gui=underdotted")
+
+                    -- FIX: no overly excessive underlines/bold
+                    hlCmd("ErrorMsg gui=none")
+                    hlCmd("WarningMsg gui=none")
+
+                    -- FIX: missing snacks.nvim highlights for trace
+                    setHl("SnacksNotifierTitleTrace", { link = "NotifyTraceTitle" })
+                    setHl("SnacksNotifierTitleIcon", { link = "NotifyTraceIcon" })
+                    setHl("SnacksNotifierTitleBorder", { link = "NotifyTraceBorder" })
+                    setHl("SnacksNotifierTitleFooter", { link = "NotifyTraceBorder" })
+
+                    -- FIX: lazy.nvim,
+                    setHl("Bold", { bold = true })
+                    setHl("LazyReasonRequire", { link = "@variable.parameter" })
                 end,
             })
 
