@@ -226,6 +226,7 @@
     bun
     gitAndTools.gitflow
     gh-dash
+    golangci-lint-langserver
   ];
 
   services.nix-daemon.enable = lib.mkForce
