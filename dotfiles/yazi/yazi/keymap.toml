@@ -14,6 +14,11 @@ run = "seek -10"
 desc = "Scroll content up"
 
 [[manager.prepend_keymap]]
-on = "<C-y>"
+on = ["Y", "Y"]
 run = ["plugin system-clipboard"]
 desc = "Copy to system-clipboard"
+
+[[manager.prepend_keymap]]
+on = ["g", "n"]
+run = "cd ~/notes/obsidian/notes/"
+desc = "Cd to notes directory"

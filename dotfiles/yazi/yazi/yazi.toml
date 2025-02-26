@@ -8,10 +8,7 @@ sort_dir_first = true
 linemode = "none"
 show_hidden = true
 show_symlink = true
-# keymap = [
-# 	{ on = "tab", run = "tab_switch 1 --relative", desc = "Switch to the next tab" },
-# ]
-#
+
 [preview]
 tab_size = 2
 max_width = 600
