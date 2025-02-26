@@ -1,7 +1,8 @@
-local note_dir = "~/obsidian/notes"
+local Snacks = require("snacks")
+local note_dir = "~/notes/obsidian/notes"
 
 local function open_wiki_link()
-    -- Get the current cursor position (row and col)
+    -- Your existing logic for extracting and opening a wiki link
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     local line = vim.api.nvim_get_current_line()
     local start_index = 1
@@ -29,7 +30,6 @@ local function open_wiki_link()
         end
         start_index = e + 1
     end
-
     print("No wiki link found under cursor")
 end
 
@@ -40,7 +40,7 @@ local function update_markdown_frontmatter()
     local current_time = os.date("%Y-%m-%d %H:%M")
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 
-    -- Find existing frontmatter
+    -- Extract date from existing frontmatter (if any)
     local fm_start, fm_end = nil, nil
     if lines[1] == "---" then
         fm_start = 1
@@ -97,7 +97,49 @@ local function update_markdown_frontmatter()
     end
 end
 
+-- Opens a file selector (picker) restricted to your notes directory.
+local function open_note_picker()
+    Snacks.picker.files({ cwd = vim.fn.expand(note_dir) })
+end
+
+-- Runs a live grep search (using ripgrep via Snacks) limited to your notes.
+local function grep_notes()
+    Snacks.picker.grep({ cwd = vim.fn.expand(note_dir), supports_live = true, hidden = true, fuzzy = true })
+end
+
+-- Prompts for a new note title, then creates/opens the note in your notes directory.
+local function new_note()
+    vim.ui.input({ prompt = "New note title:" }, function(input)
+        if input and input ~= "" then
+            local file_name = input:gsub("%s+", "-") .. ".md"
+            local file_path = vim.fn.expand(note_dir .. "/" .. file_name)
+            vim.cmd("edit " .. file_path)
+        else
+            print("Note creation cancelled")
+        end
+    end)
+end
+
+-- NEW: Daily note functions.
+local daily_dir = note_dir .. "/dailies"
+
+local function new_daily()
+    -- Get current date in YYYY-MM-DD format
+    local date_str = os.date("%Y-%m-%d")
+    local file_path = vim.fn.expand(daily_dir .. "/" .. date_str .. ".md")
+    vim.cmd("edit " .. file_path)
+end
+
+local function grep_dailies()
+    Snacks.picker.grep({ cwd = vim.fn.expand(daily_dir) })
+end
+
 return {
     vim.keymap.set("n", "<leader>zf", update_markdown_frontmatter, { desc = "Update Markdown Frontmatter" }),
-    vim.keymap.set("n", "<c-n><c-n>", open_wiki_link, { desc = "Open wiki link as markdown file" }),
+    vim.keymap.set("n", "<C-n><C-n>", open_wiki_link, { desc = "Open Wiki Link (Note)" }),
+    vim.keymap.set("n", "<leader>zs", open_note_picker, { desc = "Find Note File" }),
+    vim.keymap.set("n", "<leader>zg", grep_notes, { desc = "Grep in Notes" }),
+    vim.keymap.set("n", "<leader>zn", new_note, { desc = "Create New Note" }),
+    vim.keymap.set("n", "<leader>zdn", new_daily, { desc = "Create New Daily Note" }),
+    vim.keymap.set("n", "<leader>zdg", grep_dailies, { desc = "Grep in Daily Notes" }),
 }
