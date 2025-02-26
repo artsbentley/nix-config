@@ -54,6 +54,11 @@ return {
                         setHl("@constructor.lua", { fg = "#9b97a8" })
                     end, 1)
 
+                    -- GLEAM
+                    setHl("@constructor.gleam", { bold = true, fg = "#83a598" })
+                    setHl("@keyword.conditional.gleam", { fg = "#f6843a" })
+                    setHl("@keyword.gleam", { fg = "#d3869b" })
+
                     -- cursorword
                     setHl("LspReferenceWrite", { underdashed = true })
                     setHl("LspReferenceRead", { underdotted = true })
