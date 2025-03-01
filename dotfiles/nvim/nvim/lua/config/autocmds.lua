@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-    pattern = { "*.ex", "*.gleam", "*.nix" },
+    pattern = { "*.ex", "*.gleam", "*.nix", "*.tsx" },
     callback = function()
         -- vim.cmd([[set filetype=markdown wrap linebreak nolist nospell]])
         vim.opt.shiftwidth = 2

@@ -58,6 +58,7 @@ return {
                     setHl("@constructor.gleam", { bold = true, fg = "#83a598" })
                     setHl("@keyword.conditional.gleam", { fg = "#f6843a" })
                     setHl("@keyword.gleam", { fg = "#d3869b" })
+                    setHl("@variable.member.gleam", { fg = "Fg" })
 
                     -- cursorword
                     setHl("LspReferenceWrite", { underdashed = true })
