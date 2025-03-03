@@ -45,6 +45,62 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- Function to sort markdown tasks: move done tasks below undone ones in a contiguous block.
+local function sort_markdown_tasks()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+    local i = 1
+    while i <= #lines do
+        local line = lines[i]
+        -- Check for a markdown task (supports -, +, or * as bullets)
+        if line:match("^%s*[-+*]%s*%[[ xX]%]") then
+            local block_start = i
+            local block_end = i
+            -- Find the end of this contiguous block of task lines.
+            while block_end + 1 <= #lines and lines[block_end + 1]:match("^%s*[-+*]%s*%[[ xX]%]") do
+                block_end = block_end + 1
+            end
+            local undone = {}
+            local done = {}
+            for j = block_start, block_end do
+                local current_line = lines[j]
+                -- Identify undone tasks by the "[ ]" marker.
+                if current_line:find("%[ %]") then
+                    table.insert(undone, current_line)
+                -- Identify done tasks by the "[x]" or "[X]" marker.
+                elseif current_line:find("%[[xX]%]") then
+                    table.insert(done, current_line)
+                else
+                    table.insert(undone, current_line)
+                end
+            end
+            -- Only reorder if both undone and done tasks are present.
+            if #undone > 0 and #done > 0 then
+                local new_block = {}
+                for _, l in ipairs(undone) do
+                    table.insert(new_block, l)
+                end
+                for _, l in ipairs(done) do
+                    table.insert(new_block, l)
+                end
+                for j = block_start, block_end do
+                    lines[j] = new_block[j - block_start + 1]
+                end
+            end
+            i = block_end + 1
+        else
+            i = i + 1
+        end
+    end
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+end
+
+-- Autocmd to run the task sorter on BufWritePre for markdown files.
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = { "*.md" },
+    callback = sort_markdown_tasks,
+})
+
 local function open_wiki_link()
     -- Your existing logic for extracting and opening a wiki link
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
