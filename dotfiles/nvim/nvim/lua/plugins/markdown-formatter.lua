@@ -6,14 +6,12 @@ local function open_wiki_link()
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     local line = vim.api.nvim_get_current_line()
     local start_index = 1
-
     while true do
         -- Look for a wiki link pattern: [[...]]
         local s, e = string.find(line, "%[%[.-%]%]", start_index)
         if not s then
             break
         end
-
         -- Check if the cursor is within the found brackets.
         -- Note: vim column indices are 0-indexed.
         if col >= (s - 1) and col <= (e - 1) then
@@ -23,7 +21,14 @@ local function open_wiki_link()
             link = link:sub(3, -3)
             -- Replace spaces with hyphens
             local file_name = link:gsub("%s+", "-")
-            local file_path = file_name .. ".md"
+
+            -- Get the directory of the current buffer
+            local current_buffer_path = vim.api.nvim_buf_get_name(0)
+            local current_dir = vim.fn.fnamemodify(current_buffer_path, ":h")
+
+            -- Create the full path for the new file
+            local file_path = current_dir .. "/" .. file_name .. ".md"
+
             -- Open or create the markdown file
             vim.cmd("edit " .. file_path)
             return
