@@ -42,6 +42,7 @@ return {
                     set_hl("RenderMarkdownH4Bg", palette.none, palette.markbg4)
                     set_hl("RenderMarkdownH5Bg", palette.none, palette.markbg5)
                     set_hl("RenderMarkdownH6Bg", palette.none, palette.markbg6)
+                    setHl("RenderMarkdownIndent", { fg = "#2a2d2e" })
 
                     --  General
                     -- setHl("TSParameter", { fg = "#83a598" })
@@ -53,6 +54,7 @@ return {
                     vim.defer_fn(function()
                         setHl("@constructor.lua", { fg = "#9b97a8" })
                     end, 1)
+                    setHl("FlashLabel", { bg = "#f2594b", fg = "black" })
 
                     -- GLEAM
                     setHl("@constructor.gleam", { bold = true, fg = "#83a598" })
