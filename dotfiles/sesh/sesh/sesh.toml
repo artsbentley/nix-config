@@ -1,0 +1,4 @@
+[[session]]
+name = "notes"
+path = "~/notes/obsidian/"
+# startup_command = "nvim +ObsidianToday"

@@ -27,6 +27,7 @@
       "dive"
       "wezterm"
       "gh-dash"
+      "sesh"
       # "hypr"
     ];
 

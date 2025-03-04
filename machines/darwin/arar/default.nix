@@ -123,6 +123,7 @@
       "age"
       "gnupg"
       "zigup"
+      "jet"
     ];
 
     casks = [
