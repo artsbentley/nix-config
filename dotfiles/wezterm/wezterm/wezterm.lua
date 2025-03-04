@@ -125,7 +125,7 @@ local config = {
 		k.cmd_to_tmux_prefix("d", "D"),
 		k.cmd_to_tmux_prefix("e", "%"),
 		k.cmd_to_tmux_prefix("E", '"'),
-		k.cmd_to_tmux_prefix("G", "G"),
+		k.cmd_to_tmux_prefix("G", "G"), -- lazygit
 		k.cmd_to_tmux_prefix("g", "g"), -- lazygit
 		k.cmd_to_tmux_prefix("j", "T"),
 		k.cmd_to_tmux_prefix("J", "J"),
@@ -135,7 +135,7 @@ local config = {
 		k.cmd_to_tmux_prefix("L", ";"), -- switch last pane
 		k.cmd_to_tmux_prefix("y", "["), -- selecting mode
 
-		k.cmd_to_tmux_prefix("o", "s"), -- sesh connect notes
+		k.cmd_to_tmux_prefix("o", "o"), -- sesh connect notes
 		k.cmd_to_tmux_prefix("O", "F"),
 		k.cmd_to_tmux_prefix("u", "u"), -- fzf url
 		k.cmd_to_tmux_prefix("T", "!"),
