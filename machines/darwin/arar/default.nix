@@ -11,7 +11,7 @@
   homebrew = {
     enable = true;
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false;
       cleanup = "zap";
       upgrade = false;
     };
@@ -123,7 +123,6 @@
       "age"
       "gnupg"
       "zigup"
-      "jet"
     ];
 
     casks = [
@@ -227,7 +226,6 @@
     bun
     gitAndTools.gitflow
     gh-dash
-    golangci-lint-langserver
   ];
 
   services.nix-daemon.enable = lib.mkForce

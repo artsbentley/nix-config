@@ -135,7 +135,7 @@ local config = {
 		k.cmd_to_tmux_prefix("L", ";"), -- switch last pane
 		k.cmd_to_tmux_prefix("y", "["), -- selecting mode
 
-		k.cmd_to_tmux_prefix("o", "s"),
+		k.cmd_to_tmux_prefix("o", "s"), -- sesh connect notes
 		k.cmd_to_tmux_prefix("O", "F"),
 		k.cmd_to_tmux_prefix("u", "u"), -- fzf url
 		k.cmd_to_tmux_prefix("T", "!"),
