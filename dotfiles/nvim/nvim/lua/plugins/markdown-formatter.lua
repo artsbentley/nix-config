@@ -142,6 +142,7 @@ local function update_markdown_frontmatter()
     local bufnr = vim.api.nvim_get_current_buf()
     local filename = vim.fn.expand("%:t")
     local title = vim.fn.fnamemodify(filename, ":r")
+    local alias = title:gsub("-", " ") -- Replace hyphens with spaces
     local current_time = os.date("%Y-%m-%d %H:%M")
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 
@@ -191,6 +192,7 @@ local function update_markdown_frontmatter()
         "---",
         "title: " .. title,
         "date: " .. original_date,
+        'aliases: ["' .. alias .. '"]', -- Add alias to frontmatter
         tags_line,
         "---",
         "",

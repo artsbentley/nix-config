@@ -18,6 +18,7 @@ return {
         modes = {
             char = {
                 enabled = false,
+                jump_labels = true,
             },
         },
     },
