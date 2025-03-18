@@ -20,6 +20,7 @@ return {
             "scala",
             "rust",
             "gleam",
+            "templ",
         },
     },
 }
