@@ -156,6 +156,7 @@
       "microsoft-excel"
       "microsoft-powerpoint"
       "microsoft-word"
+      "microsoft-teams"
       "orbstack"
       "postman"
       "raycast"
