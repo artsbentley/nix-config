@@ -14,7 +14,7 @@
     nodejs
     luarocks
     unzip
-    templ
+    # templ
     ruff
     d2
     golangci-lint

@@ -219,7 +219,6 @@
     spotify
     httpie
     slack
-    mattermost
     google-cloud-sdk
     pinentry.curses
     nixos-rebuild
