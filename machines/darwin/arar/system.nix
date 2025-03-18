@@ -27,7 +27,7 @@
   };
 
   # Enable sudo authentication with TouchID
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.enableSudoTouchIdAuth = true;
 
   system = {
     activationScripts = {
