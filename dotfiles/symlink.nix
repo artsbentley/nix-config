@@ -28,6 +28,7 @@
       "wezterm"
       "gh-dash"
       "sesh"
+      "stu"
       # "hypr"
     ];
 
