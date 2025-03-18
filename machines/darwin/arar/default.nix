@@ -175,13 +175,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (python311Full.withPackages (ps: with ps; [
-      pip
-      jmespath
-      requests
-      setuptools
-      pyyaml
-    ]))
+    # (python311Full.withPackages (ps: with ps; [
+    #   pip
+    #   jmespath
+    #   requests
+    #   setuptools
+    #   pyyaml
+    # ]))
     ansible-language-server
     git-lfs
     pre-commit
