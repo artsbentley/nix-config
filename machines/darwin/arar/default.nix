@@ -9,7 +9,7 @@
   ];
 
   homebrew = {
-    enable = true;
+    enable = false;
     onActivation = {
       autoUpdate = false;
       cleanup = "zap";
@@ -123,6 +123,9 @@
       "age"
       "gnupg"
       "zigup"
+      "lusingander/tap/stu"
+      "templ"
+      "jwt-cli"
     ];
 
     casks = [
