@@ -1,7 +1,12 @@
 return {
     "andrewferrier/debugprint.nvim",
     config = function()
-        require("debugprint").setup({ create_keymaps = false, create_commands = false })
+        require("debugprint").setup({
+            create_keymaps = false,
+            create_commands = false,
+            display_counter = false,
+            print_tag = "🚀 ",
+        })
     end,
     dependencies = { "echasnovski/mini.nvim", "nvim-treesitter/nvim-treesitter" },
     keys = {
@@ -24,6 +29,7 @@ return {
             mode = { "n", "v" },
         },
     },
+    display_snippet = false,
     commands = {
         toggle_comment_debug_prints = "ToggleCommentDebugPrints",
         delete_debug_prints = "DeleteDebugPrints",
