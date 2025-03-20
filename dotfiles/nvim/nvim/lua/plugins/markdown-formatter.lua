@@ -2,48 +2,48 @@ local Snacks = require("snacks")
 local note_dir = "~/notes/obsidian/notes"
 
 -- Smart “enter” for auto-continuing list items in markdown
-_G.smart_enter = function()
-    local line = vim.api.nvim_get_current_line()
-
-    -- Numbered list: e.g. "  1. Item"
-    local indent, num, punct, rest = line:match("^(%s*)(%d+)([%.])%s*(.*)$")
-    if indent and num and punct then
-        if rest == "" then
-            -- If the current list item is empty, just insert a new line.
-            return "\n"
-        else
-            return "\n" .. indent .. (tonumber(num) + 1) .. punct .. " "
-        end
-    end
-
-    -- Task list: e.g. "- [ ] Task" or "- [x] Task"
-    -- This pattern captures both an unchecked ([ ]) and checked ([x] or [X]) task.
-    local indent_task, bullet, mark, rest_task = line:match("^(%s*)([-+*])%s*%[([%sXx])%]%s*(.*)$")
-    if indent_task and bullet and mark then
-        -- Always continue with an unchecked task "[ ]"
-        return "\n" .. indent_task .. bullet .. " [ ] "
-    end
-
-    -- Bullet list: e.g. "- Item"
-    local indent2, bullet2, rest2 = line:match("^(%s*)([-+*])%s*(.*)$")
-    if indent2 and bullet2 then
-        if rest2 == "" then
-            return "\n"
-        else
-            return "\n" .. indent2 .. bullet2 .. " "
-        end
-    end
-
-    return "\n"
-end
-
--- Set up an autocmd to map <CR> in insert mode for markdown files.
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        vim.api.nvim_buf_set_keymap(0, "i", "<CR>", "v:lua.smart_enter()", { noremap = true, expr = true })
-    end,
-})
+-- _G.smart_enter = function()
+--     local line = vim.api.nvim_get_current_line()
+--
+--     -- Numbered list: e.g. "  1. Item"
+--     local indent, num, punct, rest = line:match("^(%s*)(%d+)([%.])%s*(.*)$")
+--     if indent and num and punct then
+--         if rest == "" then
+--             -- If the current list item is empty, just insert a new line.
+--             return "\n"
+--         else
+--             return "\n" .. indent .. (tonumber(num) + 1) .. punct .. " "
+--         end
+--     end
+--
+--     -- Task list: e.g. "- [ ] Task" or "- [x] Task"
+--     -- This pattern captures both an unchecked ([ ]) and checked ([x] or [X]) task.
+--     local indent_task, bullet, mark, rest_task = line:match("^(%s*)([-+*])%s*%[([%sXx])%]%s*(.*)$")
+--     if indent_task and bullet and mark then
+--         -- Always continue with an unchecked task "[ ]"
+--         return "\n" .. indent_task .. bullet .. " [ ] "
+--     end
+--
+--     -- Bullet list: e.g. "- Item"
+--     local indent2, bullet2, rest2 = line:match("^(%s*)([-+*])%s*(.*)$")
+--     if indent2 and bullet2 then
+--         if rest2 == "" then
+--             return "\n"
+--         else
+--             return "\n" .. indent2 .. bullet2 .. " "
+--         end
+--     end
+--
+--     return "\n"
+-- end
+--
+-- -- Set up an autocmd to map <CR> in insert mode for markdown files.
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "markdown",
+--     callback = function()
+--         vim.api.nvim_buf_set_keymap(0, "i", "<CR>", "v:lua.smart_enter()", { noremap = true, expr = true })
+--     end,
+-- })
 
 -- Function to sort markdown tasks: move done tasks below undone ones in a contiguous block.
 local function sort_markdown_tasks()
