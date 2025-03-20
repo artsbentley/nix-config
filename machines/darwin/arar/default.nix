@@ -126,6 +126,7 @@
       "lusingander/tap/stu"
       "templ"
       "jwt-cli"
+      "rainfrog"
     ];
 
     casks = [
@@ -234,6 +235,6 @@
   ];
 
   system.stateVersion = 4;
-  services.nix-daemon.enable = true;
+  # services.nix-daemon.enable = true;
 
 }

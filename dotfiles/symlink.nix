@@ -29,6 +29,7 @@
       "gh-dash"
       "sesh"
       "stu"
+      "rainfrog"
       # "hypr"
     ];
 

@@ -61,7 +61,7 @@
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-syntax-highlighting"; }
           { name = "zsh-users/zsh-completions"; }
-          { name = "zsh-users/zsh-history-substring-search"; }
+          # { name = "zsh-users/zsh-history-substring-search"; }
           { name = "unixorn/warhol.plugin.zsh"; }
           # { name = "arar/prompt"; tags = [ as:theme ]; }
         ];
