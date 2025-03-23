@@ -15,6 +15,55 @@ return {
         }),
 
         build = "make",
+        cursor_applying_provider = "openai",
+        behaviour = {
+            auto_suggestions = false, -- Experimental stage
+            auto_set_highlight_group = true,
+            auto_set_keymaps = true,
+            auto_apply_diff_after_generation = false,
+            support_paste_from_clipboard = false,
+            minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+            enable_token_counting = true, -- Whether to enable token counting. Default to true.
+            enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
+        },
+        mappings = {
+            --- @class AvanteConflictMappings
+            diff = {
+                ours = "co",
+                theirs = "ct",
+                all_theirs = "ca",
+                both = "cb",
+                cursor = "cc",
+                next = "]x",
+                prev = "[x",
+            },
+            suggestion = {
+                accept = "<M-l>",
+                next = "<M-]>",
+                prev = "<M-[>",
+                dismiss = "<C-]>",
+            },
+            jump = {
+                next = "]]",
+                prev = "[[",
+            },
+            submit = {
+                normal = "<CR>",
+                insert = "<C-s>",
+            },
+            sidebar = {
+                apply_all = "A",
+                apply_cursor = "a",
+                retry_user_request = "r",
+                edit_user_request = "e",
+                switch_windows = "<Tab>",
+                reverse_switch_windows = "<S-Tab>",
+                remove_file = "d",
+                add_file = "@",
+                close = { "<Esc>", "q" },
+                close_from_input = nil, -- e.g., { normal = "<Esc>", insert = "<C-d>" }
+            },
+        },
         hints = { enabled = false },
         provider = "openai",
         windows = {
