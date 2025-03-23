@@ -123,8 +123,8 @@ vim.keymap.set("i", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
 vim.keymap.set("i", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
 
 -- harpoon
-vim.keymap.set("n", "<leader>a", "<cmd>HarpoonAddFile<cr>", { desc = "Add to Harpoon" })
-vim.keymap.set("n", "<leader>A", "<cmd>HarpoonShowMenu<cr>", { desc = "Show Harpoon" })
+-- vim.keymap.set("n", "<leader>a", "<cmd>HarpoonAddFile<cr>", { desc = "Add to Harpoon" })
+-- vim.keymap.set("n", "<leader>A", "<cmd>HarpoonShowMenu<cr>", { desc = "Show Harpoon" })
 
 vim.keymap.set("n", "<S,l>", "<cmd>:b#<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<f1>", "<cmd>:b#<cr>", { desc = "Switch to last buffer", noremap = true, silent = true })
@@ -190,6 +190,9 @@ vim.keymap.set("v", "y", '"+y', { noremap = true })
 
 vim.keymap.set("i", "<A-BS>", "<c-w>")
 vim.keymap.set("n", "<A-BS>", "i<c-w><Esc>")
+
+-- fold
+vim.keymap.set("n", "<CR>", "za", { noremap = true, silent = true })
 
 -- notes
 -- vim.keymap.set("n", "<c-n><c-n>", "':e <c-r><c-w>.md'", { expr = true })
