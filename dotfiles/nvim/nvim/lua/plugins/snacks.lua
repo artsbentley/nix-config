@@ -14,6 +14,17 @@
 return {
     {
         "folke/snacks.nvim",
+        image = {
+            doc = {
+                enabled = false,
+                inline = false,
+                -- render the image in a floating window
+                -- only used if `opts.inline` is disabled
+                float = false,
+                max_width = 80,
+                max_height = 40,
+            },
+        },
         keys = {
             -- File picker
             {
@@ -24,6 +35,13 @@ return {
                         format = "file",
                         show_empty = true,
                         supports_live = true,
+                        exclude = { "*templ.go" },
+                        actions = {
+                            calculate_file_truncate_width = function(self)
+                                local width = self.list.win:size().width
+                                self.opts.formatters.file.truncate = width - 6
+                            end,
+                        },
                         hidden = true,
                         -- In case you want to override the layout for this keymap
                         -- layout = "vscode",
@@ -33,16 +51,63 @@ return {
             },
             {
                 "<leader>bb",
+
                 function()
-                    Snacks.picker.files({
-                        finder = "files",
-                        format = "file",
-                        show_empty = true,
-                        supports_live = true,
-                        -- In case you want to override the layout for this keymap
-                        -- layout = "vscode",
+                    local picker = Snacks.picker.smart({
+                        finders = {
+                            "buffers",
+                            "recent",
+                            -- require("git").is_repo() and "git_files" or "files",
+                            "files",
+                        },
+                        hidden = true,
+                        matcher = { sort_empty = true },
+                        filter = {
+                            cwd = true,
+                        },
+                        layout = { preset = "telescope", reverse = true },
+                        actions = {
+                            calculate_file_truncate_width = function(self)
+                                local width = self.list.win:size().width
+                                self.opts.formatters.file.truncate = width - 6
+                            end,
+                        },
+                        win = {
+                            list = {
+                                on_buf = function(self)
+                                    self:execute("calculate_file_truncate_width")
+                                end,
+                            },
+                            preview = {
+                                on_buf = function(self)
+                                    self:execute("calculate_file_truncate_width")
+                                end,
+                                on_close = function(self)
+                                    self:execute("calculate_file_truncate_width")
+                                end,
+                            },
+                        },
                     })
+
+                    if not picker then
+                        return -- abort if picker was closed
+                    end
+
+                    picker.list.win:on("VimResized", function()
+                        picker:action("calculate_file_truncate_width")
+                    end)
                 end,
+
+                -- function()
+                --     Snacks.picker.files({
+                --         finder = "files",
+                --         format = "file",
+                --         show_empty = true,
+                --         supports_live = true,
+                --         -- In case you want to override the layout for this keymap
+                --         -- layout = "vscode",
+                --     })
+                -- end,
                 desc = "Find Files",
             },
 
@@ -77,7 +142,6 @@ return {
             },
         },
         opts = {
-            -- Documentation for the picker
             -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
             picker = {
                 -- My ~/github/dotfiles-latest/neovim/lazyvim/lua/config/keymaps.lua
@@ -92,10 +156,6 @@ return {
                     if item.file:match("lazyvim/lua/config/keymaps%.lua") then
                         item.score_add = (item.score_add or 0) - 30
                     end
-                    -- Boost the "neobean" keymaps file:
-                    -- if item.file:match("neobean/lua/config/keymaps%.lua") then
-                    --   item.score_add = (item.score_add or 0) + 100
-                    -- end
                     return item
                 end,
                 -- In case you want to make sure that the score manipulation above works
@@ -196,16 +256,14 @@ return {
                     -- render the image inline in the buffer
                     -- if your env doesn't support unicode placeholders, this will be disabled
                     -- takes precedence over `opts.float` on supported terminals
-                    inline = vim.g.neovim_mode == "skitty" and true or false,
-                    -- only_render_image_at_cursor = vim.g.neovim_mode == "skitty" and false or true,
+                    inline = false,
+                    only_render_image_at_cursor = true,
                     -- render the image in a floating window
                     -- only used if `opts.inline` is disabled
                     float = true,
                     -- Sets the size of the image
-                    -- max_width = 60,
-                    max_width = vim.g.neovim_mode == "skitty" and 20 or 60,
-                    max_height = vim.g.neovim_mode == "skitty" and 10 or 30,
-                    -- max_height = 30,
+                    max_width = 60,
+                    max_height = 30,
                     -- Apparently, all the images that you preview in neovim are converted
                     -- to .png and they're cached, original image remains the same, but
                     -- the preview you see is a png converted version of that image
