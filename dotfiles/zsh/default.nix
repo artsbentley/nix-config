@@ -55,17 +55,17 @@
       #   OPENAI_API_KEY = ''$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})'';
       # };
 
-      zplug = {
-        enable = true;
-        plugins = [
-          { name = "zsh-users/zsh-autosuggestions"; }
-          { name = "zsh-users/zsh-syntax-highlighting"; }
-          { name = "zsh-users/zsh-completions"; }
-          # { name = "zsh-users/zsh-history-substring-search"; }
-          { name = "unixorn/warhol.plugin.zsh"; }
-          # { name = "arar/prompt"; tags = [ as:theme ]; }
-        ];
-      };
+      # zplug = {
+      #   enable = true;
+      #   plugins = [
+      #     { name = "zsh-users/zsh-autosuggestions"; }
+      #     { name = "zsh-users/zsh-syntax-highlighting"; }
+      #     { name = "zsh-users/zsh-completions"; }
+      #     # { name = "zsh-users/zsh-history-substring-search"; }
+      #     { name = "unixorn/warhol.plugin.zsh"; }
+      #     # { name = "arar/prompt"; tags = [ as:theme ]; }
+      #   ];
+      # };
       # NOTE: this might not work properly if home manager is symlinking all .config
       # directories
       dotDir = ".config/zsh";
@@ -102,17 +102,22 @@
       # TODO: need to decide if i want to continue this route or just implement
       #  config in .zsh files
       initExtra = ''
-        	if [ $(uname) = "Darwin" ]; then 
-        		path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-        	fi
+        ZINIT_HOME="$XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+        [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+        [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+        source "$ZINIT_HOME/zinit.zsh"
 
-        	for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+        if [ $(uname) = "Darwin" ]; then 
+          path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+        fi
 
-        	export EDITOR=nvim || export EDITOR=vim
-        	export LANG=en_US.UTF-8
-        	export LC_CTYPE=en_US.UTF-8
-        	export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-        	export XDG_CONFIG_HOME="$HOME/.config"
+        for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+
+        export EDITOR=nvim || export EDITOR=vim
+        export LANG=en_US.UTF-8
+        export LC_CTYPE=en_US.UTF-8
+        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+        export XDG_CONFIG_HOME="$HOME/.config"
       '';
 
 
