@@ -235,6 +235,8 @@
   ];
 
   system.stateVersion = 4;
+  ids.gids.nixbld = 350;
+
   # services.nix-daemon.enable = true;
 
 }
