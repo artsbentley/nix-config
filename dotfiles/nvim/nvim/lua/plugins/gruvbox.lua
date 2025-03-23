@@ -68,8 +68,14 @@ return {
                     setHl("LspReferenceText", {})
 
                     -- avante
-                    setHl("AvanteConflictIncoming", { bg = "#4a5a2a" })
                     setHl("AvanteConflictCurrent", { bg = "#5c2f2e" })
+                    setHl("AvanteConflictIncoming", { bg = "#4a5a2a" })
+
+                    -- Golang
+                    -- setHl("@constant.builtin.go", { fg = "#d3869b" })
+
+                    -- templ
+                    setHl("@module.templ", { fg = "Fg" })
 
                     -- : no undercurls
                     hlCmd("DiagnosticUnderlineError gui=underline")
