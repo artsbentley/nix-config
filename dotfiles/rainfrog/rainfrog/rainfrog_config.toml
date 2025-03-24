@@ -17,7 +17,7 @@ mouse_mode = true
 
 [keybindings.Editor]
 "<Alt-q>" = "AbortQuery"
-"<F5>" = "SubmitEditorQuery"
+"Ctrl-s" = "SubmitEditorQuery"
 "<Alt-1>" = "FocusMenu"
 "<Alt-2>" = "FocusEditor"
 "<Alt-3>" = "FocusData"
