@@ -1,7 +1,7 @@
 return {
     "folke/trouble.nvim",
     keys = {
-        { "L", "<cmd>Trouble diagnostics toggle focus=true filter.severity=vim.diagnostic.severity.ERROR<cr>", desc = "Diagnostics (Trouble)" },
+        { "<leader>m", "<cmd>Trouble diagnostics toggle focus=true filter.severity=vim.diagnostic.severity.ERROR<cr>", desc = "Diagnostics (Trouble)" },
     },
     opts = {
         modes = {

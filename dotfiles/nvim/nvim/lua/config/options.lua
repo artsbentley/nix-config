@@ -81,8 +81,12 @@ vim.opt.clipboard = ""
 -- prevents treesitter highlighting from being overwritten
 vim.highlight.priorities.semantic_tokens = 95
 
--- required to disable diagnostics for tiny-inline plugin
--- vim.diagnostic.config({ virtual_text = false })
+-- virtual diagnostics
+vim.diagnostic.config({ virtual_text = true })
+-- vim.diagnostic.config({
+-- virtual_lines = true,
+-- virtual_lines = { current_line = true },
+-- })
 
 -- Enable the option to require a Prettier config file
 -- If no prettier config file is found, the formatter will not be used

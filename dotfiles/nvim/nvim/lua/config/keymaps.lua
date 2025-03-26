@@ -194,6 +194,23 @@ vim.keymap.set("n", "<A-BS>", "i<c-w><Esc>")
 -- fold
 vim.keymap.set("n", "<CR>", "za", { noremap = true, silent = true })
 
+-- diagnostics
+vim.keymap.set("n", "L", function()
+    diagnostic_virtual_lines = not diagnostic_virtual_lines
+    if diagnostic_virtual_lines then
+        vim.diagnostic.config({
+            virtual_lines = true,
+            virtual_text = false, -- disable virtual_text when virtual_lines is enabled
+        })
+    else
+        vim.diagnostic.config({
+            virtual_lines = false,
+            virtual_text = true, -- enable virtual_text when virtual_lines is disabled
+        })
+    end
+    -- print("diagnostic virtual_lines set to " .. tostring(diagnostic_virtual_lines))
+end, { desc = "Toggle diagnostic virtual_lines (disable virtual_text when enabled)" })
+
 -- notes
 -- vim.keymap.set("n", "<c-n><c-n>", "':e <c-r><c-w>.md'", { expr = true })
 

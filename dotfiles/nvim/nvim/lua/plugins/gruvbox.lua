@@ -77,6 +77,13 @@ return {
                     -- templ
                     setHl("@module.templ", { fg = "Fg" })
 
+                    -- virtual diagnostic lines
+                    setHl("DiagnosticVirtualLinesError", { link = "DiagnosticVirtualTextError" })
+                    setHl("DiagnosticVirtualLinesWarn", { link = "DiagnosticVirtualTextWarn" })
+                    setHl("DiagnosticVirtualLinesInfo", { link = "DiagnosticVirtualTextInfo" })
+                    setHl("DiagnosticVirtualLinesHint", { link = "DiagnosticVirtualTextHint" })
+                    setHl("DiagnosticVirtualLinesOk", { link = "DiagnosticVirtualTextOk" })
+
                     -- : no undercurls
                     hlCmd("DiagnosticUnderlineError gui=underline")
                     hlCmd("DiagnosticUnderlineWarn gui=underline")
