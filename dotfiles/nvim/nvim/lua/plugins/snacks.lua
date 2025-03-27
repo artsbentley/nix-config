@@ -14,17 +14,6 @@
 return {
     {
         "folke/snacks.nvim",
-        image = {
-            doc = {
-                enabled = false,
-                inline = false,
-                -- render the image in a floating window
-                -- only used if `opts.inline` is disabled
-                float = false,
-                max_width = 80,
-                max_height = 40,
-            },
-        },
         keys = {
             -- File picker
             {
@@ -49,6 +38,29 @@ return {
                 end,
                 desc = "Find Files",
             },
+            -- search buffer root dir
+            {
+                "<leader>SG",
+                function()
+                    -- Get the current buffer's file path
+                    local buf_path = vim.api.nvim_buf_get_name(0)
+                    -- Find the root directory (use .git or Cargo.toml as hints)
+                    local root = vim.fs.root(buf_path, { ".git", "Cargo.toml" }) or vim.fn.getcwd()
+
+                    Snacks.picker.grep({
+                        hidden = true, -- show hidden files
+                        ignored = false, -- dont show ignored files
+                        dirs = { root }, -- Search in the project root
+                        follow = true,
+                        regex = false, -- dont use regex
+                        -- glob = "*.rs", -- Search Rust files
+                        -- ft = "rust",
+                        -- need_search = false,
+                    })
+                end,
+                desc = "Grep in project root",
+            },
+            -- search buffers
             {
                 "<leader>bb",
 
