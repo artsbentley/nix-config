@@ -55,9 +55,11 @@
       #   OPENAI_API_KEY = ''$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})'';
       # };
 
+      # TODO: move to another solution for plugins, see https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file
       zplug = {
         enable = true;
         plugins = [
+          { name = "jeffreytse/zsh-vi-mode"; }
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-syntax-highlighting"; }
           { name = "zsh-users/zsh-completions"; }
