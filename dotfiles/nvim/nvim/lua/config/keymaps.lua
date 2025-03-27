@@ -211,6 +211,11 @@ vim.keymap.set("n", "L", function()
     -- print("diagnostic virtual_lines set to " .. tostring(diagnostic_virtual_lines))
 end, { desc = "Toggle diagnostic virtual_lines (disable virtual_text when enabled)" })
 
+-- line numbers
+vim.keymap.set("n", "<leader>ul", function()
+    vim.opt.number = not vim.opt.number:get()
+end, { desc = "Toggle Line Numbers" })
+
 -- notes
 -- vim.keymap.set("n", "<c-n><c-n>", "':e <c-r><c-w>.md'", { expr = true })
 
