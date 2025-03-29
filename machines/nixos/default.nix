@@ -66,7 +66,7 @@
 
   services.automatic-timezoned.enable = true;
   services.localtimed.enable = true;
-  time.timeZone = "Europe/Paris";
+  # time.timeZone = "Europe/Paris";
 
   programs.git.enable = true;
   programs.mosh.enable = true;
