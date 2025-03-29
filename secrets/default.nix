@@ -15,6 +15,7 @@
       bitwardenSession.file = ./bitwardenSession.age;
       resticPassword.file = ./resticPassword.age;
       openaiApiKey.file = ./openaiApiKey.age;
+      pangolin.file = ./pangolin.age;
     };
   };
 }

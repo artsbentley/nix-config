@@ -30,6 +30,7 @@ in
   "bitwardenSession.age".publicKeys = keys;
   "resticPassword.age".publicKeys = keys;
   "openaiApiKey.age".publicKeys = keys;
+  "pangolin.age".publicKeys = keys;
 }
 
 
