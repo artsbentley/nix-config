@@ -22,25 +22,6 @@ in
           WEBSOCKET_ENABLED = "true";
         };
       };
-      bitwarden-portal = {
-        image = "reaper0x1/bitwarden-portal:1.0.1";
-        autoStart = true;
-        extraOptions = [ ];
-        volumes = [ "${vars.serviceConfigRoot}/vaultwarden:/data" ];
-        environmentFiles = [ config.age.secrets.vaultwarden.path ];
-        environment = {
-          PUID = "${toString config.users.users.share.uid}";
-          PGID = "${toString config.users.groups.share.gid}";
-          KEEP_LAST_BACKUPS = "50";
-          ENABLE_PRUNING = "true";
-          RETENTION_DAYS = 50;
-          MIN_FILES = 30;
-          CRON_SCHEDULE = "0 0 * * *";
-          TZ = "Europe/Berlin";
-        };
-      };
-
-
 
       # BUG: 
       # bw --apikey login is currently bugged: https://github.com/bitwarden/clients/issues/9953
