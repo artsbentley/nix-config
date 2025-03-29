@@ -102,7 +102,7 @@
     iperf3
     eza
     neofetch
-    (python310.withPackages (ps: with ps; [ pip ]))
+    # (python310.withPackages (ps: with ps; [ pip ]))
     tmux
     rsync
     iotop
