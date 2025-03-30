@@ -2,7 +2,7 @@
 {
   virtualisation.oci-containers = {
     containers = {
-      mealie = {
+      pangolin = {
         image = "fosrl/newt";
         autoStart = true;
         extraOptions = [ ];
