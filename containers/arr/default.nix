@@ -221,7 +221,7 @@ in
       };
 
       jellyfin = {
-        image = "jellyfin/jellyfin:10.10.1";
+        image = "jellyfin/jellyfin:10.10.6";
         autoStart = true;
         volumes = [
           # TODO: redo nas directory structure according to trash guides
@@ -251,7 +251,7 @@ in
 
       jellyseerr = {
         autoStart = true;
-        image = "fallenbagel/jellyseerr:2.3.0";
+        image = "fallenbagel/jellyseerr:2.5.1";
         volumes = [ "${vars.serviceConfigRoot}/jellyseerr:/app/config" ];
         ports = [ "5055:5055" ];
         environment = {
