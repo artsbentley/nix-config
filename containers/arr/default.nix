@@ -274,25 +274,24 @@ in
       #     OVERSEERR_4K = "false";
       #     LETTERBOXD_LISTS = "https://letterboxd.com/deltore/list/jelly";
       #   };
+      # };
 
-    };
-
-    # check out this confuration of recyclarr https://github.com/TastyPi/nixos/blob/6572c7a7461373351047b6e59457d5a9bb9f87e7/nixos/server/oci-containers/recyclarr.nix
-    recyclarr = {
-      image = "ghcr.io/recyclarr/recyclarr";
-      user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
-      extraOptions = [ "--network=container:gluetun" ];
-      autoStart = true;
-      volumes = [
-        "${vars.serviceConfigRoot}/recyclarr:/config"
-      ];
-      environment = {
-        CRON_SCHEDULE = "@daily";
-        # CRON_SCHEDULE = "* * * * *";
+      # check out this confuration of recyclarr https://github.com/TastyPi/nixos/blob/6572c7a7461373351047b6e59457d5a9bb9f87e7/nixos/server/oci-containers/recyclarr.nix
+      recyclarr = {
+        image = "ghcr.io/recyclarr/recyclarr";
+        user = "${toString config.users.users.share.uid}:${toString config.users.groups.share.gid}";
+        extraOptions = [ "--network=container:gluetun" ];
+        autoStart = true;
+        volumes = [
+          "${vars.serviceConfigRoot}/recyclarr:/config"
+        ];
+        environment = {
+          CRON_SCHEDULE = "@daily";
+          # CRON_SCHEDULE = "* * * * *";
+        };
       };
     };
   };
-};
 }
 
 
