@@ -263,7 +263,7 @@ in
 
       list-sync = {
         autoStart = true;
-        imgage = "ghcr.io/woahai321/list-sync:main";
+        image = "ghcr.io/woahai321/list-sync:main";
         environmentFiles = [
           config.age.secrets.jellyseerr.path
         ];
