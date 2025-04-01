@@ -16,6 +16,7 @@
       resticPassword.file = ./resticPassword.age;
       openaiApiKey.file = ./openaiApiKey.age;
       pangolin.file = ./pangolin.age;
+      jellyseerr.file = ./jellyseerr.age;
     };
   };
 }

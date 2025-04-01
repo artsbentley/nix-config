@@ -261,6 +261,22 @@ in
         };
       };
 
+      list-sync = {
+        autoStart = true;
+        imgage = "ghcr.io/woahai321/list-sync:main";
+        environmentFiles = [
+          config.age.secrets.jellyseerr.path
+        ];
+        environment = {
+          OVERSEERR_URL = "http://127.0.0.1:5055";
+          SYNC_INTERVAL = "1";
+          AUTOMATED_MODE = "true";
+          OVERSEERR_4K = "false";
+          LETTERBOXD_LISTS = "https://letterboxd.com/deltore/list/jelly";
+        };
+
+      };
+
       # check out this confuration of recyclarr https://github.com/TastyPi/nixos/blob/6572c7a7461373351047b6e59457d5a9bb9f87e7/nixos/server/oci-containers/recyclarr.nix
       recyclarr = {
         image = "ghcr.io/recyclarr/recyclarr";

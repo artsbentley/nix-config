@@ -31,6 +31,7 @@ in
   "resticPassword.age".publicKeys = keys;
   "openaiApiKey.age".publicKeys = keys;
   "pangolin.age".publicKeys = keys;
+  "jellyseerr.age".publicKeys = keys;
 }
 
 
