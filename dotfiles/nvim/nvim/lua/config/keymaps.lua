@@ -199,7 +199,12 @@ vim.keymap.set("n", "L", function()
     diagnostic_virtual_lines = not diagnostic_virtual_lines
     if diagnostic_virtual_lines then
         vim.diagnostic.config({
-            virtual_lines = true,
+            virtual_lines = {
+                enabled = true,
+                severity = {
+                    min = "ERROR",
+                },
+            },
             virtual_text = false, -- disable virtual_text when virtual_lines is enabled
         })
     else

@@ -82,7 +82,18 @@ vim.opt.clipboard = ""
 vim.highlight.priorities.semantic_tokens = 95
 
 -- virtual diagnostics
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+    virtual_text = true,
+    -- virtual_text = { enabled = true, severity = { min = "INFO", max = "WARN" } },
+    severity_sort = true,
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = false,
+        header = "",
+    },
+})
 -- vim.diagnostic.config({
 -- virtual_lines = true,
 -- virtual_lines = { current_line = true },
