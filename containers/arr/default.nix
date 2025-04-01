@@ -268,7 +268,7 @@ in
           config.age.secrets.jellyseerr.path
         ];
         environment = {
-          OVERSEERR_URL = "http://127.0.0.1:5055";
+          OVERSEERR_URL = "0.0.0.0:5055";
           SYNC_INTERVAL = "1";
           AUTOMATED_MODE = "true";
           OVERSEERR_4K = "false";
