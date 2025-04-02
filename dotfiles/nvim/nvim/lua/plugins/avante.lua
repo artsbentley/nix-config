@@ -13,7 +13,6 @@ return {
                 vim.keymap.set({ "n" }, "<Esc>", "<Cmd>stopinsert | bd!<CR>", { buffer = true })
             end,
         }),
-
         build = "make",
         cursor_applying_provider = "openai",
         behaviour = {
@@ -59,7 +58,7 @@ return {
                 switch_windows = "<Tab>",
                 reverse_switch_windows = "<S-Tab>",
                 remove_file = "d",
-                add_file = "@",
+                add_file = "a",
                 close = { "<Esc>", "q" },
                 close_from_input = nil, -- e.g., { normal = "<Esc>", insert = "<C-d>" }
             },
@@ -80,7 +79,7 @@ return {
             },
         },
         file_selector = {
-            provider = "telescope",
+            provider = "snacks",
         },
     },
 
