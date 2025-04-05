@@ -22,7 +22,7 @@
     };
 
     atuin = {
-      enable = false;
+      enable = true;
       flags = [ "--disable-up-arrow" ];
       enableZshIntegration = true;
       enableBashIntegration = true;
