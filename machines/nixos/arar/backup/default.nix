@@ -34,6 +34,7 @@
       ];
     };
   };
+  # TODO: backup for markdown notes, which are currently destructive
   services.restic = {
     server = {
       enable = true;
