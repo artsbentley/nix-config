@@ -22,7 +22,7 @@
     };
 
     atuin = {
-      enable = true;
+      enable = false;
       flags = [ "--disable-up-arrow" ];
       enableZshIntegration = true;
       enableBashIntegration = true;
@@ -88,6 +88,7 @@
         home = "cd ~";
         c = "clear";
         ":Yazi" = "ya";
+        rsyncb = "rsync -av --ignore-existing --info=progress2";
 
         # GIT 
         gpl = "git pull --rebase --autostash";
