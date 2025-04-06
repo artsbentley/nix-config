@@ -38,7 +38,7 @@ return {
             },
 
             custom = {
-                todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo", scope_highlight = nil },
+                todo = { raw = "[-]", rendered = "  󰥔 ", highlight = "RenderMarkdownTodo", scope_highlight = nil },
             },
         },
 
