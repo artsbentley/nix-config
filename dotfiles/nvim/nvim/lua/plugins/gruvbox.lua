@@ -74,6 +74,10 @@ return {
                     -- Golang
                     -- setHl("@constant.builtin.go", { fg = "#d3869b" })
 
+                    -- RUST
+                    -- setHl("@module.rust", { fg = "#f6843a" })
+                    setHl("@module.rust", { fg = "#d3869b" })
+
                     -- templ
                     setHl("@module.templ", { fg = "Fg" })
 
