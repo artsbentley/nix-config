@@ -146,7 +146,7 @@ local function update_markdown_frontmatter()
     local current_time = os.date("%Y-%m-%d %H:%M")
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 
-    -- Extract date from existing frontmatter (if any)
+    -- Determine frontmatter boundaries
     local fm_start, fm_end = nil, nil
     if lines[1] == "---" then
         fm_start = 1
@@ -158,49 +158,58 @@ local function update_markdown_frontmatter()
         end
     end
 
-    -- Extract date from existing frontmatter (if any)
+    local new_fm = {}
+    local found_title = false
+    local found_date = false
+    local found_aliases = false
     local original_date = current_time
+
+    -- If frontmatter exists, update it; otherwise, we'll create one.
     if fm_start and fm_end then
         for i = fm_start + 1, fm_end - 1 do
             local line = lines[i]
-            if line:match("^date:") then
+            if line:match("^title:") then
+                new_fm[#new_fm + 1] = "title: " .. title
+                found_title = true
+            elseif line:match("^date:") then
                 original_date = line:match("^date:%s*(.+)") or current_time
+                new_fm[#new_fm + 1] = "date: " .. original_date
+                found_date = true
+            elseif line:match("^aliases:") then
+                new_fm[#new_fm + 1] = 'aliases: ["' .. alias .. '"]'
+                found_aliases = true
+            else
+                new_fm[#new_fm + 1] = line
             end
         end
     end
 
-    -- Extract unique tags
-    local tag_set = {}
-    local content_start = fm_end and fm_end + 1 or 1
-    for i = content_start, #lines do
-        for tag in string.gmatch(lines[i], "#([%w%-%_/]+)") do
-            tag_set[tag] = true
-        end
+    -- If title doesn't exist, add it.
+    if not found_title then
+        table.insert(new_fm, 1, "title: " .. title)
     end
-    local tags_list = {}
-    for tag, _ in pairs(tag_set) do
-        table.insert(tags_list, tag)
+    -- Ensure date exists
+    if not found_date then
+        table.insert(new_fm, "date: " .. current_time)
     end
-    table.sort(tags_list)
-    local tags_line = "tags: []"
-    if #tags_list > 0 then
-        tags_line = "tags: [" .. table.concat(tags_list, ", ") .. "]"
+    -- Ensure aliases exists
+    if not found_aliases then
+        table.insert(new_fm, 'aliases: ["' .. alias .. '"]')
     end
 
-    -- Update or insert frontmatter
-    local new_frontmatter = {
-        "---",
-        "title: " .. title,
-        "date: " .. original_date,
-        'aliases: ["' .. alias .. '"]', -- Add alias to frontmatter
-        tags_line,
-        "---",
-        "",
-    }
+    -- Reconstruct the frontmatter with the proper delimiters
+    local frontmatter = {}
+    table.insert(frontmatter, "---")
+    for _, line in ipairs(new_fm) do
+        table.insert(frontmatter, line)
+    end
+    table.insert(frontmatter, "---")
+    table.insert(frontmatter, "") -- blank line after frontmatter
+
     if fm_start and fm_end then
-        vim.api.nvim_buf_set_lines(bufnr, fm_start - 1, fm_end, false, new_frontmatter)
+        vim.api.nvim_buf_set_lines(bufnr, fm_start - 1, fm_end, false, frontmatter)
     else
-        vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, new_frontmatter)
+        vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, frontmatter)
     end
 end
 
