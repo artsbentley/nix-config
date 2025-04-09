@@ -53,17 +53,12 @@
         repository = "${vars.nasMount}/Backups/restic/appdata";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
-        pruneOpts = [ "--keep-last 20" ];
-
-        # TODO: create better pruning
-        # pruneOpts = [
-        #          "--keep-last 5"
-        #          "--keep-daily 7"
-        #          "--keep-weekly 6"
-        #          "--keep-monthly 12"
-        #          "--keep-yearly 75"
-        #        ];
-
+        pruneOpts = [
+          "--keep-daily 14"
+          "--keep-weekly 4"
+          "--keep-monthly 6"
+          "--keep-yearly 1"
+        ];
         exclude = [
           "recyclarr/repo"
           "recyclarr/repositories"
@@ -80,6 +75,29 @@
         backupCleanupCommand = ''
           ${pkgs.systemd}/bin/systemctl start --all "podman-*"
         '';
+      };
+      arar-nas = {
+        timerConfig = {
+          OnCalendar = "20:52";
+          Persistent = true;
+        };
+        repository = "${vars.nasMount}/Backups/restic/arar-nas";
+        initialize = true;
+        passwordFile = config.age.secrets.resticPassword.path;
+        pruneOpts = [
+          "--keep-last 5"
+          "--keep-daily 7"
+          "--keep-weekly 4"
+          "--keep-monthly 6"
+          "--keep-yearly 1"
+        ];
+        exclude = [
+          # "recyclarr/repo"
+        ];
+        paths = [
+          "${vars.ararNasMount}"
+        ];
+        # TODO: implement needed prepare commands?
       };
 
 
