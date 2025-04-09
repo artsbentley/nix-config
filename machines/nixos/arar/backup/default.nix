@@ -78,7 +78,7 @@
       };
       arar-nas = {
         timerConfig = {
-          OnCalendar = "21:13";
+          OnCalendar = "21:15";
           Persistent = true;
         };
         repository = "${vars.nasMount}/Backups/restic/arar-nas";
