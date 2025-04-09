@@ -1,1 +1,4 @@
-return { "vmchale/just-vim" }
+return {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
+}
