@@ -6,7 +6,7 @@ return {
             ["<C-u>"] = { "scroll_documentation_up" },
             ["<C-d>"] = { "scroll_documentation_down" },
             ["<Left>"] = { "cancel" },
-            ["<Right>"] = { "accept" },
+            ["<Right>"] = { "select_and_accept" },
             -- ["<Right>"] = { "select_and_accept" },
             -- ["<Right>"] = {
             --     function(cmp)
