@@ -11,7 +11,7 @@
   #   file = ../../secrets/hashedUserPassword.age;
   # };
 
-  # TODO: setup fish
+  # TODO: setup fish, see mitchellh config
   #   # https://github.com/nix-community/home-manager/pull/2408
   # environment.pathsToLink = [ "/share/fish" ];
   # # Add ~/.local/bin to PATH
