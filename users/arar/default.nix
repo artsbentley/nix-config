@@ -22,6 +22,7 @@
   users = {
     users = {
       arar = {
+        # TODO: use fish
         shell = pkgs.zsh;
         uid = 1000;
         isNormalUser = true;
