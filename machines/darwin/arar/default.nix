@@ -127,6 +127,7 @@
       "templ"
       "jwt-cli"
       "rainfrog"
+      "awscli"
     ];
 
     casks = [
@@ -234,7 +235,7 @@
     gh-dash
   ];
 
-  system.stateVersion = 4;
+  system.stateVersion = 5;
   ids.gids.nixbld = 350;
 
   # services.nix-daemon.enable = true;
