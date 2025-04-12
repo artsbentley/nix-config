@@ -11,6 +11,14 @@
   #   file = ../../secrets/hashedUserPassword.age;
   # };
 
+  # TODO: setup fish
+  #   # https://github.com/nix-community/home-manager/pull/2408
+  # environment.pathsToLink = [ "/share/fish" ];
+  # # Add ~/.local/bin to PATH
+  # environment.localBinInPath = true;
+  # # Since we're using fish as our shell
+  # programs.fish.enable = true;
+
   users = {
     users = {
       arar = {
@@ -18,7 +26,7 @@
         uid = 1000;
         isNormalUser = true;
         # hashedPasswordFile = config.age.secrets.test.path;
-        extraGroups = [ "networkmanager" "wheel" "users" "video" "podman" "share" ];
+        extraGroups = [ "networkmanager" "wheel" "lxd" "users" "video" "podman" "share" "docker" ];
         group = "arar";
         # openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKGUGMUo1dRl9xoDlMxQGb8dNSY+6xiEpbZWAu6FAbWw moe@notthebe.ee" ];
       };
