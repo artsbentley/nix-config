@@ -19,6 +19,7 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     atuin = {
@@ -26,6 +27,7 @@
       flags = [ "--disable-up-arrow" ];
       enableZshIntegration = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
       settings = {
         dialect = "uk";
         filter_mode_shell_up_key_binding = "session";
@@ -41,11 +43,13 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
     };
 
     direnv = {
       enable = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
       nix-direnv.enable = true;
     };
 
