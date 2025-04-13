@@ -6,6 +6,7 @@
       allowUnfreePredicate = (_: true);
     };
   };
+  programs.fish.enable = true;
   imports = [ <home-manager/nix-darwin> ];
   home-manager = {
     useGlobalPkgs = false; # makes hm use nixos's pkgs value

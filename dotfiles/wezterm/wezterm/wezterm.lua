@@ -22,6 +22,9 @@ local config = {
 	-- 	b.get_background(),
 	-- },
 	max_fps = 120,
+	-- Spawn a fish shell in login mode
+	-- default_prog = { "/usr/local/bin/fish", "-l" },
+	-- default_prog = { "fish" },
 
 	-- fix for nixos textures
 	front_end = "WebGpu",

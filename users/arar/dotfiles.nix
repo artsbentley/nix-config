@@ -21,6 +21,7 @@
   programs.nix-index = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.home-manager.enable = true;

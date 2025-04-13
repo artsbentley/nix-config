@@ -5,6 +5,7 @@
   ];
   programs.wezterm = {
     enable = true;
+    enableFishIntegration = true;
     # enableZshIntegration = true;
   };
 }

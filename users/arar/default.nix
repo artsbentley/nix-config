@@ -23,7 +23,7 @@
     users = {
       arar = {
         # TODO: use fish
-        shell = pkgs.zsh;
+        shell = pkgs.fish;
         uid = 1000;
         isNormalUser = true;
         # hashedPasswordFile = config.age.secrets.test.path;
@@ -38,7 +38,8 @@
       };
     };
   };
-  programs.zsh.enable = true;
+  programs.zsh.enable = false;
+  programs.fish.enable = true;
 
 }
 

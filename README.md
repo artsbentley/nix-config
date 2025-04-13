@@ -78,12 +78,27 @@ sudo chown -R share:share appdata
 
 retrieve new tailscale auth token and set agenix secret
 
-## setting up mac
+## mac installation
 
 ```bash
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
+```
+
+### set-up fish as default shell
+
+```bash
+type fish
+fish is /etc/profiles/per-user/arar/bin/fish
+```
+
+```bash
+ echo "/etc/profiles/per-user/arar/bin/fish" | sudo tee -a /etc/shells
+```
+
+```bash
+chsh -s /etc/profiles/per-user/arar/bin/fish
 ```
 
 nas structure:
