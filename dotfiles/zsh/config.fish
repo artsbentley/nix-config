@@ -1,4 +1,12 @@
 #-------------------------------------------------------------------------------
+# GENERAL
+#-------------------------------------------------------------------------------
+
+set -U fish_key_bindings fish_vi_key_bindings
+bind -M insert \e\C-h backward-kill-word
+set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+
+#-------------------------------------------------------------------------------
 # SSH Agent
 #-------------------------------------------------------------------------------
 function __ssh_agent_is_started -d "check if ssh agent is already started"
@@ -163,7 +171,7 @@ end
 #-------------------------------------------------------------------------------
 # PATH
 #-------------------------------------------------------------------------------
-fish_add_path $HOME/.config/bin
+fish_add_path $HOME/.config/scripts/
 set -x STU_ROOT_DIR "$XDG_CONFIG_HOME/stu"
 set -x RAINFROG_CONFIG "$XDG_CONFIG_HOME/rainfrog"
 
@@ -174,7 +182,3 @@ set -x RAINFROG_CONFIG "$XDG_CONFIG_HOME/rainfrog"
 # `fnix -p go` to get an environment with Go but use the fish shell along
 # with it.
 alias fnix "nix-shell --run fish"
-set -U fish_key_bindings fish_vi_key_bindings
-
-bind -M insert \e\C-h backward-kill-word
-set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
