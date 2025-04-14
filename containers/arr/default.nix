@@ -130,7 +130,10 @@ in
         image = "lscr.io/linuxserver/qbittorrent";
         autoStart = true;
         dependsOn = [ "gluetun" ];
-        extraOptions = [ "--network=container:gluetun" ];
+        extraOptions = [
+          "--network=container:gluetun"
+          "--pull=always"
+        ];
         environment = {
           PUID = "${toString config.users.users.share.uid}";
           PGID = "${toString config.users.groups.share.gid}";
