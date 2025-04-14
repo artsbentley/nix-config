@@ -156,8 +156,8 @@ end
 # Editor
 set -gx EDITOR nvim
 
-if test -f $HOME/api_keys.env
-    source $HOME/api_keys.env
+if test -f $HOME/api_keys.fish
+    source $HOME/api_keys.fish
 end
 
 #-------------------------------------------------------------------------------
