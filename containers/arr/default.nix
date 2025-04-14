@@ -103,7 +103,7 @@ in
       };
 
       gluetun = {
-        image = "qmcgaw/gluetun";
+        image = "qmcgaw/gluetun:3.40";
         autoStart = true;
         extraOptions = [
           "--cap-add=NET_ADMIN"
