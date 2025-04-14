@@ -25,7 +25,9 @@ let
     # GIT 
     gpl = "git pull --rebase --autostash";
     ghinit = "gh repo create $(basename '$PWD ') --private --source=. --remote=origin";
+    gfo = "git fetch origin --prune";
 
+    # DOCKER
     stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder prune -f -a && podman network prune -f && podman image prune -a -f && podman container prune -f";
     startdocker = "sudo systemctl start --all 'podman-*'";
     # update = "cd ~/nix-config && git pull && sudo nixos-rebuild switch --flake .#arar && cd -";
@@ -82,7 +84,6 @@ in
   } else { });
 
   fonts.fontconfig.enable = true;
-
 
   home.file = {
     ".config/zsh/initExtra".source = ./initExtra;
