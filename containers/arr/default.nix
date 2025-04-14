@@ -103,11 +103,12 @@ in
       };
 
       gluetun = {
-        image = "qmcgaw/gluetun:3.40";
+        image = "qmcgaw/gluetun";
         autoStart = true;
         extraOptions = [
           "--cap-add=NET_ADMIN"
           "--device=/dev/net/tun:/dev/net/tun"
+          "--pull=always"
         ];
         ports = [
           "6881:6881"
