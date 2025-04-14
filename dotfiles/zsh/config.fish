@@ -128,18 +128,6 @@ set -U fish_color_valid_path --underline "#d5c4a1"
 # printf '\e]12;#fabd2f\a'
 printf '\e[6 q'
 
-#
-# Override the nix prompt for the theme so that we show a more concise prompt
-function __bobthefish_prompt_nix -S -d 'Display current nix environment'
-    [ "$theme_display_nix" = no -o -z "$IN_NIX_SHELL" ]
-    and return
-
-    __bobthefish_start_segment $color_nix
-    echo -ns N ' '
-
-    set_color normal
-end
-
 #-------------------------------------------------------------------------------
 # YAZI
 #-------------------------------------------------------------------------------
@@ -167,6 +155,10 @@ end
 
 # Editor
 set -gx EDITOR nvim
+
+if test -f $HOME/api_keys.env
+    source $HOME/api_keys.env
+end
 
 #-------------------------------------------------------------------------------
 # PATH
