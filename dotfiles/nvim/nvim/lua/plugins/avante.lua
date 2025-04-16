@@ -3,7 +3,7 @@ return {
     lazy = true,
     event = "VeryLazy",
     enabled = true,
-    version = false, -- set this if you want to always pull the latest change
+    -- version = false, -- set this if you want to always pull the latest change
 
     opts = {
         vim.api.nvim_create_autocmd("FileType", {
@@ -14,7 +14,27 @@ return {
             end,
         }),
         build = "make",
+        -- provider = "deepseek",
+        provider = "openai",
         cursor_applying_provider = "openai",
+        openai = {
+            endpoint = "https://api.openai.com/v1",
+            -- model = "gpt-4.1",
+            model = "gpt-4o",
+            timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+            temperature = 0,
+            -- max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+            --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+        },
+        vendors = {
+            deepseek = {
+                __inherited_from = "openai",
+                api_key_name = "DEEPSEEK_API_KEY",
+                endpoint = "https://api.deepseek.com",
+                model = "deepseek-coder",
+                -- max_tokens = 8192,
+            },
+        },
         behaviour = {
             auto_suggestions = false, -- Experimental stage
             auto_set_highlight_group = true,
@@ -64,7 +84,6 @@ return {
             },
         },
         hints = { enabled = false },
-        provider = "openai",
         windows = {
             postion = "right",
             width = 40,
