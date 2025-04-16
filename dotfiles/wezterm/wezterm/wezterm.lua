@@ -124,9 +124,9 @@ local config = {
 
 		k.cmd_to_tmux_prefix("`", "n"),
 		k.cmd_to_tmux_prefix("b", "B"),
-		k.cmd_to_tmux_prefix("c", "C"), -- thumbs copy mode
+		k.cmd_to_tmux_prefix("c", "c"), -- thumbs copy mode
 		-- k.cmd_to_tmux_prefix("C", "C"), -- copy selection mode
-		k.cmd_to_tmux_prefix("d", "D"),
+		k.cmd_to_tmux_prefix("d", "d"),
 		k.cmd_to_tmux_prefix("e", "%"),
 		k.cmd_to_tmux_prefix("E", '"'),
 		k.cmd_to_tmux_prefix("G", "G"), -- lazygit

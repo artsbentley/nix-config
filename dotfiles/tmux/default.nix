@@ -18,14 +18,11 @@
     # shell = "${pkgs.fish}/bin/fish";
 
     plugins = with pkgs.tmuxPlugins; [
+      tmux-thumbs
       vim-tmux-navigator
       fzf-tmux-url
-      jump
-      yank
-      tmux-thumbs
-      tmux-floax
-      # resurrect
-      # continuum
+      # jump
+      # yank
     ];
   };
 }
