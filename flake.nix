@@ -79,7 +79,6 @@
             vars = import ./machines/orbstack/vars.nix;
           };
           modules = [
-            inputs.stylix.nixosModules.stylix
             agenix.nixosModules.default
             # - MODULES -----------------------------------
             # ./modules/podman
@@ -102,7 +101,6 @@
                 agenix.homeManagerModules.default
                 nix-index-database.hmModules.nix-index
                 ./users/arar/dotfiles.nix
-                ./machines/surface-nixos/stylix.nix
               ];
               home-manager.backupFileExtension = "bak";
             }
