@@ -90,7 +90,6 @@
     godef
     golint
     powertop
-    cpufrequtils
     gnumake
     gcc
     intel-gpu-tools
