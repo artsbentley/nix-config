@@ -93,18 +93,18 @@
 
             # - USER -----------------------------------------
             ./users/arar
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.useGlobalPkgs = false;
-            #   home-manager.extraSpecialArgs = { inherit inputs; };
-            #   home-manager.users.arar.imports = [
-            #     agenix.homeManagerModules.default
-            #     nix-index-database.hmModules.nix-index
-            #     ./users/arar/dotfiles.nix
-            #     # ./machines/surface-nixos/stylix.nix
-            #   ];
-            #   home-manager.backupFileExtension = "bak";
-            # }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.arar.imports = [
+                agenix.homeManagerModules.default
+                nix-index-database.hmModules.nix-index
+                ./users/arar/dotfiles.nix
+                # ./machines/surface-nixos/stylix.nix
+              ];
+              home-manager.backupFileExtension = "bak";
+            }
           ];
         };
         surface = nixpkgs.lib.nixosSystem
