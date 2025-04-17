@@ -89,6 +89,7 @@
 
             # - MACHINE CONFIG -------------------------------
             ./machines/orb/arar
+            ./machines/orb
             ./secrets
 
             # - USER -----------------------------------------
