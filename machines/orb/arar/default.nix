@@ -92,7 +92,6 @@
     powertop
     gnumake
     gcc
-    intel-gpu-tools
   ];
 }
 
