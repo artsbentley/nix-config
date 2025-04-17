@@ -40,6 +40,7 @@
     powertop
     gnumake
     gcc
+    sesh
   ];
 }
 
