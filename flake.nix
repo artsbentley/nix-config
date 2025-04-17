@@ -84,10 +84,11 @@
             # - MODULES -----------------------------------
             # ./modules/podman
 
-            # - MACHINE CONFIG -------------------------------
+            # - ORB -------------------------------
             ./machines/orb/orb/orbstack.nix
             ./machines/orb/orb/configuration.nix
 
+            # - MACHINE CONFIG -------------------------------
             ./machines/orb/arar
             ./secrets
 
@@ -100,8 +101,8 @@
               home-manager.users.arar.imports = [
                 agenix.homeManagerModules.default
                 nix-index-database.hmModules.nix-index
-                # ./users/arar/dotfiles.nix
-                # ./machines/surface-nixos/stylix.nix
+                ./users/arar/dotfiles.nix
+                ./machines/surface-nixos/stylix.nix
               ];
               home-manager.backupFileExtension = "bak";
             }
