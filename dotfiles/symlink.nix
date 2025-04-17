@@ -38,6 +38,19 @@
     # - use ln instead of stow?
     home.activation =
       let
+
+        #   let
+        #   inherit (pkgs) lib;
+        #   isLinux = pkgs.stdenv.isLinux;
+        #   system = pkgs.stdenv.hostPlatform.system;
+        #   isAarch64Linux = isLinux && lib.strings.hasPrefix "aarch64" system;
+        #   dotfilesDir =
+        #     if isAarch64Linux then
+        #       "$HOME/.config"
+        #     else
+        #       "${config.home.homeDirectory}/nix-config/dotfiles";
+        # in
+
         dotfilesDir = "${config.home.homeDirectory}/nix-config/dotfiles";
       in
       {
