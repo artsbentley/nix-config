@@ -106,7 +106,7 @@ with lib;
   # As this is intended as a stadalone image, undo some of the minimal profile stuff
   documentation.enable = true;
   documentation.nixos.enable = true;
-  environment.noXlibs = false;
+  # environment.noXlibs = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
