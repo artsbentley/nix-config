@@ -1,7 +1,5 @@
 { inputs, config, pkgs, lib, ... }:
 {
-  # load module config to top-level configuration
-  #
 
   system.stateVersion = "22.11";
 
@@ -22,9 +20,6 @@
     dates = "06:00";
     randomizedDelaySec = "45min";
   };
-
-
-
 
   nixpkgs = {
     overlays = [
@@ -66,7 +61,6 @@
 
   # services.automatic-timezoned.enable = true;
   # services.localtimed.enable = true;
-  # time.timeZone = "Europe/Paris";
   time.timeZone = "Europe/Amsterdam";
 
   programs.git.enable = true;
