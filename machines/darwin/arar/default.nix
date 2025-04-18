@@ -176,6 +176,7 @@
       "cursor"
       "qbittorrent"
       "autodesk-fusion"
+      "xquartz"
     ];
   };
 
