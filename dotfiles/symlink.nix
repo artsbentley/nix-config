@@ -53,6 +53,7 @@
 
         dotfilesDir = "${config.home.homeDirectory}/nix-config/dotfiles";
       in
+      # TODO: add activation for symlinking orbstack
       {
         dotfileSetup = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           if [ -d "${dotfilesDir}" ]; then

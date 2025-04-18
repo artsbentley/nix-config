@@ -119,6 +119,7 @@
     lazygit
     cargo
     stylua
+    lua-language-server
 
     # USB harddrive
     usbutils
