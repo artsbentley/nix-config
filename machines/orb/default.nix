@@ -117,6 +117,7 @@
     deploy-rs
     python313
     lazygit
+    cargo
 
     # USB harddrive
     usbutils
