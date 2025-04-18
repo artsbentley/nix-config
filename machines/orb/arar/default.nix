@@ -41,6 +41,7 @@
     gnumake
     gcc
     sesh
+    lazygit
   ];
 }
 
