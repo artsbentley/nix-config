@@ -116,6 +116,7 @@
     bfg-repo-cleaner
     deploy-rs
     python313
+    lazygit
 
     # USB harddrive
     usbutils
