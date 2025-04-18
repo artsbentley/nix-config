@@ -118,6 +118,7 @@
     python313
     lazygit
     cargo
+    stylua
 
     # USB harddrive
     usbutils
