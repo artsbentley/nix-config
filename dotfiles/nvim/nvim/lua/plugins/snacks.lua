@@ -260,6 +260,9 @@ return {
                     col = -1,
                 },
             },
+            dashboard = {
+                enabled = false,
+            },
             image = {
                 enabled = true,
                 doc = {
