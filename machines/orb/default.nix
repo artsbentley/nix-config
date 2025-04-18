@@ -115,6 +115,7 @@
     git-crypt
     bfg-repo-cleaner
     deploy-rs
+    python313
 
     # USB harddrive
     usbutils
