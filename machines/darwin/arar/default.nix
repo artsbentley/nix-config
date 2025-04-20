@@ -188,6 +188,7 @@
     #   setuptools
     #   pyyaml
     # ]))
+    nix-search-tv
     ansible-language-server
     git-lfs
     pre-commit

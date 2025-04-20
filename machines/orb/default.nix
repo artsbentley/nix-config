@@ -120,6 +120,7 @@
     cargo
     stylua
     lua-language-server
+    nix-search-tv
 
     # USB harddrive
     usbutils

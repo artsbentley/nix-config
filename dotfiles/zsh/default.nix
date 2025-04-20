@@ -21,6 +21,7 @@ let
     c = "clear";
     ":Yazi" = "ya";
     rsyncb = "rsync -av --ignore-existing --info=progress2";
+    ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
 
     # GIT 
     gpl = "git pull --rebase --autostash";
