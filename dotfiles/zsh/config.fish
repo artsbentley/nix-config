@@ -179,6 +179,14 @@ if test (uname) = Darwin
     fish_add_path ~/.orbstack/bin
 end
 
+# orbstack 
+if test -d /opt/orbstack-guest
+    set -x PATH $PATH /opt/orbstack-guest/bin
+
+    # automatically trigger the macOS host to open links
+    set -x BROWSER /opt/orbstack-guest/bin/open
+end
+
 #-------------------------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------------------------

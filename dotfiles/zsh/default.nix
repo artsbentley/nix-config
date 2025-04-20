@@ -35,10 +35,12 @@ let
     ".." = "cd ..";
     "..." = "cd ../..";
 
-  } // (if isLinux then {
-    pbcopy = "xclip";
-    pbpaste = "xclip -o";
-  } else { });
+  };
+  # FIX: need to find a way to have my orb flake use pbcopy instead of xclip
+  # } // (if isLinux then { BUG: this conflicts with orbstack clipboard
+  #   pbcopy = "xclip";
+  #   pbpaste = "xclip -o";
+  # } else { });
 
   # NOTE: from mitchellh
   # For our MANPAGER env var

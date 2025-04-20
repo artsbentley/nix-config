@@ -15,7 +15,6 @@
 
   imports = [
     ../../dotfiles
-    ./packages.nix
   ];
 
   programs.nix-index = {
@@ -26,5 +25,27 @@
 
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
+
+  home.packages = with pkgs; [
+    gh
+    tmux
+    yazi
+    # direnv
+    # atuin
+    wget
+    # xclip
+    htop
+    sops
+    neofetch
+    # nerdfonts
+    nodejs
+    luarocks
+    unzip
+    templ
+    ruff
+    d2
+    golangci-lint
+    wezterm
+  ];
 }
 
