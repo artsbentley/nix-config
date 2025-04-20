@@ -147,57 +147,37 @@
             ];
           };
 
-        arar = nixpkgs.lib.nixosSystem
-          {
-            system = "x86_64-linux";
-            specialArgs = {
-              inherit inputs;
-              vars = import ./machines/nixos/vars.nix;
-            };
-            modules = [
-              # Base configuration and modules
-              ./modules/podman
-              ./modules/tailscale
+            # Services and applications
+            # TODO: setup GPU acceleration for jellyfin, paperless and immich
+            ./containers/arr
+            ./containers/paperless
+            ./containers/mealie
+            ./containers/vaultwarden
+            ./containers/cloudflare
+            ./containers/homepage
+            ./containers/actualbudget
+            ./containers/stirling
+            ./containers/pangolin
+            ./containers/enclosed
+            # ./containers/gitea
+            # ./containers/watchtower
+            # ./containers/backrest
 
-              # Import the machine config + secrets
-              ./machines/nixos
-              ./machines/nixos/arar
-              ./machines/nixos/arar/hardware
-              ./machines/nixos/arar/backup
-              ./machines/nixos/arar/syncthing
-              ./secrets
-              agenix.nixosModules.default
-
-              # Services and applications
-              # TODO: setup GPU acceleration for jellyfin, paperless and immich
-              ./containers/arr
-              ./containers/paperless
-              ./containers/mealie
-              ./containers/vaultwarden
-              ./containers/cloudflare
-              ./containers/homepage
-              ./containers/actualbudget
-              ./containers/stirling
-              ./containers/pangolin
-              # ./containers/gitea
-              # ./containers/watchtower
-              # ./containers/backrest
-
-              # User-specific configurations
-              ./users/arar
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = false;
-                home-manager.extraSpecialArgs = { inherit inputs; };
-                home-manager.users.arar.imports = [
-                  agenix.homeManagerModules.default
-                  nix-index-database.hmModules.nix-index
-                  ./users/arar/dotfiles.nix
-                ];
-                home-manager.backupFileExtension = "bak";
-              }
-            ];
-          };
+            # User-specific configurations
+            ./users/arar
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.arar.imports = [
+                agenix.homeManagerModules.default
+                nix-index-database.hmModules.nix-index
+                ./users/arar/dotfiles.nix
+              ];
+              home-manager.backupFileExtension = "bak";
+            }
+          ];
+        };
       };
     };
 }
