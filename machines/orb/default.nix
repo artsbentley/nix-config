@@ -121,6 +121,7 @@
     stylua
     lua-language-server
     nix-search-tv
+	gitu
 
     # USB harddrive
     usbutils
