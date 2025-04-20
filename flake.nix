@@ -142,6 +142,7 @@
             ./containers/actualbudget
             ./containers/stirling
             ./containers/pangolin
+            ./containers/enclosed
             # ./containers/gitea
             # ./containers/watchtower
             # ./containers/backrest
