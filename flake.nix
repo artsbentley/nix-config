@@ -146,6 +146,25 @@
               }
             ];
           };
+        arar = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            vars = import ./machines/nixos/vars.nix;
+          };
+          modules = [
+            # Base configuration and modules
+            ./modules/podman
+            ./modules/tailscale
+
+            # Import the machine config + secrets
+            ./machines/nixos
+            ./machines/nixos/arar
+            ./machines/nixos/arar/hardware
+            ./machines/nixos/arar/backup
+            ./machines/nixos/arar/syncthing
+            ./secrets
+            agenix.nixosModules.default
 
             # Services and applications
             # TODO: setup GPU acceleration for jellyfin, paperless and immich
@@ -180,5 +199,6 @@
         };
       };
     };
+};
 }
 
