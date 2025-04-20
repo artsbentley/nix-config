@@ -35,10 +35,11 @@ let
     ".." = "cd ..";
     "..." = "cd ../..";
 
-  } // (if isLinux then {
-    pbcopy = "xclip";
-    pbpaste = "xclip -o";
-  } else { });
+  };
+  # } // (if isLinux then { BUG: this conflicts with orbstack clipboard
+  #   pbcopy = "xclip";
+  #   pbpaste = "xclip -o";
+  # } else { });
 
   # NOTE: from mitchellh
   # For our MANPAGER env var
