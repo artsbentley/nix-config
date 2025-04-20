@@ -78,6 +78,23 @@ vim.opt.updatetime = 50 -- Set the time interval for writing swap files and upda
 -- clipboard
 vim.opt.clipboard = ""
 
+-- {{{ custom clipboard for orbstack
+if vim.fn.has("macunix") == 0 and vim.fn.executable("pbcopy") == 1 then
+    vim.g.clipboard = {
+        name = "OrbStack clipboard",
+        copy = {
+            ["+"] = "pbcopy",
+            ["*"] = "pbcopy",
+        },
+        paste = {
+            ["+"] = "pbpaste",
+            ["*"] = "pbpaste",
+        },
+        cache_enabled = false,
+    }
+end
+-- }}} end custom clipboard for orbstack
+
 -- prevents treesitter highlighting from being overwritten
 vim.highlight.priorities.semantic_tokens = 95
 

@@ -33,7 +33,7 @@
     # direnv
     # atuin
     wget
-    xclip
+    # xclip
     htop
     sops
     neofetch
