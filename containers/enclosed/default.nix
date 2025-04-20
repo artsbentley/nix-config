@@ -15,7 +15,7 @@ in
         volumes = [ "${vars.serviceConfigRoot}/enclosed:/app/.data" ];
         environment =
           {
-            NOTES_MAX_ENCRYPTED_PAYLOAD_LENGTH = 21474836480;
+            NOTES_MAX_ENCRYPTED_PAYLOAD_LENGTH = "21474836480";
             PUBLIC_IS_AUTHENTICATION_REQUIRED = true;
             AUTHENTICATION_USERS = "enclosed@mail.com:1234";
           };
