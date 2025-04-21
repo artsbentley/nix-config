@@ -169,6 +169,15 @@ if test -f $HOME/api_keys.fish
 end
 
 #-------------------------------------------------------------------------------
+# NOTES
+#-------------------------------------------------------------------------------
+if test -d /Users/arar/notes; and test -d /home/arar; and test (uname) = Linux
+    if not test -e /home/arar/notes
+        ln -s /Users/arar/notes /home/arar/notes
+    end
+end
+
+#-------------------------------------------------------------------------------
 # PATH
 #-------------------------------------------------------------------------------
 fish_add_path $HOME/.config/scripts/
