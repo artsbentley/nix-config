@@ -56,8 +56,10 @@ in
 {
   xdg.enable = true;
 
+  # TODO: move these to nixpkgs instead of home manager
   home.packages = [
     pkgs.bat
+    # pkgs.neovim
     pkgs.eza
     pkgs.fd
     pkgs.fzf
@@ -88,9 +90,10 @@ in
 
   fonts.fontconfig.enable = true;
 
-  home.file = {
-    ".config/zsh/initExtra".source = ./initExtra;
-  };
+  # NOTE: no longer needed with fish
+  # home.file = {
+  #   ".config/zsh/initExtra".source = ./initExtra;
+  # };
 
 
   programs = {
@@ -127,7 +130,7 @@ in
     direnv = {
       enable = true;
       enableZshIntegration = true;
-      # enableFishIntegration = true;
+      enableFishIntegration = true;
       nix-direnv.enable = true;
     };
 
@@ -148,16 +151,6 @@ in
             sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
           };
         }
-
-        # {
-        #   name = "fish-gruvbox";
-        #   src = pkgs.fetchFromGitHub {
-        #     owner = "Jomik";
-        #     repo = "fish-gruvbox";
-        #     rev = "master";
-        #     sha256 = "sha256-vL2/Nm9Z9cdaptx8sJqbX5AnRtfd68x4ZKWdQk5Cngo=";
-        #   };
-        # }
       ];
       shellAliases = shellAliases;
       interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" ([
