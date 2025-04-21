@@ -13,6 +13,7 @@ return {
     {
         "williamboman/mason.nvim",
         opts = {
+            PATH = "append",
             ensure_installed = {
                 "stylua",
                 "shellcheck",
@@ -21,7 +22,7 @@ return {
                 "gofumpt",
                 "autopep8",
                 "bash-debug-adapter",
-                -- "black",
+                "black",
                 "bash-language-server",
                 "debugpy",
                 "goimports",
@@ -53,7 +54,7 @@ return {
                 "nil",
                 "protolint",
                 "rnix-lsp",
-				"nixfmt",
+                "nixfmt",
                 "ruff-lsp",
                 "taplo",
                 "typescript-language-server",
