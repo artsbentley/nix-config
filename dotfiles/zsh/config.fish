@@ -181,6 +181,7 @@ end
 # PATH
 #-------------------------------------------------------------------------------
 fish_add_path $HOME/.config/scripts/
+fish_add_path $HOME/.local/share/nvim/mason/bin/
 set -x STU_ROOT_DIR "$XDG_CONFIG_HOME/stu"
 set -x RAINFROG_CONFIG "$XDG_CONFIG_HOME/rainfrog"
 
