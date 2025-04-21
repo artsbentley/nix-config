@@ -83,6 +83,8 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
+    # package = inputs.pkgs-unstable.neovim-unwrapped;
+
   };
 
   security = {
@@ -121,7 +123,7 @@
     stylua
     lua-language-server
     nix-search-tv
-	gitu
+    gitu
 
     # USB harddrive
     usbutils
