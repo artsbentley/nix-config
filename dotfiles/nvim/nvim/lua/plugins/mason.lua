@@ -53,7 +53,7 @@ return {
                 "nil",
                 "protolint",
                 "rnix-lsp",
-				"nixfmt"
+				"nixfmt",
                 "ruff-lsp",
                 "taplo",
                 "typescript-language-server",
