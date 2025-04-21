@@ -38,22 +38,8 @@
     # - use ln instead of stow?
     home.activation =
       let
-
-        #   let
-        #   inherit (pkgs) lib;
-        #   isLinux = pkgs.stdenv.isLinux;
-        #   system = pkgs.stdenv.hostPlatform.system;
-        #   isAarch64Linux = isLinux && lib.strings.hasPrefix "aarch64" system;
-        #   dotfilesDir =
-        #     if isAarch64Linux then
-        #       "$HOME/.config"
-        #     else
-        #       "${config.home.homeDirectory}/nix-config/dotfiles";
-        # in
-
         dotfilesDir = "${config.home.homeDirectory}/nix-config/dotfiles";
       in
-      # TODO: add activation for symlinking orbstack
       {
         dotfileSetup = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           if [ -d "${dotfilesDir}" ]; then
@@ -64,10 +50,17 @@
             echo "Dotfiles directory not found: ${dotfilesDir}"
           fi
         '';
+
+        createNotesSymlink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          if [ "$(uname)" = "Linux" ] && [ -d /Users/arar/notes ] && [ -d /home/arar ]; then
+            if [ ! -e /home/arar/notes ]; then
+              ln -s /Users/arar/notes /home/arar/notes
+            fi
+          fi
+        '';
       };
   };
 }
-
 
 
 # { inputs, lib, config, pkgs, ... }:

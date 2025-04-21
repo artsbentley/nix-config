@@ -171,11 +171,11 @@ end
 #-------------------------------------------------------------------------------
 # NOTES
 #-------------------------------------------------------------------------------
-if test -d /Users/arar/notes; and test -d /home/arar; and test (uname) = Linux
-    if not test -e /home/arar/notes
-        ln -s /Users/arar/notes /home/arar/notes
-    end
-end
+# if test -d /Users/arar/notes; and test -d /home/arar; and test (uname) = Linux
+#     if not test -e /home/arar/notes
+#         ln -s /Users/arar/notes /home/arar/notes
+#     end
+# end
 
 #-------------------------------------------------------------------------------
 # PATH
