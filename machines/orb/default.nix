@@ -121,6 +121,7 @@
     lazygit
     cargo
     stylua
+    marksman
     lua-language-server
     nix-search-tv
     gitu

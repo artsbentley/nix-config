@@ -18,6 +18,7 @@ let
     vim = "nvim";
     mkdir = "mkdir -p";
     home = "cd ~";
+    mhome = "cd /Users/arar";
     c = "clear";
     ":Yazi" = "ya";
     rsyncb = "rsync -av --ignore-existing --info=progress2";

@@ -1,11 +1,11 @@
 return {
 	"neovim/nvim-lspconfig",
 	opts = {
-		inlay_hints = { enabled = false },
 		servers = {
 			pyright = {
 				settings = {
 					pyright = {
+					inlay_hints = { enabled = false },
 						disableOrganizeImports = true,
 					},
 					python = {
