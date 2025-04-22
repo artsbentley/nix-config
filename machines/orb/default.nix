@@ -125,6 +125,7 @@
     lua-language-server
     nix-search-tv
     gitu
+    ruff
 
     # USB harddrive
     usbutils
