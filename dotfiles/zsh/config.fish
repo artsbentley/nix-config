@@ -169,19 +169,18 @@ if test -f $HOME/api_keys.fish
 end
 
 #-------------------------------------------------------------------------------
-# NOTES
-#-------------------------------------------------------------------------------
-# if test -d /Users/arar/notes; and test -d /home/arar; and test (uname) = Linux
-#     if not test -e /home/arar/notes
-#         ln -s /Users/arar/notes /home/arar/notes
-#     end
-# end
-
-#-------------------------------------------------------------------------------
 # PATH
 #-------------------------------------------------------------------------------
 fish_add_path $HOME/.config/scripts/
-# fish_add_path $HOME/.local/share/nvim/mason/bin/
+
+# mason doesn't play nicely with nixos, so we add mason to the end of our path so
+# we can use binaries built with nix
+# Remove any path that contains "mason/bin"
+set PATH (string match -v -r '.*mason/bin.*' $PATH)
+# Append mason path to end — assuming mason is installed here
+set -l mason_path ~/.local/share/nvim/mason/bin
+set -gx PATH $PATH $mason_path
+
 set -x STU_ROOT_DIR "$XDG_CONFIG_HOME/stu"
 set -x RAINFROG_CONFIG "$XDG_CONFIG_HOME/rainfrog"
 
