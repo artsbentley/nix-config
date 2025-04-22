@@ -9,7 +9,7 @@ with lib;
     ];
 
   virtualisation.docker.enable = true;
-  networking.hostName = mkForce "nixos"; # Overwrite the hostname.
+  networking.hostName = mkForce "orbstack"; # Overwrite the hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Amsterdam";
