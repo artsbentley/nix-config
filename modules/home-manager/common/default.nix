@@ -1,4 +1,8 @@
 { inputs, lib, config, pkgs, userConfig, ... }:
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
+in
 {
   nixpkgs = {
     overlays = [
@@ -11,7 +15,7 @@
 
   home.username = userConfig.name;
   home.homeDirectory =
-    if lib.hasPrefix "darwin" config.system then
+    if isDarwin then
       "/Users/${userConfig.name}"
     else
       "/home/${userConfig.name}";
