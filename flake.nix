@@ -54,7 +54,7 @@
       inherit (self) outputs;
 
       users = {
-        nabokikh = {
+        arar = {
           # avatar = ./files/avatar/face;
           email = "arnoarts@hotmail.com";
           fullName = "Arno Arts";
