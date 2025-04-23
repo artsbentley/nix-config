@@ -49,7 +49,7 @@
     nur.url = "github:nix-community/nur";
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, recyclarr-configs, nixvim, nix-index-database, agenix, nur, zen-browser, ... }@inputs:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, recyclarr-configs, nixvim, nix-index-database, agenix, nur, ... }@inputs:
     let
       inherit (self) outputs;
 

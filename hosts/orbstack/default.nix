@@ -7,8 +7,8 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-gpu-amd
     # inputs.hardware.nixosModules.common-pc-ssd
+    # ./hardware-configuration.nix
 
-    ./hardware-configuration.nix
     "${nixosModules}/common"
     "${nixosModules}/desktop/hyprland"
     "${nixosModules}/programs/steam"
