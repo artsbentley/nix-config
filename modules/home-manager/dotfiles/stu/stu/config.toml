@@ -1,0 +1,47 @@
+# The directory to save the downloaded objects.
+# type: string
+download_dir = "$STU_ROOT_DIR/download"
+# The maximum number of concurrent requests when recursive downloading objects.
+# type: usize
+max_concurrent_requests = 5
+# The default region to use if the region cannot be obtained from the command line options or AWS settings.
+# type: string
+default_region = "us-east-1"
+
+[ui.object_list]
+# The date format of a last modified in the object list.
+# The format must be specified in strftime format.
+# https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+# type: string
+date_format = "%Y-%m-%d %H:%M:%S"
+# The width of a last modified in the object list.
+# It is recommended to set this when setting date_format.
+# type: u16
+date_width = 19
+
+[ui.object_detail]
+# The date format of a last modified in the object detail.
+# The format must be specified in strftime format.
+# https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+# type: string
+date_format = "%Y-%m-%d %H:%M:%S"
+
+[ui.help]
+# The maximum width of the keybindings display area in the help.
+# type: usize
+max_help_width = 100
+
+[preview]
+# Whether syntax highlighting is enabled in the object preview.
+# type: bool
+highlight = true
+# The name of the color theme to use for syntax highlighting in the object preview.
+# type: string
+highlight_theme = "base16-ocean.dark"
+# Whether image file preview is enabled in the object preview.
+# type: bool
+image = false
+# Array of labels for the encoding want to use.
+# Label names should be specified from https://encoding.spec.whatwg.org/#names-and-labels.
+# type: array of strings
+encodings = ["utf-8", "utf-16be", "utf-16le"]

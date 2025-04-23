@@ -1,0 +1,64 @@
+{ pkgs, lib, config, ... }:
+{
+  # Declare the custom option
+  options = {
+    stowModules = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "List of directories to stow";
+    };
+  };
+
+  config = {
+    home.packages = with pkgs; [
+      stow
+    ];
+
+    # Move stowModules inside config
+    stowModules = [
+      "nvim"
+      "scripts"
+      "yazi"
+      "lazygit"
+      "oatmeal"
+      "aerospace"
+      "raycast"
+      "direnv"
+      "dive"
+      "wezterm"
+      "gh-dash"
+      "sesh"
+      "stu"
+      "rainfrog"
+      # "hypr"
+    ];
+
+    # TODO:
+    # - use nix system activation instead of home manager
+    # - use ln instead of stow?
+    home.activation =
+      let
+        dotfilesDir = "${config.home.homeDirectory}/nix-config/dotfiles";
+      in
+      # TODO: change to userConfig name instead of arar
+      {
+        dotfileSetup = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          if [ -d "${dotfilesDir}" ]; then
+            pushd "${dotfilesDir}"
+            ${pkgs.stow}/bin/stow -vt $HOME/.config --ignore=\.nix ${lib.concatStringsSep " " config.stowModules}
+            popd
+          else
+            echo "Dotfiles directory not found: ${dotfilesDir}"
+          fi
+        '';
+
+        createNotesSymlink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          if [ "$(uname)" = "Linux" ] && [ -d /Users/arar/notes ] && [ -d /home/arar ]; then
+            if [ ! -e /home/arar/notes ]; then
+              ln -s /Users/arar/notes /home/arar/notes
+            fi
+          fi
+        '';
+      };
+  };
+}

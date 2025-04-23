@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+# Function to check if the operating system is macOS
+isMacOs() {
+	[[ "$(uname)" == "Darwin" ]]
+}
+
+# Function to paste from the clipboard
+paste() {
+	if isMacOs; then
+		pbpaste
+	else
+		xsel -ob
+	fi
+}
+
+# Function to copy to the clipboard
+copy() {
+	if isMacOs; then
+		pbcopy
+	else
+		xclip -selection clipboard
+	fi
+}
+
+# Main script logic
+if [ $# -eq 1 ]; then
+	readlink -f "$1" | xargs echo -n | copy
+elif [ ! -t 0 ]; then
+	copy
+else
+	paste
+fi
