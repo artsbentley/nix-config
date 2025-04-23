@@ -100,6 +100,7 @@
                 hostConfig = hosts.${hostname};
                 nhModules = "${self}/modules/home-manager";
               };
+              home-manager.backupFileExtension = "bak";
               home-manager.users.${username} = {
                 imports = [
                   agenix.homeManagerModules.default
@@ -108,7 +109,6 @@
                   # ./users/arar/dotfiles.nix
                   # ./machines/surface-nixos/stylix.nix
                 ];
-                home-manager.backupFileExtension = "bak";
               };
             }
           ];
