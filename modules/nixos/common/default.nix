@@ -9,9 +9,9 @@
 }: {
   # Nixpkgs configuration
   nixpkgs = {
-    overlays = [
-      outputs.overlays.stable-packages
-    ];
+    # overlays = [
+    #   outputs.overlays.stable-packages
+    # ];
 
     config = {
       allowUnfree = true;
