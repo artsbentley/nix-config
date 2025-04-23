@@ -143,7 +143,7 @@
         "share"
       ];
       isNormalUser = true;
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
     };
     groups = {
       ${userConfig.name} = {
