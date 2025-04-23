@@ -10,7 +10,7 @@
     # ./hardware-configuration.nix
 
     "${nixosModules}/common"
-    "./orbstack.nix"
+    ./orbstack.nix
   ];
 
   # Set hostname
