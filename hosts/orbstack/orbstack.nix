@@ -7,10 +7,10 @@
 with lib;
 
 {
-  imports =
-    [
-      "${modulesPath}/virtualisation/lxc-container.nix"
-    ];
+  # imports =
+  # [
+  #   "${modulesPath}/virtualisation/lxc-container.nix"
+  # ];
 
   # sudoers
   security.sudo.extraRules = [
