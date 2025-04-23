@@ -1,6 +1,7 @@
 { inputs
 , hostname
 , nixosModules
+, system
 , ...
 }: {
   imports = [
@@ -15,11 +16,13 @@
 
   # Set hostname
   networking.hostName = hostname;
+  nixpkgs.hostPlatform = system;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‚Äòs perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
+  #
   system.stateVersion = "24.11";
 }
 
