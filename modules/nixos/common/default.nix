@@ -198,6 +198,9 @@
   # expand or decide that this should go in a dedicated module such as
   # "homelab"
   ++ lib.optionals hostConfig.isHomelab [
+  ]
+  ++ lib.optionals (!hostConfig.isHomelab) [
+    rainfrog
   ];
 
   # Docker configuration
