@@ -177,11 +177,19 @@
     sqlite
     wget
     nodejs
+    go
+    cargo
+    rust
 
     # maybe only for non VM?
     usbutils
     udiskie
     udisks
+  ]
+  # TODO: 
+  # expand or decide that this should go in a dedicated module such as
+  # "homelab"
+  ++ lib.optionals hostConfig.isHomelab [
   ];
 
   # Docker configuration
