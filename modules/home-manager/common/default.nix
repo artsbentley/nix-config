@@ -52,6 +52,7 @@ in
     # CLI
     yazi
     neovim
+    go
     gh
     tmux
     wget
