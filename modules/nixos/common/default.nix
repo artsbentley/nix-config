@@ -185,6 +185,7 @@
     ruff
     stylua
     lua-language-server
+    marksman
     restic
     sesh
 
