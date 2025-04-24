@@ -49,6 +49,7 @@ in
     golangci-lint
     wezterm
     lazydocker
+    lazygit
     # CLI
     yazi
     neovim
