@@ -186,6 +186,7 @@
     stylua
     lua-language-server
     restic
+    sesh
 
     # maybe only for non VM?
     usbutils
