@@ -4,6 +4,10 @@ let
   isLinux = pkgs.stdenv.isLinux;
 in
 {
+  imports = [
+    ../dotfiles
+  ];
+
   nixpkgs = {
     overlays = [
     ];
@@ -13,12 +17,12 @@ in
     };
   };
 
+  # Home-Manager configuration for the user's home environment
   home.username = userConfig.name;
   home.homeDirectory =
-    if isDarwin then
-      "/Users/${userConfig.name}"
-    else
-      "/home/${userConfig.name}";
+    if isDarwin
+    then "/Users/${userConfig.name}"
+    else "/home/${userConfig.name}";
 
   programs.nix-index = {
     enable = true;
@@ -30,12 +34,8 @@ in
 
   # import modules instead of directly installing packages here
   home.packages = with pkgs; [
-    gh
-    tmux
-    yazi
     # direnv
     # atuin
-    wget
     # xclip
     htop
     sops
@@ -43,12 +43,37 @@ in
     # nerdfonts
     nodejs
     luarocks
-    unzip
     templ
     ruff
     d2
     golangci-lint
     wezterm
+    lazydocker
+    # CLI
+    yazi
+    nvim
+    gh
+    tmux
+    wget
+    unzip
+    eza
+    fd
+    ripgrep
+    jq
+  ]
+  # Ensure common packages are installed
+  ++ lib.optionals isDarwin [
+    colima
+    docker
+    hidden-bar
+    raycast
+  ]
+  ++ lib.optionals (!isDarwin) [
+    pavucontrol
+    pulseaudio
+    tesseract
+    unzip
+    wl-clipboard
   ];
 }
 

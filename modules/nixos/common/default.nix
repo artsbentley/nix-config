@@ -84,17 +84,6 @@
 
   # Internationalization
   i18n.defaultLocale = "en_US.UTF-8";
-  # i18n.extraLocaleSettings = {
-  #   LC_ADDRESS = "en_IE.UTF-8";
-  #   LC_IDENTIFICATION = "en_IE.UTF-8";
-  #   LC_MEASUREMENT = "en_IE.UTF-8";
-  #   LC_MONETARY = "en_IE.UTF-8";
-  #   LC_NAME = "en_IE.UTF-8";
-  #   LC_NUMERIC = "en_IE.UTF-8";
-  #   LC_PAPER = "en_IE.UTF-8";
-  #   LC_TELEPHONE = "en_IE.UTF-8";
-  #   LC_TIME = "en_IE.UTF-8";
-  # };
 
   # Input settings
   services.libinput.enable = true;
@@ -171,12 +160,28 @@
   security.sudo.wheelNeedsPassword = false;
 
   # System packages
+  # TODO: add more conditionals if the hostConfig is a homelab
   environment.systemPackages = with pkgs; [
     gcc
+    jq
     glib
     gnumake
+    inputs.agenix.packages."${system}".default
+    iperf3
     killall
     mesa
+    neovim
+    python313
+    ripgrep
+    rsync
+    sqlite
+    wget
+    nodejs
+
+    # maybe only for non VM?
+    usbutils
+    udiskie
+    udisks
   ];
 
   # Docker configuration

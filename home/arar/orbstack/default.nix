@@ -1,7 +1,6 @@
 { userConfig, nhModules, ... }: {
   imports = [
     "${nhModules}/common"
-    "${nhModules}/dotfiles"
   ];
 
   # Enable home-manager
