@@ -183,6 +183,8 @@
     stow
     nix-search-tv
     ruff
+    stylua
+    lua-language-server
 
     # maybe only for non VM?
     usbutils
