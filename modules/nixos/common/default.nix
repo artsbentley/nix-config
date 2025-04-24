@@ -185,6 +185,7 @@
     ruff
     stylua
     lua-language-server
+    restic
 
     # maybe only for non VM?
     usbutils
