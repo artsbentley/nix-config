@@ -51,7 +51,7 @@ in
     lazydocker
     # CLI
     yazi
-    nvim
+    neovim
     gh
     tmux
     wget
