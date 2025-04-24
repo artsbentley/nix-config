@@ -179,7 +179,7 @@
     nodejs
     go
     cargo
-    rust
+    # rust
 
     # maybe only for non VM?
     usbutils
