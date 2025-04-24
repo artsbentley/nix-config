@@ -179,7 +179,10 @@
     nodejs
     go
     cargo
-    # rust
+    rustc
+    stow
+    nix-search-tv
+    ruff
 
     # maybe only for non VM?
     usbutils

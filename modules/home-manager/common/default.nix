@@ -68,6 +68,7 @@ in
     docker
     hidden-bar
     raycast
+    orbstack
   ]
   ++ lib.optionals (!isDarwin) [
     pavucontrol
