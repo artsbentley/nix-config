@@ -13,7 +13,7 @@ in
   ];
   programs.wezterm = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true;
     # enableZshIntegration = true;
   };
 }
