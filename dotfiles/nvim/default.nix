@@ -1,6 +1,10 @@
 { inputs, lib, config, pkgs, ... }:
 
 {
+  home.packages = [
+    pkgs.neovim
+  ];
+
   programs.neovim = {
     extraLuaPackages = (ps: with ps; [ luarocks rocks-nvim ]);
     extraPackages = with pkgs; [
