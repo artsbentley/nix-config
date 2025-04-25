@@ -1,7 +1,9 @@
-{ userConfig, nhModules, ... }: {
+{ inputs, userConfig, nhModules, ... }: {
   imports = [
     "${nhModules}/common"
   ];
+
+  _module.args.inputs = inputs; # This makes `inputs` available in config
 
   # Enable home-manager
   programs.home-manager.enable = true;
