@@ -5,7 +5,6 @@
   imports = [
     ./zsh/default.nix
     ./git/default.nix
-    ./nvim/default.nix
     ./tmux/default.nix
     ./yazi/default.nix
     # ./hypr/default.nix
@@ -14,6 +13,7 @@
     ./dive
     ./gh-dash
     ./lazygit
+    ./neovim
 
 
     # TODO: only on darwin

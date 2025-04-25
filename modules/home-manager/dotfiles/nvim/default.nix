@@ -1,6 +1,13 @@
 { inputs, lib, config, pkgs, ... }:
-
+let
+  program = "nvim";
+  filePath = config.home.homeDirectory + "/nix-config/modules/home-manager/dotfiles/${program}/${program}/";
+  configSrc = config.lib.file.mkOutOfStoreSymlink filePath;
+in
 {
+  # home.packages = [ pkgs.neovim ];
+  xdg.configFile."${program}".source = configSrc;
+
   programs.neovim = {
     extraLuaPackages = (ps: with ps; [ luarocks rocks-nvim ]);
     extraPackages = with pkgs; [
