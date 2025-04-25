@@ -17,6 +17,8 @@
     ./oatmeal
     ./rainfrog
     ./scripts
+    ./sesh
+    ./stu
 
 
     # TODO: only on darwin

@@ -18,8 +18,6 @@
     stowModules = [
       "yazi"
       "wezterm"
-      "sesh"
-      "stu"
       # "hypr"
     ];
 
