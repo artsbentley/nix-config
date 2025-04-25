@@ -17,6 +17,10 @@ in
     };
   };
 
+  xdg.configFile = {
+    "test.txt".source = config.lib.meta.mkMutableSymlink ../dotfiles/test.txt;
+  };
+
   # Home-Manager configuration for the user's home environment
   home.username = userConfig.name;
   home.homeDirectory =
