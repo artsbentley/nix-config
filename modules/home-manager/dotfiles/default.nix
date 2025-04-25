@@ -3,8 +3,7 @@
 # have logic here depending on machine what to import
 {
   imports = [
-    # ./zsh/default.nix
-    ./git/default.nix
+    ./git
     # ./hypr/default.nix
 
     ./shell
@@ -22,6 +21,9 @@
     ./wezterm
     ./yazi
     ./bat
+    ./starship
+    ./zoxide
+    ./atuin
 
 
 
