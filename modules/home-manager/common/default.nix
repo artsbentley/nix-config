@@ -2,12 +2,6 @@
 let
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
-
-  configPath = "${config.home.homeDirectory}/nix-config/dotfiles";
-  mkMutableSymlink = path:
-    config.lib.file.mkOutOfStoreSymlink (
-      configPath + lib.strings.removePrefix (toString inputs.self) (toString path)
-    );
 in
 {
   imports = [
@@ -20,10 +14,6 @@ in
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
     };
-  };
-
-  xdg.configFile = {
-    "test.txt".source = mkMutableSymlink "test.txt";
   };
 
   # Home-Manager configuration for the user's home environment

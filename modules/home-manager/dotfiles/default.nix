@@ -10,6 +10,10 @@
     ./yazi/default.nix
     # ./hypr/default.nix
 
-    ./symlink.nix
+    # TODO: only on darwin
+    # darwin
+    ./aerospace
+
+    # ./symlink.nix
   ];
 }
