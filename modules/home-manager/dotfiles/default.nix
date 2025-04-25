@@ -13,7 +13,7 @@
     ./dive
     ./gh-dash
     ./lazygit
-    ./neovim
+    ./nvim
 
 
     # TODO: only on darwin
