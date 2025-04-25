@@ -23,18 +23,8 @@ in
   };
 
   xdg.configFile = {
-    home.file."hahahahaha.txt".source = mkMutableSymlink ./test.txt;
+    "test.txt".source = mkMutableSymlink "test.txt";
   };
-  # xdg.configFile = {
-  #   "test.txt".source = config.lib.file.mkOutOfStoreSymlink "~/nix-config/dotfiles/test/test.txt";
-  # };
-
-  # lib.meta = {
-  #   configpath = "${config.my.home}/nix-config/dotfiles";
-  #   mkmutablesymlink = path: config.hm.lib.file.mkoutofstoresymlink
-  #     (config.lib.meta.configpath + lib.strings.removeprefix (tostring inputs.self) (tostring path));
-  # };
-
 
   # Home-Manager configuration for the user's home environment
   home.username = userConfig.name;
