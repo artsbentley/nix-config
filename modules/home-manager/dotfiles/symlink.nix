@@ -18,12 +18,10 @@
     stowModules = [
       "scripts"
       "yazi"
-      "oatmeal"
       "raycast"
       "wezterm"
       "sesh"
       "stu"
-      "rainfrog"
       # "hypr"
     ];
 

@@ -14,6 +14,8 @@
     ./gh-dash
     ./lazygit
     ./nvim
+    ./oatmeal
+    ./rainfrog
 
 
     # TODO: only on darwin
