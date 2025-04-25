@@ -31,12 +31,6 @@
     "/home/${userConfig.name}/.ssh/id_rsa"
   ];
 
-  lib.meta = {
-    configPath = "${config.my.home}/nix-config/dotfiles";
-    mkMutableSymlink = path: config.hm.lib.file.mkOutOfStoreSymlink
-      (config.lib.meta.configPath + lib.strings.removePrefix (toString inputs.self) (toString path));
-  };
-
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -193,6 +187,7 @@
     marksman
     restic
     sesh
+    gleam
 
     # maybe only for non VM?
     usbutils
