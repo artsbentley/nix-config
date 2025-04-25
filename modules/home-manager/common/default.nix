@@ -24,13 +24,14 @@ in
     ../dotfiles/starship
     ../dotfiles/zoxide
     ../dotfiles/atuin
-    #s TODO: only on darwin
-    # darwin
+  ]
+  ++ (if isDarwin then [
     ../dotfiles/aerospace
     ../dotfiles/raycast
-    # TODO: desktop 
-    # ./hypr/default.nix
-  ];
+  ] else [ ]);
+
+  # TODO: desktop 
+  # ./hypr/default.nix
 
   nixpkgs = {
     overlays = [ ];
