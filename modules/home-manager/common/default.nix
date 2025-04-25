@@ -5,7 +5,31 @@ let
 in
 {
   imports = [
-    ../dotfiles
+    ../dotfiles/git
+    ../dotfiles/shell
+    ../dotfiles/direnv
+    ../dotfiles/dive
+    ../dotfiles/gh-dash
+    ../dotfiles/lazygit
+    ../dotfiles/nvim
+    ../dotfiles/oatmeal
+    ../dotfiles/rainfrog
+    ../dotfiles/scripts
+    ../dotfiles/sesh
+    ../dotfiles/stu
+    ../dotfiles/tmux
+    ../dotfiles/wezterm
+    ../dotfiles/yazi
+    ../dotfiles/bat
+    ../dotfiles/starship
+    ../dotfiles/zoxide
+    ../dotfiles/atuin
+    #s TODO: only on darwin
+    # darwin
+    ../dotfiles/aerospace
+    ../dotfiles/raycast
+    # TODO: desktop 
+    # ./hypr/default.nix
   ];
 
   nixpkgs = {
