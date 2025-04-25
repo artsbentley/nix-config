@@ -12,6 +12,8 @@
 
     ./direnv
     ./dive
+    ./gh-dash
+    ./lazygit
 
 
     # TODO: only on darwin
