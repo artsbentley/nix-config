@@ -22,7 +22,9 @@ in
     };
   };
 
-  home.file."hahahahaha.txt".source = mkMutableSymlink ./test.txt;
+  xdg.configFile = {
+    home.file."hahahahaha.txt".source = mkMutableSymlink ./test.txt;
+  };
   # xdg.configFile = {
   #   "test.txt".source = config.lib.file.mkOutOfStoreSymlink "~/nix-config/dotfiles/test/test.txt";
   # };
