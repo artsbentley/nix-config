@@ -1,9 +1,0 @@
-[[session]]
-name = "notes"
-path = "~/notes/obsidian/notes/"
-startup_command = "nvim"
-
-[[session]]
-name = "nix-config"
-path = "~/nix-config/"
-startup_command = "nvim"

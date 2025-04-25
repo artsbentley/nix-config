@@ -1,4 +1,0 @@
-[global]
-warn_timeout = "1m"
-load_dotenv = true
-disable_stdin = true

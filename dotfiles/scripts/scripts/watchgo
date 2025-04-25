@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-watchexec --restart --clear --quiet --no-process-group --stop-signal SIGKILL -- golangci-lint run 
-
