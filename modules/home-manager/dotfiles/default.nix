@@ -3,10 +3,11 @@
 # have logic here depending on machine what to import
 {
   imports = [
-    ./zsh/default.nix
+    # ./zsh/default.nix
     ./git/default.nix
     # ./hypr/default.nix
 
+    ./shell
     ./direnv
     ./dive
     ./gh-dash
@@ -20,6 +21,8 @@
     ./tmux
     ./wezterm
     ./yazi
+    ./bat
+
 
 
     # TODO: only on darwin
@@ -27,6 +30,7 @@
     ./aerospace
     ./raycast
 
-    # ./symlink.nix
+    # TODO:
+    # do hyprland and other desktop specific configuration
   ];
 }
