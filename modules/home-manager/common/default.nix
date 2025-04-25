@@ -4,31 +4,31 @@ let
   isLinux = pkgs.stdenv.isLinux;
 in
 {
-  imports = [
-    ../dotfiles/git
-    ../dotfiles/shell
-    ../dotfiles/direnv
-    ../dotfiles/dive
-    ../dotfiles/gh-dash
-    ../dotfiles/lazygit
-    ../dotfiles/nvim
-    ../dotfiles/oatmeal
-    ../dotfiles/rainfrog
-    ../dotfiles/scripts
-    ../dotfiles/sesh
-    ../dotfiles/stu
-    ../dotfiles/tmux
-    ../dotfiles/wezterm
-    ../dotfiles/yazi
-    ../dotfiles/bat
-    ../dotfiles/starship
-    ../dotfiles/zoxide
-    ../dotfiles/atuin
-  ]
-  ++ (if isDarwin then [
-    ../dotfiles/aerospace
-    ../dotfiles/raycast
-  ] else [ ]);
+  imports =
+    [
+      ../dotfiles/atuin
+      ../dotfiles/bat
+      ../dotfiles/direnv
+      ../dotfiles/dive
+      ../dotfiles/gh-dash
+      ../dotfiles/git
+      ../dotfiles/lazygit
+      ../dotfiles/nvim
+      ../dotfiles/oatmeal
+      ../dotfiles/rainfrog
+      ../dotfiles/scripts
+      ../dotfiles/sesh
+      ../dotfiles/shell
+      ../dotfiles/starship
+      ../dotfiles/stu
+      ../dotfiles/tmux
+      ../dotfiles/wezterm
+      ../dotfiles/yazi
+      ../dotfiles/zoxide
+      # DARWIN
+      ../dotfiles/aerospace
+      ../dotfiles/raycast
+    ];
 
   # TODO: desktop 
   # ./hypr/default.nix
