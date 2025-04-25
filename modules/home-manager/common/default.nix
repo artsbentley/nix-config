@@ -6,7 +6,7 @@ let
   configPath = "${config.home.homeDirectory}/nix-config/dotfiles";
   mkMutableSymlink = path:
     config.lib.file.mkOutOfStoreSymlink (
-      configPath + lib.strings.removePrefix (toString config.inputs.self) (toString path)
+      configPath + lib.strings.removePrefix (toString inputs.self) (toString path)
     );
 in
 {
