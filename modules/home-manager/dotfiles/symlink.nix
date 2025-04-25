@@ -17,7 +17,6 @@
     # Move stowModules inside config
     stowModules = [
       "yazi"
-      "wezterm"
       # "hypr"
     ];
 

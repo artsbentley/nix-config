@@ -5,7 +5,6 @@ let
   configSrc = config.lib.file.mkOutOfStoreSymlink filePath;
 in
 {
-  # home.packages = [ pkgs.aerospace ];
   xdg.configFile."${program}".source = configSrc;
 }
 

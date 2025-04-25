@@ -5,7 +5,6 @@
   imports = [
     ./zsh/default.nix
     ./git/default.nix
-    ./tmux/default.nix
     ./yazi/default.nix
     # ./hypr/default.nix
 
@@ -19,6 +18,8 @@
     ./scripts
     ./sesh
     ./stu
+    ./tmux
+    ./wezterm
 
 
     # TODO: only on darwin
