@@ -10,6 +10,10 @@
     ./yazi/default.nix
     # ./hypr/default.nix
 
+    ./direnv
+    ./dive
+
+
     # TODO: only on darwin
     # darwin
     ./aerospace
