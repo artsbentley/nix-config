@@ -16,11 +16,13 @@
     ./nvim
     ./oatmeal
     ./rainfrog
+    ./scripts
 
 
     # TODO: only on darwin
     # darwin
     ./aerospace
+    ./raycast
 
     # ./symlink.nix
   ];

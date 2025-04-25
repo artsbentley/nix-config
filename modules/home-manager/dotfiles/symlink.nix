@@ -16,9 +16,7 @@
 
     # Move stowModules inside config
     stowModules = [
-      "scripts"
       "yazi"
-      "raycast"
       "wezterm"
       "sesh"
       "stu"
