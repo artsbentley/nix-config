@@ -2,7 +2,7 @@
 {
   programs.atuin = {
     enable = true;
-    # flags = [ "--disable-up-arrow" ];
+    flags = [ "--disable-up-arrow" ];
     enableZshIntegration = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
