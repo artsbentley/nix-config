@@ -25,6 +25,9 @@ let
     ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
 
     # GIT 
+    gs = "git status --short";
+    gc = "git commit";
+    ga = "git add";
     gpl = "git pull --rebase --autostash";
     ghinit = "gh repo create $(basename '$PWD ') --private --source=. --remote=origin";
     gfo = "git fetch origin --prune";

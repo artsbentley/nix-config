@@ -24,6 +24,8 @@
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
     };
     extraConfig = {
+      url."git@github.com:artsbentley/".insteadOf = "me:";
+      url."git@github.com:".insteadOf = "gh:";
       credential.helper = "${pkgs.gh}/bin/gh auth git-credential";
       #  TODO:  setup this kind of credential store
       #  credential.helper = "store";
