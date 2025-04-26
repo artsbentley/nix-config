@@ -27,12 +27,19 @@ let
     # GIT 
     gs = "git status --short";
     gc = "git commit";
+    gcl = "git clone";
+    gl = "git log --graph --all --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n'";
+    gd = "git diff";
+    gn = "git checkout -b";
+    gco = "git checkout";
     ga = "git add";
     gpl = "git pull --rebase --autostash";
     ghinit = "gh repo create $(basename '$PWD ') --private --source=. --remote=origin";
     gfo = "git fetch origin --prune";
 
     # DOCKER
+    dps = "docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'";
+    dl = "docker logs --tail=100";
     stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder prune -f -a && podman network prune -f && podman image prune -a -f && podman container prune -f";
     startdocker = "sudo systemctl start --all 'podman-*'";
     # update = "cd ~/nix-config && git pull && sudo nixos-rebuild switch --flake .#arar && cd -";

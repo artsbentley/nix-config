@@ -9,6 +9,7 @@
     enable = true;
     userName = "artsbentley";
     userEmail = "artsbentley@gmail.com";
+    # TODO: add signing key
     delta = {
       enable = true;
       options = {
@@ -20,13 +21,17 @@
         hyperlinks = true;
       };
     };
+
+
     aliases = {
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
     };
     extraConfig = {
-      url."git@github.com:artsbentley/".insteadOf = "me:";
-      url."git@github.com:".insteadOf = "gh:";
+      url."https://github.com/artsbentley/".insteadOf = "me:";
+      url."https://github.com/".insteadOf = "gh:";
+
       credential.helper = "${pkgs.gh}/bin/gh auth git-credential";
+
       #  TODO:  setup this kind of credential store
       #  credential.helper = "store";
       #       credential."https://github.com" = {
@@ -38,18 +43,60 @@
       #             password = builtins.readFile ../secrets/github.password;
       #           };
       #       };
-      rebase.updateRefs = true;
+
       branch.autosetuprebase = "always";
       color.ui = true;
       core = {
         excludesfile = "~/.config/git/ignore";
         autocrlf = "input";
+        compression = 9;
+        fsync = "none";
       };
+
+      log = {
+        abbrevCommit = true;
+        graphColors = "blue,yellow,cyan,magenta,green,red";
+      };
+
+      blame = {
+        coloring = "highlightRecent";
+        date = "relative";
+      };
+
+      diff = {
+        context = 3;
+        renames = "copies";
+        interHunkContext = 10;
+      };
+
       init = {
         defaultBranch = "main";
       };
-      pull.rebase = true;
-      push.default = "tracking";
+
+      status = {
+        branch = true;
+        short = true;
+        showStash = true;
+        showUntrackedFiles = "all";
+      };
+
+      pull = {
+        rebase = true;
+      };
+
+      push = {
+        # default = "tracking";
+        autoSetupRemote = true;
+        default = "current";
+        followTags = true;
+        gpgSign = false;
+      };
+
+      rebase = {
+        autoStash = true;
+        updateRefs = true;
+      };
+
     };
 
     # extraConfig = {
