@@ -4,9 +4,17 @@ let
   isLinux = pkgs.stdenv.isLinux;
 
   shellAliases = {
+
+    # Aliases: editor
+    vi = "nvim";
+    vim = "nvim";
+
+    # Aliases: ls
     la = "ls --color -lha";
     l = "${pkgs.eza}/bin/eza --group-directories-first -lbF -l --icons -a --git --sort=type --color=always";
     lt = "${pkgs.eza}/bin/eza --color=auto --tree";
+
+
     cal = "cal -m";
     cat = "bat";
     grep = "rg --color=auto";
@@ -14,8 +22,6 @@ let
     # du = "du -ch";
     fd = "fd --color=auto";
     ipp = "curl ipinfo.io/ip";
-    vi = "nvim";
-    vim = "nvim";
     mkdir = "mkdir -p";
     home = "cd ~";
     mhome = "cd /Users/arar";
@@ -24,7 +30,10 @@ let
     rsyncb = "rsync -av --ignore-existing --info=progress2";
     ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
 
-    # GIT 
+    # Aliases: systemd
+    jd = "journalctl --no-pager";
+
+    # Aliases: git
     gs = "git status --short";
     gc = "git commit";
     gcl = "git clone";
@@ -37,7 +46,7 @@ let
     ghinit = "gh repo create $(basename '$PWD ') --private --source=. --remote=origin";
     gfo = "git fetch origin --prune";
 
-    # DOCKER
+    # Aliases: docker
     dps = "docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'";
     dl = "docker logs --tail=100";
     stopdocker = "sudo systemctl stop --all 'podman-*' && podman builder prune -f -a && podman network prune -f && podman image prune -a -f && podman container prune -f";
