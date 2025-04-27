@@ -19,6 +19,8 @@
         dark = true;
         side-by-side = true;
         hyperlinks = true;
+        file-style = "bold yellow";
+        hunk-header-style = "bold magenta";
       };
     };
 
