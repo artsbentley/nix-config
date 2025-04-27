@@ -2,8 +2,8 @@
 let
   directories = [
     "${vars.serviceConfigRoot}/vaultwarden"
-    "${vars.nasMount}/Backups/vaultwarden/arar/data"
-    "${vars.nasMount}/Backups/vaultwarden/arar/attachment"
+    "${vars.homelabNasMount}/Backups/vaultwarden/arar/data"
+    "${vars.homelabNasMount}/Backups/vaultwarden/arar/attachment"
   ];
 in
 {
@@ -29,8 +29,8 @@ in
       #   image = "0netx/bw-export";
       #   autoStart = true;
       #   volumes = [
-      #     "${vars.nasMount}/Backups/vaultwarden/arar/data:/var/data"
-      #     "${vars.nasMount}/Backups/vaultwarden/arar/attachment:/var/attachment"
+      #     "${vars.homelabNasMount}/Backups/vaultwarden/arar/data:/var/data"
+      #     "${vars.homelabNasMount}/Backups/vaultwarden/arar/attachment:/var/attachment"
       #   ];
       #   environmentFiles = [ config.age.secrets.vaultwarden.path ];
       #   environment = {

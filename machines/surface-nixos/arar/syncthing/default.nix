@@ -23,7 +23,7 @@ in
       cert = config.age.secrets.syncthingCert.path;
       overrideFolders = true;
       overrideDevices = true;
-      dataDir = "${vars.nasMount}/Syncthing";
+      dataDir = "${vars.homelabNasMount}/Syncthing";
       configDir = "${vars.serviceConfigRoot}/syncthing";
       settings = {
         gui = {
@@ -36,15 +36,15 @@ in
         };
         folders = {
           "Downloads" = {
-            path = "${vars.nasMount}/Syncthing/Downloads";
+            path = "${vars.homelabNasMount}/Syncthing/Downloads";
             devices = [ "arar-mac" ];
           };
           # "root-syncthing" = {
-          #   path = "${vars.nasMount}/Syncthing";
+          #   path = "${vars.homelabNasMount}/Syncthing";
           #   devices = [ "arar-iphone" ];
           # };
           "obsidian" = {
-            path = "${vars.nasMount}/Syncthing/obsidian";
+            path = "${vars.homelabNasMount}/Syncthing/obsidian";
             devices = [ "arar-iphone" "arar-mac" ];
             ignorePerms = true;
           };

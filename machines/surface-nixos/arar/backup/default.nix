@@ -1,7 +1,7 @@
 { vars, users, pkgs, config, lib, ... }:
 {
   systemd.tmpfiles.rules = [
-    "d ${vars.nasMount}/Backups/restic 0775 share share - -"
+    "d ${vars.homelabNasMount}/Backups/restic 0775 share share - -"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -11,7 +11,7 @@
   # services.borgbackup.jobs.parents-backup = {
   #   doInit = false;
   #   paths = [
-  #     "${vars.nasMount}/YoutubeArchive"
+  #     "${vars.homelabNasMount}/YoutubeArchive"
   #     "${vars.cacheArray}/Documents"
   #   ];
   #   encryption = {
@@ -37,7 +37,7 @@
   services.restic = {
     server = {
       enable = true;
-      # dataDir = "${vars.nasMount}/Backups/restic/datadir";
+      # dataDir = "${vars.homelabNasMount}/Backups/restic/datadir";
       dataDir = "/var/lib/restic";
       extraFlags = [
         "--no-auth"
@@ -49,7 +49,7 @@
           OnCalendar = "05:00";
           Persistent = true;
         };
-        repository = "${vars.nasMount}/Backups/restic/appdata";
+        repository = "${vars.homelabNasMount}/Backups/restic/appdata";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
         pruneOpts = [ "--keep-last 20" ];

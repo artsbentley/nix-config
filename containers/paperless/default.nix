@@ -5,11 +5,11 @@ let
   # become difficult to seperate them or refactor the directory location
   directories = [
     "${vars.serviceConfigRoot}/paperless"
-    "${vars.nasMount}/Documents"
-    "${vars.nasMount}/Documents/Paperless"
-    "${vars.nasMount}/Documents/Paperless/Documents"
-    "${vars.nasMount}/Documents/Paperless/Import"
-    "${vars.nasMount}/Documents/Paperless/Export"
+    "${vars.homelabNasMount}/Documents"
+    "${vars.homelabNasMount}/Documents/Paperless"
+    "${vars.homelabNasMount}/Documents/Paperless/Documents"
+    "${vars.homelabNasMount}/Documents/Paperless/Import"
+    "${vars.homelabNasMount}/Documents/Paperless/Export"
   ];
 in
 {
@@ -35,7 +35,7 @@ in
   #   settings = {
   #     address = "0.0.0.0";
   #     port = 8088;
-  #     scope = "${vars.nasMount}/Documents/Paperless/Import";
+  #     scope = "${vars.homelabNasMount}/Documents/Paperless/Import";
   #     modify = true;
   #     auth = true;
   #     users = [
@@ -58,9 +58,9 @@ in
           "--device=/dev/dri:/dev/dri"
         ];
         volumes = [
-          "${vars.nasMount}/Documents/Paperless/Documents:/usr/src/paperless/media"
-          "${vars.nasMount}/Documents/Paperless/Import:/usr/src/paperless/consume"
-          "${vars.nasMount}/Documents/Paperless/Export:/usr/src/paperless/export"
+          "${vars.homelabNasMount}/Documents/Paperless/Documents:/usr/src/paperless/media"
+          "${vars.homelabNasMount}/Documents/Paperless/Import:/usr/src/paperless/consume"
+          "${vars.homelabNasMount}/Documents/Paperless/Export:/usr/src/paperless/export"
           "${vars.serviceConfigRoot}/paperless:/usr/src/paperless/data"
         ];
         environmentFiles = [

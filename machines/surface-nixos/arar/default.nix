@@ -38,7 +38,7 @@
   };
 
   # TODO: add NAS if needed
-  # fileSystems."${vars.nasMount}" =
+  # fileSystems."${vars.homelabNasMount}" =
   #   {
   #     device = "//192.168.1.123/servermount";
   #     fsType = "cifs";

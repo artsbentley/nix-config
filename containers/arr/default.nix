@@ -14,12 +14,12 @@ let
     "${vars.serviceConfigRoot}/prowlarr"
     "${vars.serviceConfigRoot}/recyclarr"
     "${vars.serviceConfigRoot}/bazarr"
-    "${vars.nasMount}/Media/Downloads"
-    "${vars.nasMount}/Media/TV"
-    "${vars.nasMount}/Media/Movies"
-    "${vars.nasMount}/Media/Music"
-    "${vars.nasMount}/Media/Audiobooks"
-    "${vars.nasMount}/Media/Books"
+    "${vars.homelabNasMount}/Media/Downloads"
+    "${vars.homelabNasMount}/Media/TV"
+    "${vars.homelabNasMount}/Media/Movies"
+    "${vars.homelabNasMount}/Media/Music"
+    "${vars.homelabNasMount}/Media/Audiobooks"
+    "${vars.homelabNasMount}/Media/Books"
   ];
 in
 {
@@ -144,8 +144,8 @@ in
         # TODO: sort out proper directory structure and permissions
         volumes = [
           "${vars.serviceConfigRoot}/qbittorrent:/config"
-          "${vars.nasMount}/Media/Downloads:/data/torrents"
-          "${vars.nasMount}/Media/Downloads:/downloads"
+          "${vars.homelabNasMount}/Media/Downloads:/data/torrents"
+          "${vars.homelabNasMount}/Media/Downloads:/downloads"
         ];
       };
 
@@ -155,8 +155,8 @@ in
         dependsOn = [ "gluetun" ];
         extraOptions = [ "--network=container:gluetun" ];
         volumes = [
-          "${vars.nasMount}/Media/Downloads:/downloads"
-          "${vars.nasMount}/Media/TV:/tv"
+          "${vars.homelabNasMount}/Media/Downloads:/downloads"
+          "${vars.homelabNasMount}/Media/TV:/tv"
           "${vars.serviceConfigRoot}/sonarr:/config"
         ];
         environment = {
@@ -196,8 +196,8 @@ in
           "--pull=always"
         ];
         volumes = [
-          "${vars.nasMount}/Media/Downloads:/downloads"
-          "${vars.nasMount}/Media/Movies:/movies"
+          "${vars.homelabNasMount}/Media/Downloads:/downloads"
+          "${vars.homelabNasMount}/Media/Movies:/movies"
           "${vars.serviceConfigRoot}/radarr:/config"
         ];
         environment = {
@@ -213,8 +213,8 @@ in
         extraOptions = [ "--network=container:gluetun" ];
         volumes = [
           "${vars.serviceConfigRoot}/bazarr:/config"
-          "${vars.nasMount}/Media/Movies:/movies"
-          "${vars.nasMount}/Media/TV:/tv"
+          "${vars.homelabNasMount}/Media/Movies:/movies"
+          "${vars.homelabNasMount}/Media/TV:/tv"
         ];
         # extraOptions = [ "--network=host" ];
         environment = {
@@ -229,7 +229,7 @@ in
         autoStart = true;
         volumes = [
           # TODO: redo nas directory structure according to trash guides
-          "${vars.nasMount}/Media:/Media"
+          "${vars.homelabNasMount}/Media:/Media"
           "${vars.serviceConfigRoot}/jellyfin/config:/config"
           "${vars.serviceConfigRoot}/jellyfin/cache:/cache"
         ];

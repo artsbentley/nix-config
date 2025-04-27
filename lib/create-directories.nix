@@ -17,13 +17,13 @@
 #     "${vars.serviceConfigRoot}/prowlarr"
 #     "${vars.serviceConfigRoot}/recyclarr"
 #     "${vars.serviceConfigRoot}/booksonic"
-#     "${vars.nasMount}/Media/Downloads"
-#     "${vars.nasMount}/Media/TV"
-#     "${vars.nasMount}/Media/Movies"
-#     "${vars.nasMount}/Media/Music"
-#     "${vars.nasMount}/Media/Audiobooks"
-#     "${vars.nasMount}/Media/Books"
-#     # "${vars.nasMount}/torrents"
+#     "${vars.homelabNasMount}/Media/Downloads"
+#     "${vars.homelabNasMount}/Media/TV"
+#     "${vars.homelabNasMount}/Media/Movies"
+#     "${vars.homelabNasMount}/Media/Music"
+#     "${vars.homelabNasMount}/Media/Audiobooks"
+#     "${vars.homelabNasMount}/Media/Books"
+#     # "${vars.homelabNasMount}/torrents"
 #   ];
 # in
 # {

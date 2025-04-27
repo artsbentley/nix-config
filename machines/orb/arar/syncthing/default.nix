@@ -22,7 +22,7 @@ in
       # overrideDevices = true;
       overrideFolders = false;
       overrideDevices = false;
-      dataDir = "${vars.nasMount}/Syncthing";
+      dataDir = "${vars.homelabNasMount}/Syncthing";
       configDir = "${vars.serviceConfigRoot}/syncthing";
       settings = {
         gui = {
@@ -31,15 +31,15 @@ in
         };
         folders = {
           # "Downloads" = {
-          #   path = "${vars.nasMount}/Syncthing/Downloads";
+          #   path = "${vars.homelabNasMount}/Syncthing/Downloads";
           #   devices = [ "arar-mac" ];
           # };
           # "root-syncthing" = {
-          #   path = "${vars.nasMount}/Syncthing";
+          #   path = "${vars.homelabNasMount}/Syncthing";
           #   devices = [ "arar-iphone" ];
           # };
           "notes" = {
-            path = "${vars.nasMount}/Syncthing/notes";
+            path = "${vars.homelabNasMount}/Syncthing/notes";
             # devices = [ "arar-iphone" "arar-mac" ];
             ignorePerms = true;
           };
