@@ -5,7 +5,7 @@
   # homelabNasMount = "/home/arar/nas";
   ararNasMount = "/home/arar/arar-nas";
   homelabNasMount = "/home/arar/nas";
-  nasMountRoot = "/home/arar/root-nas";
+  rootNasMount = "/home/arar/root-nas";
   serviceConfigRoot = "/home/arar/appdata";
 }
 
