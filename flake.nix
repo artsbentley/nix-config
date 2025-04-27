@@ -89,6 +89,7 @@
 
           modules = [
             agenix.nixosModules.default
+            ./secrets
             ./hosts/${hostname}
 
             # Home Manager as a NixOS module
