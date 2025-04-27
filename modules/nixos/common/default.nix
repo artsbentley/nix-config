@@ -6,7 +6,8 @@
 , hostConfig
 , pkgs
 , ...
-}: {
+}:
+{
   # Nixpkgs configuration
   nixpkgs = {
     # overlays = [
@@ -85,7 +86,7 @@
 
   # Networking
   networking = {
-    useDHCP = true;
+    useDHCP = lib.mkForce true;
     networkmanager.enable = true;
     firewall = {
       # allowedTCPPorts = [ 5357 ];
@@ -179,7 +180,6 @@
   # TODO: add more conditionals if the hostConfig is a homelab
   environment.systemPackages = with pkgs; [
     cargo
-    cpufrequtils
     eza
     gcc
     gcc
@@ -199,7 +199,6 @@
     hddtemp
     hdparm
     inputs.agenix.packages."${system}".default
-    intel-gpu-tools
     iotop
     iperf3
     jq
@@ -228,7 +227,6 @@
     stylua
     tmux
     wget
-    wget
 
     # maybe only for non VM?
     usbutils
@@ -237,6 +235,10 @@
   ]
   # TODO: 
   # expand or decide that this should go in a dedicated module such as
+  ++ (lib.optionals (pkgs.system == "x86_64-linux") [
+    intel-gpu-tools
+    cpufrequtils
+  ])
   # "homelab"
   ++ lib.optionals hostConfig.isHomelab [
   ]

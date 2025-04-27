@@ -15,6 +15,7 @@
     "${nixosModules}/common"
     "${nixosModules}/homelab"
     "${nixosModules}/filemount"
+    "${nixosModules}/backup"
     "${nixosModules}/programs/syncthing"
     "${nixosModules}/programs/tailscale"
   ];
