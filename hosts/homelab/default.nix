@@ -15,6 +15,8 @@
     "${nixosModules}/common"
     "${nixosModules}/homelab"
     "${nixosModules}/filemount"
+    "${nixosModules}/programs/syncthing"
+    "${nixosModules}/programs/tailscale"
   ];
 
   # Set hostname
