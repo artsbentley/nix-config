@@ -22,7 +22,6 @@
       };
     };
 
-
     aliases = {
       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d";
     };

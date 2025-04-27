@@ -13,6 +13,10 @@
     #   outputs.overlays.stable-packages
     # ];
 
+    #     NOTE: research NUR overlay and if we want it?
+    #     overlays = [
+    #   inputs.nur.overlay
+    # ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
@@ -23,7 +27,7 @@
   nix.settings = {
     experimental-features = lib.mkDefault [ "nix-command flakes" ];
     auto-optimise-store = true;
-    trusted-users = [ "arar" ];
+    trusted-users = [ "${userConfig.name}" ];
   };
 
   age.identityPaths = [
@@ -53,9 +57,12 @@
       })
       config.nix.registry;
 
+  powerManagement.powertop.enable = true;
 
   # Boot settings
-  boot = lib.mkIf (hostConfig.name != "orbstack") {
+  # NOTE: important part to revamp and check if it is compatible with every nixos
+  # machine
+  boot = lib.mkIf (hostConfig.hasBootloader == true) {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
     consoleLogLevel = 0;
     initrd.verbose = false;
@@ -65,6 +72,7 @@
     loader.timeout = 0;
     plymouth.enable = true;
 
+    # NOTE: do i need thsi config? probably not
     # v4l (virtual camera) module settings
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = with config.boot.kernelPackages; [
@@ -76,7 +84,16 @@
   };
 
   # Networking
-  networking.networkmanager.enable = true;
+  networking = {
+    useDHCP = true;
+    networkmanager.enable = true;
+    firewall = {
+      # allowedTCPPorts = [ 5357 ];
+      # allowedUDPPorts = [ 3702 ];
+      allowPing = true;
+      trustedInterfaces = [ "enp1s0" ];
+    };
+  };
 
   # Timezone
   time.timeZone = "Europe/Amsterdam";
@@ -161,33 +178,57 @@
   # System packages
   # TODO: add more conditionals if the hostConfig is a homelab
   environment.systemPackages = with pkgs; [
+    cargo
+    cpufrequtils
+    eza
     gcc
-    jq
+    gcc
+    glances
+    gleam
     glib
     gnumake
-    inputs.agenix.packages."${system}".default
-    iperf3
-    killall
-    mesa
-    neovim
-    python313
-    ripgrep
-    rsync
-    sqlite
-    wget
-    nodejs
     go
-    cargo
-    rustc
-    stow
-    nix-search-tv
-    ruff
-    stylua
+    go-outline
+    gocode-gomod
+    godef
+    golint
+    gopkgs
+    gopls
+    gotools
+    hd-idle
+    hddtemp
+    hdparm
+    inputs.agenix.packages."${system}".default
+    intel-gpu-tools
+    iotop
+    iperf3
+    jq
+    killall
+    lm_sensors
     lua-language-server
     marksman
+    mesa
+    moreutils
+    ncdu
+    neovim
+    nix-search-tv
+    nodejs
+    pciutils
+    powertop
+    python313
     restic
+    ripgrep
+    rsync
+    ruff
+    rustc
     sesh
-    gleam
+    smartmontools
+    sqlite
+    stow
+    stylua
+    tmux
+    wget
+    wget
 
     # maybe only for non VM?
     usbutils
@@ -207,6 +248,7 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless.enable = true;
   virtualisation.docker.rootless.setSocketVariable = true;
+  virtualisation.docker.storageDriver = "overlay2";
 
   # shell configuration
   # programs.zsh.enable = true;
@@ -222,13 +264,24 @@
     # roboto
   ];
 
+
+  # USB hdd
+  # TODO: only if hostname != orbstack
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   # Additional services
   services.locate.enable = true;
 
   # OpenSSH daemon
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = true;
+      PermitRootLogin = "no";
+    };
 
 
-}
+  }
 
 

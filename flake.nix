@@ -58,7 +58,7 @@
           # avatar = ./files/avatar/face;
           email = "arnoarts@hotmail.com";
           fullName = "Arno Arts";
-          gitKey = "C5810093";
+          # gitKey = "C5810093";
           name = "arar";
         };
       };
