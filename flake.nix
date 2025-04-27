@@ -84,6 +84,7 @@
             userConfig = users.${username};
             hostConfig = hosts.${hostname};
             nixosModules = "${self}/modules/nixos";
+            vars = import ./hosts/${hostname}/vars.nix;
           };
 
           modules = [
