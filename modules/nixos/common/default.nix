@@ -280,8 +280,7 @@
       PasswordAuthentication = true;
       PermitRootLogin = "no";
     };
-
-
-  }
+  };
+}
 
 
