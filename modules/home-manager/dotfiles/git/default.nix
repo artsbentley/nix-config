@@ -43,7 +43,10 @@
       #           };
       #       };
 
-      branch.autosetuprebase = "always";
+      branch = {
+        sort = "committerdate";
+        autosetuprebase = "always";
+      };
       color.ui = true;
       core = {
         excludesfile = "~/.config/git/ignore";
@@ -52,9 +55,19 @@
         fsync = "none";
       };
 
+      merge = {
+        conflictStyle = "zdiff3";
+        tool = "nvim";
+      };
+
       log = {
         abbrevCommit = true;
         graphColors = "blue,yellow,cyan,magenta,green,red";
+      };
+
+      fetch = {
+        prune = true;
+        pruneTags = true;
       };
 
       blame = {
@@ -66,6 +79,7 @@
         context = 3;
         renames = "copies";
         interHunkContext = 10;
+        algorithm = "histogram";
       };
 
       init = {
@@ -93,6 +107,7 @@
 
       rebase = {
         autoStash = true;
+        autoSquash = true;
         updateRefs = true;
       };
 
