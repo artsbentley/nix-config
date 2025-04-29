@@ -7,22 +7,22 @@
 , pkgs
 , ...
 }: {
-  imports = [
-    ./podman.nix
-    # TODO: sanz instead of torrent
-    ./arr
-    ./paperless
-    ./mealie
-    ./vaultwarden
-    ./homepage
-    ./pangolin
-    ./enclosed
-    # ./actualbudget
-    # ./stirling
-    # ./gitea
-    # ./watchtower
-    # ./backrest
-  ];
+  # imports = [
+  #   ./podman.nix
+  #   # TODO: sanz instead of torrent
+  #   ./arr
+  #   ./paperless
+  #   ./mealie
+  #   ./vaultwarden
+  #   ./homepage
+  #   ./pangolin
+  #   ./enclosed
+  #   # ./actualbudget
+  #   # ./stirling
+  #   # ./gitea
+  #   # ./watchtower
+  #   # ./backrest
+  # ];
 
   # shared user that has access to all homelab services
   users = {
