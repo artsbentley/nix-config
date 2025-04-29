@@ -12,13 +12,12 @@
     # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
 
-    "${nixosModules}/test"
-    # "${nixosModules}/common"
-    # "${nixosModules}/homelab"
-    # "${nixosModules}/filemount"
-    # "${nixosModules}/backup"
-    # "${nixosModules}/programs/syncthing"
-    # "${nixosModules}/programs/tailscale"
+    "${nixosModules}/common"
+    "${nixosModules}/homelab"
+    "${nixosModules}/filemount"
+    "${nixosModules}/backup"
+    "${nixosModules}/programs/syncthing"
+    "${nixosModules}/programs/tailscale"
   ];
 
   # Set hostname
@@ -30,6 +29,6 @@
   # on your system were taken. It‚Äòs perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   #
-  # system.stateVersion = "24.11";
+  system.stateVersion = "24.11";
 }
 
