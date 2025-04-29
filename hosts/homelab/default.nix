@@ -29,6 +29,6 @@
   # on your system were taken. It‚Äòs perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   #
-  system.stateVersion = "24.11";
+  system.stateVersion = "24.05";
 }
 

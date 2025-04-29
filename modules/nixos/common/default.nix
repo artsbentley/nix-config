@@ -237,19 +237,19 @@
     usbutils
     udiskie
     udisks
-  ]
-  # TODO: 
-  # expand or decide that this should go in a dedicated module such as
-  ++ (lib.optionals (pkgs.system == "x86_64-linux") [
-    intel-gpu-tools
-    cpufrequtils
-  ])
-  # "homelab"
-  ++ lib.optionals hostConfig.isHomelab [
-  ]
-  ++ lib.optionals (!hostConfig.isHomelab) [
-    rainfrog
   ];
+  # # TODO: 
+  # # expand or decide that this should go in a dedicated module such as
+  # ++ (lib.optionals (pkgs.system == "x86_64-linux") [
+  #   intel-gpu-tools
+  #   cpufrequtils
+  # ])
+  # # "homelab"
+  # ++ lib.optionals hostConfig.isHomelab [
+  # ]
+  # ++ lib.optionals (!hostConfig.isHomelab) [
+  #   rainfrog
+  # ];
 
   # BUG: disable in favor of podman 
   # TODO: enable only for non homelab host?
