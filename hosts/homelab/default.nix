@@ -11,6 +11,7 @@
     # inputs.nixos-hardware.nixosModules.common-gpu-amd
     # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
+    ./bootloader.nix
 
     "${nixosModules}/common"
     "${nixosModules}/homelab"

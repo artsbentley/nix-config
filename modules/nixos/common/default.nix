@@ -63,6 +63,7 @@
   # Boot settings
   # NOTE: important part to revamp and check if it is compatible with every nixos
   # machine
+  # TODO do this outside of common and with disko 
   boot = lib.mkIf (hostConfig.hasBootloader == true) {
     loader.grub.enable = true;
     loader.grub.device = "/dev/sda";
