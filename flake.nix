@@ -68,11 +68,13 @@
           isHomelab = false;
           hasBootloader = false;
           # isVM = true;
+          isWorkMachine = false;
         };
         homelab = {
           name = "homelab";
           isHomelab = true;
           hasBootloader = true;
+          isWorkMachine = false;
           # isVM = false;
         };
       };
