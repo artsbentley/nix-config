@@ -13,11 +13,11 @@
     ./hardware-configuration.nix
 
     "${nixosModules}/common"
-    "${nixosModules}/homelab"
-    "${nixosModules}/filemount"
-    "${nixosModules}/backup"
-    "${nixosModules}/programs/syncthing"
-    "${nixosModules}/programs/tailscale"
+    # "${nixosModules}/homelab"
+    # "${nixosModules}/filemount"
+    # "${nixosModules}/backup"
+    # "${nixosModules}/programs/syncthing"
+    # "${nixosModules}/programs/tailscale"
   ];
 
   # Set hostname
