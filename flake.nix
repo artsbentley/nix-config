@@ -135,6 +135,7 @@
 
       nixosConfigurations = {
         orbstack = mkNixosConfiguration "aarch64-linux" "orbstack" "arar";
+        homelab = mkNixosConfiguration "x86_64-linux" "homelab" "arar";
 
         oldorbstack = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
