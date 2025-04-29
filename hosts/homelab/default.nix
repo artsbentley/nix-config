@@ -12,7 +12,8 @@
     # inputs.nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
 
-    "${nixosModules}/common"
+    "${nixosModules}/test"
+    # "${nixosModules}/common"
     # "${nixosModules}/homelab"
     # "${nixosModules}/filemount"
     # "${nixosModules}/backup"
