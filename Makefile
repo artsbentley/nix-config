@@ -18,7 +18,7 @@
 # 	sudo cp -f /etc/nixos/hardware-configuration.nix ./machines/hardware/vm-aarch64.nix
 # 	sudo nixos-rebuild switch --flake '.#personal'
 
-orb:
+homelab:
 	git pull --autostash
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	sudo nixos-rebuild switch --flake '.#homelab' --impure --show-trace
