@@ -184,59 +184,59 @@
   # System packages
   # TODO: add more conditionals if the hostConfig is a homelab
   environment.systemPackages = with pkgs; [
-    cargo
-    eza
-    gcc
-    gcc
-    glances
-    gleam
-    glib
-    gnumake
-    go
-    go-outline
-    gocode-gomod
-    godef
-    golint
-    gopkgs
-    gopls
-    gotools
-    hd-idle
-    hddtemp
-    hdparm
+    # cargo
+    # eza
+    # gcc
+    # gcc
+    # glances
+    # gleam
+    # glib
+    # gnumake
+    # go
+    # go-outline
+    # gocode-gomod
+    # godef
+    # golint
+    # gopkgs
+    # gopls
+    # gotools
+    # hd-idle
+    # hddtemp
+    # hdparm
     inputs.agenix.packages."${system}".default
-    iotop
-    iperf3
-    jq
-    killall
-    lm_sensors
-    lua-language-server
-    marksman
-    mesa
-    moreutils
-    ncdu
-    neovim
-    nix-search-tv
-    nodejs
-    pciutils
-    powertop
-    python313
-    restic
-    ripgrep
-    rsync
-    ruff
-    rustc
-    sesh
-    smartmontools
-    sqlite
-    stow
-    stylua
-    tmux
-    wget
-
-    # maybe only for non VM?
-    usbutils
-    udiskie
-    udisks
+    # iotop
+    # iperf3
+    # jq
+    # killall
+    # lm_sensors
+    # lua-language-server
+    # marksman
+    # mesa
+    # moreutils
+    # ncdu
+    # neovim
+    # nix-search-tv
+    # nodejs
+    # pciutils
+    # powertop
+    # python313
+    # restic
+    # ripgrep
+    # rsync
+    # ruff
+    # rustc
+    # sesh
+    # smartmontools
+    # sqlite
+    # stow
+    # stylua
+    # tmux
+    # wget
+    #
+    # # maybe only for non VM?
+    # usbutils
+    # udiskie
+    # udisks
   ];
   # # TODO: 
   # # expand or decide that this should go in a dedicated module such as
