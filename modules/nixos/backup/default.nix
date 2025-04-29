@@ -43,6 +43,7 @@
       extraFlags = [
         "--no-auth"
       ];
+      authentication = false;
     };
     backups = {
       appdata-local = {
