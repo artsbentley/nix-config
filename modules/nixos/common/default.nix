@@ -68,8 +68,8 @@
     # loader.grub.device = "/dev/sda";
     # loader.grub.useOSProber = true;
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
 
 
 
