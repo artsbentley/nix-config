@@ -64,9 +64,9 @@
   # NOTE: important part to revamp and check if it is compatible with every nixos
   # machine
   boot = lib.mkIf (hostConfig.hasBootloader == true) {
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sda";
-    boot.loader.grub.useOSProber = true;
+    loader.grub.enable = true;
+    loader.grub.device = "/dev/sda";
+    loader.grub.useOSProber = true;
 
     # TODO: decide which booloader to use
     # kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
