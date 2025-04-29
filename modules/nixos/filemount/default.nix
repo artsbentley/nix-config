@@ -36,7 +36,7 @@
       ];
   };
 
-  fileSystems."${vars.nasMountRoot}" = {
+  fileSystems."${vars.rootNasMount}" = {
     device = "//192.168.1.123/rootmount";
     fsType = "cifs";
     options =
