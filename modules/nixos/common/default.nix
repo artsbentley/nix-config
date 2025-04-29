@@ -246,11 +246,13 @@
     rainfrog
   ];
 
+  # BUG: disable in favor of podman 
+  # TODO: enable only for non homelab host?
   # Docker configuration
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless.enable = true;
-  virtualisation.docker.rootless.setSocketVariable = true;
-  virtualisation.docker.storageDriver = "overlay2";
+  # virtualisation.docker.enable = true;
+  # virtualisation.docker.rootless.enable = true;
+  # virtualisation.docker.rootless.setSocketVariable = true;
+  # virtualisation.docker.storageDriver = "overlay2";
 
   # shell configuration
   # programs.zsh.enable = true;
