@@ -213,6 +213,7 @@
     stylua
     tmux
     wget
+    just
 
     # maybe only for non VM?
     usbutils
