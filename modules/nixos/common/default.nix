@@ -15,9 +15,9 @@
     # ];
 
     #     NOTE: research NUR overlay and if we want it?
-    #     overlays = [
-    #   inputs.nur.overlay
-    # ];
+    overlays = [
+      inputs.nur.overlay
+    ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
@@ -102,7 +102,16 @@
 
   # Enable PipeWire for sound
   services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+
+  security = {
+    rtkit.enable = true;
+    doas.enable = lib.mkDefault false;
+    sudo = {
+      enable = lib.mkDefault true;
+      # Passwordless sudo
+      wheelNeedsPassword = lib.mkDefault false;
+    };
+  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -152,8 +161,6 @@
   #   fi
   # '';
 
-  # Passwordless sudo
-  security.sudo.wheelNeedsPassword = false;
 
   # System packages
   # TODO: add more conditionals if the hostConfig is a homelab
@@ -231,7 +238,9 @@
   # virtualisation.docker.enable = true;
   # virtualisation.docker.rootless.enable = true;
   # virtualisation.docker.rootless.setSocketVariable = true;
-  # virtualisation.docker.storageDriver = "overlay2";
+
+  virtualisation.docker.storageDriver = "overlay2";
+  system.autoUpgrade.enable = true;
 
   # shell configuration
   # programs.zsh.enable = true;
