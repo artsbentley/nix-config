@@ -45,6 +45,11 @@
         "--no-auth"
       ];
     };
+
+    # TODO:
+    # postgres backups, and better in general: 
+    # https://github.com/aciceri/nixfleet/blob/2e20dabf069b03da88b1474e90959d12a905b485/modules/restic/default.nix#L40
+
     backups = {
       appdata-local = {
         timerConfig = {
