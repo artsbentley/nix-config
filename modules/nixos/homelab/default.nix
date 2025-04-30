@@ -17,6 +17,7 @@
     ./homepage
     ./pangolin
     ./enclosed
+    ./uptimekuma
     # ./actualbudget
     # ./stirling
     # ./gitea

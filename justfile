@@ -27,7 +27,6 @@ reload-skhd:
 # on asahi linux, we need to pass the --impure flag to read in firmware files
 rebuild_flags := `if [ -d /boot/asahi ]; then echo "--impure"; else echo ""; fi`
 
-
 # Build the NixOS configuration without switching to it
 [linux]
 build target_host=hostname flags="":
