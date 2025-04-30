@@ -21,7 +21,7 @@
 homelab:
 	git pull --autostash
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
-	sudo nixos-rebuild switch --flake '.#homelab' --impure --show-trace
+	sudo nixos-rebuild switch --flake '.#homelab' --show-trace
 
 orb:
 	git pull --autostash
