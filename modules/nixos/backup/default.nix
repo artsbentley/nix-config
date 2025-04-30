@@ -40,6 +40,7 @@
       enable = true;
       # dataDir = "${vars.homelabNasMount}/Backups/restic/datadir";
       dataDir = "/var/lib/restic";
+      htpasswd-file = pkgs.writeText "restic-dummy-htpasswd" ""; # Provide path to an empty file
       extraFlags = [
         "--no-auth"
       ];
