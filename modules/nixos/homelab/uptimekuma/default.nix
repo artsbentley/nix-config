@@ -12,6 +12,7 @@ in
     environment = { };
     volumes = [
       "${vars.serviceConfigRoot}/uptimekuma:/app/data"
+      "/run/podman/podman.sock:/var/run/docker.sock"
     ];
     ports = [
       "3001:3001"
