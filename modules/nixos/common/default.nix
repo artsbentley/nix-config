@@ -85,7 +85,7 @@
   services.libinput.enable = true;
 
   # xserver settings
-  services.xserver = {
+  services.xserver = lib.mkIf (!hostConfig.isHomelab) {
     enable = true;
     excludePackages = with pkgs; [ xterm ];
     displayManager.gdm.enable = true;
