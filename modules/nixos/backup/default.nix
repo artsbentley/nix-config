@@ -41,9 +41,8 @@
       # dataDir = "${vars.homelabNasMount}/Backups/restic/datadir";
       dataDir = "/var/lib/restic";
       extraFlags = [
-        "--no-auth"
+        # "--no-auth"
       ];
-      authentication = false;
     };
     backups = {
       appdata-local = {
