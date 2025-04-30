@@ -60,43 +60,16 @@
 
   powerManagement.powertop.enable = true;
 
-  # Boot settings
-  # NOTE: important part to revamp and check if it is compatible with every nixos
-  # machine
-  # TODO do this outside of common and with disko 
-  boot = lib.mkIf (hostConfig.hasBootloader == true) {
-    loader.grub.enable = true;
-    loader.grub.device = "/dev/sda";
-    loader.grub.useOSProber = true;
-
-    # TODO: decide which booloader to use
-    # kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
-    # consoleLogLevel = 0;
-    # initrd.verbose = false;
-    # kernelParams = [ "quiet" "splash" ];
-    # loader.efi.canTouchEfiVariables = true;
-    # loader.systemd-boot.enable = true;
-    # loader.timeout = 0;
-    # plymouth.enable = true;
-    #
-    # # NOTE: do i need thsi config? probably not
-    # # v4l (virtual camera) module settings
-    # kernelModules = [ "v4l2loopback" ];
-    # extraModulePackages = with config.boot.kernelPackages; [
-    #   v4l2loopback
-    # ];
-    # extraModprobeConfig = ''
-    #   options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
-    # '';
-  };
 
   # Networking
   networking = {
     useDHCP = lib.mkForce true;
-    networkmanager.enable = true;
+    # networkmanager.enable = true;
+    hostId = "0730ae51";
+    networkmanager.enable = false;
     firewall = {
-      # allowedTCPPorts = [ 5357 ];
-      # allowedUDPPorts = [ 3702 ];
+      allowedTCPPorts = [ 5357 ];
+      allowedUDPPorts = [ 3702 ];
       allowPing = true;
       trustedInterfaces = [ "enp1s0" ];
     };
