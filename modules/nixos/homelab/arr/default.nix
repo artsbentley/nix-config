@@ -230,7 +230,6 @@ in
         volumes = [
           # TODO: redo nas directory structure according to trash guides
           "${vars.homelabNasMount}/Media:/Media"
-          "${vars.rootNasMount}/servermount:/ROOT"
           "${vars.serviceConfigRoot}/jellyfin/config:/config"
           "${vars.serviceConfigRoot}/jellyfin/cache:/cache"
         ];
