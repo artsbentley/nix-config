@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, hostConfig, userConfig ... }:
+{ inputs, pkgs, lib, hostConfig, userConfig, ... }:
 {
   environment.launchDaemons."limit.maxfiles.plist" = {
     enable = true;
