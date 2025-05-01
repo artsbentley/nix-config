@@ -139,26 +139,26 @@
           };
           modules = [
             agenix.darwinModules.default
-            # ./hosts/${hostname}
-            # {
-            #   home-manager.useGlobalPkgs = false; # Use packages from nix-darwin system config
-            #   home-manager.useUserPackages = true; # Install HM packages into user profile
-            #   home-manager.extraSpecialArgs = {
-            #     inherit inputs outputs username hostname system;
-            #     userConfig = users.${username};
-            #     hostConfig = hosts.${hostname};
-            #     nhModules = "${self}/modules/home-manager"; # Path to reusable HM modules
-            #   };
-            #   home-manager.backupFileExtension = "bak";
-            #   home-manager.users.${username} = { inputs, pkgs, lib, ... }: {
-            #     home.homeDirectory = lib.mkForce "/Users/${username}";
-            #     imports = [
-            #       agenix.homeManagerModules.default
-            #       nix-index-database.hmModules.nix-index
-            #       ./home/${username}/${hostname}
-            #     ];
-            #   };
-            # }
+            ./hosts/${hostname}
+            {
+              home-manager.useGlobalPkgs = false; # Use packages from nix-darwin system config
+              home-manager.useUserPackages = true; # Install HM packages into user profile
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs username hostname system;
+                userConfig = users.${username};
+                hostConfig = hosts.${hostname};
+                nhModules = "${self}/modules/home-manager"; # Path to reusable HM modules
+              };
+              home-manager.backupFileExtension = "bak";
+              home-manager.users.${username} = { inputs, pkgs, lib, ... }: {
+                home.homeDirectory = lib.mkForce "/Users/${username}";
+                imports = [
+                  agenix.homeManagerModules.default
+                  nix-index-database.hmModules.nix-index
+                  ./home/${username}/${hostname}
+                ];
+              };
+            }
           ];
         };
     in
