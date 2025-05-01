@@ -233,7 +233,7 @@
     gh-dash
   ];
 
-  system.stateVersion = 5;
+  # system.stateVersion = 5;
   ids.gids.nixbld = 350;
 
   # services.nix-daemon.enable = true;
