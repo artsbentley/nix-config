@@ -170,7 +170,6 @@
     gcc
     gcc
     glances
-    gleam
     glib
     gnumake
     go
@@ -231,6 +230,7 @@
   ]
   ++ lib.optionals (!hostConfig.isHomelab) [
     rainfrog
+    gleam
   ];
 
   # BUG: disable in favor of podman 
