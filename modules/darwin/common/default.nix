@@ -28,7 +28,7 @@
     '';
   };
 
-  networking.hostname = hostConfig.name;
+  networking.hostName = hostConfig.name;
 
   # Enable sudo authentication with TouchID
   # security.pam.services.sudo_local.touchIdAuth = true;
