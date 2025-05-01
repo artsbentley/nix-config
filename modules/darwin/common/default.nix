@@ -1,6 +1,5 @@
-{ inputs, pkgs, lib, hostConfig, ... }:
+{ inputs, pkgs, lib, hostConfig, userConfig ... }:
 {
-  nixpkgs.config.allowUnfree = true;
   environment.launchDaemons."limit.maxfiles.plist" = {
     enable = true;
     text = ''
@@ -28,10 +27,26 @@
     '';
   };
 
+  # Nix settings
+  nixpkgs.config.allowUnfree = true;
+  nix = {
+    settings = {
+      experimental-features = "nix-command flakes";
+    };
+    optimise.automatic = true;
+    package = pkgs.nix;
+  };
+
+  # User configuration
+  users.users.${userConfig.name} = {
+    name = "${userConfig.name}";
+    home = "/Users/${userConfig.name}";
+  };
+
   networking.hostName = hostConfig.name;
 
   # Enable sudo authentication with TouchID
-  # security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
     activationScripts = {
@@ -91,16 +106,17 @@
       # universalaccess.closeViewScrollWheelToggle = true; # use scroll gesture with the Ctrl (^) modifier key to zoom
       # universalaccess.reduceMotion = true; # disable animations
 
-      dock.autohide = true; # autohide dock
-      dock.autohide-delay = 0.0;
-      dock.show-recents = false; # hide recent apps in dock
-      dock.magnification = false; # disable dock magnification
-      dock.tilesize = 70; # dock icons normal size
-      dock.mineffect = "scale"; # dock minimize/maximize effect
-      dock.mru-spaces = false; # disable automatic space sort by recent use
+      dock = {
+        autohide = true; # autohide dock
+        autohide-delay = 0.0;
+        show-recents = false; # hide recent apps in dock
+        magnification = false; # disable dock magnification
+        tilesize = 70; # dock icons normal size
+        mineffect = "scale"; # dock minimize/maximize effect
+        mru-spaces = false; # disable automatic space sort by recent use
+      };
 
       screencapture.disable-shadow = true; # disable shadows when screenshotting windows
-
       menuExtraClock.Show24Hour = true; # show 24 hour clock
 
     };
