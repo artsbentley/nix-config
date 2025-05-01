@@ -1,5 +1,6 @@
 { inputs, pkgs, lib, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
   environment.launchDaemons."limit.maxfiles.plist" = {
     enable = true;
     text = ''
