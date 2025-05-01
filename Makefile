@@ -33,6 +33,10 @@ surface:
 	# cp /etc/nixos/hardware-configuration.nix ./hardware-configuration.nix
 	sudo nixos-rebuild switch --flake '.#surface'  --impure
 
+mac:
+	git pull --autostash
+	nix build .#darwinConfigurations.arar.system --show-trace --impure  
+	./result/sw/bin/darwin-rebuild switch --flake "$$(pwd)#kpn" --impure 
 
 mac:
 	git pull --autostash
