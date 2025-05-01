@@ -129,7 +129,7 @@
       # Function for nix-darwin system configuration
       mkDarwinConfiguration = system: hostname: username:
         nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
+          system = system;
           specialArgs = {
             inherit inputs outputs username hostname system;
             userConfig = users.${username};
@@ -137,29 +137,29 @@
             darwinModules = "${self}/modules/darwin"; # Path to your reusable Darwin modules
             nhModules = "${self}/modules/home-manager";
           };
-          modules = [
-            agenix.darwinModules.default
-            ./hosts/${hostname}
-            {
-              home-manager.useGlobalPkgs = false; # Use packages from nix-darwin system config
-              home-manager.useUserPackages = true; # Install HM packages into user profile
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs username hostname system;
-                userConfig = users.${username};
-                hostConfig = hosts.${hostname};
-                nhModules = "${self}/modules/home-manager"; # Path to reusable HM modules
-              };
-              home-manager.backupFileExtension = "bak";
-              home-manager.users.${username} = { inputs, pkgs, lib, ... }: {
-                home.homeDirectory = lib.mkForce "/Users/${username}";
-                imports = [
-                  agenix.homeManagerModules.default
-                  nix-index-database.hmModules.nix-index
-                  ./home/${username}/${hostname}
-                ];
-              };
-            }
-          ];
+          # modules = [
+          #   agenix.darwinModules.default
+          #   ./hosts/${hostname}
+          #   {
+          #     home-manager.useGlobalPkgs = false; # Use packages from nix-darwin system config
+          #     home-manager.useUserPackages = true; # Install HM packages into user profile
+          #     home-manager.extraSpecialArgs = {
+          #       inherit inputs outputs username hostname system;
+          #       userConfig = users.${username};
+          #       hostConfig = hosts.${hostname};
+          #       nhModules = "${self}/modules/home-manager"; # Path to reusable HM modules
+          #     };
+          #     home-manager.backupFileExtension = "bak";
+          #     home-manager.users.${username} = { inputs, pkgs, lib, ... }: {
+          #       home.homeDirectory = lib.mkForce "/Users/${username}";
+          #       imports = [
+          #         agenix.homeManagerModules.default
+          #         nix-index-database.hmModules.nix-index
+          #         ./home/${username}/${hostname}
+          #       ];
+          #     };
+          #   }
+          # ];
         };
     in
     {
