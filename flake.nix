@@ -129,7 +129,7 @@
       # Function for nix-darwin system configuration
       mkDarwinConfiguration = system: hostname: username:
         nix-darwin.lib.darwinSystem {
-          system = system;
+          system = "aarch64-darwin";
           specialArgs = {
             inherit inputs outputs username hostname system;
             userConfig = users.${username};
