@@ -166,18 +166,18 @@
       darwinConfigurations = {
         "kpn" = mkDarwinConfiguration "aarch64-darwin" "mac" "arar";
 
-        "arar" = nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            agenix.darwinModules.default
-            ./machines/darwin
-            ./machines/darwin/arar
-            # ./machines/darwin/arar/system.nix
-          ];
-        };
+        # "arar" = nix-darwin.lib.darwinSystem {
+        #   system = "aarch64-darwin";
+        #   specialArgs = {
+        #     inherit inputs;
+        #   };
+        #   modules = [
+        #     agenix.darwinModules.default
+        #     ./machines/darwin
+        #     ./machines/darwin/arar
+        #     # ./machines/darwin/arar/system.nix
+        #   ];
+        # };
       };
 
       nixosConfigurations = {
