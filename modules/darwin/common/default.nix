@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, lib, hostConfig, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   environment.launchDaemons."limit.maxfiles.plist" = {
@@ -27,6 +27,8 @@
       </plist>
     '';
   };
+
+  networking.hostname = hostConfig.name;
 
   # Enable sudo authentication with TouchID
   # security.pam.services.sudo_local.touchIdAuth = true;
