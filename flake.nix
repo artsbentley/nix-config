@@ -140,6 +140,7 @@
           modules = [
             agenix.darwinModules.default
             ./hosts/${hostname}
+            inputs.home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = false; # Use packages from nix-darwin system config
               home-manager.useUserPackages = true; # Install HM packages into user profile
