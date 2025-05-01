@@ -77,6 +77,13 @@
           isWorkMachine = false;
           # isVM = false;
         };
+        mac = {
+          name = "mac";
+          isHomelab = false;
+          hasBootloader = false;
+          isWorkMachine = false;
+          # isVM = false;
+        };
       };
 
       # Function for NixOS system configuration
