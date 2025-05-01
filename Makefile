@@ -35,7 +35,7 @@ surface:
 
 kpn:
 	git pull --autostash
-	nix build .#darwinConfigurations.arar.system --show-trace --impure  
+	nix build .#darwinConfigurations.kpn.system --show-trace --impure  
 	./result/sw/bin/darwin-rebuild switch --flake "$$(pwd)#kpn" --impure 
 
 mac:
