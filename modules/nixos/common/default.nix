@@ -217,6 +217,7 @@
     docker
     openssl
     pkg-config
+    mkcert
 
     # maybe only for non VM?
     usbutils
