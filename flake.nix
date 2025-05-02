@@ -67,7 +67,6 @@
           name = "orbstack";
           isHomelab = false;
           hasBootloader = false;
-          # isVM = true;
           isWorkMachine = false;
         };
         homelab = {
@@ -75,21 +74,18 @@
           isHomelab = true;
           hasBootloader = true;
           isWorkMachine = false;
-          # isVM = false;
         };
         kpn-mac = {
           name = "kpn-mac";
           isHomelab = false;
           hasBootloader = false;
           isWorkMachine = true;
-          # isVM = false;
         };
         mac = {
           name = "mac";
           isHomelab = false;
           hasBootloader = false;
           isWorkMachine = false;
-          # isVM = false;
         };
       };
 
