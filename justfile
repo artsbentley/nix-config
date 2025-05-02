@@ -6,6 +6,7 @@ hostname := `hostname | cut -d "." -f 1`
 # Build the nix-darwin system configuration without switching to it
 [macos]
 build target_host=hostname flags="":
+  git pull
   @echo "Building nix-darwin config..."
   nix --extra-experimental-features 'nix-command flakes'  build ".#darwinConfigurations.{{target_host}}.system" {{flags}}
 
@@ -39,6 +40,7 @@ trace target_host=hostname: (build target_host "--show-trace")
 # Build the NixOS configuration and switch to it.
 [linux]
 switch target_host=hostname:
+  git pull
   sudo nixos-rebuild switch --flake .#{{target_host}} {{rebuild_flags}}
 
 # Update flake inputs to their latest revisions
