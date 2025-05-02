@@ -77,6 +77,13 @@
           isWorkMachine = false;
           # isVM = false;
         };
+        kpn-mac = {
+          name = "kpn-mac";
+          isHomelab = false;
+          hasBootloader = false;
+          isWorkMachine = true;
+          # isVM = false;
+        };
         mac = {
           name = "mac";
           isHomelab = false;
