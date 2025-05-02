@@ -1,5 +1,6 @@
 { inputs, pkgs, lib, hostConfig, ... }:
 {
+  ids.gids.nixbld = 350;
   environment.shellInit = ''
     ulimit -n 2048
   '';
@@ -23,11 +24,6 @@
       "nikitabobko/aerospace"
       "joshmedeski/sesh"
       # "dustinblackman/oatmeal"
-      # {
-      #   name = "zen-browser/browser";
-      #   clone_target = "https://github.com/zen-browser/desktop.git";
-      #   force_auto_update = true;
-      # }
     ];
 
     # TODO: 
@@ -230,11 +226,4 @@
     gitAndTools.gitflow
     gh-dash
   ];
-
-  # system.stateVersion = 5;
-  ids.gids.nixbld = 350;
-
-  # services.nix-daemon.enable = true;
-
 }
-
