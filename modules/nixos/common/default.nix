@@ -216,6 +216,7 @@
     dig
     docker
     openssl
+    pkg-config
 
     # maybe only for non VM?
     usbutils
