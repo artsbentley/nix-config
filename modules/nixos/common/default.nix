@@ -214,6 +214,7 @@
     wget
     just
     dig
+    docker
 
     # maybe only for non VM?
     usbutils
