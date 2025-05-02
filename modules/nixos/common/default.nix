@@ -215,6 +215,7 @@
     just
     dig
     docker
+    openssl
 
     # maybe only for non VM?
     usbutils
