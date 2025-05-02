@@ -213,6 +213,7 @@
     tmux
     wget
     just
+    dig
 
     # maybe only for non VM?
     usbutils
