@@ -121,10 +121,6 @@
     ];
 
     casks = [
-      "arc"
-      "autodesk-fusion"
-      "balenaetcher"
-      "bambu-studio"
       "bitwarden"
       "bruno"
       "cursor"
@@ -135,7 +131,6 @@
       "eqmac"
       "font-hack-nerd-font"
       "google-chrome"
-      "google-drive"
       "grid"
       "hammerspoon"
       "handbrake"
@@ -151,7 +146,6 @@
       "obsidian"
       "orbstack"
       "postman"
-      "qbittorrent"
       "raycast"
       "sf-symbols"
       "signal"
@@ -167,7 +161,15 @@
     ]
     ++ lib.optionals hostConfig.isWorkMachine [
       "microsoft-teams"
+    ]
+    ++ lib.optionals (!hostConfig.isWorkMachine) [
+      "qbittorrent"
+      "google-drive"
+      "balenaetcher"
+      "autodesk-fusion"
+      "bambu-studio"
     ];
+
   };
 
   environment.systemPackages = with pkgs; [
