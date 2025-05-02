@@ -165,7 +165,8 @@
     in
     {
       darwinConfigurations = {
-        "kpn" = mkDarwinConfiguration "aarch64-darwin" "mac" "arar";
+        "kpn-mac" = mkDarwinConfiguration "aarch64-darwin" "kpn-mac" "arar";
+        "mac" = mkDarwinConfiguration "aarch64-darwin" "mac" "arar";
       };
 
       nixosConfigurations = {
