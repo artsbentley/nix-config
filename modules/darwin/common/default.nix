@@ -29,8 +29,8 @@
 
   #  # STYLIX
   stylix = lib.mkIf hostConfig.enableStylix {
-    stylix.enable = true;
-    stylix.base16Scheme = ../../../theme/gruvbox.yml;
+    enable = true;
+    base16Scheme = ../../../theme/gruvbox.yml;
   };
 
 
