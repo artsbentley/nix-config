@@ -7,11 +7,13 @@
     after = [ "network.target" ];
     serviceConfig = {
       # WorkingDirectory = "/etc/nixos";
-      ExecStart = "/bin/sh -c '/home/arar/nix-config/modules/nixos/homelab/cv/app/test'";
+      ExecStart = "/bin/sh -c '/home/arar/nix-config/modules/nixos/homelab/cv/app/main'";
       Restart = "always";
     };
   };
 }
+
+
 
 
 
