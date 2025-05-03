@@ -2,27 +2,20 @@ package main
 
 import (
 	"embed"
-	"html/template"
+	"io/fs"
 	"log"
 	"net/http"
 )
 
-//go:embed templates/* static/*
+//go:embed static
 var content embed.FS
 
 func main() {
-	tmpl := template.Must(template.ParseFS(content, "templates/index.html"))
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		err := tmpl.Execute(w, nil)
-		if err != nil {
-			http.Error(w, "Error rendering page", http.StatusInternalServerError)
-		}
-	})
-
-	fs := http.FS(content)
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(fs)))
-
-	log.Println("Listening on http://localhost:3333")
-	log.Fatal(http.ListenAndServe(":3333", nil))
+	sub, err := fs.Sub(content, "static")
+	if err != nil {
+		log.Fatal(err)
+	}
+	http.Handle("/", http.FileServer(http.FS(sub)))
+	log.Println("Listening on http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
