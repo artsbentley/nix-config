@@ -6,7 +6,9 @@ let
     version = "0.1.0";
     src = ./app;
     vendorHash = null;
-    binaryName = "my-server"; # Override the binary name here
+
+    # Add the outputBin attribute to specify the binary name
+    outputBin = "my-go-server";
 
     meta = with pkgs.lib; {
       description = "My Go HTTP Server";
@@ -22,7 +24,8 @@ in
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${app}/bin/my-server"; # Use the overridden binary name
+      # Update the ExecStart path to use the new binary name
+      ExecStart = "${app}/bin/my-go-server";
       Restart = "always";
     };
   };

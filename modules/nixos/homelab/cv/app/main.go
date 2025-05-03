@@ -1,18 +1,28 @@
-// main.go
 package main
 
 import (
-	"fmt"
+	"embed"
+	"html/template"
+	"log"
 	"net/http"
 )
 
+//go:embed templates/* static/*
+var content embed.FS
+
 func main() {
+	tmpl := template.Must(template.ParseFS(content, "templates/index.html"))
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "<html><body>Hello from Go!</body></html>")
+		err := tmpl.Execute(w, nil)
+		if err != nil {
+			http.Error(w, "Error rendering page", http.StatusInternalServerError)
+		}
 	})
-	http.HandleFunc("/attributes", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{"foo":"bar","version":1}`)
-	})
-	http.ListenAndServe(":3333", nil)
+
+	fs := http.FS(content)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(fs)))
+
+	log.Println("Listening on http://localhost:3333")
+	log.Fatal(http.ListenAndServe(":3333", nil))
 }
