@@ -40,7 +40,7 @@ in
   stylix.targets = {
     tmux.enable = false;
     yazi.enable = false;
-    wezterm.enable = true;
+    wezterm.enable = false;
 
     # waybar.enable = true;
     # firefox.enable = true;
