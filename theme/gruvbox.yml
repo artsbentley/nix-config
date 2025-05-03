@@ -8,7 +8,8 @@ base04: "bdae93" # #bdae93
 base05: "d5c4a1" # #d5c4a1
 base06: "ebdbb2" # #ebdbb2
 base07: "fbf1c7" # #fbf1c7
-base08: "f2594b" # #f2594b
+# base08: "f2594b" # #f2594b
+base08: "e05c4a" # #e05c4a (Muted Red)
 base09: "f28534" # #f28534
 base0A: "d8a657" # #d8a657
 base0B: "a9b665" # #a9b665
