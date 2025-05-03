@@ -14,9 +14,7 @@ let
     l = "${pkgs.eza}/bin/eza --group-directories-first -lbF -l --icons -a --git --sort=type --color=always";
     lt = "${pkgs.eza}/bin/eza --color=auto --tree";
 
-
     # Aliases: system
-    # man = "batman";
     cal = "cal -m";
     cat = "bat";
     grep = "rg --color=auto";
