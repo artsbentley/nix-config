@@ -7,7 +7,7 @@ in
 {
   xdg.configFile."${program}".source = configSrc;
 
-  home.packages = with pkgs; [
-    wezterm
-  ];
+  # home.packages = with pkgs; [
+  # wezterm
+  # ];
 }

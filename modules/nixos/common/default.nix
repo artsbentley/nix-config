@@ -223,6 +223,7 @@
     openssl
     pkg-config
     mkcert
+    wezterm
 
     # maybe only for non VM?
     usbutils
