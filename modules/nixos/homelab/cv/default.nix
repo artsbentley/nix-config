@@ -1,20 +1,29 @@
 { inputs, lib, config, pkgs, vars, ... }:
 
+let
+  app = pkgs.buildGoModule {
+    pname = "my-go-server";
+    version = "0.1.0";
+    src = ./app;
+    vendorSha256 = null;
+
+    meta = with pkgs.lib; {
+      description = "My Go HTTP Server";
+      license = licenses.mit;
+    };
+  };
+in
 {
+  networking.firewall.allowedTCPPorts = [ 3333 ];
+
   systemd.services.my-go-server = {
     description = "My Go HTTP Server";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      # WorkingDirectory = "/etc/nixos";
-      ExecStart = "/bin/sh -c '/home/arar/nix-config/modules/nixos/homelab/cv/app/main'";
+      ExecStart = "${app}/bin/my-go-server";
       Restart = "always";
     };
   };
 }
-
-
-
-
-
 
