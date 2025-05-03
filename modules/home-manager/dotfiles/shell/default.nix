@@ -15,6 +15,8 @@ let
     lt = "${pkgs.eza}/bin/eza --color=auto --tree";
 
 
+    # Aliases: system
+    man = "man $argv | col -bx | bat --language=man --paging=always";
     cal = "cal -m";
     cat = "bat";
     grep = "rg --color=auto";
