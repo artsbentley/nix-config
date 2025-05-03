@@ -11,7 +11,9 @@ let
       description = "My Go HTTP Server";
       license = licenses.mit;
     };
-    GO_BUILD_FLAGS = [ "-o" "${./bin/my-go-server}" ];
+
+    # Make sure to set the output directory correctly
+    GO_BUILD_FLAGS = [ "-o" "${./result/bin/my-go-server}" ];
   };
 in
 {
@@ -22,8 +24,7 @@ in
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      # ExecStart = "${app}/bin/test";
-      ExecStart = "${app}/bin/my-go-server";
+      ExecStart = "${app}/result/bin/my-go-server"; # Use the correct path
       Restart = "always";
     };
   };
