@@ -16,7 +16,7 @@ let
 
 
     # Aliases: system
-    man = "man $argv | col -bx | bat --language=man --paging=always";
+    # man = "batman";
     cal = "cal -m";
     cat = "bat";
     grep = "rg --color=auto";
