@@ -36,7 +36,7 @@
     wezterm.enable = false;
 
     waybar.enable = true;
-    firefox.enable = true;
+    # firefox.enable = true;
     gnome.enable = true;
     hyprland.enable = true;
     rofi.enable = true;
