@@ -6,14 +6,12 @@ let
     version = "0.1.0";
     src = ./app;
     vendorHash = null;
+    binaryName = "my-server"; # Override the binary name here
 
     meta = with pkgs.lib; {
       description = "My Go HTTP Server";
       license = licenses.mit;
     };
-
-    # Make sure to set the output directory correctly
-    GO_BUILD_FLAGS = [ "-o" "${./result/bin/my-go-server}" ];
   };
 in
 {
@@ -24,9 +22,8 @@ in
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${app}/result/bin/my-go-server"; # Use the correct path
+      ExecStart = "${app}/bin/my-server"; # Use the overridden binary name
       Restart = "always";
     };
   };
 }
-
