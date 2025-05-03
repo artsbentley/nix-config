@@ -68,24 +68,28 @@
           isHomelab = false;
           hasBootloader = false;
           isWorkMachine = false;
+          enableStylix = true;
         };
         homelab = {
           name = "homelab";
           isHomelab = true;
           hasBootloader = true;
           isWorkMachine = false;
+          enableStylix = false;
         };
         kpn-mac = {
           name = "kpn-mac";
           isHomelab = false;
           hasBootloader = false;
           isWorkMachine = true;
+          enableStylix = true;
         };
         mac = {
           name = "mac";
           isHomelab = false;
           hasBootloader = false;
           isWorkMachine = false;
+          enableStylix = true;
         };
       };
 
