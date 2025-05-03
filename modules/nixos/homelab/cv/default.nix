@@ -7,9 +7,6 @@ let
     src = ./app;
     vendorHash = null;
 
-    # Add the outputBin attribute to specify the binary name
-    outputBin = "my-go-server";
-
     meta = with pkgs.lib; {
       description = "My Go HTTP Server";
       license = licenses.mit;
