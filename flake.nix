@@ -102,6 +102,7 @@
 
           modules = [
             agenix.nixosModules.default
+            inputs.stylix.nixosModules.stylix
             ./secrets
             ./hosts/${hostname}
 
@@ -142,6 +143,8 @@
           };
           modules = [
             agenix.darwinModules.default
+            # FIX: setting for stylix?
+            inputs.stylix.darwinModules.stylix
             ./hosts/${hostname}
             inputs.home-manager.darwinModules.home-manager
             {
