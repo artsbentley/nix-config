@@ -46,8 +46,6 @@ in
     # rofi.enable = true;
   };
 
-
-
   nixpkgs = {
     overlays = [ ];
     config = {
