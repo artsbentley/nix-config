@@ -12,8 +12,9 @@ gui:
 
   theme:
     selectedLineBgColor:
-      # - reverse
-      - black
+      - "#3c3836"
+        # - reverse
+        # - black
     activeBorderColor:
       - white
       - bold

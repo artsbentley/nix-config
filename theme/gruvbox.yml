@@ -1,18 +1,38 @@
 scheme: "Gruvbox dark, medium"
-author: "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)"
-base00: "1d2021" # ----
-base01: "3c3836" # ---
-base02: "504945" # --
-base03: "665c54" # -
-base04: "bdae93" # +
-base05: "d5c4a1" # ++
-base06: "ebdbb2" # +++
-base07: "fbf1c7" # ++++
-base08: "fb4934" # red
-base09: "fe8019" # orange
-base0A: "fabd2f" # yellow
-base0B: "b8bb26" # green
-base0C: "8ec07c" # aqua/cyan
-base0D: "83a598" # blue
-base0E: "d3869b" # purple
-base0F: "d65d0e" # brown
+author: "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox), tuned by ChatGPT"
+base00: "1d2021" # #1d2021
+base01: "3c3836" # #3c3836
+base02: "504945" # #504945
+base03: "665c54" # #665c54
+base04: "bdae93" # #bdae93
+base05: "d5c4a1" # #d5c4a1
+base06: "ebdbb2" # #ebdbb2
+base07: "fbf1c7" # #fbf1c7
+base08: "f2594b" # #f2594b  (red - bolder than `ea6962`)
+base09: "f28534" # #f28534  (orange - brighter)
+base0A: "d8a657" # #d8a657  (yellow - kept as is)
+base0B: "b0b846" # #b0b846  (green - punchier)
+base0C: "8ec07c" # #8ec07c  (cyan - same as original, vivid enough)
+base0D: "83a598" # #83a598  (blue - reverted to original)
+base0E: "d3869b" # #d3869b  (purple - unchanged)
+base0F: "c47f3f" # #c47f3f  (brown - a bit brighter)
+
+# scheme: "Gruvbox dark, medium"
+# author: "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)"
+# base00: "1d2021" # #1d2021
+# base01: "3c3836" # #3c3836
+# base02: "504945" # #504945
+# base03: "665c54" # #665c54
+# base04: "bdae93" # #bdae93
+# base05: "d5c4a1" # #d5c4a1
+# base06: "ebdbb2" # #ebdbb2
+# base07: "fbf1c7" # #fbf1c7
+# base08: "fb4934" # #fb4934
+# base09: "fe8019" # #fe8019
+# base0A: "fabd2f" # #fabd2f
+# base0B: "b8bb26" # #b8bb26
+# base0C: "8ec07c" # #8ec07c
+# base0D: "83a598" # #83a598
+# base0E: "d3869b" # #d3869b
+# base0F: "d65d0e" # #d65d0e
+#
