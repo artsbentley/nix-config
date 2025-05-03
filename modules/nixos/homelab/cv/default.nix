@@ -22,7 +22,7 @@ in
     after = [ "network.target" ];
     serviceConfig = {
       # Update the ExecStart path to use the new binary name
-      ExecStart = "${app}/bin/my-go-server";
+      ExecStart = "${app}/bin/test";
       Restart = "always";
     };
   };
