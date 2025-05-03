@@ -17,5 +17,5 @@ func main() {
 	}
 	http.Handle("/", http.FileServer(http.FS(sub)))
 	log.Println("Listening on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":3333", nil))
 }
