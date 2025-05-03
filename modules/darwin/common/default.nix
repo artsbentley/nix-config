@@ -30,6 +30,18 @@
   #  # STYLIX
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  stylix.targets = {
+    tmux.enable = false;
+    yazi.enable = false;
+    wezterm.enable = false;
+
+    waybar.enable = true;
+    firefox.enable = true;
+    gnome.enable = true;
+    hyprland.enable = true;
+    rofi.enable = true;
+  };
+
 
   # Nix settings
   nixpkgs.config.allowUnfree = true;
