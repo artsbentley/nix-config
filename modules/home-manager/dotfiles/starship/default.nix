@@ -6,6 +6,9 @@
     enableFishIntegration = true;
     settings = {
       container.disabled = true;
+      username = {
+        show_always = true;
+      };
     };
   };
 }
