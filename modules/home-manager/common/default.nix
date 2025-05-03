@@ -32,6 +32,20 @@ in
 
   # TODO: desktop 
   # ./hypr/default.nix
+  #
+
+  stylix.targets = {
+    tmux.enable = false;
+    yazi.enable = false;
+    wezterm.enable = false;
+
+    waybar.enable = true;
+    firefox.enable = true;
+    gnome.enable = true;
+    hyprland.enable = true;
+    rofi.enable = true;
+  };
+
 
   nixpkgs = {
     overlays = [ ];
