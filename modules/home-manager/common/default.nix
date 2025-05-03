@@ -34,6 +34,9 @@ in
   # ./hypr/default.nix
   #
 
+  # FIX: 
+  # use dedicated stylix module and set some to only enable for desktop
+  # enabled
   stylix.targets = {
     tmux.enable = false;
     yazi.enable = false;

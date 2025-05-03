@@ -4,6 +4,8 @@
     enable = true;
     enableZshIntegration = true;
     enableFishIntegration = true;
+    settings = {
+      systemd.disabled = true;
+    };
   };
 }
-
