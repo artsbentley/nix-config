@@ -36,7 +36,7 @@ in
 
   stylix.targets = {
     tmux.enable = false;
-    yazi.enable = false;
+    yazi.enable = true;
     wezterm.enable = false;
 
     waybar.enable = true;
