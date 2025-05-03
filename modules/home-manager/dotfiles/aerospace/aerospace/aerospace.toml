@@ -181,7 +181,7 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 
-# retrieve app id with ` mdls -name kMDItemCFBundleIdentifier /Applications/Firefox.app`
+# retrieve app id with `mdls -name kMDItemCFBundleIdentifier /Applications/Firefox.app`
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 # check-further-callbacks = true
@@ -193,7 +193,7 @@ if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace S']
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.com.zen.browser'
+if.app-id = 'app.zen-browser.zen'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace S']
 
@@ -227,6 +227,13 @@ run = ['layout tiling', 'move-node-to-workspace P']
 if.app-id = 'com.tinyspeck.slackmacgap'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace C']
+
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+# check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace C']
+
 
 # [[on-window-detected]]
 # if.app-id = 'com.cron.electron'
