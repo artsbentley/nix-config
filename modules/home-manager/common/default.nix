@@ -41,7 +41,7 @@ in
     tmux.enable = false;
     yazi.enable = false;
     bat.enable = true;
-    wezterm.enable = false;
+    wezterm.enable = true;
 
     # waybar.enable = true;
     # firefox.enable = true;
