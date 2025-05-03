@@ -1,6 +1,7 @@
 { inputs, lib, config, pkgs, vars, ... }:
 
 let
+  moduleName = "test";
   app = pkgs.buildGoModule {
     pname = "my-go-server";
     version = "0.1.0";
@@ -22,7 +23,7 @@ in
     after = [ "network.target" ];
     serviceConfig = {
       # Update the ExecStart path to use the new binary name
-      ExecStart = "${app}/bin/test";
+      ExecStart = "${app}/bin/${moduleName}";
       Restart = "always";
     };
   };
