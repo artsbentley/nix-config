@@ -5,7 +5,7 @@
     enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
-      systemd.disabled = true;
+      container.disabled = true;
     };
   };
 }
