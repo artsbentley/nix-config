@@ -100,7 +100,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    PAGER = "less -FirSwX";
+    # PAGER = "less -FirSwX";
     #   MANPAGER = "${manpager}/bin/manpager";
     # } // (if isDarwin then {
     #   # See: https://github.com/NixOS/nixpkgs/issues/390751
