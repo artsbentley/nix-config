@@ -5,7 +5,7 @@ let
     pname = "my-go-server";
     version = "0.1.0";
     src = ./app;
-    vendorSha256 = null;
+    vendorHash = null;
 
     meta = with pkgs.lib; {
       description = "My Go HTTP Server";
