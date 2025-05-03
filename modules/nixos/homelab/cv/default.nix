@@ -11,6 +11,7 @@ let
       description = "My Go HTTP Server";
       license = licenses.mit;
     };
+    GO_BUILD_FLAGS = [ "-o" "${./bin/my-go-server}" ];
   };
 in
 {
@@ -21,7 +22,8 @@ in
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${app}/bin/test";
+      # ExecStart = "${app}/bin/test";
+      ExecStart = "${app}/bin/my-go-server";
       Restart = "always";
     };
   };
