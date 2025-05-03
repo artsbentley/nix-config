@@ -21,7 +21,7 @@ in
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${app}/bin/my-go-server";
+      ExecStart = "${app}/bin/test";
       Restart = "always";
     };
   };
