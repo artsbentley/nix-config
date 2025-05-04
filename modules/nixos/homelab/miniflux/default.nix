@@ -11,5 +11,5 @@
       LISTEN_ADDR = "127.0.0.1:8067";
     };
   };
-  networking.firewall.allowedTCPPorts = [ 8060 ];
+  networking.firewall.allowedTCPPorts = [ 8067 ];
 }
