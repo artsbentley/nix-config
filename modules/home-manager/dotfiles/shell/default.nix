@@ -43,7 +43,8 @@ let
     gco = "git checkout";
     ga = "git add";
     gpl = "git pull --rebase --autostash";
-    ghinit = "gh repo create $(basename '$PWD ') --private --source=. --remote=origin";
+    ghinit = "gh repo create --private --source=. --remote=origin
+";
     gfo = "git fetch origin --prune";
 
     # Aliases: docker
