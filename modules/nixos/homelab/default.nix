@@ -19,6 +19,7 @@
     ./enclosed
     ./uptimekuma
     ./cv
+    ./miniflux
     # ./actualbudget
     # ./stirling
     # ./gitea

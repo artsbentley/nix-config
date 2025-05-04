@@ -17,6 +17,7 @@
       openaiApiKey.file = ./openaiApiKey.age;
       pangolin.file = ./pangolin.age;
       jellyseerr.file = ./jellyseerr.age;
+      minifluxAdminPassword = ./minifluxAdminPassword;
     };
   };
 }
