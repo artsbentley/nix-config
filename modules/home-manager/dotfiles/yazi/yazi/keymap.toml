@@ -27,3 +27,8 @@ desc = "Cd to notes directory"
 on = ["g", "b"]
 run = "back"
 desc = "Go back to previous dir"
+
+[[manager.prepend_keymap]]
+on = ["g", "m"]
+run = "cd /Users/arar"
+desc = "Cd to mac home directory"
