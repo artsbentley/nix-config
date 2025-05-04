@@ -32,7 +32,7 @@ in
   "openaiApiKey.age".publicKeys = keys;
   "pangolin.age".publicKeys = keys;
   "jellyseerr.age".publicKeys = keys;
-  "minifluxAdminPassword".publicKeys = keys;
+  "minifluxAdminPassword.age".publicKeys = keys;
 }
 
 
