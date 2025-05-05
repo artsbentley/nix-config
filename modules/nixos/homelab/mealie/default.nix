@@ -14,7 +14,7 @@ in
         autoStart = true;
         ports = [ "9925:9000" ];
         extraOptions = [ ];
-        volumes = [ "${vars.serviceConfigRoot}/mealie:/data" ];
+        volumes = [ "${vars.serviceConfigRoot}/mealie:/app/data" ];
         environmentFiles = [ config.age.secrets.openaiApiKey.path ];
         environment =
           {
