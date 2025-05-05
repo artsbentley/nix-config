@@ -12,7 +12,7 @@
     # TODO: sanz instead of torrent
     ./arr
     ./paperless
-    ./mealie
+    # ./mealie
     ./vaultwarden
     ./homepage
     ./pangolin
