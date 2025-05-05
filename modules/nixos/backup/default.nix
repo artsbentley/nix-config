@@ -78,12 +78,12 @@
         # TODO: setup zipping of appdata before every backup so that every snapshot
         # contains a backup of itself, not relying on previous data, see
         # wolfgang repo 
+        # ${pkgs.systemd}/bin/systemctl stop syncthing
         backupPrepareCommand = ''
-          		  ${pkgs.systemd}/bin/systemctl stop syncthing
           		  ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
         '';
+        # ${pkgs.systemd}/bin/systemctl start syncthing
         backupCleanupCommand = ''
-          		  ${pkgs.systemd}/bin/systemctl start syncthing
           		  ${pkgs.systemd}/bin/systemctl start --all "podman-*"
         '';
       };
