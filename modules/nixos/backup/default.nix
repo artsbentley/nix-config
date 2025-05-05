@@ -34,6 +34,9 @@
       ];
     };
   };
+
+
+
   # TODO: backup for markdown notes, which are currently destructive
   services.restic = {
     server = {
@@ -76,10 +79,12 @@
         # contains a backup of itself, not relying on previous data, see
         # wolfgang repo 
         backupPrepareCommand = ''
-          ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
+          		  ${pkgs.systemd}/bin/systemctl stop syncthing
+          		  ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
         '';
         backupCleanupCommand = ''
-          ${pkgs.systemd}/bin/systemctl start --all "podman-*"
+          		  ${pkgs.systemd}/bin/systemctl start syncthing
+          		  ${pkgs.systemd}/bin/systemctl start --all "podman-*"
         '';
       };
       arar-nas = {
