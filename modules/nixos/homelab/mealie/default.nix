@@ -18,8 +18,8 @@ in
         environmentFiles = [ config.age.secrets.openaiApiKey.path ];
         environment =
           {
-            PUID = "${toString config.users.users.share.uid}";
-            PGID = "${toString config.users.groups.share.gid}";
+            # PUID = "${toString config.users.users.share.uid}";
+            # PGID = "${toString config.users.groups.share.gid}";
             TZ = vars.timeZone;
             ALLOW_SIGNUP = "true";
           };
