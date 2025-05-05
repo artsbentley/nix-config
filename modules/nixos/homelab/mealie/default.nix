@@ -10,11 +10,12 @@ in
   virtualisation.oci-containers = {
     containers = {
       mealie = {
-        image = "ghcr.io/mealie-recipes/mealie:v1.7.0";
+        image = "ghcr.io/mealie-recipes/mealie:v2.8.0";
         autoStart = true;
         ports = [ "9925:9000" ];
         extraOptions = [ ];
         volumes = [ "${vars.serviceConfigRoot}/mealie:/data" ];
+        environmentFiles = [ config.age.secrets.openaiApiKey.path ];
         environment =
           {
             PUID = "${toString config.users.users.share.uid}";
