@@ -247,6 +247,7 @@
   ++ lib.optionals (!hostConfig.isHomelab) [
     rainfrog
     gleam
+    zig
   ];
 
   # BUG: disable in favor of podman 
