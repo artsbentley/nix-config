@@ -74,6 +74,14 @@ let
   #   cat "$1" | col -bx | bat --language man --style plain
   # ''));
 
+  translatedSessionVariables = pkgs.runCommandLocal "hm-session-vars.fish" { } ''
+    (echo "function setup_hm_session_vars;"
+    ${pkgs.buildPackages.babelfish}/bin/babelfish \
+    <${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh
+    echo "end"
+    echo "setup_hm_session_vars") > $out
+  '';
+
 in
 {
   xdg.enable = true;
@@ -149,7 +157,10 @@ in
       interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" ([
         (builtins.readFile ./config.fish)
         "set -g SHELL ${pkgs.fish}/bin/fish"
-        "fenv source ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh > /dev/null"
+        # "set fish_function_path ${pkgs.fishPlugins.foreign-env}/share/fish/vendor_functions.d $fish_function_path"
+        # "fenv source ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh > /dev/null"
+        # "set -e fish_function_path[1]"
+        "source ${translatedSessionVariables}"
       ]));
       # loginShellInit =
       #   # Nix
