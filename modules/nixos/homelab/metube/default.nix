@@ -2,7 +2,7 @@
 {
   virtualisation.oci-containers = {
     containers = {
-      enclosed = {
+      metube = {
         image = "ghcr.io/alexta69/metube";
         autoStart = true;
         ports = [ "8082:8081" ];
