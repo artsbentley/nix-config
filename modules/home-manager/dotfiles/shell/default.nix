@@ -131,6 +131,7 @@ in
     fish = {
       enable = true;
       plugins = [
+        "foreign-env"
         {
           name = "nix-env.fish";
           src = pkgs.fetchFromGitHub {
