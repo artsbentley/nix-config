@@ -60,7 +60,6 @@ let
 
   };
 
-
   translatedSessionVariables = pkgs.runCommandLocal "hm-session-vars.fish" { } ''
     (echo "function setup_hm_session_vars;"
     ${pkgs.buildPackages.babelfish}/bin/babelfish \
@@ -97,9 +96,8 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    # Rust:
+    # neeeded for rust ssl:
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-    TEST = "testigngggg";
   };
 
   fonts.fontconfig.enable = true;
