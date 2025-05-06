@@ -59,20 +59,7 @@ let
     "..." = "cd ../..";
 
   };
-  # FIX: need to find a way to have my orb flake use pbcopy instead of xclip
-  # } // (if isLinux then { BUG: this conflicts with orbstack clipboard
-  #   pbcopy = "xclip";
-  #   pbpaste = "xclip -o";
-  # } else { });
 
-  # NOTE: from mitchellh
-  # For our MANPAGER env var
-  # https://github.com/sharkdp/bat/issues/1145
-  # manpager = (pkgs.writeShellScriptBin "manpager" (if isDarwin then ''
-  #   sh -c 'col -bx | bat -l man -p'
-  # '' else ''
-  #   cat "$1" | col -bx | bat --language man --style plain
-  # ''));
 
   translatedSessionVariables = pkgs.runCommandLocal "hm-session-vars.fish" { } ''
     (echo "function setup_hm_session_vars;"
@@ -113,13 +100,6 @@ in
     # Rust:
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     TEST = "testigngggg";
-
-    # PAGER = "less -FirSwX";
-    #   MANPAGER = "${manpager}/bin/manpager";
-    # } // (if isDarwin then {
-    #   # See: https://github.com/NixOS/nixpkgs/issues/390751
-    #   DISPLAY = "nixpkgs-390751";
-    # } else { });
   };
 
   fonts.fontconfig.enable = true;
