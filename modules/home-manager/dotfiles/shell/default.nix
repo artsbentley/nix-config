@@ -28,7 +28,7 @@ let
     c = "clear";
     ":Yazi" = "ya";
     rsyncb = "rsync -av --ignore-existing --info=progress2";
-    ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
+    ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme default";
     nup = "cd ~/nix-config/ && just";
 
     # Rust:
