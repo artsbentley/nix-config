@@ -157,9 +157,9 @@ in
       interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" ([
         (builtins.readFile ./config.fish)
         "set -g SHELL ${pkgs.fish}/bin/fish"
-        "set -p fish_function_path ${pkgs.fishPlugins.foreign-env}/share/fish/vendor_functions.d"
-        "fenv source ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh > /dev/null"
-        # "source ${translatedSessionVariables}"
+        # "set -p fish_function_path ${pkgs.fishPlugins.foreign-env}/share/fish/vendor_functions.d"
+        # "fenv source ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh > /dev/null"
+        "source ${translatedSessionVariables}"
       ]));
       # loginShellInit =
       #   # Nix
