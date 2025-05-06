@@ -261,8 +261,8 @@
   system.autoUpgrade.enable = true;
 
   # shell configuration
-  programs.zsh.enable = true;
-  # programs.fish.enable = true;
+  # programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   # enable git 
   programs.git.enable = true;
