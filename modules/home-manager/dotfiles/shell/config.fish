@@ -203,9 +203,9 @@ end
 
 # i cant seem to get home-manager to create a hm-session-vars.fish, so we use
 # foreign-env plugin for now to source the session vars
-begin
-    status --is-interactive; and source (foreign-env source ~/.nix-profile/etc/profile.d/hm-session-vars.sh)
-end
+# begin
+#     status --is-interactive; and source (foreign-env source ~/.nix-profile/etc/profile.d/hm-session-vars.sh)
+# end
 
 #-------------------------------------------------------------------------------
 # Functions

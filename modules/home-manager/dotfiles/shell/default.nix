@@ -131,7 +131,10 @@ in
     fish = {
       enable = true;
       plugins = [
-        "foreign-env"
+        {
+          name = "fenv";
+          src = pkgs.fishPlugins.foreign-env;
+        }
         {
           name = "nix-env.fish";
           src = pkgs.fetchFromGitHub {
@@ -146,6 +149,7 @@ in
       interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" ([
         (builtins.readFile ./config.fish)
         "set -g SHELL ${pkgs.fish}/bin/fish"
+        "fenv source ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh > /dev/null"
       ]));
       # loginShellInit =
       #   # Nix
