@@ -29,7 +29,7 @@ let
     ":Yazi" = "ya";
     rsyncb = "rsync -av --ignore-existing --info=progress2";
     ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme default";
-    nup = "cd ~/nix-config/ && just";
+    nup = "cd ~/nix-config/ && just && cd -";
 
     # Aliases: systemd
     jd = "journalctl --no-pager";
