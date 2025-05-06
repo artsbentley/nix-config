@@ -104,6 +104,7 @@ in
     EDITOR = "nvim";
     # Rust:
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    TEST = "testigngggg";
 
     # PAGER = "less -FirSwX";
     #   MANPAGER = "${manpager}/bin/manpager";
