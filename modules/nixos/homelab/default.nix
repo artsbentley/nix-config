@@ -20,6 +20,7 @@
     ./uptimekuma
     ./cv
     ./miniflux
+    ./metube
     # ./actualbudget
     # ./stirling
     # ./gitea
