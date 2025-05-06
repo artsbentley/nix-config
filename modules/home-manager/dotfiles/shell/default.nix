@@ -31,9 +31,6 @@ let
     ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme default";
     nup = "cd ~/nix-config/ && just";
 
-    # Rust:
-    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-
     # Aliases: systemd
     jd = "journalctl --no-pager";
 
@@ -105,6 +102,9 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    # Rust:
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+
     # PAGER = "less -FirSwX";
     #   MANPAGER = "${manpager}/bin/manpager";
     # } // (if isDarwin then {
