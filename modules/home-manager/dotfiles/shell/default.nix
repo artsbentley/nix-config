@@ -99,7 +99,6 @@ in
     # neeeded for rust ssl:
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
-
   fonts.fontconfig.enable = true;
 
   # NOTE: no longer needed with fish

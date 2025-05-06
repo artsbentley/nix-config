@@ -248,6 +248,7 @@
     rainfrog
     gleam
     zig
+    rust-analyzer
   ];
 
   # BUG: disable in favor of podman 
