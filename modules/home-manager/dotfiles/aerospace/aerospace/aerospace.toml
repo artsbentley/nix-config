@@ -249,6 +249,11 @@ if.app-id = 'com.apple.mail'
 run = ['layout tiling', 'move-node-to-workspace X']
 
 [[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+# check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace X']
+
+[[on-window-detected]]
 if.app-id = 'us.zoom.xos'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace Z']
