@@ -1,7 +1,7 @@
 -- return {}
 return {
     "shortcuts/no-neck-pain.nvim",
-    event = "VeryLazy",
+	priority = 1000, -- Ensures it loads first
     keys = { { "<leader>wr", "<cmd>NoNeckPain<cr>", desc = "NoNeckPain: center buffer"} },
 	lazy = false,
 	config = {

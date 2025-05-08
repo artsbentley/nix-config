@@ -1,6 +1,7 @@
 return {
     {
         "ray-x/go.nvim",
+        ft = { "go", "gomod", "templ" },
         dependencies = { -- optional packages
             "ray-x/guihua.lua",
             "neovim/nvim-lspconfig",
@@ -14,8 +15,6 @@ return {
             { "<leader>goi", "<cmd>GoImplements<cr>", desc = "Golang Interface Implementation" },
             { "<leader>got", "<cmd>GoAddTag<cr>", desc = "Golang Add Tag" },
         },
-        event = { "CmdlineEnter" },
-        ft = { "go", "gomod", "templ" },
         build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     },
     {
