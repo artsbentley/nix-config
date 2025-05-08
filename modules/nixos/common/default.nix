@@ -249,6 +249,7 @@
     gleam
     zig
     rust-analyzer
+    gh-dash
   ];
 
   # BUG: disable in favor of podman 
