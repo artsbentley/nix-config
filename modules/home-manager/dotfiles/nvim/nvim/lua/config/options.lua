@@ -98,6 +98,9 @@ vim.g.clipboard = {
 -- prevents treesitter highlighting from being overwritten
 vim.highlight.priorities.semantic_tokens = 95
 
+-- browser open, not needed since this is handled in fish
+-- vim.g.mkdp_browser = "/Applications/Zen Browser.app/Contents/MacOS/zen"
+
 -- virtual diagnostics
 vim.diagnostic.config({
     virtual_text = true,
