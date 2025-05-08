@@ -5,36 +5,49 @@ qprSections:
     filters: is:open review-requested:@me
   - title: Involved
     filters: is:open involves:@me -author:@me
+  - title: Commented
+    filters: commenter:@me
+
 issuesSections:
   - title: My Issues
-    filters: is:open author:@me
+    filters: author:@me
   - title: Assigned
     filters: is:open assignee:@me
   - title: Involved
-    filters: is:open involves:@me -author:@me
+    filters: is:open involves:@me
+  - title: Commented
+    filters: is:open commenter:@me
+
 defaults:
-  preview:
-    open: true
-    width: 50
   prsLimit: 20
   issuesLimit: 20
-  view: prs
+  view: repo
+  refetchIntervalMinutes: 10
+
+  preview:
+    open: true
+    width: 100
+
   layout:
     prs:
-      updatedAt:
-        width: 7
-      repo:
-        width: 15
-      author:
-        width: 15
-      assignees:
-        width: 20
-        hidden: true
+      repoName:
+        grow: true,
+        width: 10
+        hidden: false
       base:
-        width: 15
         hidden: true
-      lines:
-        width: 16
+      # updatedAt:
+      #   width: 7
+      # repo:
+      #   width: 15
+      # author:
+      #   width: 15
+      # assignees:
+      #   width: 20
+      #   hidden: true
+      # lines:
+      #   width: 16
+
     issues:
       updatedAt:
         width: 7
@@ -45,8 +58,12 @@ defaults:
       assignees:
         width: 20
         hidden: true
-  refetchIntervalMinutes: 30
+
 keybindings:
+  universal:
+    - key: E
+      command: >
+        cd {{.RepoPath}} && lazygit
   issues:
     - key: B
       command: >
@@ -68,10 +85,13 @@ keybindings:
 #   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
 #   joshmedeski/tmux-nerd-font-window-name: ~/.config/tmux/plugins/tmux-nerd-font-window-name
 #   raycast/extensions: ~/c/raycast-extensions
+
 theme:
   ui:
+    sectionsShowCount: true
     table:
       showSeparator: true
       compact: false
+
 pager:
   diff: "git-delta"
