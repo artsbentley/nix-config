@@ -87,6 +87,7 @@ in
     pkgs.sentry-cli
     pkgs.tree
     pkgs.watch
+    pkgs.serpl
   ] ++ (lib.optionals isDarwin [
     pkgs.cachix
   ]) ++ (lib.optionals isLinux [
