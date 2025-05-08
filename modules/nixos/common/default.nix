@@ -250,7 +250,7 @@
     rust-analyzer
     gh-dash
     jnv # json viewer
-    nodejs
+    nodejs_23
     yarn
   ];
 
