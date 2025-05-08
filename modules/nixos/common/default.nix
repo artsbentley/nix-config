@@ -250,8 +250,10 @@
     rust-analyzer
     gh-dash
     jnv # json viewer
+
     nodejs_23
     yarn
+    tslib
   ];
 
   # BUG: disable in favor of podman 
