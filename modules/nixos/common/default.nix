@@ -250,6 +250,7 @@
     zig
     rust-analyzer
     gh-dash
+    jnv # json viewer
   ];
 
   # BUG: disable in favor of podman 
