@@ -5,7 +5,7 @@ let
   configSrc = config.lib.file.mkOutOfStoreSymlink filePath;
 in
 {
-  # home.packages = [ pkgs.dive ];
+  home.packages = [ pkgs.gh-dash ];
   xdg.configFile."${program}".source = configSrc;
 }
 
