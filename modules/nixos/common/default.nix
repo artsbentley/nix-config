@@ -206,7 +206,6 @@
     ncdu
     neovim
     nix-search-tv
-    nodejs
     pciutils
     powertop
     python313
@@ -251,6 +250,8 @@
     rust-analyzer
     gh-dash
     jnv # json viewer
+    nodejs
+    yarn
   ];
 
   # BUG: disable in favor of podman 
