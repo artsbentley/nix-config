@@ -114,147 +114,152 @@ in
       enableFishIntegration = true;
     };
 
-    fish = {
+    gh = {
       enable = true;
-      plugins = [
-        {
-          name = "nix-env.fish";
-          src = pkgs.fetchFromGitHub {
-            owner = "lilyball";
-            repo = "nix-env.fish";
-            rev = "7b65bd228429e852c8fdfa07601159130a818cfa";
-            sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
-          };
-        }
-      ];
-      shellAliases = shellAliases;
-      interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" ([
-        (builtins.readFile ./config.fish)
-        "set -g SHELL ${pkgs.fish}/bin/fish"
-        "source ${translatedSessionVariables}"
-      ]));
-      # loginShellInit =
-      #   # Nix
-      #   ''
-      #     if test - e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
-      #       source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
-      #       end
-      #       # End Nix
-      #   '';
+      extensions = [ dash ]
+        };
 
-      #   let
-      #     # We should probably use `config.environment.profiles`, as described in
-      #     # https://github.com/LnL7/nix-darwin/issues/122#issuecomment-1659465635
-      #     # but this takes into account the new XDG paths used when the nix
-      #     # configuration has `use-xdg-base-directories` enabled. See:
-      #     # https://github.com/LnL7/nix-darwin/issues/947 for more information.
-      #     profiles = [
-      #       "/etc/profiles/per-user/$USER" # Home manager packages
-      #       "$HOME/.nix-profile"
-      #       "(set -q XDG_STATE_HOME; and echo $XDG_STATE_HOME; or echo $HOME/.local/state)/nix/profile"
-      #       "/run/current-system/sw"
-      #       "/nix/var/nix/profiles/default"
-      #     ];
-      #
-      #     makeBinSearchPath =
-      #       lib.concatMapStringsSep " " (path: "${path}/bin");
-      #   in
-      #   ''
-      #     # Fix path that was re-ordered by Apple's path_helper
-      #     fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
-      #     set fish_user_paths $fish_user_paths
-      #   '';
-    };
-
-    zsh = {
-      enable = false;
-      # sessionVariables = {
-      #   OPENAI_API_KEY = ''$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})'';
-      # };
-
-      # TODO: move to another solution for plugins, see https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file
-      zplug = {
+      fish = {
         enable = true;
         plugins = [
-          # { name = "jeffreytse/zsh-vi-mode"; }
-          { name = "zsh-users/zsh-autosuggestions"; }
-          { name = "zsh-users/zsh-syntax-highlighting"; }
-          { name = "zsh-users/zsh-completions"; }
-          { name = "zsh-users/zsh-history-substring-search"; }
-          { name = "unixorn/warhol.plugin.zsh"; }
-          # { name = "arar/prompt"; tags = [ as:theme ]; }
+          {
+            name = "nix-env.fish";
+            src = pkgs.fetchFromGitHub {
+              owner = "lilyball";
+              repo = "nix-env.fish";
+              rev = "7b65bd228429e852c8fdfa07601159130a818cfa";
+              sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
+            };
+          }
         ];
+        shellAliases = shellAliases;
+        interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" ([
+          (builtins.readFile ./config.fish)
+          "set -g SHELL ${pkgs.fish}/bin/fish"
+          "source ${translatedSessionVariables}"
+        ]));
+        # loginShellInit =
+        #   # Nix
+        #   ''
+        #     if test - e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+        #       source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+        #       end
+        #       # End Nix
+        #   '';
+
+        #   let
+        #     # We should probably use `config.environment.profiles`, as described in
+        #     # https://github.com/LnL7/nix-darwin/issues/122#issuecomment-1659465635
+        #     # but this takes into account the new XDG paths used when the nix
+        #     # configuration has `use-xdg-base-directories` enabled. See:
+        #     # https://github.com/LnL7/nix-darwin/issues/947 for more information.
+        #     profiles = [
+        #       "/etc/profiles/per-user/$USER" # Home manager packages
+        #       "$HOME/.nix-profile"
+        #       "(set -q XDG_STATE_HOME; and echo $XDG_STATE_HOME; or echo $HOME/.local/state)/nix/profile"
+        #       "/run/current-system/sw"
+        #       "/nix/var/nix/profiles/default"
+        #     ];
+        #
+        #     makeBinSearchPath =
+        #       lib.concatMapStringsSep " " (path: "${path}/bin");
+        #   in
+        #   ''
+        #     # Fix path that was re-ordered by Apple's path_helper
+        #     fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
+        #     set fish_user_paths $fish_user_paths
+        #   '';
       };
-      # NOTE: this might not work properly if home manager is symlinking all .config
-      # directories
-      dotDir = ".config/zsh";
-      shellAliases = shellAliases;
-      # TODO: need to decide if i want to continue this route or just implement
-      #  config in .zsh files
-      initExtra = ''
-        		  zmodload zsh/zprof
-        		  bindkey -v
-        		  bindkey "^?" backward-delete-char
-        		  bindkey "^H" backward-delete-char
-        		  if [ $(uname) = "Darwin" ]; then 
-        			path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-        		  fi
-        		  export EDITOR=nvim || export EDITOR=vim
-        		  export LANG=en_US.UTF-8
-        		  export LC_CTYPE=en_US.UTF-8
-        		  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-        		  export XDG_CONFIG_HOME="$HOME/.config"
 
-        		  for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
-      '';
+      zsh = {
+        enable = false;
+        # sessionVariables = {
+        #   OPENAI_API_KEY = ''$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openaiApiKey.path})'';
+        # };
 
+        # TODO: move to another solution for plugins, see https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file
+        zplug = {
+          enable = true;
+          plugins = [
+            # { name = "jeffreytse/zsh-vi-mode"; }
+            { name = "zsh-users/zsh-autosuggestions"; }
+            { name = "zsh-users/zsh-syntax-highlighting"; }
+            { name = "zsh-users/zsh-completions"; }
+            { name = "zsh-users/zsh-history-substring-search"; }
+            { name = "unixorn/warhol.plugin.zsh"; }
+            # { name = "arar/prompt"; tags = [ as:theme ]; }
+          ];
+        };
+        # NOTE: this might not work properly if home manager is symlinking all .config
+        # directories
+        dotDir = ".config/zsh";
+        shellAliases = shellAliases;
+        # TODO: need to decide if i want to continue this route or just implement
+        #  config in .zsh files
+        initExtra = ''
+          		  zmodload zsh/zprof
+          		  bindkey -v
+          		  bindkey "^?" backward-delete-char
+          		  bindkey "^H" backward-delete-char
+          		  if [ $(uname) = "Darwin" ]; then 
+          			path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+          		  fi
+          		  export EDITOR=nvim || export EDITOR=vim
+          		  export LANG=en_US.UTF-8
+          		  export LC_CTYPE=en_US.UTF-8
+          		  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+          		  export XDG_CONFIG_HOME="$HOME/.config"
 
-
-
-      # TODO: add bitwarden CLI tooling and secrets to make bw_session env var work 
-
-      #initExtra = ''
-      #  # Cycle back in the suggestions menu using Shift+Tab
-      #  bindkey '^[[Z' reverse-menu-complete
-
-      #  bindkey '^B' autosuggest-toggle
-      #  # Make Ctrl+W remove one path segment instead of the whole path
-      #  WORDCHARS=''${WORDCHARS/\/}
-
-      #  # Highlight the selected suggestion
-      #  zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-      #  zstyle ':completion:*' menu yes=long select
-
-      #    if [ $(uname) = "Darwin" ]; then 
-      #      path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
-      #      export BW_SESSION=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.bitwardenSession.path})
-      #      export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" 
-      #    fi
-      #
-      #    export EDITOR=nvim || export EDITOR=vim
-      #    export LANG=en_US.UTF-8
-      #    export LC_CTYPE=en_US.UTF-8
-      #    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+          		  for conf in "$HOME/.config/zsh/initExtra/"*.zsh; do source "$conf"; done; unset conf
+        '';
 
 
-      #    if [ $(uname) = "Darwin" ]; then 
-      #      alias lsblk="diskutil list"
-      #      ulimit -n 2048
-      #    fi 
 
-      #    source $ZPLUG_HOME/repos/unixorn/warhol.plugin.zsh/warhol.plugin.zsh
-      #    bindkey '^[[A' history-substring-search-up
-      #    bindkey '^[[B' history-substring-search-down
 
-      #    if command -v motd &> /dev/null
-      #    then
-      #      motd
-      #    fi
-      #    bindkey -e
-      #'';
+        # TODO: add bitwarden CLI tooling and secrets to make bw_session env var work 
+
+        #initExtra = ''
+        #  # Cycle back in the suggestions menu using Shift+Tab
+        #  bindkey '^[[Z' reverse-menu-complete
+
+        #  bindkey '^B' autosuggest-toggle
+        #  # Make Ctrl+W remove one path segment instead of the whole path
+        #  WORDCHARS=''${WORDCHARS/\/}
+
+        #  # Highlight the selected suggestion
+        #  zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        #  zstyle ':completion:*' menu yes=long select
+
+        #    if [ $(uname) = "Darwin" ]; then 
+        #      path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+        #      export BW_SESSION=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.bitwardenSession.path})
+        #      export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock" 
+        #    fi
+        #
+        #    export EDITOR=nvim || export EDITOR=vim
+        #    export LANG=en_US.UTF-8
+        #    export LC_CTYPE=en_US.UTF-8
+        #    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+
+        #    if [ $(uname) = "Darwin" ]; then 
+        #      alias lsblk="diskutil list"
+        #      ulimit -n 2048
+        #    fi 
+
+        #    source $ZPLUG_HOME/repos/unixorn/warhol.plugin.zsh/warhol.plugin.zsh
+        #    bindkey '^[[A' history-substring-search-up
+        #    bindkey '^[[B' history-substring-search-down
+
+        #    if command -v motd &> /dev/null
+        #    then
+        #      motd
+        #    fi
+        #    bindkey -e
+        #'';
+      };
     };
-  };
-}
+  }
 
 
 
