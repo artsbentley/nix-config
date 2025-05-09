@@ -1,8 +1,8 @@
 return {
     "yetone/avante.nvim",
     lazy = true,
-    keys = { { "<leader>aa", "<cmd>AvanteToggle<cr>", desc = "toggle avante" } },
-    -- event = "VeryLazy",
+    -- keys = { { "<leader>aa", "<cmd>AvanteToggle<cr>", desc = "toggle avante" } },
+    event = "VeryLazy",
     enabled = true,
     -- version = false, -- set this if you want to always pull the latest change
 
