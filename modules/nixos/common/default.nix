@@ -255,6 +255,7 @@
     nodejs_23
     # nodePackages.orval
     yarn
+    vite
     tslib
     bun
   ];
