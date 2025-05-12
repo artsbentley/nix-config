@@ -253,7 +253,7 @@
 
     # JAVASCRIPT
     nodejs_23
-    nodePackages.orval
+    # nodePackages.orval
     yarn
     tslib
     bun
