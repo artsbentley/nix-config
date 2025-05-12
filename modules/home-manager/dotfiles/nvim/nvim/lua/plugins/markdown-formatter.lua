@@ -185,7 +185,15 @@ local function new_note()
         if input and input ~= "" then
             local file_name = input:gsub("%s+", "-") .. ".md"
             local file_path = vim.fn.expand(note_dir .. "/" .. file_name)
+            -- Check if file already exists
+            if vim.fn.filereadable(file_path) == 1 then
+                vim.api.nvim_err_writeln("Note already exists: " .. file_name)
+                return
+            end
             vim.cmd("edit " .. file_path)
+            -- Insert heading with current date and time
+            local date_heading = os.date("# %Y%m%d%H%M") .. "\n\n"
+            vim.api.nvim_buf_set_lines(0, 0, 0, false, vim.split(date_heading, "\n"))
         else
             print("Note creation cancelled")
         end

@@ -23,6 +23,7 @@ in
       black
       pyright
       ruff-lsp
+      marksman
     ];
     extraWrapperArgs = [
       "--prefix"
