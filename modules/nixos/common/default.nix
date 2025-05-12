@@ -241,8 +241,8 @@
     cpufrequtils
   ])
   # "homelab"
-  ++ lib.optionals hostConfig.isHomelab [
-  ]
+  ++ lib.optionals hostConfig.isHomelab [ ]
+  # non-homelab
   ++ lib.optionals (!hostConfig.isHomelab) [
     rainfrog
     gleam
@@ -251,9 +251,12 @@
     gh-dash
     jnv # json viewer
 
+    # JAVASCRIPT
     nodejs_23
+    nodePackages.orval
     yarn
     tslib
+    bun
   ];
 
   # BUG: disable in favor of podman 
