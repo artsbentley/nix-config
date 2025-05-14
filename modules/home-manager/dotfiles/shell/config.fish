@@ -153,7 +153,7 @@ alias :Yazi="ya"
 # Vars
 #-------------------------------------------------------------------------------
 # Modify our path to include our Go binaries
-contains $HOME/code/go/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/code/go/bin
+contains $HOME/go/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/go/bin
 contains $HOME/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/bin
 
 # Exported variables
