@@ -11,6 +11,12 @@
 
 # TODO: use hostConfig instead of "vars"
 {
+  fileSystems."/mnt/usbssd" = lib.mkIf hostConfig.isHomelab {
+    device = "/dev/disk/by-uuid/6ea969c7-cde5-45c2-ac53-236704f93228";
+    fsType = "ext4";
+    options = [ "defaults" ];
+  };
+
   fileSystems."${vars.ararNasMount}" = {
     device = "//192.168.1.123/ararmount";
     fsType = "cifs";
