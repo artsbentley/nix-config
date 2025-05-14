@@ -87,12 +87,65 @@
           		  ${pkgs.systemd}/bin/systemctl start --all "podman-*"
         '';
       };
+      appdata-local-to-usbssd = {
+        timerConfig = {
+          OnCalendar = "05:10";
+          Persistent = true;
+        };
+        repository = "/mnt/usbssd/backups/restic/appdata";
+        initialize = true;
+        passwordFile = config.age.secrets.resticPassword.path;
+        pruneOpts = [
+          "--keep-daily 14"
+          "--keep-weekly 4"
+          "--keep-monthly 6"
+          "--keep-yearly 1"
+        ];
+        exclude = [
+          "recyclarr/repo"
+          "recyclarr/repositories"
+        ];
+        paths = [
+          "${vars.serviceConfigRoot}"
+        ];
+        # ${pkgs.systemd}/bin/systemctl stop syncthing
+        backupPrepareCommand = ''
+          		  ${pkgs.systemd}/bin/systemctl stop --all "podman-*"
+        '';
+        # ${pkgs.systemd}/bin/systemctl start syncthing
+        backupCleanupCommand = ''
+          		  ${pkgs.systemd}/bin/systemctl start --all "podman-*"
+        '';
+      };
       arar-nas = {
         timerConfig = {
           OnCalendar = "05:15";
           Persistent = true;
         };
         repository = "${vars.homelabNasMount}/Backups/restic/arar-nas";
+        initialize = true;
+        passwordFile = config.age.secrets.resticPassword.path;
+        pruneOpts = [
+          "--keep-last 5"
+          "--keep-daily 7"
+          "--keep-weekly 4"
+          "--keep-monthly 6"
+          "--keep-yearly 1"
+        ];
+        exclude = [
+          # "recyclarr/repo"
+        ];
+        paths = [
+          "${vars.ararNasMount}"
+        ];
+        # TODO: implement needed prepare commands?
+      };
+      arar-nas-to-usbssd = {
+        timerConfig = {
+          OnCalendar = "05:20";
+          Persistent = true;
+        };
+        repository = "/mnt/usbssd/backups/restic/arar-nas";
         initialize = true;
         passwordFile = config.age.secrets.resticPassword.path;
         pruneOpts = [
