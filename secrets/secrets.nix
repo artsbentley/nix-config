@@ -8,9 +8,8 @@ let
 
   root-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICDustHrrFS1Fm3SDhtRUGzPxENoVxrlja65xoXc8UtV root@nixos ";
   root2-nixos = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCyU1haPhJjwpDdmmVmsyiwX07foB2T0Fe56nr8TX9lczOY9la5TDD1lEg5RUOktBkZXGTor1TVfqabhcApTlGOlauUBA3Es7t0l5syG5mn6SI44kcc7i3tOn2QKgRHzoUP1DUSybCR0CFHcGyD3QR4E5TCUiUSksyWJHp9FCzsTF4mfmAlFEGYdOqAiSWWC4QJWvBFgm8U7ovGyyKFOSzgP8fv3CGiX5WChf16b5G6Tq9PduiGHoL10c56yYzljlFgjoqOEaepTwi0QYAYCT0nrKMlIK9Fo88+ys3dZ3B+RcgSqTYEc62GphAWwv7Zytj9VNjKfuNE9QhSZ2ngMGXELu+0H6uRGOXfMMHOulyL77SKmBrf3GLsUAiQwwQX5532xDvWlIviGqTH3w4VfqMVxdjNXtEjzt8isnpxtgxHtWRsaAkISfqBk097iDUdkAlBP1oHHrCtEQb7go3U2LebY5jB0jObrSjscOnoNlfYOnk/HBmax7V908Q4axLiND7NQI2bVwaMFu9s/YHDBZJaTA8wFyyP23DXQHMX/WI0Dc1VlonM5/786xd3gkOVCfFGe19ns2BdMhmC1MHkCXcEH5uGLJDM3nnV5OXrYjp7iabrRQNQnDhAGTfE9L/fSkeAaAsYJOCNuGYrUw8BopXrp6KzRVfxU3cUB32/AtNPCw== root@nixos ";
-  vaultwarden = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7QRPQDsQ6BOW3R47Qqkn4sKhdELGjhK2AG8l2YJv2P"
 
-    keys = [ arar-work-mac arar-nixos root-nixos root2-nixos vaultwarden ];
+  keys = [ arar-work-mac arar-nixos root-nixos root2-nixos ];
 in
 {
   # "secret1.age".publicKeys = [ user1 system1 ];
@@ -34,6 +33,7 @@ in
   "pangolin.age".publicKeys = keys;
   "jellyseerr.age".publicKeys = keys;
   "minifluxAdminPassword.age".publicKeys = keys;
+  "karakeep.age".publicKeys = keys;
 }
 
 

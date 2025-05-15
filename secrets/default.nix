@@ -18,6 +18,7 @@
       pangolin.file = ./pangolin.age;
       jellyseerr.file = ./jellyseerr.age;
       minifluxAdminPassword.file = ./minifluxAdminPassword.age;
+      karakeep.file = ./karakeep.age;
     };
   };
 }
