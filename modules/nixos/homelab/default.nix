@@ -21,6 +21,7 @@
     ./cv
     ./miniflux
     ./metube
+    ./karakeep
     # ./actualbudget
     # ./stirling
     # ./gitea
