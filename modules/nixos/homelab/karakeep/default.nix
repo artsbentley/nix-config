@@ -20,7 +20,7 @@ in
         environment = {
           MEILI_ADDR = "http://karakeep-meilisearch:7700";
           BROWSER_WEB_URL = "http://karakeep-chrome:9222";
-          OPENAI_API_KEY = config.age.secrets.openaiApiKey.path;
+          # OPENAI_API_KEY = config.age.secrets.openaiApiKey.path;
           DATA_DIR = "/data";
         };
         environmentFiles = [ config.age.secrets.karakeep.path ];
