@@ -258,6 +258,8 @@
     vite
     tslib
     bun
+
+    uv
   ];
 
   # BUG: disable in favor of podman 
