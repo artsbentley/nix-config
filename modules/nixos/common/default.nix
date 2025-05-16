@@ -268,7 +268,7 @@
       enable = true;
       rootless.enable = true;
       rootless.setSocketVariable = true;
-      docker.storageDriver = "overlay2";
+      storageDriver = "overlay2";
     };
   };
 
