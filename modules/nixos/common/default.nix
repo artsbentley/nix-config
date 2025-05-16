@@ -262,14 +262,16 @@
     uv
   ];
 
-  # BUG: disable in favor of podman 
-  # TODO: enable only for non homelab host?
-  # Docker configuration
-  # virtualisation.docker.enable = true;
-  # virtualisation.docker.rootless.enable = true;
-  # virtualisation.docker.rootless.setSocketVariable = true;
+  # DOCKER
+  virtualisation = lib.mkIf (!hostConfig.isHomelab) {
+    docker = {
+      enable = true;
+      rootless.enable = true;
+      rootless.setSocketVariable = true;
+      docker.storageDriver = "overlay2";
+    };
+  };
 
-  virtualisation.docker.storageDriver = "overlay2";
   system.autoUpgrade.enable = true;
 
   # shell configuration
