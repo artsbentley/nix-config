@@ -260,6 +260,7 @@
     bun
 
     uv
+    goose
   ];
 
   # DOCKER
