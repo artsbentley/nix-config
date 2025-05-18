@@ -27,7 +27,7 @@ in
   };
 
   system.activationScripts.zola-site = ''
-    echo "Running Zola build and restarting server..."
+    echo -e "\e[32mRunning Zola build and restarting server...\e[0m"
     systemctl restart zola-server.service
   '';
 
