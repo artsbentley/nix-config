@@ -13,8 +13,8 @@
 let
   # hugoSiteDir = "/home/arar/my-hugo-site";  # ← point this at your Hugo project
   hugoSiteDir = ./blog;
-  hugoUser = userConfig.Name;
-  hugoGroup = userConfig.Name;
+  hugoUser = userConfig.name;
+  hugoGroup = userConfig.name;
 in
 {
   environment.systemPackages = with pkgs; [
