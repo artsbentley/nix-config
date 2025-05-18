@@ -19,6 +19,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     hugo
+    go
   ];
 
   systemd.services.blog = {
