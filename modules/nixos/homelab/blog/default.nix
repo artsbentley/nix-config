@@ -15,11 +15,9 @@ in
   environment.systemPackages = with pkgs; [ zola ];
   systemd.services.zola = {
     description = "zola";
-    serviceConfig.ExecStart = ''
-      zola serve
-    '';
     serviceConfig =
       {
+        ExecStart = "${pkgs.zola}/bin/zola serve";
         WorkingDirectory = "/home/arar/nix-config/modules/nixos/homelab/blog/blog";
         Restart = "always";
       };
