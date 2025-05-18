@@ -19,6 +19,7 @@
     ./enclosed
     ./uptimekuma
     ./cv
+    ./blog
     ./miniflux
     ./metube
     ./karakeep
