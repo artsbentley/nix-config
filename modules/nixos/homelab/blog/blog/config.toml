@@ -1,5 +1,5 @@
-base_url = "https://notthebe.ee/"
-title = "Wolfgang's Blog"
+base_url = "https://blog.arar.dev/"
+title = "Arno's blog"
 compile_sass = true
 build_search_index = true
 generate_feeds = true
@@ -11,4 +11,4 @@ highlight_code = true
 highlight_theme = "css"
 
 [extra]
-author = "Wolfgang"
+author = "Arno"
