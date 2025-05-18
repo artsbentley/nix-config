@@ -1,4 +1,4 @@
-base_url = "https://arar.dev/"
+base_url = "https://blog.arar.dev/"
 title = "Arno's blog"
 compile_sass = true
 build_search_index = true
