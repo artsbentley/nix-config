@@ -12,6 +12,7 @@ let
   blogSiteDir = ./blog;
 in
 {
+  networking.firewall.allowedTCPPorts = [ 1111 ];
   environment.systemPackages = with pkgs; [ zola ];
   systemd.services.zola = {
     description = "zola";
