@@ -14,7 +14,7 @@ let
   hugoGroup = userConfig.name;
 
   blogStatic = pkgs.stdenv.mkDerivation {
-    pname = "blog-static";
+    name = "blog-static";
     src = hugoSiteDir;
     nativeBuildInputs = [ pkgs.hugo ];
 
