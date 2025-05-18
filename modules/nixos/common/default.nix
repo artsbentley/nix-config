@@ -78,8 +78,8 @@
     hostId = "0730ae51";
     networkmanager.enable = false;
     firewall = {
-      allowedTCPPorts = [ 5357 ];
-      allowedUDPPorts = [ 3702 ];
+      allowedTCPPorts = [ 5357 8000 8080 ];
+      allowedUDPPorts = [ 3702 8000 8080 ];
       allowPing = true;
       trustedInterfaces = [ "enp1s0" ];
     };
@@ -228,6 +228,7 @@
     pkg-config
     mkcert
     wezterm
+    hugo
 
     # maybe only for non VM?
     usbutils
@@ -261,6 +262,7 @@
 
     uv
     goose
+    libpq
   ];
 
   # DOCKER
