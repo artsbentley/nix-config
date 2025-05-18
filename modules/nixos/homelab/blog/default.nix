@@ -26,7 +26,7 @@ in
     description = "Hugo Static-Site Server";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
-
+    path = [ pkgs.go ];
     serviceConfig = {
       # run on localhost only, port 1313, draft content enabled
       ExecStart = "${pkgs.hugo}/bin/hugo server \
