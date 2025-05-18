@@ -15,12 +15,11 @@ in
   environment.systemPackages = with pkgs; [ zola ];
   systemd.services.zola = {
     description = "zola";
-    serviceConfig =
-      {
-        ExecStart = "${pkgs.zola}/bin/zola serve";
-        WorkingDirectory = "/home/arar/nix-config/modules/nixos/homelab/blog/blog";
-        Restart = "always";
-      };
+    serviceConfig = {
+      ExecStart = "${pkgs.zola}/bin/zola serve --inerface 0.0.0.0";
+      WorkingDirectory = "/home/arar/nix-config/modules/nixos/homelab/blog/blog";
+      Restart = "always";
+    };
     path = with pkgs; [ zola ];
     confinement.packages = with pkgs; [ zola ];
     wantedBy = [
