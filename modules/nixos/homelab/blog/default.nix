@@ -33,6 +33,7 @@ in
                        --bind=0.0.0.0 \
                        --port=1313 \
                        --source=${hugoSiteDir} \
+					  --noBuildLock \
                        --watch";
       WorkingDirectory = hugoSiteDir;
       Restart = "always";
