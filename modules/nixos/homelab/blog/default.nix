@@ -17,7 +17,9 @@ in
   systemd.services.zola = {
     description = "zola";
     serviceConfig = {
-      ExecStart = "${pkgs.zola}/bin/zola serve";
+      ExecStart = "${pkgs.zola}/bin/zola serve \
+		--interface 0.0.0.0 \
+		--base-url https://blog.arar.dev";
       WorkingDirectory = "/home/arar/nix-config/modules/nixos/homelab/blog/blog";
       Restart = "always";
     };
