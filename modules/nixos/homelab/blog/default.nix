@@ -18,9 +18,6 @@ in
   systemd.services.zola-server = {
     description = "Serve Zola site with miniserve";
     wantedBy = [ "multi-user.target" ];
-    pathConfig = {
-      PathModified = siteDir;
-    };
     serviceConfig = {
       ExecStartPre = "${pkgs.zola}/bin/zola build";
       ExecStart = "${pkgs.miniserve}/bin/miniserve ${publicDir} --index index.html --port 1111 --interfaces 0.0.0.0";
