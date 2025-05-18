@@ -15,13 +15,13 @@ let
 
   blogStatic = pkgs.stdenv.mkDerivation {
     pname = "blog-static";
-    version = "0.1";
     src = hugoSiteDir;
     nativeBuildInputs = [ pkgs.hugo ];
-    buildPhase = ''
-      hugo -s "$src" -d "$out"
+
+    installPhase = ''
+      mkdir -p $out
+      cp -r ./public/* $out/
     '';
-    installPhase = "true"; # nothing to install, everything already in $out
   };
 in
 {
@@ -38,12 +38,13 @@ in
     path = [ pkgs.go ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.hugo}/bin/hugo server \
+        ${blogStatic}/bin/hugo server \
           --bind=0.0.0.0 \
           --port=1313 \
-          --source=${blogStatic} \
+          --source=${hugoSiteDir} \
           --watch
       '';
+
       WorkingDirectory = hugoSiteDir;
       Restart = "always";
       # User = hugoUser;
