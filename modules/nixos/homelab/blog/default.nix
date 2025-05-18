@@ -9,47 +9,21 @@
 }:
 
 let
-  hugoSiteDir = ./blog;
-  hugoUser = userConfig.name;
-  hugoGroup = userConfig.name;
-
-  blogStatic = pkgs.stdenv.mkDerivation {
-    name = "blog-static";
-    src = hugoSiteDir;
-    nativeBuildInputs = [ pkgs.hugo ];
-
-    installPhase = ''
-      mkdir -p $out
-      cp -r ./public/* $out/
-    '';
-  };
+  blogSiteDir = ./blog;
 in
 {
-  environment.systemPackages = with pkgs; [
-    hugo
-    go
-    blogStatic
-  ];
-
-  systemd.services.blog = {
-    description = "Hugo Static-Site Server";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.go ];
-    serviceConfig = {
-      ExecStart = ''
-        ${blogStatic}/bin/hugo server \
-          --bind=0.0.0.0 \
-          --port=1313 \
-          --source=${hugoSiteDir} \
-          --watch
-      '';
-
-      WorkingDirectory = hugoSiteDir;
-      Restart = "always";
-      # User = hugoUser;
-      # Group = hugoGroup;
-    };
+  environment.systemPackages = with pkgs; [ zola ];
+  systemd.services.zola = {
+    description = "zola";
+    serviceConfig.ExecStart = ''
+      zola serve
+    '';
+    serviceConfig.WorkingDirectory = "/home/arar/nix-config/homelab/blog/blog";
+    path = with pkgs; [ zola ];
+    confinement.packages = with pkgs; [ zola ];
+    wantedBy = [
+      "multi-user.target"
+    ]; # starts after login, reboot after first time rebuild
+    Restart = "always";
   };
 }
-
