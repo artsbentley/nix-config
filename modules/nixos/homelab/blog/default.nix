@@ -21,31 +21,12 @@ in
     serviceConfig = {
       ExecStartPre = "${pkgs.zola}/bin/zola build";
       ExecStart = "${pkgs.miniserve}/bin/miniserve ${publicDir} --index index.html --port 1111 --interfaces 0.0.0.0";
-      Restart = "always"; # Keep restart=always for general service robustness
+      Restart = "always";
+      Type = "oneshot";
       WorkingDirectory = siteDir;
     };
-  };
-
-  # Define a systemd service that will restart the zola-server
-  systemd.services.zola-restart-on-change = {
-    description = "Restart Zola server after site changes";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.systemd}/bin/systemctl restart zola-server.service";
-      User = "root"; # Or the user your zola-server runs as
-    };
-    # This service is triggered by the path unit, not by a target
-    # wantedBy = [ "multi-user.target" ];
-  };
-
-  # Define the systemd path unit to watch the siteDir
-  systemd.paths.zola-site-watch = {
-    description = "Watch Zola site directory for changes";
-    pathConfig = {
-      PathChanged = siteDir;
-      Unit = "zola-restart-on-change.service"; # The service to activate
-    };
-    wantedBy = [ "multi-user.target" ]; # Start watching when the system is ready
+    path = [ pkgs.nix ];
+    startAt = "*:0/5";
   };
 
   # system.activationScripts.zola-site = ''
@@ -54,5 +35,6 @@ in
   # '';
 
   networking.firewall.allowedTCPPorts = [ 1111 ];
-  environment.systemPackages = with pkgs; [ zola miniserve systemd ]; # Ensure systemd is available for systemctl
+  environment.systemPackages = with pkgs; [ zola miniserve ];
 }
+
