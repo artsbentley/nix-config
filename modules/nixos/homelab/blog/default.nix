@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  siteDir = /home/arar/nix-config/modules/nixos/homelab/blog/blog;
+  siteDir = "/home/arar/nix-config/modules/nixos/homelab/blog/blog";
   publicDir = "${siteDir}/public";
 in
 {
