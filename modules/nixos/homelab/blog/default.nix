@@ -7,19 +7,28 @@
 , pkgs
 , ...
 }:
-# TODO:
-# - fetchgithub for blog
-# - symlink from notes directory
+
 let
-  # hugoSiteDir = "/home/arar/my-hugo-site";  # ← point this at your Hugo project
   hugoSiteDir = ./blog;
   hugoUser = userConfig.name;
   hugoGroup = userConfig.name;
+
+  blogStatic = pkgs.stdenv.mkDerivation {
+    pname = "blog-static";
+    version = "0.1";
+    src = hugoSiteDir;
+    nativeBuildInputs = [ pkgs.hugo ];
+    buildPhase = ''
+      hugo -s "$src" -d "$out"
+    '';
+    installPhase = "true"; # nothing to install, everything already in $out
+  };
 in
 {
   environment.systemPackages = with pkgs; [
     hugo
     go
+    blogStatic
   ];
 
   systemd.services.blog = {
@@ -28,13 +37,13 @@ in
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.go ];
     serviceConfig = {
-      # run on localhost only, port 1313, draft content enabled
-      ExecStart = "${pkgs.hugo}/bin/hugo server \
-                       --bind=0.0.0.0 \
-                       --port=1313 \
-                       --source=${hugoSiteDir} \
-					  --destination=/var/lib/blog/public \
-                       --watch";
+      ExecStart = ''
+        ${pkgs.hugo}/bin/hugo server \
+          --bind=0.0.0.0 \
+          --port=1313 \
+          --source=${blogStatic} \
+          --watch
+      '';
       WorkingDirectory = hugoSiteDir;
       Restart = "always";
       # User = hugoUser;
@@ -42,3 +51,4 @@ in
     };
   };
 }
+
