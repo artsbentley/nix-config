@@ -20,7 +20,7 @@ in
     '';
     serviceConfig =
       {
-        WorkingDirectory = "/home/arar/nix-config/homelab/blog/blog";
+        WorkingDirectory = "/home/arar/nix-config/modules/nixos/homelab/blog/blog";
         Restart = "always";
       };
     path = with pkgs; [ zola ];
