@@ -7,9 +7,12 @@
 , pkgs
 , ...
 }:
+# TODO:
+# - fetchgithub for blog
+# - symlink from notes directory
 let
   # hugoSiteDir = "/home/arar/my-hugo-site";  # ← point this at your Hugo project
-  hugoSiteDir = ./hugo-blog;
+  hugoSiteDir = ./blog;
   hugoUser = userConfig.Name;
   hugoGroup = userConfig.Name;
 in
