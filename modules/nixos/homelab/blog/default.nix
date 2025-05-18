@@ -26,6 +26,11 @@ in
     };
   };
 
+  system.activationScripts.zola-site = ''
+    echo "Running Zola build and restarting server..."
+    systemctl restart zola-server.service
+  '';
+
   networking.firewall.allowedTCPPorts = [ 1111 ];
   environment.systemPackages = with pkgs; [ zola miniserve ];
 }
