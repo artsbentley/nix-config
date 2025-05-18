@@ -16,6 +16,9 @@ in
     };
   };
 
+  # needed for rebuilding our Zola site on nix rebuild, otherwise systemd won't
+  # recognize that there is a change in the system and the site will stay the
+  # same
   system.activationScripts.zolaRebuild = {
     text = ''
       echo -e "\e[32mRebuilding Zola site and restarting server...\e[0m"
