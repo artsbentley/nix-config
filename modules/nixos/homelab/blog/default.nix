@@ -18,12 +18,15 @@ in
     serviceConfig.ExecStart = ''
       zola serve
     '';
-    serviceConfig.WorkingDirectory = "/home/arar/nix-config/homelab/blog/blog";
+    serviceConfig =
+      {
+        WorkingDirectory = "/home/arar/nix-config/homelab/blog/blog";
+        Restart = "always";
+      };
     path = with pkgs; [ zola ];
     confinement.packages = with pkgs; [ zola ];
     wantedBy = [
       "multi-user.target"
     ]; # starts after login, reboot after first time rebuild
-    Restart = "always";
   };
 }
