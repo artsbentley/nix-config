@@ -262,6 +262,7 @@
     uv
     goose
     libpq
+    bacon
   ];
 
   # DOCKER
