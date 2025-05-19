@@ -228,7 +228,6 @@
     pkg-config
     mkcert
     wezterm
-    hugo
 
     # maybe only for non VM?
     usbutils
