@@ -262,7 +262,9 @@
     uv
     goose
     libpq
+
     bacon
+    rustfmt
   ];
 
   # DOCKER
