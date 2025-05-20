@@ -24,6 +24,7 @@ in
       pyright
       ruff-lsp
       marksman
+      rustfmt
     ];
     extraWrapperArgs = [
       "--prefix"
