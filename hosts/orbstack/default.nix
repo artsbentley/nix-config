@@ -11,7 +11,7 @@
     # ./hardware-configuration.nix
 
     "${nixosModules}/common"
-    "${nixosModules}/programs/searxng"
+    # "${nixosModules}/programs/searxng"
     ./orbstack.nix
 
   ];
