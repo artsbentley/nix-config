@@ -11,7 +11,9 @@
     # ./hardware-configuration.nix
 
     "${nixosModules}/common"
+    "${nixosModules}/programs/searxng"
     ./orbstack.nix
+
   ];
 
   # Set hostname
