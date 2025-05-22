@@ -1,5 +1,5 @@
 +++
-title = "HAHAHAHAHAH"
+title = "datastar"
 date = 2025-05-18
 +++
 
