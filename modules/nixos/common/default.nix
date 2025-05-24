@@ -242,10 +242,9 @@
   ])
   # "homelab"
   ++ lib.optionals hostConfig.isHomelab [ ]
-  # non-homelab
+  # NON-HOMELAB
   ++ lib.optionals (!hostConfig.isHomelab) [
     rainfrog
-    gleam
     zig
     rust-analyzer
     gh-dash
@@ -266,6 +265,9 @@
     bacon
     rustfmt
     rusty-man
+
+    erlang
+    gleam
   ];
 
   # DOCKER

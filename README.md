@@ -1,5 +1,7 @@
 ## TODO
 
+- [ ] mdBook for documentation
+
 - [ ] integrate existing dotfiles into home manager
 - [ ] setup vaultwarden backup + syncthing to devices
 
