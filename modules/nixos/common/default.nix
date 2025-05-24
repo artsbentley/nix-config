@@ -265,6 +265,7 @@
 
     bacon
     rustfmt
+    rusty-man
   ];
 
   # DOCKER
