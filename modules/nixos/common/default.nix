@@ -244,6 +244,7 @@
   ++ lib.optionals hostConfig.isHomelab [ ]
   # NON-HOMELAB
   ++ lib.optionals (!hostConfig.isHomelab) [
+    watchexec
     rainfrog
     zig
     rust-analyzer
