@@ -268,6 +268,7 @@
 
     erlang
     gleam
+    beam27Packages.rebar
   ];
 
   # DOCKER
