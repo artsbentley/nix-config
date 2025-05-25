@@ -14,6 +14,12 @@ in
     group = "share";
     database =
       { type = "sqlite3"; };
+    secrets = {
+      secretKeyFile = "/secret_key";
+      internalTokenFile = "/internal_token";
+      jwtSecretFile = "/jwt_secret";
+      lfsJwtSecretFile = "/lfs_jwt_secret";
+    };
   };
 }
 
