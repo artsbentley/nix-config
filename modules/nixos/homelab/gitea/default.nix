@@ -8,7 +8,7 @@
 {
   services.gitea = {
     enable = true;
-    stateDir = "${vars.seviceConfigRoot}/gitea";
+    stateDir = "${vars.serviceConfigRoot}/gitea";
     user = "share";
     group = "share";
     database =
