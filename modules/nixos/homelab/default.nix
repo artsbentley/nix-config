@@ -23,9 +23,9 @@
     ./miniflux
     ./metube
     ./karakeep
+    ./gitea
     # ./actualbudget
     # ./stirling
-    # ./gitea
     # ./watchtower
     # ./backrest
   ];
