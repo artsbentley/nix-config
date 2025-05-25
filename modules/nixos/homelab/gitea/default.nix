@@ -1,17 +1,17 @@
 { config, vars, ... }:
 
-# let
-# directories = [
-#   "${vars.seviceConfigRoot}/gitea"
-# ];
-# in
+let
+  directories = [
+    "${vars.seviceConfigRoot}/gitea"
+  ];
+in
 {
-  # systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
+  systemd.tmpfiles.rules = map (x: "d ${x} 0775 share share - -") directories;
   services.gitea = {
     enable = true;
     stateDir = "${vars.serviceConfigRoot}/gitea/data";
-    # user = "share";
-    # group = "share";
+    user = "share";
+    group = "share";
     database =
       { type = "sqlite3"; };
   };
