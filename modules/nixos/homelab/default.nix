@@ -23,7 +23,7 @@
     ./miniflux
     ./metube
     ./karakeep
-    ./gitea
+    # ./gitea
     # ./actualbudget
     # ./stirling
     # ./watchtower
