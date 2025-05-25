@@ -2,7 +2,7 @@
 
 let
   directories = [
-    "${vars.seviceConfigRoot}/gitea"
+    "${vars.serviceConfigRoot}/gitea"
   ];
 in
 {
