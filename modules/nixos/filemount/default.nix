@@ -30,8 +30,7 @@
   };
 
   fileSystems."${vars.homelabNasMount}" = {
-    device =
-      "//192.168.1.123/servermount";
+    device = "//192.168.1.123/servermount";
     fsType = "cifs";
     options =
       let automount_opts =
