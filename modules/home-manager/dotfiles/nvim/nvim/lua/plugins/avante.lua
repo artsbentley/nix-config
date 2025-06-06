@@ -15,27 +15,25 @@ return {
             end,
         }),
         build = "make",
-        -- provider = "deepseek",
         provider = "openai",
-        cursor_applying_provider = "openai",
-        openai = {
-            endpoint = "https://api.openai.com/v1",
-            -- model = "gpt-4.1",
-            model = "gpt-4o",
-            timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-            temperature = 0,
-            -- max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-            --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-        },
-        vendors = {
+        providers = {
             deepseek = {
                 __inherited_from = "openai",
                 api_key_name = "DEEPSEEK_API_KEY",
                 endpoint = "https://api.deepseek.com",
                 model = "deepseek-coder",
-                -- max_tokens = 8192,
+            },
+            openai = {
+                endpoint = "https://api.openai.com/v1",
+                -- model = "gpt-4.1",
+                model = "gpt-4o",
+                timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+                -- temperature = 0,
+                -- max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+                --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
             },
         },
+        cursor_applying_provider = "openai",
         behaviour = {
             auto_suggestions = false, -- Experimental stage
             auto_set_highlight_group = true,
