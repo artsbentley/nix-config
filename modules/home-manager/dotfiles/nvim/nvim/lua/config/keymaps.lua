@@ -80,6 +80,9 @@ trouble.setup(vim.keymap.set("n", "<S-x>", "<cmd>TroubleToggle document_diagnost
 vim.keymap.set("n", "<C-d>", "11<C-d>zz")
 vim.keymap.set("n", "<C-u>", "11<C-u>zz")
 
+-- go to last cursor insert, but center screen first
+vim.keymap.set("n", "gi", "`^zzgi", { noremap = true })
+
 -- REMAP next and previous search to center screen
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
