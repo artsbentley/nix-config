@@ -62,6 +62,9 @@ return {
                     setHl("@keyword.gleam", { fg = "#d3869b" })
                     setHl("@variable.member.gleam", { fg = "Fg" })
 
+                    -- ELIXIR
+                    setHl("@string.special.symbol.elixir", { italic = true, fg = "#83a598" })
+
                     -- cursorword
                     setHl("LspReferenceWrite", { underdashed = true })
                     setHl("LspReferenceRead", { underdotted = true })
