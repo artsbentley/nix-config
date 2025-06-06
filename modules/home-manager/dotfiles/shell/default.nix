@@ -34,6 +34,9 @@ let
     # Aliases: systemd
     jd = "journalctl --no-pager";
 
+    # Aliases: elixir
+    ix = "iex -S mix";
+
     # Aliases: git
     gs = "git status --short";
     gc = "git commit";
