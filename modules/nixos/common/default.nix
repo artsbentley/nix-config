@@ -271,6 +271,7 @@
     gleam
     beam27Packages.rebar
     beam27Packages.rebar3
+    elixir
   ];
 
   # DOCKER
