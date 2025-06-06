@@ -101,6 +101,9 @@ return {
                     enabled = false,
                 },
             },
+            per_filetype = {
+                codecompanion = { "codecompanion" },
+            },
         },
 
         signature = {
