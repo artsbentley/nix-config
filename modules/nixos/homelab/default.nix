@@ -23,6 +23,7 @@
     ./miniflux
     ./metube
     ./karakeep
+    ./myspeed
     # ./gitea
     # ./actualbudget
     # ./stirling
