@@ -1,6 +1,19 @@
 local Snacks = require("snacks")
 local note_dir = "~/notes/obsidian/notes"
 
+local function yank_markdown_title()
+    for i = 1, vim.fn.line("$") do
+        local line = vim.fn.getline(i)
+        local title = string.match(line, "^#%s+(.*)")
+        if title then
+            vim.fn.setreg('"', title) -- Yank to unnamed register
+            print("Yanked title: " .. title)
+            return
+        end
+    end
+    print("No markdown title found")
+end
+
 -- Function to sort markdown tasks: move done tasks below undone ones in a contiguous block.
 local function sort_markdown_tasks()
     local bufnr = vim.api.nvim_get_current_buf()
@@ -222,4 +235,5 @@ return {
     vim.keymap.set("n", "<leader>zn", new_note, { desc = "Create New Note" }),
     vim.keymap.set("n", "<leader>zdn", new_daily, { desc = "Create New Daily Note" }),
     vim.keymap.set("n", "<leader>zdg", grep_dailies, { desc = "Grep in Daily Notes" }),
+    vim.keymap.set("n", "<leader>zyt", yank_markdown_title, { desc = "Yank the Markdown title header" }),
 }
