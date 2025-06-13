@@ -6,8 +6,9 @@ local function yank_markdown_title()
         local line = vim.fn.getline(i)
         local title = string.match(line, "^#%s+(.*)")
         if title then
-            vim.fn.setreg('"', title) -- Yank to unnamed register
-            print("Yanked title: " .. title)
+            local wrapped_title = string.format("[[%s|]]", title)
+            vim.fn.setreg('"', wrapped_title) -- Yank to unnamed register
+            print("Yanked title: " .. wrapped_title)
             return
         end
     end
