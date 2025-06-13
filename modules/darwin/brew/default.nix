@@ -157,6 +157,7 @@
       "vnc-viewer"
       "wezterm"
       "xquartz"
+      "flameshot"
       # "zen-browser"
     ]
     ++ lib.optionals hostConfig.isWorkMachine [
